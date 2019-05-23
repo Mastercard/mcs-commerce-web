@@ -10,6 +10,28 @@
 		19A0EBD62295EA40006B7AFA /* MCSCommerceWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A0EBCC2295EA40006B7AFA /* MCSCommerceWeb.framework */; };
 		19A0EBDB2295EA40006B7AFA /* MCSCommerceWebTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EBDA2295EA40006B7AFA /* MCSCommerceWebTests.m */; };
 		19A0EBDD2295EA40006B7AFA /* MCSCommerceWeb.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A0EBCF2295EA40006B7AFA /* MCSCommerceWeb.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19A0EBFD22962C53006B7AFA /* MCSCheckoutRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A0EBE622962C52006B7AFA /* MCSCheckoutRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19A0EBFE22962C53006B7AFA /* MCSCheckoutResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A0EBE722962C52006B7AFA /* MCSCheckoutResponse.h */; };
+		19A0EBFF22962C53006B7AFA /* MCSCommerceWeb.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A0EBE822962C52006B7AFA /* MCSCommerceWeb.h */; };
+		19A0EC0022962C53006B7AFA /* MCSCheckoutRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EBE922962C52006B7AFA /* MCSCheckoutRequest.m */; };
+		19A0EC0122962C53006B7AFA /* MCSConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A0EBEA22962C52006B7AFA /* MCSConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19A0EC0222962C53006B7AFA /* MCSCryptoOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EBEB22962C53006B7AFA /* MCSCryptoOptions.m */; };
+		19A0EC0322962C53006B7AFA /* MCSCheckoutResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EBEC22962C53006B7AFA /* MCSCheckoutResponse.m */; };
+		19A0EC0422962C53006B7AFA /* MCSConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EBED22962C53006B7AFA /* MCSConfiguration.m */; };
+		19A0EC0522962C53006B7AFA /* MCSCheckoutStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A0EBEE22962C53006B7AFA /* MCSCheckoutStatus.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19A0EC0622962C53006B7AFA /* MCSCryptoOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A0EBEF22962C53006B7AFA /* MCSCryptoOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19A0EC0722962C53006B7AFA /* MCSCommerceWeb.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EBF022962C53006B7AFA /* MCSCommerceWeb.m */; };
+		19A0EC0822962C53006B7AFA /* MCSCheckoutUrlBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A0EBF222962C53006B7AFA /* MCSCheckoutUrlBuilder.h */; };
+		19A0EC0922962C53006B7AFA /* MCSViewControllerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A0EBF322962C53006B7AFA /* MCSViewControllerManager.h */; };
+		19A0EC0A22962C53006B7AFA /* MCSCheckoutRouter.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A0EBF422962C53006B7AFA /* MCSCheckoutRouter.h */; };
+		19A0EC0B22962C53006B7AFA /* MCSSafariViewControllerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A0EBF522962C53006B7AFA /* MCSSafariViewControllerManager.h */; };
+		19A0EC0C22962C53006B7AFA /* MCSWebViewControllerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A0EBF622962C53006B7AFA /* MCSWebViewControllerManager.h */; };
+		19A0EC0D22962C53006B7AFA /* MCSWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EBF722962C53006B7AFA /* MCSWebViewController.m */; };
+		19A0EC0E22962C53006B7AFA /* MCSCheckoutUrlBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EBF822962C53006B7AFA /* MCSCheckoutUrlBuilder.m */; };
+		19A0EC0F22962C53006B7AFA /* MCSCheckoutRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EBF922962C53006B7AFA /* MCSCheckoutRouter.m */; };
+		19A0EC1022962C53006B7AFA /* MCSSafariViewControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EBFA22962C53006B7AFA /* MCSSafariViewControllerManager.m */; };
+		19A0EC1122962C53006B7AFA /* MCSWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A0EBFB22962C53006B7AFA /* MCSWebViewController.h */; };
+		19A0EC1222962C53006B7AFA /* MCSWebViewControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EBFC22962C53006B7AFA /* MCSWebViewControllerManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +51,28 @@
 		19A0EBD52295EA40006B7AFA /* MCSCommerceWebTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MCSCommerceWebTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19A0EBDA2295EA40006B7AFA /* MCSCommerceWebTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSCommerceWebTests.m; sourceTree = "<group>"; };
 		19A0EBDC2295EA40006B7AFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19A0EBE622962C52006B7AFA /* MCSCheckoutRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSCheckoutRequest.h; sourceTree = "<group>"; };
+		19A0EBE722962C52006B7AFA /* MCSCheckoutResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSCheckoutResponse.h; sourceTree = "<group>"; };
+		19A0EBE822962C52006B7AFA /* MCSCommerceWeb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSCommerceWeb.h; sourceTree = "<group>"; };
+		19A0EBE922962C52006B7AFA /* MCSCheckoutRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSCheckoutRequest.m; sourceTree = "<group>"; };
+		19A0EBEA22962C52006B7AFA /* MCSConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSConfiguration.h; sourceTree = "<group>"; };
+		19A0EBEB22962C53006B7AFA /* MCSCryptoOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSCryptoOptions.m; sourceTree = "<group>"; };
+		19A0EBEC22962C53006B7AFA /* MCSCheckoutResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSCheckoutResponse.m; sourceTree = "<group>"; };
+		19A0EBED22962C53006B7AFA /* MCSConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSConfiguration.m; sourceTree = "<group>"; };
+		19A0EBEE22962C53006B7AFA /* MCSCheckoutStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSCheckoutStatus.h; sourceTree = "<group>"; };
+		19A0EBEF22962C53006B7AFA /* MCSCryptoOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSCryptoOptions.h; sourceTree = "<group>"; };
+		19A0EBF022962C53006B7AFA /* MCSCommerceWeb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSCommerceWeb.m; sourceTree = "<group>"; };
+		19A0EBF222962C53006B7AFA /* MCSCheckoutUrlBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSCheckoutUrlBuilder.h; sourceTree = "<group>"; };
+		19A0EBF322962C53006B7AFA /* MCSViewControllerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSViewControllerManager.h; sourceTree = "<group>"; };
+		19A0EBF422962C53006B7AFA /* MCSCheckoutRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSCheckoutRouter.h; sourceTree = "<group>"; };
+		19A0EBF522962C53006B7AFA /* MCSSafariViewControllerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSSafariViewControllerManager.h; sourceTree = "<group>"; };
+		19A0EBF622962C53006B7AFA /* MCSWebViewControllerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSWebViewControllerManager.h; sourceTree = "<group>"; };
+		19A0EBF722962C53006B7AFA /* MCSWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSWebViewController.m; sourceTree = "<group>"; };
+		19A0EBF822962C53006B7AFA /* MCSCheckoutUrlBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSCheckoutUrlBuilder.m; sourceTree = "<group>"; };
+		19A0EBF922962C53006B7AFA /* MCSCheckoutRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSCheckoutRouter.m; sourceTree = "<group>"; };
+		19A0EBFA22962C53006B7AFA /* MCSSafariViewControllerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSSafariViewControllerManager.m; sourceTree = "<group>"; };
+		19A0EBFB22962C53006B7AFA /* MCSWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSWebViewController.h; sourceTree = "<group>"; };
+		19A0EBFC22962C53006B7AFA /* MCSWebViewControllerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSWebViewControllerManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +115,19 @@
 		19A0EBCE2295EA40006B7AFA /* MCSCommerceWeb */ = {
 			isa = PBXGroup;
 			children = (
+				19A0EBF122962C53006B7AFA /* Internal */,
+				19A0EBEC22962C53006B7AFA /* MCSCheckoutResponse.m */,
+				19A0EBEE22962C53006B7AFA /* MCSCheckoutStatus.h */,
 				19A0EBCF2295EA40006B7AFA /* MCSCommerceWeb.h */,
+				19A0EBE622962C52006B7AFA /* MCSCheckoutRequest.h */,
+				19A0EBE922962C52006B7AFA /* MCSCheckoutRequest.m */,
+				19A0EBE722962C52006B7AFA /* MCSCheckoutResponse.h */,
+				19A0EBE822962C52006B7AFA /* MCSCommerceWeb.h */,
+				19A0EBF022962C53006B7AFA /* MCSCommerceWeb.m */,
+				19A0EBEA22962C52006B7AFA /* MCSConfiguration.h */,
+				19A0EBED22962C53006B7AFA /* MCSConfiguration.m */,
+				19A0EBEF22962C53006B7AFA /* MCSCryptoOptions.h */,
+				19A0EBEB22962C53006B7AFA /* MCSCryptoOptions.m */,
 				19A0EBD02295EA40006B7AFA /* Info.plist */,
 			);
 			path = MCSCommerceWeb;
@@ -86,6 +142,24 @@
 			path = MCSCommerceWebTests;
 			sourceTree = "<group>";
 		};
+		19A0EBF122962C53006B7AFA /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				19A0EBF222962C53006B7AFA /* MCSCheckoutUrlBuilder.h */,
+				19A0EBF322962C53006B7AFA /* MCSViewControllerManager.h */,
+				19A0EBF422962C53006B7AFA /* MCSCheckoutRouter.h */,
+				19A0EBF522962C53006B7AFA /* MCSSafariViewControllerManager.h */,
+				19A0EBF622962C53006B7AFA /* MCSWebViewControllerManager.h */,
+				19A0EBF722962C53006B7AFA /* MCSWebViewController.m */,
+				19A0EBF822962C53006B7AFA /* MCSCheckoutUrlBuilder.m */,
+				19A0EBF922962C53006B7AFA /* MCSCheckoutRouter.m */,
+				19A0EBFA22962C53006B7AFA /* MCSSafariViewControllerManager.m */,
+				19A0EBFB22962C53006B7AFA /* MCSWebViewController.h */,
+				19A0EBFC22962C53006B7AFA /* MCSWebViewControllerManager.m */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -93,7 +167,19 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19A0EC0822962C53006B7AFA /* MCSCheckoutUrlBuilder.h in Headers */,
+				19A0EBFD22962C53006B7AFA /* MCSCheckoutRequest.h in Headers */,
+				19A0EC0122962C53006B7AFA /* MCSConfiguration.h in Headers */,
+				19A0EC0622962C53006B7AFA /* MCSCryptoOptions.h in Headers */,
+				19A0EC0522962C53006B7AFA /* MCSCheckoutStatus.h in Headers */,
+				19A0EC0B22962C53006B7AFA /* MCSSafariViewControllerManager.h in Headers */,
+				19A0EC1122962C53006B7AFA /* MCSWebViewController.h in Headers */,
+				19A0EC0A22962C53006B7AFA /* MCSCheckoutRouter.h in Headers */,
 				19A0EBDD2295EA40006B7AFA /* MCSCommerceWeb.h in Headers */,
+				19A0EC0922962C53006B7AFA /* MCSViewControllerManager.h in Headers */,
+				19A0EBFF22962C53006B7AFA /* MCSCommerceWeb.h in Headers */,
+				19A0EC0C22962C53006B7AFA /* MCSWebViewControllerManager.h in Headers */,
+				19A0EBFE22962C53006B7AFA /* MCSCheckoutResponse.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +279,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19A0EC0F22962C53006B7AFA /* MCSCheckoutRouter.m in Sources */,
+				19A0EC1222962C53006B7AFA /* MCSWebViewControllerManager.m in Sources */,
+				19A0EC0722962C53006B7AFA /* MCSCommerceWeb.m in Sources */,
+				19A0EC0422962C53006B7AFA /* MCSConfiguration.m in Sources */,
+				19A0EC0022962C53006B7AFA /* MCSCheckoutRequest.m in Sources */,
+				19A0EC1022962C53006B7AFA /* MCSSafariViewControllerManager.m in Sources */,
+				19A0EC0222962C53006B7AFA /* MCSCryptoOptions.m in Sources */,
+				19A0EC0322962C53006B7AFA /* MCSCheckoutResponse.m in Sources */,
+				19A0EC0E22962C53006B7AFA /* MCSCheckoutUrlBuilder.m in Sources */,
+				19A0EC0D22962C53006B7AFA /* MCSWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
