@@ -15,12 +15,14 @@ Releasing
 1. `pod lib lint`
 1. Merge `release/X.Y.Z -> develop -> master`
 1. Checkout `master`
-1. Delete branch `release/X.Y.Z`
+1. Delete branch `release/X.Y.Z`, unless the release needs to be maintained with separate updates
 1. `git tag -a X.Y.Z -m "Version X.Y.Z"` (where X.Y.Z is the new version)
 1. `git push --tags`
 1. `pod trunk push MCSCommerceWeb.podspec`
 
 ### Post-release
+In `develop`,
+
 1. Update the `info.plist` and `MCSCommerce.podspec` to the next alpha version.
 1. `git commit -am "Prepare next development version."`
 1. `git push`
@@ -34,4 +36,6 @@ Releasing
 
 
 TODO:
-Test the running of this in an actual CocoaPods installation
+
+* Test the running of this in an actual CocoaPods installation
+* Update document for Carthage as well
