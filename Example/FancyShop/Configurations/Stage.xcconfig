@@ -1,0 +1,11 @@
+
+#include "Debug.xcconfig"
+
+CODE_SIGN_IDENTITY[sdk=*]=iPhone Developer
+CHECKOUT_HOST=stage.src.mastercard.com
+PRODUCT_BUNDLE_IDENTIFIER=com.mastercard.masterpass.tm.enterprise
+CHECKOUT_ID=1d45705100044e14b52e71730e71cc5a
+ENVIRONMENT_NAME=Stage
+MERCHANT_KEY_FILENAME=prdappwebn1-production
+MERCHANT_KEY_PWD=password1
+MERCHANT_API_HOST=stage.api.mastercard.com/stage1/masterpass

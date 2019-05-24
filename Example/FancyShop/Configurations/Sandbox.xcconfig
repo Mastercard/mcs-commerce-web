@@ -1,0 +1,11 @@
+
+#include "Debug.xcconfig"
+
+CODE_SIGN_IDENTITY[sdk=*]=iPhone Developer
+CHECKOUT_HOST=sandbox.src.mastercard.com
+PRODUCT_BUNDLE_IDENTIFIER=com.mastercard.
+CHECKOUT_ID=e19e5f516e3c45ad991e13c8af924f62
+ENVIRONMENT_NAME=Sandbox
+MERCHANT_KEY_FILENAME=prdappwebn1-production
+MERCHANT_KEY_PWD=password1
+MERCHANT_API_HOST=stage.api.mastercard.com/stage1/masterpass
