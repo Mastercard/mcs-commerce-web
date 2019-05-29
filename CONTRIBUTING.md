@@ -22,12 +22,6 @@ PRs to the upstream repo will be reviewed as soon as possible. If they are
 approved, they will be merged into the upstream repo and synced with all 
 downstream forks.
 
-## Code Style
-
-When submitting code, please make every effort to follow existing conventions 
-and style in order to keep the code as readable as possible. Please use the
-[Android Java code formatting preferences from Square](https://github.com/square/java-code-styles)
-to ensure consistent formatting for all developers.
 
 ## Code Quality
 
