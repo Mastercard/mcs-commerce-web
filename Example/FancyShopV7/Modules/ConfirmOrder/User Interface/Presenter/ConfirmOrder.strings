@@ -1,0 +1,10 @@
+/* 
+  ConfirmOrder.strings
+  MerchantCheckoutApp
+
+  Created by MasterCard on 11/3/17.
+  Copyright © 2018 MasterCard. All rights reserved.
+*/
+
+"PAYMENT_DATA_NOT_FOUND" = "Payment data not found";
+"CONFIRM_ORDER_FAILED" = "Something happened, please try again later";

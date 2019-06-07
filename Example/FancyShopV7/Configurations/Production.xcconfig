@@ -1,0 +1,12 @@
+
+#include "Release.xcconfig"
+
+CODE_SIGN_IDENTITY[sdk=*]=iPhone Developer
+PRODUCT_BUNDLE_IDENTIFIER=com.mastercard.masterpass.tm.enterprise
+SWITCH_HOST=api.mastercard.com
+
+//Please set your checkout information
+CHECKOUT_ID=1d45705100044e14b52e71730e71cc5a
+CONSUMER_KEY=<CONSUMER_KEY>
+MERCHANT_KEY_FILENAME=<MERCHANT_KEY_FILENAME>
+MERCHANT_KEY_PWD=<MERCHANT_KEY_PWD>

@@ -1,0 +1,11 @@
+/* 
+  OrderSummary.strings
+  MerchantCheckoutApp
+
+  Created by MasterCard on 11/3/17.
+  Copyright © 2018 MasterCard. All rights reserved.
+*/
+"SDK_INITIALIZATION_ERROR" = "There was an error, please try again";
+"PAIRING_ID_ERROR" = "There was an error, please try again";
+"PAYMENT_METHOD_NOT_ADDED" = "Please add payment method";
+"INTERNET_ERROR" = "Internet connection is not available";

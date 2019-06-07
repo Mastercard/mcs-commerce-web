@@ -1,0 +1,9 @@
+/* 
+  PreCheckoutData.strings
+  MerchantCheckoutApp
+
+  Created by MasterCard on 11/8/17.
+  Copyright © 2018 MasterCard. All rights reserved.
+*/
+"PRECHECKOUT_DATA_NOT_FOUND" = "PreCheckout Data not found, please try again";
+"INTERNET_ERROR" = "Internet connection is not available";
