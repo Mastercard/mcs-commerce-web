@@ -16,8 +16,6 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.0</string>
-	<key>CFBundleVersion</key>
-	<string>1</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -29,12 +27,17 @@
 			<string>com.mastercard.commerce</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>FancyShop</string>
+				<string>principle</string>
 			</array>
 		</dict>
 	</array>
+	<key>CFBundleVersion</key>
+	<string>1</string>
 	<key>Config</key>
-	<string>$(CONFIGURATION)</string>
+	<dict>
+		<key>Scheme</key>
+		<string>principle</string>
+	</dict>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>MPRefereceApp</string>
@@ -61,7 +64,7 @@
 		<key>TMAppLink</key>
 		<string>$(APP_LINK)</string>
 		<key>TMCheckoutHost</key>
-		<string>$(CHECKOUT_HOST)</string>
+		<string>${CHECKOUT_HOST}</string>
 		<key>TMEnvironmentName</key>
 		<string>$(ENVIRONMENT_NAME)</string>
 		<key>TMMerchantAPIHost</key>

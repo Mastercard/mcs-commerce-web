@@ -5,7 +5,7 @@
 	<key>environmentName</key>
 	<string>Production</string>
 	<key>merchantUrlScheme</key>
-	<string>MPRefereceApp://</string>
+	<string>principle</string>
 	<key>API</key>
 	<string>/api/java</string>
 	<key>runtime</key>

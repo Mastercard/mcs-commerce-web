@@ -18,6 +18,15 @@
 #import <MCSCommerceWeb/MCSCheckoutRequest.h>
 #import <MCSCommerceWeb/MCSCheckoutStatus.h>
 #import <MCSCommerceWeb/MCSCryptoOptions.h>
+#import <MCSCommerceWeb/MCCMerchant.h>
+#import <MCSCommerceWeb/MCCMerchantConstants.h>
+#import <MCSCommerceWeb/MCCMasterpassButton.h>
+#import <MCSCommerceWeb/MCCCheckoutRequest.h>
+#import <MCSCommerceWeb/MCCConfiguration.h>
+#import <MCSCommerceWeb/MCCPaymentMethod.h>
+#import <MCSCommerceWeb/MCCCheckoutResponse.h>
+#import <MCSCommerceWeb/MCCMerchantDelegate.h>
+#import <MCSCommerceWeb/MCCErrors.h>
 
 //! Project version number for MCSCommerceWeb.
 FOUNDATION_EXPORT double MCSCommerceWebVersionNumber;

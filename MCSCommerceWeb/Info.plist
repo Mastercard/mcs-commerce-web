@@ -18,5 +18,10 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>SDKConfig</key>
+	<dict>
+		<key>CheckoutHost</key>
+		<string>${kCHECKOUT_HOST}</string>
+	</dict>
 </dict>
 </plist>

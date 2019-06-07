@@ -17,7 +17,7 @@
 
 @implementation MCSConfiguration
 
-- (instancetype _Nonnull) initWithlocale:(NSLocale *)locale
+- (instancetype _Nonnull) initWithLocale:(NSLocale *)locale
                               checkoutId:(NSString *)checkoutId
                                      baseUrl:(NSString *)baseUrl
                                   callbackScheme:(NSString *)scheme {

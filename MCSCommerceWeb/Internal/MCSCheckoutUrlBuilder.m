@@ -32,7 +32,7 @@ NSString * const _Nonnull kShippingLocationProfileKey           = @"shippingLoca
 NSString * const _Nonnull kMerchantNameKey                      = @"merchantName";
 NSString * const _Nonnull kCryptoOptionsKey                     = @"cryptoOptions";
 NSString * const _Nonnull kChannelKey                           = @"channel";
-NSString * const _Nonnull kChannelValue                         = @"Mobile";
+NSString * const _Nonnull kChannelValue                         = @"mobile";
 NSString * const _Nonnull kMCSCommerceSDKConfig                = @"SDKConfig";
 NSString * const _Nonnull kMCSCommerceBase_Web_Checkout_URL    = @"BASE_WEB_CHECKOUT_URL";
 NSString * const _Nonnull CHECKOUT_ENDPOINT                     = @"/srci";
@@ -40,8 +40,12 @@ NSString * const _Nonnull CHECKOUT_ENDPOINT                     = @"/srci";
 @implementation MCSCheckoutUrlBuilder
 
 + (NSURL *)urlForCheckoutRequest:(MCSCheckoutRequest *)checkoutRequest configuration:(MCSConfiguration *)configuration {
+    if (![[configuration.baseUrl substringFromIndex:[configuration.baseUrl length] - 1] isEqualToString:@"/"] ) {
+        configuration.baseUrl = [[configuration baseUrl] stringByAppendingString:@"/"];
+    }
+    
     NSDictionary *queryDictionary = [MCSCheckoutUrlBuilder dictionaryForCheckoutRequest:checkoutRequest configuration:configuration];
-    NSURLComponents *components = [NSURLComponents componentsWithString:[NSString stringWithFormat:@"https://%@%@/", configuration.baseUrl, CHECKOUT_ENDPOINT]];
+    NSURLComponents *components = [NSURLComponents componentsWithString:configuration.baseUrl];
     NSMutableArray *queryItems = [NSMutableArray array];
     
     for (NSString *key in queryDictionary) {

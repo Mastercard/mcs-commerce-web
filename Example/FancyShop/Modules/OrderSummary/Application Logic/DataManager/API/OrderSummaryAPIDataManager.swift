@@ -94,18 +94,18 @@ class OrderSummaryAPIDataManager: OrderSummaryAPIDataManagerInputProtocol {
         checkoutRequest.cartId = shoppingCart.cartId
         checkoutRequest.allowedCardTypes = [.master,.visa]
         checkoutRequest.suppressShippingAddress = sdkConfig.suppressShipping
-        checkoutRequest.callbackUrl = "MerchantApp://"
+        checkoutRequest.callbackUrl = BuildConfiguration.sharedInstance.merchantUrlScheme()
         checkoutRequest.unpredictableNumber = "12345678"
-        
-        let cryptoOptionVisa = MCSCryptoOptions()
-        cryptoOptionVisa.cardType = "visa"
-        cryptoOptionVisa.format = ["TVV"]
+//
+//        let cryptoOptionVisa = MCSCryptoOptions()
+//        cryptoOptionVisa.cardType = "visa"
+//        cryptoOptionVisa.format = ["TVV"]
 
         let cryptoOptionMaster = MCSCryptoOptions()
         cryptoOptionMaster.cardType = "master"
         cryptoOptionMaster.format = ["ICC,UCAF"]
 
-        checkoutRequest.cryptoOptions = [cryptoOptionMaster,cryptoOptionVisa]
+        checkoutRequest.cryptoOptions = [cryptoOptionMaster]
         
         SRCSDKManager.sharedInstance.performCheckout(commerceRequest: checkoutRequest) { (status:MCSCheckoutStatus, transactionId: String?) in
 

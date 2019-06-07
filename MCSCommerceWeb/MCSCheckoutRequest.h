@@ -26,6 +26,8 @@ extern MCSCardType const MCSCardTypeMaster;
 extern MCSCardType const MCSCardTypeVisa;
 /** Diners Club card type **/
 extern MCSCardType const MCSCardTypeDiners;
+/** Discover card type **/
+extern MCSCardType const MCSCardTypeDiscover;
 /** JCB card type **/
 extern MCSCardType const MCSCardTypeJcb;
 /** China Union Pay card type **/
@@ -38,6 +40,16 @@ extern MCSCardType const MCSCardTypeMaestro;
 extern MCSCardType const MCSCardTypeIsracard;
 /** Afterpay card type **/
 extern MCSCardType const MCSCardTypeAfterpay;
+
+/** enum definition for allowed crypto formats **/
+typedef NSString *MCSCryptoFormat NS_STRING_ENUM;
+/** ICC cryptogram format **/
+extern MCSCryptoFormat const MCSCryptoFormatICC;
+/** UCAF cryptogram format **/
+extern MCSCryptoFormat const MCSCryptoFormatUCAF;
+/** TVV cryptogram format **/
+extern MCSCryptoFormat const MCSCryptoFormatTVV;
+
 
 /** set of all card types accepted for this transaction **/
 @property (nonatomic, copy, readwrite, nonnull) NSSet <MCSCardType> *allowedCardTypes;

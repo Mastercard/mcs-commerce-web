@@ -1,0 +1,8 @@
+/* 
+  PaymentMethods.strings
+  MerchantCheckoutApp
+
+  Created by MasterCard on 11/30/17.
+  Copyright © 2018 MasterCard. All rights reserved.
+*/
+"SDK_INITIALIZATION_ERROR" = "There was an error, please try again";
