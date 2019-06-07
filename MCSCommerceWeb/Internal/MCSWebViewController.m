@@ -21,7 +21,7 @@
 @property (nonatomic, strong) NSString *scheme;
 @property (nonatomic, strong) WKWebView *webview;
 @property (nonatomic, strong) WKWebView *popup;
-@property (weak) id<MCSWebCheckoutDelegate> delegate;
+@property (nonatomic, weak) id<MCSWebCheckoutDelegate> delegate;
 
 @end
 
@@ -75,7 +75,7 @@
     _popup.UIDelegate = self;
     _popup.navigationDelegate = self;
     
-    [self.view addSubview:_popup];
+    self.view = _popup;
     
     return _popup;
 }
@@ -93,7 +93,8 @@
 
 - (void) webViewDidClose:(WKWebView *)webView {
     if (webView == _popup) {
-        [_popup removeFromSuperview];
+        self.view = _webview;
+        _popup = nil;
     } else {
         [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
     }
@@ -105,9 +106,13 @@
     MCSCheckoutResponse *checkoutResponse = [[MCSCheckoutResponse alloc] init];
     
     for (NSURLQueryItem *item in [urlComponents queryItems]) {
-        if ([item.name  isEqual:@"transactionId"]) {
+        if ([item.name  isEqualToString:@"transactionId"]) {
             checkoutResponse.transactionId = item.value;
-        } else if ([item.name  isEqual:@"status"]) {
+        } else if ([item.name  isEqualToString:@"status"]) {
+            checkoutResponse.status = item.value;
+        } else if ([item.name isEqualToString:@"oauth_token"]) {
+            checkoutResponse.transactionId = item.value;
+        } else if ([item.name isEqualToString:@"mpstatus"]) {
             checkoutResponse.status = item.value;
         }
     }
