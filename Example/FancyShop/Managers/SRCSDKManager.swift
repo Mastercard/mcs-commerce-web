@@ -25,6 +25,7 @@ class SRCSDKManager:NSObject, MCSCommerceDelegate {
     /// Singleton instance
     static let sharedInstance = SRCSDKManager()
     var completionHandler: ((MCSCheckoutStatus, String?) -> ())? = nil
+    var commerceWeb: MCSCommerceWeb? = nil
     
     // MARK: Initializers
     
@@ -38,11 +39,11 @@ class SRCSDKManager:NSObject, MCSCommerceDelegate {
             locale: configuration.getLocaleFromSelectedLanguage(),
             checkoutId: Constants.SDKConfiguration.checkoutId,
             baseUrl: Constants.SDKConfiguration.url,
-            callbackScheme: "MerchantApp")
-        let commerceWeb: MCSCommerceWeb = MCSCommerceWeb(configuration: commerceConfig)
-        commerceWeb.delegate = self
+            callbackScheme: BuildConfiguration.sharedInstance.merchantUrlScheme())
+        commerceWeb = MCSCommerceWeb(configuration: commerceConfig)
+        commerceWeb?.delegate = self
         self.completionHandler = completionHandler
-        commerceWeb.checkout(with: commerceRequest) { (status: MCSCheckoutStatus, transactionId: String?) in
+        commerceWeb?.checkout(with: commerceRequest) { (status: MCSCheckoutStatus, transactionId: String?) in
             print("Transaction completed via completion handler with status: \(status) and id: \(String(describing: transactionId))")
             completionHandler(status, transactionId)
         }

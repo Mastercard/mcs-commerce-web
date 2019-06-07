@@ -28,10 +28,7 @@ class BuildConfiguration: NSObject {
     
     /// Base initializer, loads the corresponding Plist to the configs var
     override init() {
-        //  let test = EnvironmentConfiguration.sharedInstance
-        // let currentConfiguration = Bundle.main.object(forInfoDictionaryKey: "Config") as! String
-        //        let path = Bundle.main.path(forResource: currentConfiguration, ofType: "plist")!
-        //        configs = NSDictionary(contentsOfFile: path)
+        configs = (Bundle.main.object(forInfoDictionaryKey: "Config") as! NSDictionary)
     }
 }
 
@@ -50,7 +47,7 @@ extension BuildConfiguration {
     ///
     /// - Returns: String merchant Url scheme
     func merchantUrlScheme() -> String {
-        return ""
+        return configs.stringValue(forKeyPath: "Scheme")
     }
     
     

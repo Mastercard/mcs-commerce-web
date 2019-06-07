@@ -182,14 +182,14 @@
 		19A0EE7122986DE5006B7AFA /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A0EE6E22986DE4006B7AFA /* SDWebImage.framework */; };
 		19A0EE7222986DE5006B7AFA /* NVActivityIndicatorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A0EE6F22986DE4006B7AFA /* NVActivityIndicatorView.framework */; };
 		19A0EE7322986DE5006B7AFA /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A0EE7022986DE5006B7AFA /* Alamofire.framework */; };
-		19A0EE8622987FD1006B7AFA /* MCSCommerceWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A0EE8522987FD1006B7AFA /* MCSCommerceWeb.framework */; };
 		19A0EF752298A13B006B7AFA /* objectLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EED522989A58006B7AFA /* objectLocator.swift */; };
-		19A0EF772298A311006B7AFA /* MCSCommerceWeb.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 19A0EE8522987FD1006B7AFA /* MCSCommerceWeb.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		19A0EF7A2298A340006B7AFA /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 19A0EE7022986DE5006B7AFA /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		19A0EF7C2298A340006B7AFA /* NVActivityIndicatorView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 19A0EE6F22986DE4006B7AFA /* NVActivityIndicatorView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		19A0EF7E2298A341006B7AFA /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 19A0EE6E22986DE4006B7AFA /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		19A0EF802298A376006B7AFA /* MerchantServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A0EF7F2298A376006B7AFA /* MerchantServices.framework */; };
 		19A0EF812298A376006B7AFA /* MerchantServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 19A0EF7F2298A376006B7AFA /* MerchantServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		19E0C3D222A9F6F500D0EC76 /* MCSCommerceWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19E0C3D122A9F6F400D0EC76 /* MCSCommerceWeb.framework */; };
+		19E0C3D322A9F6F500D0EC76 /* MCSCommerceWeb.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 19E0C3D122A9F6F400D0EC76 /* MCSCommerceWeb.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -199,8 +199,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				19E0C3D322A9F6F500D0EC76 /* MCSCommerceWeb.framework in Embed Frameworks */,
 				19A0EF7E2298A341006B7AFA /* SDWebImage.framework in Embed Frameworks */,
-				19A0EF772298A311006B7AFA /* MCSCommerceWeb.framework in Embed Frameworks */,
 				19A0EF7A2298A340006B7AFA /* Alamofire.framework in Embed Frameworks */,
 				19A0EF812298A376006B7AFA /* MerchantServices.framework in Embed Frameworks */,
 				19A0EF7C2298A340006B7AFA /* NVActivityIndicatorView.framework in Embed Frameworks */,
@@ -390,10 +390,10 @@
 		19A0EE6E22986DE4006B7AFA /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Frameworks/SDWebImage.framework; sourceTree = "<group>"; };
 		19A0EE6F22986DE4006B7AFA /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NVActivityIndicatorView.framework; path = Frameworks/NVActivityIndicatorView.framework; sourceTree = "<group>"; };
 		19A0EE7022986DE5006B7AFA /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Frameworks/Alamofire.framework; sourceTree = "<group>"; };
-		19A0EE8522987FD1006B7AFA /* MCSCommerceWeb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MCSCommerceWeb.framework; path = "../Build/Products/Debug-iphonesimulator/MCSCommerceWeb.framework"; sourceTree = "<group>"; };
 		19A0EED522989A58006B7AFA /* objectLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = objectLocator.swift; sourceTree = "<group>"; };
 		19A0EF7F2298A376006B7AFA /* MerchantServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MerchantServices.framework; path = Frameworks/MerchantServices.framework; sourceTree = "<group>"; };
 		19A0EF822298A382006B7AFA /* MerchantServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MerchantServices.framework; path = Frameworks/MerchantServices.framework; sourceTree = "<group>"; };
+		19E0C3D122A9F6F400D0EC76 /* MCSCommerceWeb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MCSCommerceWeb.framework; path = "../Build/Products/Debug-iphoneos/MCSCommerceWeb.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -401,7 +401,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19A0EE8622987FD1006B7AFA /* MCSCommerceWeb.framework in Frameworks */,
+				19E0C3D222A9F6F500D0EC76 /* MCSCommerceWeb.framework in Frameworks */,
 				19A0EE7122986DE5006B7AFA /* SDWebImage.framework in Frameworks */,
 				19A0EE7222986DE5006B7AFA /* NVActivityIndicatorView.framework in Frameworks */,
 				19A0EF802298A376006B7AFA /* MerchantServices.framework in Frameworks */,
@@ -415,6 +415,7 @@
 		19A0EC3C22970D3E006B7AFA = {
 			isa = PBXGroup;
 			children = (
+				19E0C3D122A9F6F400D0EC76 /* MCSCommerceWeb.framework */,
 				19A0EF7F2298A376006B7AFA /* MerchantServices.framework */,
 				19A0EE5D22986602006B7AFA /* Default-568h@2x.png */,
 				19A0EC4722970D3E006B7AFA /* FancyShop */,
@@ -1761,7 +1762,6 @@
 			isa = PBXGroup;
 			children = (
 				19A0EF822298A382006B7AFA /* MerchantServices.framework */,
-				19A0EE8522987FD1006B7AFA /* MCSCommerceWeb.framework */,
 				19A0EE7022986DE5006B7AFA /* Alamofire.framework */,
 				19A0EE6F22986DE4006B7AFA /* NVActivityIndicatorView.framework */,
 				19A0EE6E22986DE4006B7AFA /* SDWebImage.framework */,
@@ -2080,6 +2080,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2146,6 +2147,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2228,7 +2230,7 @@
 				19A0EC5622970D42006B7AFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		19A0EC5722970D42006B7AFA /* Build configuration list for PBXNativeTarget "FancyShop" */ = {
 			isa = XCConfigurationList;
@@ -2237,7 +2239,7 @@
 				19A0EC5922970D42006B7AFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
