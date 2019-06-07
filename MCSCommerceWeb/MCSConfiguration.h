@@ -31,7 +31,7 @@
  * @param baseUrl URL used to initiate checkout
  * @param callbackScheme Custom scheme to communicate checkout response to the app
  */
-- (instancetype _Nonnull)initWithlocale:(NSLocale *_Nonnull)locale
+- (instancetype _Nonnull)initWithLocale:(NSLocale *_Nonnull)locale
                              checkoutId:(NSString *_Nonnull)checkoutId
                                     baseUrl:(NSString *_Nonnull)baseUrl
                                  callbackScheme:(NSString *_Nonnull)callbackScheme;

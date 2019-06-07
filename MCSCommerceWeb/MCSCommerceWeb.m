@@ -31,7 +31,6 @@
 - (instancetype) initWithConfiguration:(MCSConfiguration *)configuration {
     if (self = [super init]) {
         self.configuration = configuration;
-        self.delegate = nil;
     }
     
     return self;
@@ -58,6 +57,5 @@
     if (_completionHandler) _completionHandler(status, response.transactionId);
     [_delegate checkoutDidCompleteWithStatus:status forTransaction:response.transactionId];
 }
-
          
 @end

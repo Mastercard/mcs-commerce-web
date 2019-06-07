@@ -20,11 +20,16 @@
 MCSCardType const MCSCardTypeMaster = @"master";
 MCSCardType const MCSCardTypeVisa = @"visa";
 MCSCardType const MCSCardTypeDiners = @"diners";
+MCSCardType const MCSCardTypeDiscover = @"discover";
 MCSCardType const MCSCardTypeJcb = @"jcb";
 MCSCardType const MCSCardTypeCup = @"cup";
 MCSCardType const MCSCardTypeAmex = @"amex";
 MCSCardType const MCSCardTypeMaestro = @"maestro";
 MCSCardType const MCSCardTypeIsracard = @"isracard";
 MCSCardType const MCSCardTypeAfterpay = @"afterpay";
+
+MCSCryptoFormat const MCSCryptoFormatICC = @"ICC";
+MCSCryptoFormat const MCSCryptoFormatUCAF = @"UCAF";
+MCSCryptoFormat const MCSCryptoFormatTVV = @"TVV";
 
 @end
