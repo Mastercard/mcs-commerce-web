@@ -7,16 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		193872FE22A9692C004CEFEE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193872FD22A9692C004CEFEE /* AudioToolbox.framework */; };
 		1938730022A96932004CEFEE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193872FF22A96932004CEFEE /* MobileCoreServices.framework */; };
 		1938730222A96938004CEFEE /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1938730122A96938004CEFEE /* CoreMedia.framework */; };
 		1938730422A9693F004CEFEE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1938730322A9693F004CEFEE /* AVFoundation.framework */; };
 		1938730622A96945004CEFEE /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1938730522A96945004CEFEE /* Accelerate.framework */; };
-		1938730822A9695C004CEFEE /* MerchantServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1938730722A9695C004CEFEE /* MerchantServices.framework */; };
-		1938730A22A96960004CEFEE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1938730922A96960004CEFEE /* Alamofire.framework */; };
-		1938731022A96EC3004CEFEE /* MerchantServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1938730722A9695C004CEFEE /* MerchantServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1938731122A96ED0004CEFEE /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1938730922A96960004CEFEE /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		196DBED122AA0E0500A05E38 /* Sandbox_Merchant_Key.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 19E0C3D022A9EEC700D0EC76 /* Sandbox_Merchant_Key.p12 */; };
+		196DBED522AB06B400A05E38 /* MCSCommerceWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196DBED422AB06B400A05E38 /* MCSCommerceWeb.framework */; };
+		196DBED622AB06B400A05E38 /* MCSCommerceWeb.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 196DBED422AB06B400A05E38 /* MCSCommerceWeb.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		196DBED822AB06D200A05E38 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196DBED722AB06D200A05E38 /* Alamofire.framework */; };
+		196DBED922AB06D200A05E38 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 196DBED722AB06D200A05E38 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		196DBEDB22AB06DE00A05E38 /* MerchantServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196DBEDA22AB06DE00A05E38 /* MerchantServices.framework */; };
+		196DBEDC22AB06DE00A05E38 /* MerchantServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 196DBEDA22AB06DE00A05E38 /* MerchantServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		196DBEDD22AB07C100A05E38 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193872FD22A9692C004CEFEE /* AudioToolbox.framework */; };
 		1994CA9A22A9661E00886520 /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1994C95E22A9661C00886520 /* NavigationHelper.swift */; };
 		1994CA9B22A9661E00886520 /* EnvironmentConfigurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1994C95F22A9661C00886520 /* EnvironmentConfigurations.swift */; };
 		1994CA9C22A9661E00886520 /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1994C96022A9661C00886520 /* NetworkReachability.swift */; };
@@ -183,8 +185,6 @@
 		1994CB3F22A9661E00886520 /* outdoor_item6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1994CA9722A9661E00886520 /* outdoor_item6.jpg */; };
 		1994CB4022A9661E00886520 /* outdoor_item7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1994CA9822A9661E00886520 /* outdoor_item7.jpg */; };
 		1994CB4122A9661E00886520 /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = 1994CA9922A9661E00886520 /* products.json */; };
-		19E0C3CE22A9B8C100D0EC76 /* MCSCommerceWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19E0C3CD22A9B8C100D0EC76 /* MCSCommerceWeb.framework */; };
-		19E0C3CF22A9B8C100D0EC76 /* MCSCommerceWeb.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 19E0C3CD22A9B8C100D0EC76 /* MCSCommerceWeb.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -194,9 +194,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1938731022A96EC3004CEFEE /* MerchantServices.framework in Embed Frameworks */,
-				1938731122A96ED0004CEFEE /* Alamofire.framework in Embed Frameworks */,
-				19E0C3CF22A9B8C100D0EC76 /* MCSCommerceWeb.framework in Embed Frameworks */,
+				196DBED622AB06B400A05E38 /* MCSCommerceWeb.framework in Embed Frameworks */,
+				196DBED922AB06D200A05E38 /* Alamofire.framework in Embed Frameworks */,
+				196DBEDC22AB06DE00A05E38 /* MerchantServices.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,8 +209,9 @@
 		1938730122A96938004CEFEE /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		1938730322A9693F004CEFEE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1938730522A96945004CEFEE /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		1938730722A9695C004CEFEE /* MerchantServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MerchantServices.framework; path = Carthage/Build/iOS/MerchantServices.framework; sourceTree = "<group>"; };
-		1938730922A96960004CEFEE /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		196DBED422AB06B400A05E38 /* MCSCommerceWeb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MCSCommerceWeb.framework; path = "../Build/Products/Debug-iphoneos/MCSCommerceWeb.framework"; sourceTree = "<group>"; };
+		196DBED722AB06D200A05E38 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Frameworks/Alamofire.framework; sourceTree = "<group>"; };
+		196DBEDA22AB06DE00A05E38 /* MerchantServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MerchantServices.framework; path = Frameworks/MerchantServices.framework; sourceTree = "<group>"; };
 		1994C94822A9653E00886520 /* FacyShopV7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FacyShopV7.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1994C95E22A9661C00886520 /* NavigationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
 		1994C95F22A9661C00886520 /* EnvironmentConfigurations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentConfigurations.swift; sourceTree = "<group>"; };
@@ -380,7 +381,6 @@
 		1994CA9722A9661E00886520 /* outdoor_item6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = outdoor_item6.jpg; sourceTree = "<group>"; };
 		1994CA9822A9661E00886520 /* outdoor_item7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = outdoor_item7.jpg; sourceTree = "<group>"; };
 		1994CA9922A9661E00886520 /* products.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
-		19E0C3CD22A9B8C100D0EC76 /* MCSCommerceWeb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MCSCommerceWeb.framework; path = "../../Build/Products/Debug-iphoneos/MCSCommerceWeb.framework"; sourceTree = "<group>"; };
 		19E0C3D022A9EEC700D0EC76 /* Sandbox_Merchant_Key.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sandbox_Merchant_Key.p12; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -389,14 +389,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19E0C3CE22A9B8C100D0EC76 /* MCSCommerceWeb.framework in Frameworks */,
+				196DBEDD22AB07C100A05E38 /* AudioToolbox.framework in Frameworks */,
+				196DBEDB22AB06DE00A05E38 /* MerchantServices.framework in Frameworks */,
+				196DBED522AB06B400A05E38 /* MCSCommerceWeb.framework in Frameworks */,
+				196DBED822AB06D200A05E38 /* Alamofire.framework in Frameworks */,
 				1938730622A96945004CEFEE /* Accelerate.framework in Frameworks */,
 				1938730422A9693F004CEFEE /* AVFoundation.framework in Frameworks */,
 				1938730222A96938004CEFEE /* CoreMedia.framework in Frameworks */,
 				1938730022A96932004CEFEE /* MobileCoreServices.framework in Frameworks */,
-				1938730822A9695C004CEFEE /* MerchantServices.framework in Frameworks */,
-				1938730A22A96960004CEFEE /* Alamofire.framework in Frameworks */,
-				193872FE22A9692C004CEFEE /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,8 +406,9 @@
 		193872FC22A9692B004CEFEE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1938730922A96960004CEFEE /* Alamofire.framework */,
-				1938730722A9695C004CEFEE /* MerchantServices.framework */,
+				196DBEDA22AB06DE00A05E38 /* MerchantServices.framework */,
+				196DBED722AB06D200A05E38 /* Alamofire.framework */,
+				196DBED422AB06B400A05E38 /* MCSCommerceWeb.framework */,
 				1938730522A96945004CEFEE /* Accelerate.framework */,
 				1938730322A9693F004CEFEE /* AVFoundation.framework */,
 				1938730122A96938004CEFEE /* CoreMedia.framework */,
@@ -420,7 +421,6 @@
 		1994C93F22A9653E00886520 = {
 			isa = PBXGroup;
 			children = (
-				19E0C3CD22A9B8C100D0EC76 /* MCSCommerceWeb.framework */,
 				1994C94A22A9653E00886520 /* FacyShopV7 */,
 				1994C94922A9653E00886520 /* Products */,
 				193872FC22A9692B004CEFEE /* Frameworks */,
@@ -2168,8 +2168,8 @@
 				DEVELOPMENT_TEAM = FARWN7FEXX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/../../Build/**",
+					"$(PROJECT_DIR)/../Build/**",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/FacyShopV7/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2191,8 +2191,8 @@
 				DEVELOPMENT_TEAM = FARWN7FEXX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/../../Build/**",
+					"$(PROJECT_DIR)/../Build/**",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/FacyShopV7/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

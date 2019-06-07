@@ -392,7 +392,6 @@
 		19A0EE7022986DE5006B7AFA /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Frameworks/Alamofire.framework; sourceTree = "<group>"; };
 		19A0EED522989A58006B7AFA /* objectLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = objectLocator.swift; sourceTree = "<group>"; };
 		19A0EF7F2298A376006B7AFA /* MerchantServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MerchantServices.framework; path = Frameworks/MerchantServices.framework; sourceTree = "<group>"; };
-		19A0EF822298A382006B7AFA /* MerchantServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MerchantServices.framework; path = Frameworks/MerchantServices.framework; sourceTree = "<group>"; };
 		19E0C3D122A9F6F400D0EC76 /* MCSCommerceWeb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MCSCommerceWeb.framework; path = "../Build/Products/Debug-iphoneos/MCSCommerceWeb.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -415,8 +414,6 @@
 		19A0EC3C22970D3E006B7AFA = {
 			isa = PBXGroup;
 			children = (
-				19E0C3D122A9F6F400D0EC76 /* MCSCommerceWeb.framework */,
-				19A0EF7F2298A376006B7AFA /* MerchantServices.framework */,
 				19A0EE5D22986602006B7AFA /* Default-568h@2x.png */,
 				19A0EC4722970D3E006B7AFA /* FancyShop */,
 				19A0EC4622970D3E006B7AFA /* Products */,
@@ -1761,7 +1758,8 @@
 		19A0EE5F22986CD1006B7AFA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				19A0EF822298A382006B7AFA /* MerchantServices.framework */,
+				19E0C3D122A9F6F400D0EC76 /* MCSCommerceWeb.framework */,
+				19A0EF7F2298A376006B7AFA /* MerchantServices.framework */,
 				19A0EE7022986DE5006B7AFA /* Alamofire.framework */,
 				19A0EE6F22986DE4006B7AFA /* NVActivityIndicatorView.framework */,
 				19A0EE6E22986DE4006B7AFA /* SDWebImage.framework */,
