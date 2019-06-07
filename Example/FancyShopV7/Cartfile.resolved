@@ -1,0 +1,2 @@
+git "https://fusion.mastercard.int/stash/scm/mpios/merchant_services.git" "2.5.1"
+github "Alamofire/Alamofire" "4.5.0"
