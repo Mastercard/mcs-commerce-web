@@ -64,6 +64,7 @@
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:_url];
     
     [_webview loadRequest:request];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:_webview];
 }
 
@@ -75,7 +76,31 @@
 - (void)viewSafeAreaInsetsDidChange {
     [super viewSafeAreaInsetsDidChange];
     
-    _webview.frame = self.view.safeAreaLayoutGuide.layoutFrame;
+    [self setConstraintsForView:_webview];
+}
+
+- (void)viewWillLayoutSubviews {
+    NSLog(@"View Will Layout Subviews");
+    if (_popup != nil) {
+        [_popup addSubview:_indicatorView];
+        [_indicatorView show];
+    }
+}
+
+- (void)setConstraintsForView:(UIView *)view {
+    UILayoutGuide *layoutGuide = self.view.safeAreaLayoutGuide;
+
+    [view setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    NSLayoutConstraint *leadingConstraint = [view.leadingAnchor constraintEqualToAnchor:layoutGuide.leadingAnchor];
+    NSLayoutConstraint *trailingConstraint = [view.trailingAnchor constraintEqualToAnchor:layoutGuide.trailingAnchor];
+    
+    [NSLayoutConstraint activateConstraints:@[leadingConstraint, trailingConstraint]];
+    
+    NSLayoutConstraint *topConstraint = [view.topAnchor constraintEqualToSystemSpacingBelowAnchor:layoutGuide.topAnchor multiplier:1.0];
+    NSLayoutConstraint *bottomConstraint = [layoutGuide.bottomAnchor constraintEqualToSystemSpacingBelowAnchor:view.bottomAnchor multiplier:1.0];
+    
+    [NSLayoutConstraint activateConstraints:@[topConstraint, bottomConstraint]];
 }
 
 - (WKWebView *) webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures {
@@ -83,9 +108,10 @@
     _popup.UIDelegate = self;
     _popup.navigationDelegate = self;
     
-    self.view = _popup;
     [_popup addSubview:_indicatorView];
+    [self.view addSubview:_popup];
     [_indicatorView show];
+    [self setConstraintsForView:_popup];
     
     
     return _popup;
@@ -115,9 +141,11 @@
 
 - (void) webViewDidClose:(WKWebView *)webView {
     if (webView == _popup) {
-        self.view = _webview;
+        [_popup removeFromSuperview];
         _popup = nil;
     } else {
+        [_webview removeFromSuperview];
+        _webview = nil;
         [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
     }
 }
