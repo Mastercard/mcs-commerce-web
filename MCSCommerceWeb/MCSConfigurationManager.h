@@ -13,12 +13,15 @@
  * limitations under the License.
  =============================================================================*/
 
+#import <Foundation/Foundation.h>
+#import "MCSConfiguration.h"
 #import "MCSCheckoutRequest.h"
 
-@implementation MCSCheckoutRequest
+@interface MCSConfigurationManager : NSObject
 
-MCSCryptoFormat const MCSCryptoFormatICC = @"ICC";
-MCSCryptoFormat const MCSCryptoFormatUCAF = @"UCAF";
-MCSCryptoFormat const MCSCryptoFormatTVV = @"TVV";
+@property (nonatomic, strong) MCSConfiguration *configuration;
+@property (nonatomic, strong) MCSCheckoutRequest *checkoutRequest;
+
++(instancetype)sharedManager;
 
 @end

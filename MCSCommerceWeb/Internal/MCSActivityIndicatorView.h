@@ -13,12 +13,24 @@
  * limitations under the License.
  =============================================================================*/
 
-#import "MCSCheckoutRequest.h"
+#import <UIKit/UIKit.h>
 
-@implementation MCSCheckoutRequest
+@protocol MCSActivityIndicatorDelegate;
 
-MCSCryptoFormat const MCSCryptoFormatICC = @"ICC";
-MCSCryptoFormat const MCSCryptoFormatUCAF = @"UCAF";
-MCSCryptoFormat const MCSCryptoFormatTVV = @"TVV";
+@interface MCSActivityIndicatorView : UIView
+
+@property(nonatomic, strong) NSString *title;
+@property(nonatomic, weak) id<MCSActivityIndicatorDelegate> delegate;
+
+- (instancetype)initWithTitle:(NSString *)title;
+- (void)setTargetForCancel:(id)target action:(nonnull SEL)action;
+- (void)show;
+- (void)hide;
+
+@end
+
+@protocol MCSActivityIndicatorDelegate
+
+- (BOOL)activityIndicator:(MCSActivityIndicatorView *)activityIndicator shouldHandleCancel:(BOOL)handle;
 
 @end

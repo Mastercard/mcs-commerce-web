@@ -13,12 +13,19 @@
  * limitations under the License.
  =============================================================================*/
 
-#import "MCSCheckoutRequest.h"
+#import "MCSConfigurationManager.h"
 
-@implementation MCSCheckoutRequest
+@implementation MCSConfigurationManager
+static MCSConfigurationManager *sharedManager = nil;
 
-MCSCryptoFormat const MCSCryptoFormatICC = @"ICC";
-MCSCryptoFormat const MCSCryptoFormatUCAF = @"UCAF";
-MCSCryptoFormat const MCSCryptoFormatTVV = @"TVV";
++(instancetype)sharedManager {
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        sharedManager = [[self alloc] init];
+    });
+    
+    return sharedManager;
+}
 
 @end

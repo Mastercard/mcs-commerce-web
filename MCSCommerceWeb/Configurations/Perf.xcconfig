@@ -2,10 +2,10 @@
 #include "Debug.xcconfig"
 
 CODE_SIGN_IDENTITY[sdk=*]=iPhone Developer
-CHECKOUT_HOST=https:/$()/stage.src.mastercard.com/srci //srci host
+CHECKOUT_HOST=src-stage-srci-middleware-blue.apps.stl.pcfstage00.mastercard.int
 PRODUCT_BUNDLE_IDENTIFIER=com.mastercard.masterpass.tm.enterprise
-CHECKOUT_ID=1bc7bf6f15c94f6b9923960e5bf93727
-ENVIRONMENT_NAME=Stage
+CHECKOUT_ID=4b4abeb958dd4517a1557d379eeebbad
+ENVIRONMENT_NAME=Perf
 MERCHANT_KEY_FILENAME=prdappwebn1-production
 MERCHANT_KEY_PWD=password1
 MERCHANT_API_HOST=stage.api.mastercard.com/stage1/masterpass

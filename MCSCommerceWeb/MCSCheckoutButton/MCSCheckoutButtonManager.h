@@ -13,12 +13,14 @@
  * limitations under the License.
  =============================================================================*/
 
-#import "MCSCheckoutRequest.h"
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "MCSCheckoutButton.h"
 
-@implementation MCSCheckoutRequest
+@interface MCSCheckoutButtonManager : NSObject
 
-MCSCryptoFormat const MCSCryptoFormatICC = @"ICC";
-MCSCryptoFormat const MCSCryptoFormatUCAF = @"UCAF";
-MCSCryptoFormat const MCSCryptoFormatTVV = @"TVV";
++(instancetype)sharedManager;
+
+- (MCSCheckoutButton *)checkoutButtonWithDelegate:(id<MCSCheckoutDelegate>)delegate;
 
 @end

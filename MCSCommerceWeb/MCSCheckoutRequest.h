@@ -15,31 +15,9 @@
 
 #import <Foundation/Foundation.h>
 #import "MCSCryptoOptions.h"
+#import "MCSCardTypes.h"
 
 @interface MCSCheckoutRequest : NSObject
-
-/** enum definition for allowable card types **/
-typedef NSString * MCSCardType NS_STRING_ENUM;
-/** Mastercard card type **/
-extern MCSCardType const MCSCardTypeMaster;
-/** Visa card type **/
-extern MCSCardType const MCSCardTypeVisa;
-/** Diners Club card type **/
-extern MCSCardType const MCSCardTypeDiners;
-/** Discover card type **/
-extern MCSCardType const MCSCardTypeDiscover;
-/** JCB card type **/
-extern MCSCardType const MCSCardTypeJcb;
-/** China Union Pay card type **/
-extern MCSCardType const MCSCardTypeCup;
-/** American Express card type **/
-extern MCSCardType const MCSCardTypeAmex;
-/** Maestro card type **/
-extern MCSCardType const MCSCardTypeMaestro;
-/** Isracard card type **/
-extern MCSCardType const MCSCardTypeIsracard;
-/** Afterpay card type **/
-extern MCSCardType const MCSCardTypeAfterpay;
 
 /** enum definition for allowed crypto formats **/
 typedef NSString *MCSCryptoFormat NS_STRING_ENUM;

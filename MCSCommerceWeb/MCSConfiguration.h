@@ -14,6 +14,7 @@
  =============================================================================*/
 
 #import <Foundation/Foundation.h>
+#import "MCSCardTypes.h"
 
 /**
  * Configuration class used to initialize MCSCommerceWeb with the specific
@@ -33,8 +34,12 @@
  */
 - (instancetype _Nonnull)initWithLocale:(NSLocale *_Nonnull)locale
                              checkoutId:(NSString *_Nonnull)checkoutId
-                                    baseUrl:(NSString *_Nonnull)baseUrl
-                                 callbackScheme:(NSString *_Nonnull)callbackScheme;
+                                baseUrl:(NSString *_Nonnull)baseUrl
+                         callbackScheme:(NSString *_Nonnull)callbackScheme
+                       allowedCardTypes:(NSSet <MCSCardType> *)allowedCardTypes;
+
+/** List of card networks accepted by the merchant **/
+@property (nonatomic, copy, readwrite, nonnull) NSSet *allowedCardTypes;
 
 /** Locale associated with the application **/
 @property (nonatomic, copy, readwrite, nonnull) NSLocale *locale;

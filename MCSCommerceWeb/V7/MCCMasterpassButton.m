@@ -37,7 +37,7 @@ NSNotificationName const MasterPassButtonImageDidAttachNotification = @"masterpa
     self = [super initWithCoder:aDecoder];
     
     //override default behavior to do nothing. Prevents loading from storyboard.
-    return self;
+    return nil;
 }
 
 /*

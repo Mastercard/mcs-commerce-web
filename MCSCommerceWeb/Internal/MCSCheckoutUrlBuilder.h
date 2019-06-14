@@ -31,11 +31,7 @@
  * Given the CheckoutRequest and Configuration, a URL is generated
  * which can be used to initiate the web SRCi to complete checkout.
  *
- * @param checkoutRequest the parameters which are specific to this
- * transaction
- * @param configuration the merchant parameters specific to this
- * merchant
  */
-+ (NSURL *)urlForCheckoutRequest:(MCSCheckoutRequest *)checkoutRequest configuration:(MCSConfiguration *)configuration;
++ (NSURL *)urlForCheckout;
 
 @end

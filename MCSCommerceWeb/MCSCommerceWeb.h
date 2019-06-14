@@ -18,6 +18,7 @@
 #import <MCSCommerceWeb/MCSCheckoutRequest.h>
 #import <MCSCommerceWeb/MCSCheckoutStatus.h>
 #import <MCSCommerceWeb/MCSCryptoOptions.h>
+#import <MCSCommerceWeb/MCSCheckoutButton.h>
 #import <MCSCommerceWeb/MCCMerchant.h>
 #import <MCSCommerceWeb/MCCMerchantConstants.h>
 #import <MCSCommerceWeb/MCCMasterpassButton.h>
@@ -34,9 +35,11 @@ FOUNDATION_EXPORT double MCSCommerceWebVersionNumber;
 //! Project version string for MCSCommerceWeb.
 FOUNDATION_EXPORT const unsigned char MCSCommerceWebVersionString[];
 
-@protocol MCSCommerceDelegate
+@protocol MCSCheckoutDelegate
 
-- (void) checkoutDidCompleteWithStatus:(MCSCheckoutStatus)status forTransaction:(NSString * _Nullable)transactionId;
+- (void)checkoutRequestForTransaction:(void(^)(MCSCheckoutRequest *checkoutRequest))handler;
+
+- (void)checkoutRequest:(MCSCheckoutRequest *)request didCompleteWithStatus:(MCSCheckoutStatus)status forTransaction:(NSString * _Nullable)transactionId;
 
 @end
 
@@ -61,10 +64,10 @@ FOUNDATION_EXPORT const unsigned char MCSCommerceWebVersionString[];
  */
 @interface MCSCommerceWeb : NSObject
 
-/** Configuration object for merchant capabilities **/
-@property (nonatomic, strong) MCSConfiguration *configuration;
 /* Delegate to receive the checkout result */
-@property (nonatomic, weak) id<MCSCommerceDelegate> delegate;
+@property (nonatomic, weak) id<MCSCheckoutDelegate> delegate;
+
++ (nonnull instancetype)sharedManager;
 
 /**
  * Instantiate MCSCommerceWeb using a {@link MCSConfiguration} object.
@@ -72,7 +75,9 @@ FOUNDATION_EXPORT const unsigned char MCSCommerceWebVersionString[];
  * @param configuration Configuration object used by MCSCommerceWeb in order to determine the
  * capabilities of the merchant initiated the checkout
  */
-- (instancetype _Nonnull) initWithConfiguration:(MCSConfiguration *_Nonnull)configuration;
+- (void)initWithConfiguration:(MCSConfiguration *_Nonnull)configuration;
+
+- (MCSCheckoutButton *)checkoutButtonWithDelegate:(id<MCSCheckoutDelegate>)delegate;
 
 /**
  * Start the checkout experience using transaction details specified
@@ -87,6 +92,6 @@ FOUNDATION_EXPORT const unsigned char MCSCommerceWebVersionString[];
  * otherwise if Status is Canceled, transactionId will be null. If
  * this completionHandler is nil, the delegate property must be set.
  */
-- (void) checkoutWithRequest:(MCSCheckoutRequest *_Nonnull)request completionHandler:(void (^ _Nullable)(MCSCheckoutStatus status, NSString * _Nullable transactionId))completion;
+- (void)checkoutWithRequest:(MCSCheckoutRequest *_Nonnull)request completionHandler:(void (^ _Nullable)(MCSCheckoutStatus status, NSString * _Nullable transactionId))completion;
 
 @end

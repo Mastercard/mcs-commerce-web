@@ -18,14 +18,14 @@ import UIKit
 import MCSCommerceWeb
 
 /// SRCSDKManager handles all the interaction between the merchant app and the Masterpass SDK
-class SRCSDKManager:NSObject, MCSCommerceDelegate {
-    
+class SRCSDKManager:NSObject, MCSCheckoutDelegate {
     //MARK: variables
     
     /// Singleton instance
     static let sharedInstance = SRCSDKManager()
     var completionHandler: ((MCSCheckoutStatus, String?) -> ())? = nil
-    var commerceWeb: MCSCommerceWeb? = nil
+    var commerceWeb: MCSCommerceWeb = MCSCommerceWeb.sharedManager()
+    
     
     // MARK: Initializers
     
@@ -33,26 +33,35 @@ class SRCSDKManager:NSObject, MCSCommerceDelegate {
     override private init() {
     }
     
+    func initializeSdk(configuration: MCSConfiguration) {
+        commerceWeb.initWith(configuration)
+        commerceWeb.delegate = self as MCSCheckoutDelegate
+    }
+    
+    func getCheckoutButton(with: MCSCheckoutDelegate) -> MCSCheckoutButton {
+        return commerceWeb.checkoutButton(with: with)
+    }
+    
     func performCheckout(commerceRequest : MCSCheckoutRequest, completionHandler: @escaping (MCSCheckoutStatus,String?) -> ()) {
-        let configuration: SDKConfiguration = SDKConfiguration.sharedInstance
-        let commerceConfig: MCSConfiguration = MCSConfiguration(
-            locale: configuration.getLocaleFromSelectedLanguage(),
-            checkoutId: Constants.SDKConfiguration.checkoutId,
-            baseUrl: Constants.SDKConfiguration.url,
-            callbackScheme: BuildConfiguration.sharedInstance.merchantUrlScheme())
-        commerceWeb = MCSCommerceWeb(configuration: commerceConfig)
-        commerceWeb?.delegate = self
         self.completionHandler = completionHandler
-        commerceWeb?.checkout(with: commerceRequest) { (status: MCSCheckoutStatus, transactionId: String?) in
+        commerceWeb.checkout(with: commerceRequest) { (status: MCSCheckoutStatus, transactionId: String?) in
             print("Transaction completed via completion handler with status: \(status) and id: \(String(describing: transactionId))")
             completionHandler(status, transactionId)
         }
     }
     
+    // MARK: Delegate methods
     
+    func checkoutRequest(forTransaction handler: ((MCSCheckoutRequest?) -> Void)!) {
+        //No-op, only used with CheckoutButton. This class uses direct checkout
+    }
     
-    func checkoutDidComplete(with status: MCSCheckoutStatus, forTransaction transactionId: String?) {
+    func checkoutRequest(_ request: MCSCheckoutRequest!, didCompleteWith status: MCSCheckoutStatus, forTransaction transactionId: String?) {
         print("Transaction completed via delegate with status: \(status) and id: \(String(describing: transactionId))")
         completionHandler?(status, transactionId)
+    }
+    
+    func checkoutDidComplete(with status: MCSCheckoutStatus, forTransaction transactionId: String?) {
+        
     }
 }

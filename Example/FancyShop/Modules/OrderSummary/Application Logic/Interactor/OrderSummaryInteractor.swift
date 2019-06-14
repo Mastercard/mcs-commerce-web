@@ -14,6 +14,7 @@
  =============================================================================*/
 
 import Foundation
+import MCSCommerceWeb
 
 /// OrderSummaryInteractor implements OrderSummaryInteractorInputProtocol protocol, handles the interaction to show the order summary and the right button to make the checkout
 class OrderSummaryInteractor:BaseInteractor, OrderSummaryInteractorInputProtocol {
@@ -84,15 +85,15 @@ class OrderSummaryInteractor:BaseInteractor, OrderSummaryInteractorInputProtocol
         
     /// Evaluates the checkout flow to follow, if it has all the data and the configuration is enable, will go for a express checkout
     func getCheckoutFlow() {
-        
-        self.presenter?.startActivityLoader()
-        
-        super.initSDK { (error) in
-                self.presenter?.stopActivityLoader()
-                if (error != nil) {
-                    self.presenter?.showSDKInitializationError()
-                }
-        }
+        self.APIDataManager?.initializeSdk()
+    }
+    
+    func getCheckoutButton(completionHandler: @escaping ([AnyHashable : Any]?, Error?) -> ()) -> MCSCheckoutButton {
+        return (self.APIDataManager?.getCheckoutButton(completionHandler: completionHandler))!
+    }
+    
+    func initializeSdk() {
+        self.APIDataManager?.initializeSdk()
     }
     
     /// Passes the taxes, subtotal and total from the shopping cart

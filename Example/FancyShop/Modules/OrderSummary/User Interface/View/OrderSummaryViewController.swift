@@ -16,6 +16,7 @@
 import Foundation
 import UIKit
 import SafariServices
+import MCSCommerceWeb
 
 /// Shows the resume of the order, products, total, subtotal and taxes
 class OrderSummaryViewController: BaseViewController, OrderSummaryViewProtocol, UITableViewDataSource, UITableViewDelegate, SFSafariViewControllerDelegate {
@@ -59,6 +60,7 @@ class OrderSummaryViewController: BaseViewController, OrderSummaryViewProtocol, 
         super.viewDidLoad()
         self.itemsTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: self.itemsTableView.frame.size.width, height: 1))
         self.enableAccessibility()
+        self.presenter?.initializeSdk()
     }
     /// Overwritten method from UIVIewController, calls the presenter to get the required data
     ///
@@ -68,7 +70,25 @@ class OrderSummaryViewController: BaseViewController, OrderSummaryViewProtocol, 
         super.viewWillAppear(animated)
         self.presenter?.requestShoppingCartViewConfiguration()
         self.presenter?.fetchItemsFromShoppingCart()
-        self.presenter?.getCheckoutButton()
+        
+        if (self.buttonContainer.subviews.filter{$0 is MCSCheckoutButton}.isEmpty) {
+            let checkoutBUtton = self.presenter?.getCheckoutButton(completionHandler: { (response, error) in
+                if let err = error {
+                    let errorCode = "errorCode :\((err as NSError).code)"
+                    let alert = UIAlertController(title:errorCode, message:err.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                    DispatchQueue.main.async {
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                } else {
+                    if let returnedResponse = response {
+                        print("Returned Response \(returnedResponse)");
+                    }
+                }
+            })
+            
+                checkoutBUtton?.add(to: self.buttonContainer)
+        }
     }
     
     /// Sets Identifiers

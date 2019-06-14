@@ -20,7 +20,10 @@ import MCSCommerceWeb
 
 
 /// OrderSummaryAPIDataManager implements the OrderSummaryAPIDataManagerInputProtocol protocol, if data needs to be saved/retrieved from the server, all the implentation should be done here
-class OrderSummaryAPIDataManager: OrderSummaryAPIDataManagerInputProtocol {
+class OrderSummaryAPIDataManager: OrderSummaryAPIDataManagerInputProtocol, MCSCheckoutDelegate {
+    var completionHandler: (([AnyHashable : Any]?, Error?) -> ())? = nil
+    
+    
     // MARK: Initializers
     /// Base initializer
     init() {}
@@ -79,12 +82,46 @@ class OrderSummaryAPIDataManager: OrderSummaryAPIDataManagerInputProtocol {
         }
     }
     
+    func initializeSdk() {
+        let configuration: SDKConfiguration = SDKConfiguration.sharedInstance
+        let commerceConfig: MCSConfiguration = MCSConfiguration(
+            locale: configuration.getLocaleFromSelectedLanguage(),
+            checkoutId: Constants.SDKConfiguration.checkoutId,
+            baseUrl: Constants.SDKConfiguration.url,
+            callbackScheme: BuildConfiguration.sharedInstance.merchantUrlScheme(),
+            allowedCardTypes: [.master, .visa])
+        
+        SRCSDKManager.sharedInstance.initializeSdk(configuration: commerceConfig)
+    }
+    
+    func getCheckoutButton(completionHandler: @escaping ([AnyHashable : Any]?, Error?) -> ()) -> MCSCheckoutButton {
+        
+        return SRCSDKManager.sharedInstance.getCheckoutButton(with: self)
+    }
+    
+    // MARK: Delegate methods
+    
+    func checkoutRequest(forTransaction handler: ((MCSCheckoutRequest?) -> Void)!) {
+        handler(getCheckoutRequest())
+    }
+    
+    func checkoutRequest(_ request: MCSCheckoutRequest!, didCompleteWith status: MCSCheckoutStatus, forTransaction transactionId: String?) {
+        completionHandler?(["TransactionId" : transactionId ?? ""], nil)
+    }
     
     /// Perform checkout operation by using commerceSDK manager
     ///
     /// - Parameter completionHandler: Block of code to execute after the checkout response
     func performCheckout(completionHandler: @escaping ([AnyHashable : Any]?, Error?) -> ()) {
+        let checkoutRequest = getCheckoutRequest()
+        
+        SRCSDKManager.sharedInstance.performCheckout(commerceRequest: checkoutRequest) { (status:MCSCheckoutStatus, transactionId: String?) in
+
+            completionHandler(["TransactionId" : transactionId ?? ""], nil)
+        }
+    }
     
+    func getCheckoutRequest() -> MCSCheckoutRequest {
         let shoppingCart: ShoppingCart = ShoppingCart.sharedInstance
         let sdkConfig : SDKConfiguration = SDKConfiguration.sharedInstance
         
@@ -96,20 +133,17 @@ class OrderSummaryAPIDataManager: OrderSummaryAPIDataManagerInputProtocol {
         checkoutRequest.suppressShippingAddress = sdkConfig.suppressShipping
         checkoutRequest.callbackUrl = BuildConfiguration.sharedInstance.merchantUrlScheme()
         checkoutRequest.unpredictableNumber = "12345678"
-//
-//        let cryptoOptionVisa = MCSCryptoOptions()
-//        cryptoOptionVisa.cardType = "visa"
-//        cryptoOptionVisa.format = ["TVV"]
-
+        //
+        //        let cryptoOptionVisa = MCSCryptoOptions()
+        //        cryptoOptionVisa.cardType = "visa"
+        //        cryptoOptionVisa.format = ["TVV"]
+        
         let cryptoOptionMaster = MCSCryptoOptions()
         cryptoOptionMaster.cardType = "master"
         cryptoOptionMaster.format = ["ICC,UCAF"]
-
+        
         checkoutRequest.cryptoOptions = [cryptoOptionMaster]
         
-        SRCSDKManager.sharedInstance.performCheckout(commerceRequest: checkoutRequest) { (status:MCSCheckoutStatus, transactionId: String?) in
-
-            completionHandler(["TransactionId" : transactionId ?? ""], nil)
-        }
+        return checkoutRequest
     }
 }

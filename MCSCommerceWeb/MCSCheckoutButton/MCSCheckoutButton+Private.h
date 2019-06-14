@@ -13,12 +13,13 @@
  * limitations under the License.
  =============================================================================*/
 
-#import "MCSCheckoutRequest.h"
+#import "MCSCheckoutButton.h"
+#import "MCSCommerceWeb.h"
 
-@implementation MCSCheckoutRequest
+@interface MCSCheckoutButton ()
 
-MCSCryptoFormat const MCSCryptoFormatICC = @"ICC";
-MCSCryptoFormat const MCSCryptoFormatUCAF = @"UCAF";
-MCSCryptoFormat const MCSCryptoFormatTVV = @"TVV";
+@property (nonatomic, weak) id<MCSCheckoutDelegate> delegate;
+
+- (void) setButtonImage:(UIImage *)image;
 
 @end

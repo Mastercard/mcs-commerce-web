@@ -14,6 +14,7 @@
  =============================================================================*/
 
 import Foundation
+import MCSCommerceWeb
 
 
 /// Presenter that acts between the interactor and the view, handles view events and interactor outputs
@@ -60,8 +61,12 @@ class OrderSummaryPresenter:BasePresenter, OrderSummaryPresenterProtocol, OrderS
     }
     
     /// Ask the interactor to evaluates which flow has to be done for the checkout
-    func getCheckoutButton() {
-        self.interactor?.getCheckoutFlow()
+    func getCheckoutButton(completionHandler: @escaping ([AnyHashable : Any]?, Error?) -> ()) -> MCSCheckoutButton {
+        return (self.interactor?.getCheckoutButton(completionHandler: completionHandler))!
+    }
+    
+    func initializeSdk() {
+        self.interactor?.initializeSdk()
     }
     
     /// Payment methods selection request

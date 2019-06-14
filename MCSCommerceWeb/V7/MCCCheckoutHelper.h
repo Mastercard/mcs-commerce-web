@@ -15,6 +15,6 @@
 @interface MCCCheckoutHelper : NSObject
 
 //helper class to initiate MCSCommerceWeb checkout using MCCMerchant parameters
-+ (MCSCommerceWeb *) checkoutWithConifg:(MCCConfiguration *)config request:(MCCCheckoutRequest *)request completionHandler:(void (^ _Nullable)(MCSCheckoutStatus status, NSString * _Nullable transactionId))completion;
++ (void) checkoutWithConifg:(MCCConfiguration *)config request:(MCCCheckoutRequest *)request completionHandler:(void (^ _Nullable)(MCSCheckoutStatus status, NSString * _Nullable transactionId))completion;
 
 @end

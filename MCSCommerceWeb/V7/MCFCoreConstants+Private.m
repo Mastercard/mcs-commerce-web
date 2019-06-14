@@ -10,3 +10,4 @@
 
 NSString *const kSDKConfig      = @"SDKConfig";
 NSString *const kCheckoutHost   = @"CheckoutHost";
+NSString *const kButtonImageHost = @"ButtonImageHost";

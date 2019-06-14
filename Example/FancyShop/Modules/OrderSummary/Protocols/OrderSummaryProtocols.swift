@@ -14,6 +14,7 @@
  =============================================================================*/
 
 import Foundation
+import MCSCommerceWeb
 
 
 /// Method contract between PRESENTER -> VIEW
@@ -55,9 +56,13 @@ protocol OrderSummaryPresenterProtocol: class {
     func lessProductQuantityAction(product: Product)
     func moreProductQuantityAction(product: Product)
     func removeProductAction(product: Product)
-    func getCheckoutButton()
     func paymentMethodSelectionButtonAction()
+    
+    func initializeSdk()
+    func getCheckoutButton(completionHandler: @escaping ([AnyHashable : Any]?,Error?) -> ()) -> MCSCheckoutButton
     func performCheckout(completionHandler: @escaping ([AnyHashable : Any]?,Error?) -> ())
+    
+    
 }
 
 /// Method contract between INTERACTOR -> PRESENTER
@@ -92,6 +97,8 @@ protocol OrderSummaryInteractorInputProtocol: class
     func moreProductQuantity(product: Product)
     func removeProductFromShoppingCart(product: Product)
     func getCheckoutFlow()
+    func initializeSdk()
+    func getCheckoutButton(completionHandler: @escaping ([AnyHashable : Any]?,Error?) -> ()) -> MCSCheckoutButton
     func performCheckout(completionHandler: @escaping ([AnyHashable : Any]?,Error?) -> ())
 }
 
@@ -101,7 +108,9 @@ protocol OrderSummaryDataManagerInputProtocol: class{
 
 /// Method contract between INTERACTOR -> APIDATAMANAGER
 protocol OrderSummaryAPIDataManagerInputProtocol: class{
-    func performCheckout(completionHandler: @escaping ([AnyHashable : Any]?,Error?) -> ()) 
+    func initializeSdk()
+    func getCheckoutButton(completionHandler: @escaping ([AnyHashable : Any]?,Error?) -> ()) -> MCSCheckoutButton
+    func performCheckout(completionHandler: @escaping ([AnyHashable : Any]?,Error?) -> ())
 }
 
 /// Method contract between INTERACTOR -> LOCALDATAMANAGER

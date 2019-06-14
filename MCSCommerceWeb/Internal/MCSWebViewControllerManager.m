@@ -32,9 +32,7 @@
 }
 
 - (void)startWithViewController:(UIViewController *)viewController {
-    UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:_webViewController];
-    
-    [viewController presentViewController:navigationController animated:YES completion:nil];
+    [viewController presentViewController:_webViewController animated:YES completion:nil];
 }
 
 @end

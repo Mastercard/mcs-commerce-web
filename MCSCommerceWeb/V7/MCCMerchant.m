@@ -121,7 +121,7 @@ static id<MCCMerchantDelegate> delegate;
     NSLog(@"Initiating checkout with delegate: %@", [merchantDelegate description]);
     
     [merchantDelegate didGetCheckoutRequest:^BOOL(MCCCheckoutRequest * _Nonnull checkoutRequest) {
-        commerceWeb = [MCCCheckoutHelper checkoutWithConifg:mccConfig request:checkoutRequest completionHandler:^(MCSCheckoutStatus status, NSString * _Nullable transactionId) {
+        [MCCCheckoutHelper checkoutWithConifg:mccConfig request:checkoutRequest completionHandler:^(MCSCheckoutStatus status, NSString * _Nullable transactionId) {
             
             NSLog(@"Checkout response: %@", transactionId);
         
@@ -135,18 +135,6 @@ static id<MCCMerchantDelegate> delegate;
         
         return YES;
     }];
-}
-
-#pragma mark Maintain SDK Instance
-
-+ (MCSCommerceWeb *)instanceWithConfiguration:(MCSConfiguration *)configuration {
-    static MCSCommerceWeb *instance = nil;
-    
-    if (instance == nil) {
-        instance = [[MCSCommerceWeb alloc] initWithConfiguration:configuration];
-    }
-    
-    return instance;
 }
 
 #pragma mark Prevent instantiation

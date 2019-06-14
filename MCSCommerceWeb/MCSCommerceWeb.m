@@ -14,11 +14,12 @@
  =============================================================================*/
 
 #import "MCSCommerceWeb.h"
-#import "MCSConfiguration.h"
+#import "MCSConfigurationManager.h"
 #import "MCSCheckoutUrlBuilder.h"
 #import "MCSCheckoutRouter.h"
 #import "MCSWebViewControllerManager.h"
 #import "MCSCheckoutResponse.h"
+#import "MCSCheckoutButtonManager.h"
 
 @interface MCSCommerceWeb() <MCSWebCheckoutDelegate>
 
@@ -27,21 +28,36 @@
 @end
 
 @implementation MCSCommerceWeb
+static MCSCommerceWeb *sharedManager = nil;
 
-- (instancetype) initWithConfiguration:(MCSConfiguration *)configuration {
-    if (self = [super init]) {
-        self.configuration = configuration;
-    }
++(instancetype)sharedManager {
+    static dispatch_once_t onceToken;
     
-    return self;
+    dispatch_once(&onceToken, ^{
+        sharedManager = [[self alloc] init];
+    });
+    
+    return sharedManager;
+}
+
+- (MCSCheckoutButton *)checkoutButtonWithDelegate:(__autoreleasing id<MCSCheckoutDelegate> )delegate {
+    MCSCheckoutButton *button = [[MCSCheckoutButtonManager sharedManager] checkoutButtonWithDelegate:delegate];;
+    
+    return button;
+}
+
+- (void) initWithConfiguration:(MCSConfiguration *)configuration {
+    [[MCSConfigurationManager sharedManager] setConfiguration:configuration];
+    [MCSCheckoutButtonManager sharedManager];
 }
 
 - (void)checkoutWithRequest:(MCSCheckoutRequest *)request completionHandler:(void (^ _Nullable)(MCSCheckoutStatus status, NSString * _Nullable transactionId))completion {
+    [[MCSConfigurationManager sharedManager] setCheckoutRequest:request];
     _completionHandler = completion;
     
-    NSURL *url = [MCSCheckoutUrlBuilder urlForCheckoutRequest:request configuration:self.configuration];
+    NSURL *url = [MCSCheckoutUrlBuilder urlForCheckout];
     MCSCheckoutRouter *router = [[MCSCheckoutRouter alloc] init];
-    MCSWebViewControllerManager *manager = [[MCSWebViewControllerManager alloc] initWithUrl:[url absoluteString] scheme:self.configuration.callbackScheme delegate:self];
+    MCSWebViewControllerManager *manager = [[MCSWebViewControllerManager alloc] initWithUrl:[url absoluteString] scheme:[[MCSConfigurationManager sharedManager] configuration].callbackScheme delegate:self];
     
     [router startWithViewControllerManager:manager];
 }
@@ -55,7 +71,7 @@
     }
     
     if (_completionHandler) _completionHandler(status, response.transactionId);
-    [_delegate checkoutDidCompleteWithStatus:status forTransaction:response.transactionId];
+    [_delegate checkoutRequest:[[MCSConfigurationManager sharedManager] checkoutRequest] didCompleteWithStatus:status forTransaction:response.transactionId];
 }
          
 @end

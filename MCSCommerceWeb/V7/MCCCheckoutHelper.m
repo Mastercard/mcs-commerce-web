@@ -16,20 +16,19 @@
 @implementation MCCCheckoutHelper
 
 
-+ (MCSCommerceWeb *) checkoutWithConifg:(MCCConfiguration *)config request:(MCCCheckoutRequest *)request completionHandler:(void (^ _Nullable)(MCSCheckoutStatus status, NSString * _Nullable transactionId))completion {
++ (void) checkoutWithConifg:(MCCConfiguration *)config request:(MCCCheckoutRequest *)request completionHandler:(void (^ _Nullable)(MCSCheckoutStatus status, NSString * _Nullable transactionId))completion {
     
     MCFEnvironmentConfiguration *envConfig = [MCFEnvironmentConfiguration sharedInstance];
+    NSSet<MCSCardType> *allowedCardTypes = [self cardTypesWithCardTypes:request.allowedCardTypes];
     MCSConfiguration *commerceConfig = [[MCSConfiguration alloc] initWithLocale:config.locale
                                                                      checkoutId:request.checkoutId
                                                                         baseUrl:envConfig.checkoutHost
-                                                                 callbackScheme:config.callbackScheme];
-    MCSCommerceWeb *commerceWeb = [[MCSCommerceWeb alloc] initWithConfiguration:commerceConfig];
+                                                                 callbackScheme:config.callbackScheme
+                                                               allowedCardTypes:allowedCardTypes];;
     MCSCheckoutRequest *commerceRequest = [MCCCheckoutHelper requestWithRequest:request];
-    
-    
+    MCSCommerceWeb *commerceWeb = [MCSCommerceWeb sharedManager];
+    [commerceWeb initWithConfiguration:commerceConfig];
     [commerceWeb checkoutWithRequest:commerceRequest completionHandler:completion];
-    
-    return commerceWeb;
 }
 
 + (MCSCheckoutRequest *)requestWithRequest:(MCCCheckoutRequest *)request {

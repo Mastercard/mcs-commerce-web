@@ -10,3 +10,4 @@
 
 extern NSString *const kSDKConfig;
 extern NSString *const kCheckoutHost;
+extern NSString *const kButtonImageHost;

@@ -15,7 +15,7 @@
 
 #import "MCSCheckoutUrlBuilder.h"
 #import "MCSCheckoutRequest.h"
-#import "MCSConfiguration.h"
+#import "MCSConfigurationManager.h"
 
 NSString * const _Nonnull kAllowedCardTypesKey                  = @"allowedCardTypes";
 NSString * const _Nonnull kAmountKey                            = @"amount";
@@ -39,7 +39,10 @@ NSString * const _Nonnull CHECKOUT_ENDPOINT                     = @"/srci";
 
 @implementation MCSCheckoutUrlBuilder
 
-+ (NSURL *)urlForCheckoutRequest:(MCSCheckoutRequest *)checkoutRequest configuration:(MCSConfiguration *)configuration {
++ (NSURL *)urlForCheckout {
+    MCSConfiguration *configuration = [[MCSConfigurationManager sharedManager] configuration];
+    MCSCheckoutRequest *checkoutRequest = [[MCSConfigurationManager sharedManager] checkoutRequest];
+    
     if (![[configuration.baseUrl substringFromIndex:[configuration.baseUrl length] - 1] isEqualToString:@"/"] ) {
         configuration.baseUrl = [[configuration baseUrl] stringByAppendingString:@"/"];
     }

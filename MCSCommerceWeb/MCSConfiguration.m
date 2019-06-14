@@ -20,12 +20,14 @@
 - (instancetype _Nonnull) initWithLocale:(NSLocale *)locale
                               checkoutId:(NSString *)checkoutId
                                      baseUrl:(NSString *)baseUrl
-                                  callbackScheme:(NSString *)scheme {
+                                  callbackScheme:(NSString *)scheme
+allowedCardTypes:(NSSet<MCSCardType> *)allowedCardTypes{
     if (self = [super init]) {
         self.locale = locale;
         self.checkoutId = checkoutId;
         self.baseUrl = baseUrl;
         self.callbackScheme = scheme;
+        self.allowedCardTypes = allowedCardTypes;
     }
     
     return self;

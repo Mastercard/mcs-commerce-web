@@ -14,6 +14,7 @@
  =============================================================================*/
 
 #import "MCSWebViewController.h"
+#import "MCSActivityIndicatorView.h"
 
 @interface MCSWebViewController()
 
@@ -21,6 +22,7 @@
 @property (nonatomic, strong) NSString *scheme;
 @property (nonatomic, strong) WKWebView *webview;
 @property (nonatomic, strong) WKWebView *popup;
+@property (nonatomic, strong) MCSActivityIndicatorView *indicatorView;
 @property (nonatomic, weak) id<MCSWebCheckoutDelegate> delegate;
 
 @end
@@ -33,6 +35,9 @@
         self.url = url;
         self.scheme = scheme;
         self.delegate = delegate;
+        self.indicatorView = [[MCSActivityIndicatorView alloc] initWithTitle:@"Loading..."];
+        
+        [self.indicatorView setTargetForCancel:self action:@selector(cancel)];
     }
     
     return self;
@@ -42,7 +47,9 @@
     [super encodeWithCoder:aCoder];
 }
 
-- (void) loadView {
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
     WKPreferences *preferences = [[WKPreferences alloc] init];
     preferences.javaScriptCanOpenWindowsAutomatically = true;
     
@@ -50,24 +57,25 @@
     configuration.preferences = preferences;
     [configuration setURLSchemeHandler:self forURLScheme:self.scheme];
     
-    UIBarButtonItem *cancelButton = [[[UIBarButtonItem alloc] init] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];
-    self.navigationItem.title = @"Secure Remote Commerce";
-    self.navigationItem.leftBarButtonItem = cancelButton;
-    self.navigationController.navigationBar.translucent = NO;
-    
     _webview = [[WKWebView alloc] initWithFrame:CGRectZero configuration:configuration];
     _webview.UIDelegate = self;
     _webview.navigationDelegate = self;
     
-    self.view = _webview;
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:_url];
     
     [_webview loadRequest:request];
+    [self.view addSubview:_webview];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self.view addSubview:_indicatorView];
+    [_indicatorView show];
+}
+
+- (void)viewSafeAreaInsetsDidChange {
+    [super viewSafeAreaInsetsDidChange];
+    
+    _webview.frame = self.view.safeAreaLayoutGuide.layoutFrame;
 }
 
 - (WKWebView *) webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures {
@@ -76,8 +84,22 @@
     _popup.navigationDelegate = self;
     
     self.view = _popup;
+    [_popup addSubview:_indicatorView];
+    [_indicatorView show];
+    
     
     return _popup;
+}
+
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+    NSLog(@"Did finish navigation");
+    
+    [_indicatorView hide];
+    [_indicatorView removeFromSuperview];
+}
+
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
+    NSLog(@"Did start provisional navigation");
 }
 
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
