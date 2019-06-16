@@ -1,0 +1,9 @@
+/* 
+  Allowed.strings
+  MerchantCheckoutApp
+
+  Created by MasterCard on 11/3/17.
+  Copyright © 2018 MasterCard. All rights reserved.
+*/
+
+"NO_CARD_SELECTED_ERROR" = "You must select at least one card";
