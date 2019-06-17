@@ -5,3 +5,4 @@ BWMP_IMAGE_HOST=static.masterpass.com
 kMASTERPASS_WALLET_HOST=wallet.masterpass.com
 kMASTERPASS_HOST=masterpass.com
 kENVIRONMENT=Production
+BUTTON_IMAGE_HOST=https:/$()/src.mastercard.com/assets/img/btn/src_chk_btn_376x088px.svg

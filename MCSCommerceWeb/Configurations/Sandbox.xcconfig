@@ -12,3 +12,4 @@ ENVIRONMENT_NAME=Sandbox
 MERCHANT_KEY_FILENAME=prdappwebn1-production
 MERCHANT_KEY_PWD=password1
 MERCHANT_API_HOST=stage.api.mastercard.com/stage1/masterpass
+BUTTON_IMAGE_HOST=https:/$()/src.mastercard.com/assets/img/btn/src_chk_btn_376x088px.svg

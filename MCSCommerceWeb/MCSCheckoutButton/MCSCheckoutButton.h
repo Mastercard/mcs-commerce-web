@@ -14,19 +14,13 @@
  =============================================================================*/
 
 #import <UIKit/UIKit.h>
+#import "MCCMasterpassButton.h"
 
 /**
- * MCCMasterpassButton implements a "Pay with masterpass" button on device's touch screen. This class restrict the use of UIButton methods to set title, image and also restrict to add event on UIButton.
- 
- Overview:
- 
- This class provides API to add itself to specified super view. It also handle the object that implement MCCTransactionDataSource protocol.
- 
- @date 2016-02-17
- 
+ * MCSCheckoutButton implements a button to initiate checkout. This class restricts the use of UIButton methods
+ * to encapsulate the functionality of calling checkout.
  */
-
-@interface MCSCheckoutButton : UIButton
+@interface MCSCheckoutButton : MCCMasterpassButton
 
 /** constant width of the checkout button **/
 extern CGFloat const kCheckoutButtonWidth;
@@ -38,10 +32,9 @@ extern CGFloat const kCheckoutButtonHeight;
  *
  * Adds button on the view.
  *
- * This method will add the object of MCCMasterpassButton on the passed UIView object.
+ * This method will add the object of MCSCheckoutButton on the passed UIView object.
  *
- * @param superView
- UIView object on which button will be added.
+ * @param superView UIView object on which button will be added.
  *
  */
 - (void)addButtonToView:(UIView* _Nonnull) superView;

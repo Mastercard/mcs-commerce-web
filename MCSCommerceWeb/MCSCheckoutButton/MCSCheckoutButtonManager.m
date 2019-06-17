@@ -100,11 +100,8 @@ NSString *basePath = @"button/";
                 NSError *error = nil;
                 [imageData writeToFile:saveUrl.path options:NSDataWritingAtomic error:&error];
                 
-                if (self.button != nil) {
-                    [self.button setButtonImage:buttonImage];
-                } else {
-                    self.buttonImage = buttonImage;
-                }
+                self.buttonImage = buttonImage;
+                [self.button setButtonImage:buttonImage];
             }];
             
         }] resume];
