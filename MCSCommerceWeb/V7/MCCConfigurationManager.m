@@ -13,8 +13,19 @@
  * limitations under the License.
  =============================================================================*/
 
-#import "MCCConfiguration.h"
+#import "MCCConfigurationManager.h"
 
-@implementation MCCConfiguration
+@implementation MCCConfigurationManager
+static MCCConfigurationManager *sharedManager = nil;
+
++ (instancetype)sharedManager {
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        sharedManager = [[self alloc] init];
+    });
+    
+    return sharedManager;
+}
 
 @end

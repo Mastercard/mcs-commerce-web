@@ -13,8 +13,13 @@
  * limitations under the License.
  =============================================================================*/
 
-#import "MCCConfiguration.h"
+#import <UIKit/UIKit.h>
+#import "MCSCommerceWeb.h"
 
-@implementation MCCConfiguration
+@interface MCSDelegateBridge : NSObject<MCSCheckoutDelegate>
+
+@property (nonatomic, weak) id<MCCMerchantDelegate> delegate;
+
+- (instancetype)initWithDelegate:(__autoreleasing id<MCCMerchantDelegate>)delegate;
 
 @end

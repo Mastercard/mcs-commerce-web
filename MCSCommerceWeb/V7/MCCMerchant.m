@@ -1,31 +1,33 @@
-//
-//  MCCMerchant.m
-//  MCCMerchant
-//
-//  Created by Adeyenuwo, Paul on 4/27/16.
-//  Copyright © 2016 MasterCard. All rights reserved.
-//
+/* Copyright © 2019 Mastercard. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ =============================================================================*/
 
 #import <Foundation/Foundation.h>
 #import <MCSCommerceWeb/MCSCommerceWeb.h>
 #import "MCCMerchant.h"
-#import "MCCConfiguration.h"
+#import "MCCConfigurationManager.h"
+#import "MCSCheckoutButtonManager.h"
 #import "MCCMerchantDelegate.h"
 #import "MCCCheckoutRequest.h"
 #import "MCCMerchantConstants+Private.h"
-#import "MCCMasterpassButton+Private.h"
 #import "MCCMasterpassButton.h"
 #import "MCCCheckoutHelper.h"
+#import "MCSDelegateBridge.h"
 
-@interface MCCMerchant()
-
-
-
-@end
-
-static MCCConfiguration *mccConfig;
 static MCSCommerceWeb *commerceWeb;
 static id<MCCMerchantDelegate> delegate;
+static id<MCSCheckoutDelegate> delegateBridge;
 
 //Differences:
 // handleResponse: this method is no longer used. Transaction will return to merchant through delegate/completionHandler
@@ -40,7 +42,11 @@ static id<MCCMerchantDelegate> delegate;
  *
  */
 + (void) initializeSDKWithConfiguration:(MCCConfiguration *_Nonnull)configuration onStatusBlock:(void(^ __nonnull) (NSDictionary * __nonnull status, NSError * __nullable error))status {
-    mccConfig = configuration;
+    [[MCCConfigurationManager sharedManager] setConfiguration:configuration];
+    
+    MCSConfiguration *commerceConfig = [MCCCheckoutHelper configurationWithConfiguration:configuration];
+    
+    [[MCSCommerceWeb sharedManager] initWithConfiguration:commerceConfig];
     
     status(@{kInitializeStateKey : [NSNumber numberWithInt: MCCInitializationStateCompleted] }, nil);
 }
@@ -52,10 +58,9 @@ static id<MCCMerchantDelegate> delegate;
  *
  */
 +(MCCMasterpassButton * _Nullable) getMasterPassButton:(id<MCCMerchantDelegate>) merchantDelegate {
-    MCCMasterpassButton *masterpassButton = [[MCCMasterpassButton alloc] init];
-    masterpassButton.delegate = merchantDelegate;
-    
-    return masterpassButton;
+    delegateBridge = [[MCSDelegateBridge alloc] initWithDelegate:merchantDelegate];
+
+    return [[MCSCheckoutButtonManager sharedManager] checkoutButtonWithDelegate:delegateBridge];
 }
 
 #pragma mark - Masterpass Checkout Response Handler
@@ -90,7 +95,13 @@ static id<MCCMerchantDelegate> delegate;
  *
  */
 +(void)pairingWithCheckout:(BOOL)isCheckout merchantDelegate:(id<MCCMerchantDelegate> _Nonnull) merchantDelegate {
-    [MCCMerchant checkoutWithDelegate:merchantDelegate];
+    if (isCheckout) {
+        [MCCMerchant checkoutWithDelegate:merchantDelegate];
+    } else {
+        MCCCheckoutResponse *response = [[MCCCheckoutResponse alloc] init];
+        
+        [merchantDelegate didFinishCheckout:response];
+    }
 }
 
 #pragma  mark -
@@ -118,19 +129,13 @@ static id<MCCMerchantDelegate> delegate;
 #pragma mark common checkout method
 
 + (void)checkoutWithDelegate:(id<MCCMerchantDelegate> _Nonnull)merchantDelegate {
-    NSLog(@"Initiating checkout with delegate: %@", [merchantDelegate description]);
-    
     [merchantDelegate didGetCheckoutRequest:^BOOL(MCCCheckoutRequest * _Nonnull checkoutRequest) {
-        [MCCCheckoutHelper checkoutWithConifg:mccConfig request:checkoutRequest completionHandler:^(MCSCheckoutStatus status, NSString * _Nullable transactionId) {
-            
-            NSLog(@"Checkout response: %@", transactionId);
+        MCSCheckoutRequest *commerceRequest = [MCCCheckoutHelper requestWithRequest:checkoutRequest];
+        delegateBridge = [[MCSDelegateBridge alloc] initWithDelegate:merchantDelegate];
         
-            MCCCheckoutResponse *checkoutResponse = [[MCCCheckoutResponse alloc] init];
-            checkoutResponse.transactionId = transactionId;
-            checkoutResponse.cartId = checkoutRequest.cartId;
-            checkoutResponse.responseType = MCCResponseTypeWebCheckout;
+        [[MCSCommerceWeb sharedManager] setDelegate:delegateBridge];
+        [[MCSCommerceWeb sharedManager] checkoutWithRequest:commerceRequest completionHandler:^(MCSCheckoutStatus status, NSString * _Nullable transactionId) {
             
-            [merchantDelegate didFinishCheckout:checkoutResponse];
         }];
         
         return YES;

@@ -13,8 +13,19 @@
  * limitations under the License.
  =============================================================================*/
 
+#import <Foundation/Foundation.h>
 #import "MCCConfiguration.h"
+#import "MCCCheckoutRequest.h"
 
-@implementation MCCConfiguration
+@interface MCCConfigurationManager : NSObject
+
+/** SDK initialization configuration **/
+@property (nonatomic, strong) MCCConfiguration *configuration;
+
+/** Checkout request for the current transaction **/
+@property (nonatomic, strong) MCCCheckoutRequest *checkoutRequest;
+
+/** return a shared instance of this configuration manager **/
++ (instancetype)sharedManager;
 
 @end
