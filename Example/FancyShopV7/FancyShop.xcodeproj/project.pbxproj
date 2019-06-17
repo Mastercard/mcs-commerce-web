@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		1954EB6A22B6A3FA0026F0B7 /* MCSCommerceWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1954EB6922B6A3FA0026F0B7 /* MCSCommerceWeb.framework */; };
 		1954EB6B22B6A41C0026F0B7 /* MCSCommerceWeb.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1954EB6922B6A3FA0026F0B7 /* MCSCommerceWeb.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1954EB6D22B6A4500026F0B7 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1954EB6C22B6A4500026F0B7 /* SDWebImage.framework */; };
-		1954EB6E22B6A4590026F0B7 /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1954EB6C22B6A4500026F0B7 /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		195FCC5C22B6B1E3009B67DE /* Common.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 195FCB2022B6B1E2009B67DE /* Common.xcconfig */; };
 		195FCC5D22B6B1E3009B67DE /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 195FCB2122B6B1E2009B67DE /* Debug.xcconfig */; };
 		195FCC5E22B6B1E3009B67DE /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 195FCB2222B6B1E2009B67DE /* Release.xcconfig */; };
@@ -178,13 +176,15 @@
 		195FCD0122B6B1E4009B67DE /* ShoppingCartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195FCC5922B6B1E3009B67DE /* ShoppingCartItem.swift */; };
 		195FCD0222B6B1E4009B67DE /* CardConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195FCC5A22B6B1E3009B67DE /* CardConfiguration.swift */; };
 		195FCD0322B6B1E4009B67DE /* PreCheckoutData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195FCC5B22B6B1E3009B67DE /* PreCheckoutData.swift */; };
+		195FCD1122B82B38009B67DE /* NVActivityIndicatorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195FCD0D22B82B38009B67DE /* NVActivityIndicatorView.framework */; };
+		195FCD1222B82B38009B67DE /* NVActivityIndicatorView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 195FCD0D22B82B38009B67DE /* NVActivityIndicatorView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		195FCD1322B82B38009B67DE /* MerchantServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195FCD0E22B82B38009B67DE /* MerchantServices.framework */; };
+		195FCD1422B82B38009B67DE /* MerchantServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 195FCD0E22B82B38009B67DE /* MerchantServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		195FCD1522B82B38009B67DE /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195FCD0F22B82B38009B67DE /* SDWebImage.framework */; };
+		195FCD1622B82B38009B67DE /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 195FCD0F22B82B38009B67DE /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		195FCD1722B82B39009B67DE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195FCD1022B82B38009B67DE /* Alamofire.framework */; };
+		195FCD1822B82B39009B67DE /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 195FCD1022B82B38009B67DE /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		19A0EE5E22986602006B7AFA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EE5D22986602006B7AFA /* Default-568h@2x.png */; };
-		19A0EE7222986DE5006B7AFA /* NVActivityIndicatorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A0EE6F22986DE4006B7AFA /* NVActivityIndicatorView.framework */; };
-		19A0EE7322986DE5006B7AFA /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A0EE7022986DE5006B7AFA /* Alamofire.framework */; };
-		19A0EF7A2298A340006B7AFA /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 19A0EE7022986DE5006B7AFA /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		19A0EF7C2298A340006B7AFA /* NVActivityIndicatorView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 19A0EE6F22986DE4006B7AFA /* NVActivityIndicatorView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		19A0EF802298A376006B7AFA /* MerchantServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A0EF7F2298A376006B7AFA /* MerchantServices.framework */; };
-		19A0EF812298A376006B7AFA /* MerchantServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 19A0EF7F2298A376006B7AFA /* MerchantServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -194,11 +194,11 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1954EB6E22B6A4590026F0B7 /* SDWebImage.framework in Embed Frameworks */,
+				195FCD1622B82B38009B67DE /* SDWebImage.framework in Embed Frameworks */,
+				195FCD1222B82B38009B67DE /* NVActivityIndicatorView.framework in Embed Frameworks */,
 				1954EB6B22B6A41C0026F0B7 /* MCSCommerceWeb.framework in Embed Frameworks */,
-				19A0EF7A2298A340006B7AFA /* Alamofire.framework in Embed Frameworks */,
-				19A0EF812298A376006B7AFA /* MerchantServices.framework in Embed Frameworks */,
-				19A0EF7C2298A340006B7AFA /* NVActivityIndicatorView.framework in Embed Frameworks */,
+				195FCD1822B82B39009B67DE /* Alamofire.framework in Embed Frameworks */,
+				195FCD1422B82B38009B67DE /* MerchantServices.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,7 +207,6 @@
 
 /* Begin PBXFileReference section */
 		1954EB6922B6A3FA0026F0B7 /* MCSCommerceWeb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MCSCommerceWeb.framework; path = "../../Build/Products/Debug-iphoneos/MCSCommerceWeb.framework"; sourceTree = "<group>"; };
-		1954EB6C22B6A4500026F0B7 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Frameworks/SDWebImage.framework; sourceTree = "<group>"; };
 		195FCB2022B6B1E2009B67DE /* Common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
 		195FCB2122B6B1E2009B67DE /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		195FCB2222B6B1E2009B67DE /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
@@ -378,11 +377,12 @@
 		195FCC5A22B6B1E3009B67DE /* CardConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardConfiguration.swift; sourceTree = "<group>"; };
 		195FCC5B22B6B1E3009B67DE /* PreCheckoutData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreCheckoutData.swift; sourceTree = "<group>"; };
 		195FCD0422B6B75F009B67DE /* FancyShop-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FancyShop-Bridging-Header.h"; sourceTree = "<group>"; };
+		195FCD0D22B82B38009B67DE /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NVActivityIndicatorView.framework; path = ../Frameworks/NVActivityIndicatorView.framework; sourceTree = "<group>"; };
+		195FCD0E22B82B38009B67DE /* MerchantServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MerchantServices.framework; path = ../Frameworks/MerchantServices.framework; sourceTree = "<group>"; };
+		195FCD0F22B82B38009B67DE /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = ../Frameworks/SDWebImage.framework; sourceTree = "<group>"; };
+		195FCD1022B82B38009B67DE /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Frameworks/Alamofire.framework; sourceTree = "<group>"; };
 		19A0EC4522970D3E006B7AFA /* FancyShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FancyShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19A0EE5D22986602006B7AFA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		19A0EE6F22986DE4006B7AFA /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NVActivityIndicatorView.framework; path = Frameworks/NVActivityIndicatorView.framework; sourceTree = "<group>"; };
-		19A0EE7022986DE5006B7AFA /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Frameworks/Alamofire.framework; sourceTree = "<group>"; };
-		19A0EF7F2298A376006B7AFA /* MerchantServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MerchantServices.framework; path = Frameworks/MerchantServices.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -390,11 +390,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19A0EE7222986DE5006B7AFA /* NVActivityIndicatorView.framework in Frameworks */,
-				19A0EF802298A376006B7AFA /* MerchantServices.framework in Frameworks */,
-				19A0EE7322986DE5006B7AFA /* Alamofire.framework in Frameworks */,
-				1954EB6D22B6A4500026F0B7 /* SDWebImage.framework in Frameworks */,
+				195FCD1522B82B38009B67DE /* SDWebImage.framework in Frameworks */,
+				195FCD1122B82B38009B67DE /* NVActivityIndicatorView.framework in Frameworks */,
 				1954EB6A22B6A3FA0026F0B7 /* MCSCommerceWeb.framework in Frameworks */,
+				195FCD1722B82B39009B67DE /* Alamofire.framework in Frameworks */,
+				195FCD1322B82B38009B67DE /* MerchantServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1759,11 +1759,11 @@
 		19A0EE5F22986CD1006B7AFA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1954EB6C22B6A4500026F0B7 /* SDWebImage.framework */,
+				195FCD1022B82B38009B67DE /* Alamofire.framework */,
+				195FCD0E22B82B38009B67DE /* MerchantServices.framework */,
+				195FCD0D22B82B38009B67DE /* NVActivityIndicatorView.framework */,
+				195FCD0F22B82B38009B67DE /* SDWebImage.framework */,
 				1954EB6922B6A3FA0026F0B7 /* MCSCommerceWeb.framework */,
-				19A0EF7F2298A376006B7AFA /* MerchantServices.framework */,
-				19A0EE7022986DE5006B7AFA /* Alamofire.framework */,
-				19A0EE6F22986DE4006B7AFA /* NVActivityIndicatorView.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2174,7 +2174,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/../../Build/**",
 					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/../Frameworks",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/FancyShopV7/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2198,7 +2198,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/../../Build/**",
 					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/../Frameworks",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/FancyShopV7/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
