@@ -17,9 +17,6 @@
 
 @interface MCFEnvironmentConfiguration : NSObject
 
-/** URL to use for checkout--used by the V7 wrapper classes when no URL is provided **/
-@property (nonatomic, readonly) NSString *checkoutHost;
-
 /** Host URL for Dynamic Checkout Button **/
 @property (nonatomic, readonly) NSString *buttonImageHost;
 

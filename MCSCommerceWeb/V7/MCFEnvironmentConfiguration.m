@@ -33,7 +33,6 @@
     if (self = [super init]) {
         NSDictionary * configDictionary = [[[NSBundle bundleForClass:[self class]] infoDictionary] valueForKey:kSDKConfig];
     
-        _checkoutHost = [configDictionary valueForKey:kCheckoutHost];
         _buttonImageHost = [configDictionary valueForKey:kButtonImageHost];
     }
     

@@ -87,7 +87,7 @@ class OrderSummaryAPIDataManager: OrderSummaryAPIDataManagerInputProtocol, MCSCh
         let commerceConfig: MCSConfiguration = MCSConfiguration(
             locale: configuration.getLocaleFromSelectedLanguage(),
             checkoutId: Constants.SDKConfiguration.checkoutId,
-            baseUrl: Constants.SDKConfiguration.url,
+            checkoutUrl: Constants.SDKConfiguration.url,
             callbackScheme: BuildConfiguration.sharedInstance.merchantUrlScheme(),
             allowedCardTypes: [.master, .visa])
         

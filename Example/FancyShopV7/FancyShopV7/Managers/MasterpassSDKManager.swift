@@ -41,7 +41,9 @@ class MasterpassSDKManager:NSObject, MCCMerchantDelegate {
         
         mcConfiguration.checkoutId = Constants.SDKConfigurations.checkoutId
         mcConfiguration.allowedCardTypes = configuration.getAllowedCardsSet()
+        mcConfiguration.checkoutUrl = "https://sandbox.masterpass.com/routing/v2/mobileapi/web-checkout"
         mcConfiguration.merchantName = "Merchant"
+        
         mcConfiguration.callbackScheme = BuildConfiguration.sharedInstance.merchantUrlScheme()
         if (isExpressEnable) {
             mcConfiguration.merchantUserId = user.userId

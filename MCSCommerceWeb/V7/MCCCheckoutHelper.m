@@ -43,12 +43,11 @@
 }
 
 + (MCSConfiguration *)configurationWithConfiguration:(MCCConfiguration *)configuration {
-    MCFEnvironmentConfiguration *environmentConfiguration = [MCFEnvironmentConfiguration sharedInstance];
     NSSet<MCSCardType> *allowedCardTypes = [self cardTypesWithCardTypes:configuration.allowedCardTypes];
     
     return [[MCSConfiguration alloc] initWithLocale:configuration.locale
                                          checkoutId:configuration.checkoutId
-                                            checkoutUrl:environmentConfiguration.checkoutHost
+                                            checkoutUrl:configuration.checkoutUrl
                                      callbackScheme:configuration.callbackScheme
                                    allowedCardTypes:allowedCardTypes];
 }
