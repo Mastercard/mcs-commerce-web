@@ -1,7 +1,0 @@
-
-#include "Release.xcconfig"
-
-BWMP_IMAGE_HOST=static.masterpass.com
-kMASTERPASS_WALLET_HOST=wallet.masterpass.com
-kMASTERPASS_HOST=masterpass.com
-kENVIRONMENT=Production

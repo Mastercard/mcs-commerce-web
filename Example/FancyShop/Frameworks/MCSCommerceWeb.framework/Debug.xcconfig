@@ -1,6 +1,0 @@
-
-#include "Common.xcconfig"
-
-CODE_SIGN_IDENTITY[sdk=*]=iPhone Developer
-
-
