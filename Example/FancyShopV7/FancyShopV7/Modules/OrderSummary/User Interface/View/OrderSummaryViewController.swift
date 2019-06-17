@@ -211,7 +211,7 @@ class OrderSummaryViewController: BaseViewController, OrderSummaryViewProtocol, 
         self.masterPassButton = MasterpassSDKManager.sharedInstance.getMasterPassButton()
         
         if self.masterPassButton != nil {
-            self.masterPassButton?.addToview(self.buttonContainer)
+            self.masterPassButton?.add(to: self.buttonContainer)
         }
     }
     

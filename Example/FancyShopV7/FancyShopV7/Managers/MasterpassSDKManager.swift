@@ -38,6 +38,9 @@ class MasterpassSDKManager:NSObject, MCCMerchantDelegate {
         let user: User = User.sharedInstance
         let configuration: SDKConfiguration = SDKConfiguration.sharedInstance
         let mcConfiguration: MCCConfiguration = MCCConfiguration()
+        
+        mcConfiguration.checkoutId = Constants.SDKConfigurations.checkoutId
+        mcConfiguration.allowedCardTypes = configuration.getAllowedCardsSet()
         mcConfiguration.merchantName = "Merchant"
         mcConfiguration.callbackScheme = BuildConfiguration.sharedInstance.merchantUrlScheme()
         if (isExpressEnable) {
