@@ -29,12 +29,12 @@
  *
  * @param locale NSString type used for merchant locale.
  * @param checkoutId NSString type used for merchant identification.
- * @param baseUrl URL used to initiate checkout
+ * @param checkoutUrl URL used to initiate checkout
  * @param callbackScheme Custom scheme to communicate checkout response to the app
  */
 - (instancetype _Nonnull)initWithLocale:(NSLocale *_Nonnull)locale
                              checkoutId:(NSString *_Nonnull)checkoutId
-                                baseUrl:(NSString *_Nonnull)baseUrl
+                                checkoutUrl:(NSString *_Nonnull)checkoutUrl
                          callbackScheme:(NSString *_Nonnull)callbackScheme
                        allowedCardTypes:(NSSet <MCSCardType> *)allowedCardTypes;
 
@@ -47,10 +47,10 @@
 /** Merchant checkoutId generated during onboarding **/
 @property (nonatomic, copy, readwrite, nonnull) NSString *checkoutId;
 
-/** the SRCi base URL to launch (e.g. src.mastercard.com **/
-@property (nonatomic, copy, readwrite, nonnull) NSString *baseUrl;
+/** the URL used to launch the checkout experience (e.g. src.mastercard.com) **/
+@property (nonatomic, copy, readwrite, nonnull) NSString *checkoutUrl;
 
-/** The custom URL scheme used to communicate the checkout response back to this app **/
+/** The custom URL scheme used to communicate the checkout response back to this app (e.g. merchantapp) **/
 @property (nonatomic, copy, readwrite, nonnull) NSString *callbackScheme;
 
 @end

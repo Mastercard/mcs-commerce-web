@@ -48,7 +48,7 @@
     
     return [[MCSConfiguration alloc] initWithLocale:configuration.locale
                                          checkoutId:configuration.checkoutId
-                                            baseUrl:environmentConfiguration.checkoutHost
+                                            checkoutUrl:environmentConfiguration.checkoutHost
                                      callbackScheme:configuration.callbackScheme
                                    allowedCardTypes:allowedCardTypes];
 }

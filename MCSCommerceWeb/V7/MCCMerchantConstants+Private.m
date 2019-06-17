@@ -195,7 +195,7 @@ NSString * const kTransactionShippingProfileIdValue     = @"default";
 //Payment method image name
 NSString *const kPaymentMethodMasterPassLogoImageName   = @"logo";
 NSString *const kDefaultWalletIdentifier                = @"101";
-NSString *const kMasterPass                             = @"MasterPass";
+NSString *const kMasterPass                             = @"Masterpass";
 NSString *const kMasterPassBackgroundImageName          = @"background_black";
 NSString *const kMasterPassDefaultButtonImageName       = @"MasterpassButton";
 NSString *const kMasterPassLogoImageName                = @"MP-Logo";

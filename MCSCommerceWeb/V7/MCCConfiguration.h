@@ -39,13 +39,16 @@
 /** constrains the supported payment networks that the user can select for transaction being performed **/
 @property (nonatomic, strong, nonnull) NSSet<MCCCardType *> *allowedCardTypes;
 
+/** URL used to load the checkout experience **/
+@property (nonatomic, strong, nonnull) NSString *checkoutUrl;
+
 /** The merchantName to be used for display on checkout screen of wallet application **/
 @property (nonatomic, copy, nonnull) NSString * merchantName;
 
 /** boolean indicating whether this merchant supports express checkout **/
 @property (nonatomic, assign) BOOL expressCheckoutEnabled;
 
-/** URL Scheme used to callback from web to the application **/
+/** URL Scheme (e.g. merchantapp) used to callback from web to the application **/
 @property (nonatomic, copy, nonnull) NSString * callbackScheme;
 
 #pragma mark -

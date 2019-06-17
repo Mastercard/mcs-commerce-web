@@ -43,12 +43,12 @@ NSString * const _Nonnull CHECKOUT_ENDPOINT                     = @"/srci";
     MCSConfiguration *configuration = [[MCSConfigurationManager sharedManager] configuration];
     MCSCheckoutRequest *checkoutRequest = [[MCSConfigurationManager sharedManager] checkoutRequest];
     
-    if (![[configuration.baseUrl substringFromIndex:[configuration.baseUrl length] - 1] isEqualToString:@"/"] ) {
-        configuration.baseUrl = [[configuration baseUrl] stringByAppendingString:@"/"];
+    if (![[configuration.checkoutUrl substringFromIndex:[configuration.checkoutUrl length] - 1] isEqualToString:@"/"] ) {
+        configuration.checkoutUrl = [[configuration checkoutUrl] stringByAppendingString:@"/"];
     }
     
     NSDictionary *queryDictionary = [MCSCheckoutUrlBuilder dictionaryForCheckoutRequest:checkoutRequest configuration:configuration];
-    NSURLComponents *components = [NSURLComponents componentsWithString:configuration.baseUrl];
+    NSURLComponents *components = [NSURLComponents componentsWithString:configuration.checkoutUrl];
     NSMutableArray *queryItems = [NSMutableArray array];
     
     for (NSString *key in queryDictionary) {
