@@ -1,0 +1,4 @@
+
+#include "Common.xcconfig"
+
+EXCLUDED_SOURCE_FILE_NAMES="*.xcconfig"

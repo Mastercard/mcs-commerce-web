@@ -14,6 +14,7 @@
  =============================================================================*/
 
 #import "MCSWebViewController.h"
+#import "MCSActivityIndicatorView.h"
 
 @interface MCSWebViewController()
 
@@ -21,6 +22,7 @@
 @property (nonatomic, strong) NSString *scheme;
 @property (nonatomic, strong) WKWebView *webview;
 @property (nonatomic, strong) WKWebView *popup;
+@property (nonatomic, strong) MCSActivityIndicatorView *indicatorView;
 @property (nonatomic, weak) id<MCSWebCheckoutDelegate> delegate;
 
 @end
@@ -33,6 +35,9 @@
         self.url = url;
         self.scheme = scheme;
         self.delegate = delegate;
+        self.indicatorView = [[MCSActivityIndicatorView alloc] initWithTitle:@"Loading..."];
+        
+        [self.indicatorView setTargetForCancel:self action:@selector(cancel)];
     }
     
     return self;
@@ -42,7 +47,9 @@
     [super encodeWithCoder:aCoder];
 }
 
-- (void) loadView {
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
     WKPreferences *preferences = [[WKPreferences alloc] init];
     preferences.javaScriptCanOpenWindowsAutomatically = true;
     
@@ -50,24 +57,50 @@
     configuration.preferences = preferences;
     [configuration setURLSchemeHandler:self forURLScheme:self.scheme];
     
-    UIBarButtonItem *cancelButton = [[[UIBarButtonItem alloc] init] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];
-    self.navigationItem.title = @"Secure Remote Commerce";
-    self.navigationItem.leftBarButtonItem = cancelButton;
-    self.navigationController.navigationBar.translucent = NO;
-    
     _webview = [[WKWebView alloc] initWithFrame:CGRectZero configuration:configuration];
     _webview.UIDelegate = self;
     _webview.navigationDelegate = self;
     
-    self.view = _webview;
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:_url];
     
     [_webview loadRequest:request];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
+    [self.view addSubview:_webview];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self.view addSubview:_indicatorView];
+    [_indicatorView show];
+}
+
+- (void)viewSafeAreaInsetsDidChange {
+    [super viewSafeAreaInsetsDidChange];
+    
+    [self setConstraintsForView:_webview];
+}
+
+- (void)viewWillLayoutSubviews {
+    NSLog(@"View Will Layout Subviews");
+    if (_popup != nil) {
+        [_popup addSubview:_indicatorView];
+        [_indicatorView show];
+    }
+}
+
+- (void)setConstraintsForView:(UIView *)view {
+    UILayoutGuide *layoutGuide = self.view.safeAreaLayoutGuide;
+
+    [view setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    NSLayoutConstraint *leadingConstraint = [view.leadingAnchor constraintEqualToAnchor:layoutGuide.leadingAnchor];
+    NSLayoutConstraint *trailingConstraint = [view.trailingAnchor constraintEqualToAnchor:layoutGuide.trailingAnchor];
+    
+    [NSLayoutConstraint activateConstraints:@[leadingConstraint, trailingConstraint]];
+    
+    NSLayoutConstraint *topConstraint = [view.topAnchor constraintEqualToSystemSpacingBelowAnchor:layoutGuide.topAnchor multiplier:1.0];
+    NSLayoutConstraint *bottomConstraint = [layoutGuide.bottomAnchor constraintEqualToSystemSpacingBelowAnchor:view.bottomAnchor multiplier:1.0];
+    
+    [NSLayoutConstraint activateConstraints:@[topConstraint, bottomConstraint]];
 }
 
 - (WKWebView *) webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures {
@@ -75,9 +108,24 @@
     _popup.UIDelegate = self;
     _popup.navigationDelegate = self;
     
-    self.view = _popup;
+    [_popup addSubview:_indicatorView];
+    [self.view addSubview:_popup];
+    [_indicatorView show];
+    [self setConstraintsForView:_popup];
+    
     
     return _popup;
+}
+
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+    NSLog(@"Did finish navigation");
+    
+    [_indicatorView hide];
+    [_indicatorView removeFromSuperview];
+}
+
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
+    NSLog(@"Did start provisional navigation");
 }
 
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
@@ -93,9 +141,11 @@
 
 - (void) webViewDidClose:(WKWebView *)webView {
     if (webView == _popup) {
-        self.view = _webview;
+        [_popup removeFromSuperview];
         _popup = nil;
     } else {
+        [_webview removeFromSuperview];
+        _webview = nil;
         [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
     }
 }

@@ -1,12 +1,21 @@
-//
-//  MCCCheckoutHelper.m
-//  MCSCommerceWeb
-//
-//  Created by Deasy, Bret on 5/30/19.
-//  Copyright © 2019 Mastercard. All rights reserved.
-//
+/* Copyright © 2019 Mastercard. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ =============================================================================*/
 
 #import "MCCCheckoutHelper.h"
+#import "MCCCheckoutRequest.h"
+#import "MCCConfiguration.h"
 #import "MCSCheckoutRequest.h"
 #import "MCSConfiguration.h"
 #import "MCCMerchantConstants.h"
@@ -14,23 +23,6 @@
 #import "MCFEnvironmentConfiguration.h"
 
 @implementation MCCCheckoutHelper
-
-
-+ (MCSCommerceWeb *) checkoutWithConifg:(MCCConfiguration *)config request:(MCCCheckoutRequest *)request completionHandler:(void (^ _Nullable)(MCSCheckoutStatus status, NSString * _Nullable transactionId))completion {
-    
-    MCFEnvironmentConfiguration *envConfig = [MCFEnvironmentConfiguration sharedInstance];
-    MCSConfiguration *commerceConfig = [[MCSConfiguration alloc] initWithLocale:config.locale
-                                                                     checkoutId:request.checkoutId
-                                                                        baseUrl:envConfig.checkoutHost
-                                                                 callbackScheme:config.callbackScheme];
-    MCSCommerceWeb *commerceWeb = [[MCSCommerceWeb alloc] initWithConfiguration:commerceConfig];
-    MCSCheckoutRequest *commerceRequest = [MCCCheckoutHelper requestWithRequest:request];
-    
-    
-    [commerceWeb checkoutWithRequest:commerceRequest completionHandler:completion];
-    
-    return commerceWeb;
-}
 
 + (MCSCheckoutRequest *)requestWithRequest:(MCCCheckoutRequest *)request {
     MCSCheckoutRequest *newRequest = [[MCSCheckoutRequest alloc] init];
@@ -48,6 +40,16 @@
     newRequest.validityPeriodMinutes = [NSNumber numberWithInteger:request.validityPeriodMinutes];
     
     return newRequest;
+}
+
++ (MCSConfiguration *)configurationWithConfiguration:(MCCConfiguration *)configuration {
+    NSSet<MCSCardType> *allowedCardTypes = [self cardTypesWithCardTypes:configuration.allowedCardTypes];
+    
+    return [[MCSConfiguration alloc] initWithLocale:configuration.locale
+                                         checkoutId:configuration.checkoutId
+                                            checkoutUrl:configuration.checkoutUrl
+                                     callbackScheme:configuration.callbackScheme
+                                   allowedCardTypes:allowedCardTypes];
 }
 
 + (NSSet<MCSCardType> *)cardTypesWithCardTypes:(NSSet<MCCCardType *> *)cardTypes {

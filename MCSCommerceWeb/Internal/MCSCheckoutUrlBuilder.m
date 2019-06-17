@@ -15,7 +15,7 @@
 
 #import "MCSCheckoutUrlBuilder.h"
 #import "MCSCheckoutRequest.h"
-#import "MCSConfiguration.h"
+#import "MCSConfigurationManager.h"
 
 NSString * const _Nonnull kAllowedCardTypesKey                  = @"allowedCardTypes";
 NSString * const _Nonnull kAmountKey                            = @"amount";
@@ -39,13 +39,16 @@ NSString * const _Nonnull CHECKOUT_ENDPOINT                     = @"/srci";
 
 @implementation MCSCheckoutUrlBuilder
 
-+ (NSURL *)urlForCheckoutRequest:(MCSCheckoutRequest *)checkoutRequest configuration:(MCSConfiguration *)configuration {
-    if (![[configuration.baseUrl substringFromIndex:[configuration.baseUrl length] - 1] isEqualToString:@"/"] ) {
-        configuration.baseUrl = [[configuration baseUrl] stringByAppendingString:@"/"];
++ (NSURL *)urlForCheckout {
+    MCSConfiguration *configuration = [[MCSConfigurationManager sharedManager] configuration];
+    MCSCheckoutRequest *checkoutRequest = [[MCSConfigurationManager sharedManager] checkoutRequest];
+    
+    if (![[configuration.checkoutUrl substringFromIndex:[configuration.checkoutUrl length] - 1] isEqualToString:@"/"] ) {
+        configuration.checkoutUrl = [[configuration checkoutUrl] stringByAppendingString:@"/"];
     }
     
     NSDictionary *queryDictionary = [MCSCheckoutUrlBuilder dictionaryForCheckoutRequest:checkoutRequest configuration:configuration];
-    NSURLComponents *components = [NSURLComponents componentsWithString:configuration.baseUrl];
+    NSURLComponents *components = [NSURLComponents componentsWithString:configuration.checkoutUrl];
     NSMutableArray *queryItems = [NSMutableArray array];
     
     for (NSString *key in queryDictionary) {
