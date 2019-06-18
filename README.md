@@ -1,6 +1,7 @@
 # MCSCommerceWeb SDK
 
 1. [Overview](#ios-overview)
+1. [Installation](#ios-installation)
 1. [Configuration](#ios-configuration)
 1. [Checkout](#ios-checkout)
 1. [Checkout Button](#ios-checkout-button)
@@ -9,6 +10,16 @@
 ### <a name="ios-overview">Overview</a>
 
 MCSCommerceWeb SDK is a lightweight component used to integrate Merchants with [**EMV Secure Remote Commerce**](https://www.emvco.com/emv-technologies/src/) and Mastercard's web-based SRC-Initiator. MCSCommerceWeb facilitates the initiation of the checkout experience as well as returning the transaction result to the Merchant after completion.
+
+### <a name="ios-installation">Installation</a>
+
+####CocoaPods
+
+To integrate MCSCommerceWeb into your Xcode project, add the following to your `Podfile`:
+
+``` 
+pod 'MCSCommerceWeb', '~> 0.0.1'
+```
 
 ### <a name="ios-configuration">Configuration</a>
 When instantiating `MCSCommerceWeb`, an `MCSConfiguration` object needs to be provided.
