@@ -124,7 +124,7 @@ func checkoutDidComplete(with status: MCSCheckoutStatus, forTransaction transact
 
 ### <a name='ios-masterpass'>Migrating from MCCMerchant</a>
 
-If you are an existing merchant using `MCCMerchant` today, you can easily migrate to `MCSCommerceWeb` with minimal changes. Consider the following when migrating from `MCCMerchant` to `MCSCommerceWeb`
+If an existing application is using `MCCMerchant` today, it is easy to migrate to `MCSCommerceWeb` with minimal changes. Consider the following when migrating from `MCCMerchant` to `MCSCommerceWeb`
 
 #### Interfaces
 
