@@ -14,9 +14,14 @@
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
 	<string>FMWK</string>
-	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<string>1.0.0-beta1</string>
+	<key>SDKConfig</key>
+	<dict>
+		<key>CheckoutHost</key>
+		<string>${CHECKOUT_HOST}</string>
+		<key>ButtonImageHost</key>
+		<string>${BUTTON_IMAGE_HOST}</string>
+	</dict>
 </dict>
 </plist>

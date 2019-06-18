@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<device id="retina4_7" orientation="portrait">
+<adaptation id="fullscreen"/>
+</device>
+<dependencies>
+<deployment identifier="iOS"/>
+<plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+<capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+<capability name="Safe area layout guides" minToolsVersion="9.0"/>
+<capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+</dependencies>
+<customFonts key="customFonts">
+<array key="Avenir.ttc">
+<string>Avenir-Heavy</string>
+</array>
+</customFonts>
+<scenes>
+<!--Payment Methods View Controller-->
+<scene sceneID="S0H-tK-cCz">
+<objects>
+<viewController storyboardIdentifier="PaymentMethodsViewController" id="JRL-Xj-YuA" customClass="PaymentMethodsViewController" customModule="MerchantCheckoutApp" customModuleProvider="target" sceneMemberID="viewController">
+<view key="view" contentMode="scaleToFill" id="k2x-gV-y4M">
+<rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+<autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+<subviews>
+<view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mwb-ef-zfJ" userLabel="header">
+<rect key="frame" x="0.0" y="20" width="375" height="50"/>
+<subviews>
+<button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUi-ri-9MS">
+<rect key="frame" x="8" y="5" width="40" height="40"/>
+<constraints>
+<constraint firstAttribute="width" constant="40" id="Vjz-FZ-mih"/>
+<constraint firstAttribute="width" secondItem="UUi-ri-9MS" secondAttribute="height" multiplier="1:1" id="reh-zK-neR"/>
+</constraints>
+<state key="normal" image="backImage"/>
+<connections>
+<action selector="goBackAction:" destination="JRL-Xj-YuA" eventType="touchUpInside" id="Dn1-NQ-QLG"/>
+</connections>
+</button>
+<imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="titleImage" translatesAutoresizingMaskIntoConstraints="NO" id="4Cw-C9-TLS">
+<rect key="frame" x="138" y="7.5" width="99" height="35"/>
+</imageView>
+<button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfc-2E-8NC">
+<rect key="frame" x="327" y="5" width="40" height="40"/>
+<constraints>
+<constraint firstAttribute="width" constant="40" id="Ezv-Ei-Ux8"/>
+<constraint firstAttribute="width" secondItem="dfc-2E-8NC" secondAttribute="height" multiplier="1:1" id="Yqz-lf-CAs"/>
+</constraints>
+<state key="normal" image="cartButton"/>
+</button>
+</subviews>
+<color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+<constraints>
+<constraint firstItem="dfc-2E-8NC" firstAttribute="width" secondItem="dfc-2E-8NC" secondAttribute="height" multiplier="1:1" id="6uk-Bb-FyF"/>
+<constraint firstItem="4Cw-C9-TLS" firstAttribute="centerX" secondItem="mwb-ef-zfJ" secondAttribute="centerX" id="9ya-8T-mgk"/>
+<constraint firstAttribute="trailing" secondItem="dfc-2E-8NC" secondAttribute="trailing" constant="8" id="IVd-cW-N4C"/>
+<constraint firstItem="dfc-2E-8NC" firstAttribute="centerY" secondItem="mwb-ef-zfJ" secondAttribute="centerY" id="cQd-av-q8R"/>
+<constraint firstItem="UUi-ri-9MS" firstAttribute="centerY" secondItem="mwb-ef-zfJ" secondAttribute="centerY" id="cwG-NZ-xFi"/>
+<constraint firstAttribute="height" constant="50" id="eKn-cX-EwQ"/>
+<constraint firstItem="4Cw-C9-TLS" firstAttribute="centerY" secondItem="mwb-ef-zfJ" secondAttribute="centerY" id="hEq-my-FOx"/>
+<constraint firstItem="UUi-ri-9MS" firstAttribute="leading" secondItem="mwb-ef-zfJ" secondAttribute="leading" constant="8" id="snX-Y9-rPe"/>
+</constraints>
+</view>
+<view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O0L-aH-RDE">
+<rect key="frame" x="0.0" y="70" width="375" height="60"/>
+<subviews>
+<label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Methods" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixb-Gi-X8j">
+<rect key="frame" x="8" y="16.5" width="359" height="28"/>
+<fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+<color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+<nil key="highlightedColor"/>
+</label>
+</subviews>
+<color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+<constraints>
+<constraint firstItem="ixb-Gi-X8j" firstAttribute="leading" secondItem="O0L-aH-RDE" secondAttribute="leading" constant="8" id="RVw-Cn-2BO"/>
+<constraint firstAttribute="height" constant="60" id="gKu-B9-KTe"/>
+<constraint firstAttribute="trailing" secondItem="ixb-Gi-X8j" secondAttribute="trailing" constant="8" id="jNX-jn-lsL"/>
+<constraint firstItem="ixb-Gi-X8j" firstAttribute="centerY" secondItem="O0L-aH-RDE" secondAttribute="centerY" id="us2-59-Vic"/>
+</constraints>
+</view>
+<view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P36-f0-gLx" userLabel="separator">
+<rect key="frame" x="0.0" y="130" width="375" height="2"/>
+<color key="backgroundColor" red="0.96862745100000003" green="0.61960784310000006" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
+<constraints>
+<constraint firstAttribute="height" constant="2" id="Gai-vh-u87"/>
+</constraints>
+</view>
+<tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qLI-ch-MrF">
+<rect key="frame" x="0.0" y="132" width="375" height="535"/>
+<color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+<prototypes>
+<tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PaymentMethodsTableViewCell" id="G1d-t0-IcG" customClass="PaymentMethodsTableViewCell" customModule="MerchantApp" customModuleProvider="target">
+<rect key="frame" x="0.0" y="28" width="375" height="90"/>
+<autoresizingMask key="autoresizingMask"/>
+<tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G1d-t0-IcG" id="HhR-K7-GL8">
+<rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+<autoresizingMask key="autoresizingMask"/>
+<subviews>
+<imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="masterpasLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Tba-gr-WLT">
+<rect key="frame" x="24" y="32" width="41" height="26"/>
+</imageView>
+<label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="masterpass" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIj-OG-ExZ">
+<rect key="frame" x="73" y="35.5" width="74" height="19.5"/>
+<fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
+<nil key="textColor"/>
+<nil key="highlightedColor"/>
+</label>
+<label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZj-gy-b3f">
+<rect key="frame" x="157" y="45" width="0.0" height="0.0"/>
+<fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
+<nil key="textColor"/>
+<nil key="highlightedColor"/>
+</label>
+<button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1sz-SO-QrI">
+<rect key="frame" x="167" y="30" width="46" height="30"/>
+<constraints>
+<constraint firstAttribute="height" constant="30" id="H3t-Dd-7uR"/>
+<constraint firstAttribute="width" constant="46" id="dG1-Hb-N1P"/>
+</constraints>
+<fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
+<state key="normal" title="Delete"/>
+<connections>
+<action selector="deletePaymentMethodAction:" destination="JRL-Xj-YuA" eventType="touchUpInside" id="YO1-wd-Hzt"/>
+</connections>
+</button>
+</subviews>
+<constraints>
+<constraint firstItem="KIj-OG-ExZ" firstAttribute="centerY" secondItem="Tba-gr-WLT" secondAttribute="centerY" id="ElK-cS-92q"/>
+<constraint firstItem="cZj-gy-b3f" firstAttribute="leading" secondItem="KIj-OG-ExZ" secondAttribute="trailing" constant="10" id="KIc-xe-f7n"/>
+<constraint firstItem="1sz-SO-QrI" firstAttribute="centerY" secondItem="HhR-K7-GL8" secondAttribute="centerY" id="M9w-sO-pIm"/>
+<constraint firstItem="1sz-SO-QrI" firstAttribute="leading" secondItem="cZj-gy-b3f" secondAttribute="trailing" constant="10" id="O4v-4H-qMI"/>
+<constraint firstItem="cZj-gy-b3f" firstAttribute="centerY" secondItem="HhR-K7-GL8" secondAttribute="centerY" id="b7f-3d-xmr"/>
+<constraint firstItem="Tba-gr-WLT" firstAttribute="centerY" secondItem="HhR-K7-GL8" secondAttribute="centerY" id="dKo-Ka-mJg"/>
+<constraint firstItem="Tba-gr-WLT" firstAttribute="leading" secondItem="HhR-K7-GL8" secondAttribute="leading" constant="24" id="jWr-F6-qeM"/>
+<constraint firstItem="KIj-OG-ExZ" firstAttribute="leading" secondItem="Tba-gr-WLT" secondAttribute="trailing" constant="8" id="uRo-3f-Q7H"/>
+</constraints>
+</tableViewCellContentView>
+<connections>
+<outlet property="paymentMethodDeleteBtn" destination="1sz-SO-QrI" id="UFC-qA-lp8"/>
+<outlet property="paymentMethodImage" destination="Tba-gr-WLT" id="nSj-DJ-SOF"/>
+<outlet property="paymentMethodLastFourDigits" destination="cZj-gy-b3f" id="ecz-E8-CB8"/>
+<outlet property="paymentMethodNameLabel" destination="KIj-OG-ExZ" id="gwS-tP-SuB"/>
+</connections>
+</tableViewCell>
+</prototypes>
+<connections>
+<outlet property="dataSource" destination="JRL-Xj-YuA" id="JQP-SB-NCi"/>
+<outlet property="delegate" destination="JRL-Xj-YuA" id="qqp-km-AqO"/>
+</connections>
+</tableView>
+</subviews>
+<color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+<constraints>
+<constraint firstAttribute="trailing" secondItem="P36-f0-gLx" secondAttribute="trailing" id="3q1-jF-Z5u"/>
+<constraint firstItem="P36-f0-gLx" firstAttribute="leading" secondItem="k2x-gV-y4M" secondAttribute="leading" id="4Bv-Jk-xeB"/>
+<constraint firstItem="P36-f0-gLx" firstAttribute="top" secondItem="O0L-aH-RDE" secondAttribute="bottom" id="6Ym-Oj-hoO"/>
+<constraint firstItem="qLI-ch-MrF" firstAttribute="leading" secondItem="R15-xa-sVN" secondAttribute="leading" id="9v8-b1-P4S"/>
+<constraint firstItem="qLI-ch-MrF" firstAttribute="top" secondItem="P36-f0-gLx" secondAttribute="bottom" id="DHK-gW-0IT"/>
+<constraint firstItem="O0L-aH-RDE" firstAttribute="leading" secondItem="k2x-gV-y4M" secondAttribute="leading" id="IBe-QX-0U4"/>
+<constraint firstItem="R15-xa-sVN" firstAttribute="trailing" secondItem="mwb-ef-zfJ" secondAttribute="trailing" id="MyL-Ms-G3B"/>
+<constraint firstItem="R15-xa-sVN" firstAttribute="trailing" secondItem="O0L-aH-RDE" secondAttribute="trailing" id="TYg-Wt-YfP"/>
+<constraint firstItem="qLI-ch-MrF" firstAttribute="trailing" secondItem="R15-xa-sVN" secondAttribute="trailing" id="U2j-7K-e9j"/>
+<constraint firstItem="mwb-ef-zfJ" firstAttribute="top" secondItem="R15-xa-sVN" secondAttribute="top" id="Yfl-lV-JmM"/>
+<constraint firstItem="mwb-ef-zfJ" firstAttribute="leading" secondItem="k2x-gV-y4M" secondAttribute="leading" id="m1G-gw-Ne9"/>
+<constraint firstItem="R15-xa-sVN" firstAttribute="bottom" secondItem="qLI-ch-MrF" secondAttribute="bottom" id="rgs-H6-pQL"/>
+<constraint firstItem="O0L-aH-RDE" firstAttribute="top" secondItem="mwb-ef-zfJ" secondAttribute="bottom" id="vcc-cV-6Wv"/>
+</constraints>
+<viewLayoutGuide key="safeArea" id="R15-xa-sVN"/>
+</view>
+<connections>
+<outlet property="paymentMethodsTableView" destination="qLI-ch-MrF" id="nj1-am-iwC"/>
+</connections>
+</viewController>
+<placeholder placeholderIdentifier="IBFirstResponder" id="972-t1-rq7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+</objects>
+<point key="canvasLocation" x="2032.8" y="-1048.4257871064469"/>
+</scene>
+</scenes>
+<resources>
+<image name="backImage" width="16" height="27"/>
+<image name="cartButton" width="43" height="33"/>
+<image name="masterpasLogo" width="41" height="26"/>
+<image name="titleImage" width="99" height="35"/>
+</resources>
+</document>
