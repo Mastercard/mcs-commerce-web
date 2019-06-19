@@ -21,7 +21,7 @@
 		<key>CheckoutHost</key>
 		<string>${CHECKOUT_HOST}</string>
 		<key>ButtonImageHost</key>
-		<string>${BUTTON_IMAGE_HOST}</string>
+		<string>https://src.mastercard.com/assets/img/btn/src_chk_btn_376x088px.svg</string>
 	</dict>
 </dict>
 </plist>
