@@ -31,9 +31,7 @@
 - (instancetype)init {
     
     if (self = [super init]) {
-        NSDictionary * configDictionary = [[[NSBundle bundleForClass:[self class]] infoDictionary] valueForKey:kSDKConfig];
-    
-        _buttonImageHost = [configDictionary valueForKey:kButtonImageHost];
+        _buttonImageHost = @"https://src.mastercard.com/assets/img/btn/src_chk_btn_376x088px.svg";
     }
     
     return self;
