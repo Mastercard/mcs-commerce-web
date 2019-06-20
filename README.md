@@ -18,7 +18,7 @@ MCSCommerceWeb SDK is a lightweight component used to integrate Merchants with [
 To integrate MCSCommerceWeb into your Xcode project, add the following to your `Podfile`:
 
 ``` 
-pod 'MCSCommerceWeb', '~> 1.0.0-beta1'
+pod 'MCSCommerceWeb', '~> 1.0.0-beta3'
 ```
 
 ### <a name="ios-configuration">Configuration</a>
