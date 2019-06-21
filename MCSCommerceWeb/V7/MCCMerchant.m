@@ -99,6 +99,7 @@ static id<MCSCheckoutDelegate> delegateBridge;
         [MCCMerchant checkoutWithDelegate:merchantDelegate];
     } else {
         MCCCheckoutResponse *response = [[MCCCheckoutResponse alloc] init];
+        response.responseType = MCCMerchantCheckoutResponseWebCheckout;
         
         [merchantDelegate didFinishCheckout:response];
     }
