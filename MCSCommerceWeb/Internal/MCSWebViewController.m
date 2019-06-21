@@ -24,6 +24,7 @@
 @property (nonatomic, strong) WKWebView *popup;
 @property (nonatomic, strong) MCSActivityIndicatorView *indicatorView;
 @property (nonatomic, weak) id<MCSWebCheckoutDelegate> delegate;
+@property (nonatomic) BOOL isDismissing;
 
 @end
 
@@ -64,12 +65,13 @@
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:_url];
     
     [_webview loadRequest:request];
+    [_webview setAllowsBackForwardNavigationGestures:YES];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:_webview];
+    [self.view addSubview:_indicatorView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self.view addSubview:_indicatorView];
     [_indicatorView show];
 }
 
@@ -80,9 +82,7 @@
 }
 
 - (void)viewWillLayoutSubviews {
-    NSLog(@"View Will Layout Subviews");
     if (_popup != nil) {
-        [_popup addSubview:_indicatorView];
         [_indicatorView show];
     }
 }
@@ -108,24 +108,16 @@
     _popup.UIDelegate = self;
     _popup.navigationDelegate = self;
     
-    [_popup addSubview:_indicatorView];
-    [self.view addSubview:_popup];
     [_indicatorView show];
-    [self setConstraintsForView:_popup];
     
+    [self.view addSubview:_popup];
+    [self setConstraintsForView:_popup];
     
     return _popup;
 }
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
-    NSLog(@"Did finish navigation");
-    
     [_indicatorView hide];
-    [_indicatorView removeFromSuperview];
-}
-
-- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
-    NSLog(@"Did start provisional navigation");
 }
 
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
@@ -144,9 +136,7 @@
         [_popup removeFromSuperview];
         _popup = nil;
     } else {
-        [_webview removeFromSuperview];
-        _webview = nil;
-        [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
+        [self dismiss];
     }
 }
 
@@ -154,6 +144,11 @@
     NSURL *callbackUrl = urlSchemeTask.request.URL;
     NSURLComponents *urlComponents = [[NSURLComponents alloc] initWithURL:callbackUrl resolvingAgainstBaseURL:YES];
     MCSCheckoutResponse *checkoutResponse = [[MCSCheckoutResponse alloc] init];
+    
+    //I think this is an issue if we don't do this.
+    NSURLResponse *urlResponse = [[NSURLResponse alloc] init];
+    [urlSchemeTask didReceiveResponse:urlResponse];
+    [urlSchemeTask didFinish];
     
     for (NSURLQueryItem *item in [urlComponents queryItems]) {
         if ([item.name  isEqualToString:@"transactionId"]) {
@@ -167,8 +162,24 @@
         }
     }
     
-    [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
+    [self dismiss];
+    
     [_delegate checkoutCompletedWithResponse:checkoutResponse];
+}
+
+- (void)dismiss {
+    [[self presentingViewController] dismissViewControllerAnimated:YES completion:^{
+        [self->_popup stopLoading];
+        [self->_popup removeFromSuperview];
+        [self->_webview stopLoading];
+        [self->_webview removeFromSuperview];
+        [self->_indicatorView removeFromSuperview];
+        
+        self->_webview = nil;
+        self->_popup = nil;
+        self->_indicatorView = nil;
+        self.view = nil;
+    }];
 }
 
 - (void) webView:(nonnull WKWebView *)webView stopURLSchemeTask:(nonnull id<WKURLSchemeTask>)urlSchemeTask {
@@ -179,7 +190,7 @@
     MCSCheckoutResponse *checkoutResponse = [[MCSCheckoutResponse alloc] init];
     checkoutResponse.status = STATUS_CANCEL;
     
-    [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
+    [self dismiss];
     [_delegate checkoutCompletedWithResponse:checkoutResponse];
 }
 
