@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>FancyShop</string>
+	<string>FancyShopV7</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -29,7 +29,7 @@
 			<string>com.moofwdinc.us.merchantapp</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>principle</string>
+				<string>fancyshop</string>
 			</array>
 		</dict>
 	</array>
@@ -38,7 +38,7 @@
 	<key>Config</key>
 	<dict>
 		<key>Scheme</key>
-		<string>principle</string>
+		<string>fancyshop</string>
 	</dict>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>

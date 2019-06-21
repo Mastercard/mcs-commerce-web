@@ -39,9 +39,9 @@ class MasterpassSDKManager:NSObject, MCCMerchantDelegate {
         let configuration: SDKConfiguration = SDKConfiguration.sharedInstance
         let mcConfiguration: MCCConfiguration = MCCConfiguration()
         
-        mcConfiguration.checkoutId = Constants.SDKConfigurations.checkoutId
+        mcConfiguration.checkoutId = "ab230dfe76324d55a04c5955218c5815"
         mcConfiguration.allowedCardTypes = configuration.getAllowedCardsSet()
-        mcConfiguration.checkoutUrl = "https://sandbox.masterpass.com/routing/v2/mobileapi/web-checkout"
+        mcConfiguration.checkoutUrl = "https://stage3.masterpass.com/routing/v2/mobileapi/web-checkout"
         mcConfiguration.merchantName = "Merchant"
         
         mcConfiguration.callbackScheme = BuildConfiguration.sharedInstance.merchantUrlScheme()
