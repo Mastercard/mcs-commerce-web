@@ -194,4 +194,12 @@
     [_delegate checkoutCompletedWithResponse:checkoutResponse];
 }
 
+#if TARGET_IPHONE_SIMULATOR
+- (void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler {
+    NSURLCredential *cred = [[NSURLCredential alloc] initWithTrust:challenge.protectionSpace.serverTrust];
+    
+    completionHandler(NSURLSessionAuthChallengeUseCredential, cred);
+}
+#endif
+
 @end
