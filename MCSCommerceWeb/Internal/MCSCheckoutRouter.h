@@ -18,7 +18,7 @@
 #import "MCSViewControllerManager.h"
 
 /**
- * MCSCheckoutRouter ineracts with the ViewControllerManager
+ * MCSCheckoutRouter interacts with the ViewControllerManager
  * implementations in order to present the correct ViewController to
  * the user to complete checkout.
  *
@@ -32,7 +32,9 @@
  *
  * @param manager MCSViewControllerManager used to present the
  * checkout flow
+ * @param errorHandler completion block used for callback
+ * in case of an error
  */
-- (void) startWithViewControllerManager:(id<MCSViewControllerManager>)manager;
+- (void) startWithViewControllerManager:(id<MCSViewControllerManager>)manager errorHandler:(void (^)(void))errorHandler;
 
 @end

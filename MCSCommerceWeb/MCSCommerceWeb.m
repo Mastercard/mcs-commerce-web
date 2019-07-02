@@ -30,7 +30,7 @@
 @implementation MCSCommerceWeb
 static MCSCommerceWeb *sharedManager = nil;
 
-+(instancetype)sharedManager {
++ (instancetype)sharedManager {
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
@@ -46,7 +46,7 @@ static MCSCommerceWeb *sharedManager = nil;
     return button;
 }
 
-- (void) initWithConfiguration:(MCSConfiguration *)configuration {
+- (void)initWithConfiguration:(MCSConfiguration *)configuration {
     [[MCSConfigurationManager sharedManager] setConfiguration:configuration];
     [MCSCheckoutButtonManager sharedManager];
 }
@@ -59,10 +59,13 @@ static MCSCommerceWeb *sharedManager = nil;
     MCSCheckoutRouter *router = [[MCSCheckoutRouter alloc] init];
     MCSWebViewControllerManager *manager = [[MCSWebViewControllerManager alloc] initWithUrl:[url absoluteString] scheme:[[MCSConfigurationManager sharedManager] configuration].callbackScheme delegate:self];
     
-    [router startWithViewControllerManager:manager];
+    [router startWithViewControllerManager:manager errorHandler:^(void) {
+        [self.delegate checkoutRequest:[[MCSConfigurationManager sharedManager] checkoutRequest] didCompleteWithStatus:MCSCheckoutStatusCanceled forTransaction:nil];
+    }];
+    
 }
 
-- (void) checkoutCompletedWithResponse:(MCSCheckoutResponse *)response {
+- (void)checkoutCompletedWithResponse:(MCSCheckoutResponse *)response {
     MCSCheckoutStatus status;
     if ([STATUS_SUCCESS isEqualToString:response.status]) {
         status = MCSCheckoutStatusSuccess;
@@ -73,5 +76,5 @@ static MCSCommerceWeb *sharedManager = nil;
     if (_completionHandler) _completionHandler(status, response.transactionId);
     [_delegate checkoutRequest:[[MCSConfigurationManager sharedManager] checkoutRequest] didCompleteWithStatus:status forTransaction:response.transactionId];
 }
-         
+
 @end

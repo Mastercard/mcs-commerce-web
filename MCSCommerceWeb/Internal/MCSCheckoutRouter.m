@@ -14,11 +14,21 @@
  =============================================================================*/
 
 #import "MCSCheckoutRouter.h"
+#import "MCSReachability.h"
+#import "MCFCoreConstants.h"
 
 @implementation MCSCheckoutRouter
 
-- (void) startWithViewControllerManager:(id<MCSViewControllerManager>)manager {
-    [manager startWithViewController:[self topViewController]];
+- (void) startWithViewControllerManager:(id<MCSViewControllerManager>)manager errorHandler:(void (^)(void))errorHandler {
+    NSError *isReachableError = [MCSReachability isNetworkReachable];
+    
+    if (isReachableError) {
+         [self showAlert:kCoreNoInternetConnectionErrorInfo message:kCoreNoInternetConnectionMessage handler:^(UIAlertAction *action){
+             errorHandler();
+         }];
+    } else {
+        [manager startWithViewController:[self topViewController]];
+    }
 }
 
 - (UIViewController *)topViewController {
@@ -42,6 +52,18 @@
     UIViewController *presentedViewController = (UIViewController *)rootViewController.presentedViewController;
     
     return [self topViewController:presentedViewController];
+}
+
+- (void)showAlert:(NSString *)title message:(NSString *)message handler:(void (^)(UIAlertAction *))handler {
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:handler];
+    [alertController addAction:okAction];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[self topViewController] presentViewController:alertController animated:YES completion:nil];
+    });
 }
 
 @end

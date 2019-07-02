@@ -34,14 +34,14 @@ static id<MCSCheckoutDelegate> delegateBridge;
 
 @implementation MCCMerchant
 
-#pragma mark -
-#pragma mark Merchant SDK Initialization
+# pragma mark -
+# pragma mark Merchant SDK Initialization
 
 /*
  * Initialization will always return {@code MCCInitializationStateCompleted}
  *
  */
-+ (void) initializeSDKWithConfiguration:(MCCConfiguration *_Nonnull)configuration onStatusBlock:(void(^ __nonnull) (NSDictionary * __nonnull status, NSError * __nullable error))status {
++ (void)initializeSDKWithConfiguration:(MCCConfiguration *_Nonnull)configuration onStatusBlock:(void(^ __nonnull) (NSDictionary * __nonnull status, NSError * __nullable error))status {
     [[MCCConfigurationManager sharedManager] setConfiguration:configuration];
     
     MCSConfiguration *commerceConfig = [MCCCheckoutHelper configurationWithConfiguration:configuration];
@@ -57,7 +57,7 @@ static id<MCSCheckoutDelegate> delegateBridge;
  * Need to determine how we handle the MasterpassButton for checkout with SRCi.
  *
  */
-+(MCCMasterpassButton * _Nullable) getMasterPassButton:(id<MCCMerchantDelegate>) merchantDelegate {
++ (MCCMasterpassButton * _Nullable)getMasterPassButton:(id<MCCMerchantDelegate>) merchantDelegate {
     delegateBridge = [[MCSDelegateBridge alloc] initWithDelegate:merchantDelegate];
 
     return [[MCSCheckoutButtonManager sharedManager] checkoutButtonWithDelegate:delegateBridge];
@@ -94,7 +94,7 @@ static id<MCSCheckoutDelegate> delegateBridge;
  * This flow will always complete checkout. No pairing id will be returned.
  *
  */
-+(void)pairingWithCheckout:(BOOL)isCheckout merchantDelegate:(id<MCCMerchantDelegate> _Nonnull) merchantDelegate {
++ (void)pairingWithCheckout:(BOOL)isCheckout merchantDelegate:(id<MCCMerchantDelegate> _Nonnull) merchantDelegate {
     if (isCheckout) {
         [MCCMerchant checkoutWithDelegate:merchantDelegate];
     } else {
@@ -105,8 +105,8 @@ static id<MCSCheckoutDelegate> delegateBridge;
     }
 }
 
-#pragma  mark -
-#pragma  mark Add Payment
+# pragma  mark -
+# pragma  mark Add Payment
 
 /*
  * This will always return the same payment method, and all payment methods
