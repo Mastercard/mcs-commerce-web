@@ -26,6 +26,7 @@ NSString *const kMasterPassDefaultButtonImage       = @"MasterpassButton";
 @interface MCSCheckoutButtonManager()
 
 @property(nonatomic, strong, nullable) UIImage *buttonImage;
+@property(nonatomic, strong) MCCSVGImage *svg;
 
 @end
 
@@ -85,6 +86,10 @@ NSString *basePath = @"button/";
     
     NSURLSession *session = [NSURLSession sharedSession];
     [[session downloadTaskWithURL:components.URL completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        if (error) {
+            NSLog(@"Error: %@",[error localizedDescription]);
+        } else {
         NSData *responseData = [NSData dataWithContentsOfURL:location];
         //save the data to file
         [self imageWithData:responseData completionHandler:^(UIImage *image) {
@@ -96,14 +101,15 @@ NSString *basePath = @"button/";
             
             self.buttonImage = buttonImage;
         }];
+    }
         
     }] resume];
 }
 
 - (void)imageWithData:(NSData *)imageData completionHandler:(void (^)(UIImage *image))completionHandler {
-    MCCSVGImage *svg = [[MCCSVGImage alloc] init];
+    self.svg = [[MCCSVGImage alloc] init];
     
-    [svg imageWithData:imageData andSize:CGSizeMake(kCheckoutButtonWidth, kCheckoutButtonHeight) completionBlock:^(UIImage * _Nullable image, NSError * _Nullable error) {
+    [self.svg imageWithData:imageData andSize:CGSizeMake(kCheckoutButtonWidth, kCheckoutButtonHeight) completionBlock:^(UIImage * _Nullable image, NSError * _Nullable error) {
         completionHandler(image);
     }];
 }
