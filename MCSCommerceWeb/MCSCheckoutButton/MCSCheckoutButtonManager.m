@@ -49,7 +49,6 @@ NSString *basePath = @"button/";
     MCSCheckoutButton *checkoutButton = [[MCSCheckoutButton alloc] init];
     
     [checkoutButton setDelegate:delegate];
-    
     [checkoutButton setButtonImage:self.buttonImage];
     
     return checkoutButton;
@@ -64,13 +63,12 @@ NSString *basePath = @"button/";
     NSURL *saveUrl = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject];
     saveUrl = [saveUrl URLByAppendingPathComponent:fileName];
     
-    
     //Check if image is cached
     NSData *buttonData = [NSData dataWithContentsOfFile:saveUrl.path];
     if (buttonData != nil) {
-        UIImage *buttonImage = [UIImage imageWithData:buttonData];
+        UIImage *cacheImage = [UIImage imageWithData:buttonData];
         
-        self.buttonImage = buttonImage;
+        self.buttonImage = cacheImage;
     } else {
         // set default button image
         UIImage *defaultImg = [UIImage imageNamed:kMasterPassDefaultButtonImage inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
@@ -95,7 +93,7 @@ NSString *basePath = @"button/";
         //save the data to file
         [weakSelf imageWithData:responseData completionHandler:^(UIImage *image) {
             NSData *imageData = UIImagePNGRepresentation(image);
-            UIImage *buttonImage = [UIImage imageWithData:imageData];
+            UIImage *cacheImage = [UIImage imageWithData:imageData];
             NSError *error = nil;
             
             [imageData writeToFile:saveUrl.path options:NSDataWritingAtomic error:&error];
@@ -103,7 +101,7 @@ NSString *basePath = @"button/";
                 NSLog(@"Error: %@",[error localizedDescription]);
             }
             
-            weakSelf.buttonImage = buttonImage;
+            weakSelf.buttonImage = cacheImage;
         }];
     }
         
