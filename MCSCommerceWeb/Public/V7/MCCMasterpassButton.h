@@ -29,15 +29,10 @@
 @interface MCCMasterpassButton : UIButton
 
 /**
+ * Add the Masterpass button to the given superview using pre-determined layout constraints.
  *
- * Adds button on the view.
- *
- * This method will add the object of MCCMasterpassButton on the passed UIView object.
- *
- * @param superView
-    UIView object on which button will be added.
- *
+ * @param superView superview to which the button will be added
  */
-- (void)addButtonToView:(UIView* _Nonnull) superView;
+- (void)addButtonToView:(UIView* _Nonnull)superView;
 
 @end

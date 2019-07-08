@@ -34,17 +34,17 @@ class SRCSDKManager:NSObject, MCSCheckoutDelegate {
     }
     
     func initializeSdk(configuration: MCSConfiguration) {
-        commerceWeb.initWith(configuration)
+        commerceWeb.setConfiguration(withConfiguration: configuration)
         commerceWeb.delegate = self as MCSCheckoutDelegate
     }
     
     func getCheckoutButton(with: MCSCheckoutDelegate) -> MCSCheckoutButton {
-        return commerceWeb.checkoutButton(with: with)
+        return commerceWeb.getCheckoutButton(withDelegate: with)
     }
     
     func performCheckout(commerceRequest : MCSCheckoutRequest, completionHandler: @escaping (MCSCheckoutStatus,String?) -> ()) {
         self.completionHandler = completionHandler
-        commerceWeb.checkout(with: commerceRequest) { (status: MCSCheckoutStatus, transactionId: String?) in
+        commerceWeb.checkout(withRequest: commerceRequest) { (status: MCSCheckoutStatus, transactionId: String?) in
             print("Transaction completed via completion handler with status: \(status) and id: \(String(describing: transactionId))")
             completionHandler(status, transactionId)
         }
@@ -52,16 +52,15 @@ class SRCSDKManager:NSObject, MCSCheckoutDelegate {
     
     // MARK: Delegate methods
     
-    func checkoutRequest(forTransaction handler: ((MCSCheckoutRequest?) -> Void)!) {
+    func getCheckoutRequest(withHandler handler: @escaping (MCSCheckoutRequest) -> Void) {
         //No-op, only used with CheckoutButton. This class uses direct checkout
     }
     
-    func checkoutRequest(_ request: MCSCheckoutRequest!, didCompleteWith status: MCSCheckoutStatus, forTransaction transactionId: String?) {
-        print("Transaction completed via delegate with status: \(status) and id: \(String(describing: transactionId))")
+    func checkoutCompleted(withRequest request: MCSCheckoutRequest!, status: MCSCheckoutStatus, transactionId: String?) {
         completionHandler?(status, transactionId)
     }
     
     func checkoutDidComplete(with status: MCSCheckoutStatus, forTransaction transactionId: String?) {
-        
+        completionHandler?(status, transactionId)
     }
 }

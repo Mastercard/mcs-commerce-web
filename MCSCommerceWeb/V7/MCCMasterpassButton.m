@@ -19,7 +19,7 @@
 
 @implementation MCCMasterpassButton
 
-- (void)addButtonToView:(UIView *)superView {
+- (void)addButtonToView:(UIView * _Nonnull)superView {
     [superView addSubview:self];
     
     self.translatesAutoresizingMaskIntoConstraints = NO;

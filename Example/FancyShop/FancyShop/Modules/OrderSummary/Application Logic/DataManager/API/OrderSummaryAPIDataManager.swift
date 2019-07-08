@@ -101,12 +101,12 @@ class OrderSummaryAPIDataManager: OrderSummaryAPIDataManagerInputProtocol, MCSCh
     
     // MARK: Delegate methods
     
-    func checkoutRequest(forTransaction handler: ((MCSCheckoutRequest?) -> Void)!) {
+    func getCheckoutRequest(withHandler handler: @escaping (MCSCheckoutRequest) -> Void) {
         handler(getCheckoutRequest())
     }
     
-    func checkoutRequest(_ request: MCSCheckoutRequest!, didCompleteWith status: MCSCheckoutStatus, forTransaction transactionId: String?) {
-        completionHandler?(["TransactionId" : transactionId ?? ""], nil)
+    func checkoutCompleted(withRequest request: MCSCheckoutRequest!, status: MCSCheckoutStatus, transactionId: String?) {
+            completionHandler?(["TransactionId" : transactionId ?? ""], nil)
     }
     
     /// Perform checkout operation by using commerceSDK manager

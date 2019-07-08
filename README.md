@@ -1,21 +1,23 @@
-# MCSCommerceWeb SDK
+# MCSCommerceWeb
 
 1. [Overview](#ios-overview)
 1. [Installation](#ios-installation)
 1. [Configuration](#ios-configuration)
-1. [Checkout](#ios-checkout)
 1. [Checkout Button](#ios-checkout-button)
+1. [Checkout](#ios-checkout)
 1. [Migrating from MCCMerchant](#ios-masterpass)
 
 ### <a name="ios-overview">Overview</a>
 
-MCSCommerceWeb SDK is a lightweight component used to integrate Merchants with [**EMV Secure Remote Commerce**](https://www.emvco.com/emv-technologies/src/) and Mastercard's web-based SRC-Initiator. MCSCommerceWeb facilitates the initiation of the checkout experience as well as returning the transaction result to the Merchant after completion.
+`MCSCommerceWeb` is a lightweight framework used to integrate Merchants with [**EMV Secure Remote Commerce**](https://www.emvco.com/emv-technologies/src/) and Mastercard's web-based SRC-Initiator with backward compatibility for existing Masterpass integrations. `MCSCommerceWeb` facilitates the initiation of the checkout experience and returns the transaction result to the Merchant after completion.
+
+***Note: currently, this framework is only re ommended for existing U.S. Masterpass merchants.***
 
 ### <a name="ios-installation">Installation</a>
 
 #### CocoaPods
 
-To integrate MCSCommerceWeb into your Xcode project, add the following to your `Podfile`:
+To include `MCSCommerceWeb` in your Xcode project, include the following in your project's `Podfile`:
 
 ``` 
 pod 'MCSCommerceWeb', '~> 1.0.0-beta3'
@@ -28,15 +30,16 @@ When instantiating `MCSCommerceWeb`, an `MCSConfiguration` object needs to be pr
 
 * `locale`: This is the locale in which the transaction is processing
 * `checkoutId`: The unique identifier assigned to the merchant during onboarding
-* `checkoutUrl`: The URL used to load the checkout experience. Note: when testing in the Sandbox environment, use `https://sbx.src.mastercard.com/srci`. For Production, use  `https://src.mastercard.com/srci`. See below table for Masterpass URLs which can be used here.
-* `callbackScheme`: This must match the scheme component of the `callbackUrl` configured for this merchant. This value is used to verify the callback redirect from SRCi.
+* `checkoutUrl`: The URL used to load the checkout experience. *Note: when testing in the Sandbox environment, use `https://sandbox.masterpass.com/routing/v2/mobileapi/web-checkout `. For Production, use  `https://masterpass.com/routing/v2/mobileapi/web-checkout `.*
+* `callbackScheme`: This must match the scheme component of the `callbackUrl` configured for this merchant. This value is required to redirect back from the `WKWebView`
 * `allowedCardTypes` : The payment networks supported by this merchant (e.g. master, visa, amex).
 
 
 ```swift
+//Swift
 let locale = Locale(identifier: "en_us")
 let checkoutId = "1d45705100044e14b52e71730e71cc5a"
-let checkoutUrl = "https://src.mastercard.com/srci";
+let checkoutUrl = "https://masterpass.com/routing/v2/mobileapi/web-checkout";
 let callbackScheme = "fancyshop";
 let allowedCardTypes = [.master, .visa]
     
@@ -47,29 +50,84 @@ let commerceConfig = MCSConfiguration(
     callbackScheme: callbackScheme,
     allowedCardTypes: allowedCardTypes)
     
-let commerceWeb = MCSCommerceWeb(configuration: commerceConfig)
+let commerceWeb = MCSCommerceWeb.sharedManager()
+commerceWeb.setConfiguration(withConfiguration: commerceConfig)
+```
+
+```objective-c
+//Objective-C
+NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_us"];
+NSString *checkoutId = @"1d45705100044e14b52e71730e71cc5a";
+NSString *checkoutUrl = @"https://masterpass.com/routing/v2/mobileapi/web-checkout";
+NSString *callbackScheme = @"fancyshop";
+NSSet *allowedCardTypes = [NSSet setWithObject:MCSCardTypeMaster, MCSCardTypeVisa];
+MCSConfiguration *config = [[MCSConfiguration alloc] initWithLocale:locale
+                                                         checkoutId:checkoutId
+                                                        checkoutUrl:checkoutUrl
+                                                     callbackScheme:callbackScheme
+                                                   allowedCardTypes:allowedCardTypes];
+
+MCSCommerceWeb *commerceWeb = [MCSCommerceWeb sharedManager];
+[commerceWeb initWithConfiguration:config];
 ```
 
 ### <a name="ios-checkout-button">Checkout Button</a>
 
-One option for initiating a transaction is to use the `MCSCheckoutButton` returned by 
+One option for initiating a transaction is to add the `MCSCheckoutButton` to the view, allowing the user to touch on it.
 
 ```swift
-//MCSCommerceWeb.h
-- (MCSCheckoutButton *)checkoutButtonWithDelegate:(id<MCSCheckoutDelegate>)delegate;
+//Swift
+//SomeViewController.swift
+let button = commerceWeb.getCheckoutButton(withDelegate:checkoutDelegate)
+button.addToSuperview(superview: buttonContainer)
 ```
 
-Use the `addButtonToView:` message to send the `superview` to attach this button to.
+```objective-c
+//Objective-C
+//SomeViewController.m
+MCSCheckoutButton *button = [commerceWeb checkoutButtonWithDelegate:checkoutDelegate];
+[button addToSuperview:buttonContainer];
+```
 
-#### MCSCheckoutDelegate
 
-the `MCSDelegate` object sent to `checkoutButtonWithDelegate:` will receive `checkoutRequestForTransaction:`, which should provide the `MCSCheckoutRequest` to complete this transaction.
+#### `withDelegate:`
+
+
+The `MCSDelegate` provided has the following methods:
+
+```swift
+//Swift
+//Fetches the checkout request object required to initiate this transaction.
+func getCheckoutRequest(withHandler: @escaping (MCSCheckoutRequest) -> Void)
+
+//Notifies the delegate when the transaction has completed
+func checkoutCompleted(withRequest request: MCSCheckoutRequest, status: MCSCheckoutStatus, transactionId: String?)
+```
+
+```c
+//Objective-C
+//Fetches the checkout request object required to initiate this transaction.
+- (void)checkoutRequestForTransaction:(nonnull void(^)(MCSCheckoutRequest * _Nonnull checkoutRequest))handler;
+
+//Notifies the delegate when the transaction has completed
+- (void)checkoutRequest:(MCSCheckoutRequest *)request didCompleteWithStatus:(MCSCheckoutStatus)status forTransaction:(NSString * _Nullable)transactionId;
+```
+
+
 
 ### <a name="ios-checkout">Checkout</a>
 
-The second option for initiating a transaction is to send `checkoutWithRequest:completionHandler` to `MCSCommerceWeb`.
+The second option for initiating a transaction is to call
 
-Calling `checkout(with: MCSCheckoutRequest, (MCSCheckoutStatus, String?) -> ())` on the `MCSCommerceWeb` object will initiate the checkout experience.
+```swift
+//Swift
+func checkout(withRequest: MCSCheckoutRequest, completionHandler: ((MCSCheckoutStatus, String?) -> Void)?)
+```
+
+```objective-c
+//Objective-C
+- (void)checkoutWithRequest:(MCSCheckoutRequest *_Nonnull)request completionHandler:(void (^ _Nullable)(MCSCheckoutStatus status, NSString * _Nullable transactionId))completion;
+```
 
 * `request`: Data object with transaction-specific parameters needed to complete checkout. This request can also override existing merchant configurations.
 	* Required fields:
@@ -87,13 +145,14 @@ Calling `checkout(with: MCSCheckoutRequest, (MCSCheckoutStatus, String?) -> ())`
 		* `validityPeriodMinutes`: the expiration time of a generated cryptogram, in minutes
 
 ```swift
+//Swift
 let checkoutRequest = MCSCheckoutRequest()
 checkoutRequest.amount = NSDecimalNumber(string: String(shoppingCart.total))
 checkoutRequest.currency = sdkConfig.currency
 checkoutRequest.cartId = shoppingCart.cartId
 checkoutRequest.allowedCardTypes = [.master,.visa]
 checkoutRequest.suppressShippingAddress = sdkConfig.suppressShipping
-checkoutRequest.callbackUrl = "MerchantApp://"
+checkoutRequest.callbackUrl = "fancyshop://"
 checkoutRequest.unpredictableNumber = "12345678"
     
 let cryptoOptionVisa = MCSCryptoOptions()
@@ -106,7 +165,7 @@ cryptoOptionMaster.format = ["ICC,UCAF"]
 
 checkoutRequest.cryptoOptions = [cryptoOptionMaster,cryptoOptionVisa]
     
-commerceWebSdk.checkout(with: checkoutRequest) { (status: MCSCheckoutStatus, transactionId: String?) in
+commerceWeb.checkout(with: checkoutRequest) { (status: MCSCheckoutStatus, transactionId: String?) in
 	if (MCSCheckoutStatus == MCSCheckoutStatus.success) {
 		//complete transaction
 	} else {
@@ -115,22 +174,39 @@ commerceWebSdk.checkout(with: checkoutRequest) { (status: MCSCheckoutStatus, tra
 }
 ```
 
-Optionally, a delegate can be assigned to `commerceWebSdk`
+```objective-c
+//Objective-C
+MCSCheckoutRequest *checkoutRequest = [MCSCheckoutRequest alloc] init];
+checkoutRequest.amount = [[NSDecimalNumber alloc] initWithString:shoppingCart.total];
+checkoutRequest.currency = sdkConfig.currency
+checkoutRequest.cartId = shoppingCart.cartId
+checkoutRequest.allowedCardTypes = [NSSet setWithObjects:MCSCardTypeMaster, MCSCardTypeVisa, nil];
+checkoutRequest.suppressShippingAddress = sdkConfig.suppressShipping;
+checkoutRequest.callbackUrl = @"fancyshop://";
+checkoutRequest.unpredictableNumber = @"12345678";
 
-```swift
-commerceWebSdk.delegate = self
+MCSCryptoOptions *cryptoOptionMaster = [[MCSCryptoOptions alloc] init];
+cryptoOptionMaster.cardType = MCSCardTypeMaster;
+cryptoOptionMaster.format = @[MCSCryptoFormatICC, MCSCryptoFormatUCAF];
+
+checkoutRequest.cryptoOptions = @[cryptoOptionMaster];
+
+[commerceWeb checkoutWithRequest:checkoutRequest completionHandler:^(MCSCheckoutStatus status, NSString * _Nullable transactionId) {
+  //Checkout complete
+  //Completion handler can be null
+}];
 ```
 
-`self` must then conform to the `MCSCommerceDelegate` protocol.
+Optionally, a delegate can be assigned to `commerceWeb`
 
 ```swift
-func checkoutDidComplete(with status: MCSCheckoutStatus, forTransaction transactionId: String?) {
-    if (status == MCSCheckoutStatus.success) {
-        //complete transaction
-    } else {
-        //transaction canceled
-    }
-}
+//Swift
+commerceWeb.delegate = checkoutDelegate
+```
+
+```objective-c
+//Objective-C
+commerceWeb.delegate = checkoutDelegate;
 ```
 
 ### <a name='ios-masterpass'>Migrating from MCCMerchant</a>
@@ -142,14 +218,16 @@ If an existing application is using `MCCMerchant` today, it is easy to migrate t
 The `MCCMerchant` interface is included in this SDK, however `import` statements must update to use the `MCSCommerceWeb` module.
 
 ```swift
-//swift
+//Swift
 //previous import statement
 import MCCMerchant
 
 //current import statement
 import MCSCommerceWeb
+```
 
-//objective-c
+```objective-c
+//Objective-C
 //previous
 #import <MCCMerchant/MCCMerchant.h>
 
@@ -166,12 +244,11 @@ import MCSCommerceWeb
 * `callbackScheme` : The scheme used to return data to this application. This is the value configured in `URL Schemes` in the `info.plist`
 * `checkoutUrl` : The URL used to load the checkout experience. Note: if you are migrating to `MCSCommerceWeb`, but still plan to checkout with `Masterpass`, you will still need to provide this URL.
 
-|Environment | URL	|
-|--------------------|----------------------------------|
-|Masterpass Sandbox	 | https://sandbox.masterpass.com/routing/v2/mobileapi/web-checkout	 |
-|Masterpass Production | https://masterpass.com/routing/v2/mobileapi/web-checkout |
-|SRCi Sandbox			| https://sbx.src.mastercard.com/srci |
-|SRCi Production		| https://src.mastercard.com/srci |
+| Environment           | URL	                                                              |
+|-----------------------|-------------------------------------------------------------------|
+| Masterpass Sandbox    | https://sandbox.masterpass.com/routing/v2/mobileapi/web-checkout  |
+| Masterpass Production | https://masterpass.com/routing/v2/mobileapi/web-checkout          |
+
 
 ##### Handle checkout response
 

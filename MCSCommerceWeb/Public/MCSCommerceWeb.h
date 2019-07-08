@@ -37,9 +37,9 @@ FOUNDATION_EXPORT const unsigned char MCSCommerceWebVersionString[];
 
 @protocol MCSCheckoutDelegate
 
-- (void)checkoutRequestForTransaction:(void(^)(MCSCheckoutRequest *checkoutRequest))handler;
+- (void)checkoutRequestForTransaction:(nonnull void(^)(MCSCheckoutRequest * _Nonnull checkoutRequest))handler NS_SWIFT_NAME(getCheckoutRequest(withHandler:));
 
-- (void)checkoutRequest:(MCSCheckoutRequest *)request didCompleteWithStatus:(MCSCheckoutStatus)status forTransaction:(NSString * _Nullable)transactionId;
+- (void)checkoutRequest:(MCSCheckoutRequest *)request didCompleteWithStatus:(MCSCheckoutStatus)status forTransaction:(NSString * _Nullable)transactionId NS_SWIFT_NAME(checkoutCompleted(withRequest:status:transactionId:));
 
 @end
 
@@ -75,9 +75,10 @@ FOUNDATION_EXPORT const unsigned char MCSCommerceWebVersionString[];
  * @param configuration Configuration object used by MCSCommerceWeb in order to determine the
  * capabilities of the merchant initiated the checkout
  */
-- (void)initWithConfiguration:(MCSConfiguration *_Nonnull)configuration;
+- (void)initWithConfiguration:(MCSConfiguration *_Nonnull)configuration NS_SWIFT_NAME(setConfiguration(withConfiguration:));
 
-- (MCSCheckoutButton *)checkoutButtonWithDelegate:(id<MCSCheckoutDelegate>)delegate;
+
+- (MCSCheckoutButton *)checkoutButtonWithDelegate:(id<MCSCheckoutDelegate>)delegate NS_SWIFT_NAME(getCheckoutButton(withDelegate:));
 
 /**
  * Start the checkout experience using transaction details specified
@@ -92,6 +93,6 @@ FOUNDATION_EXPORT const unsigned char MCSCommerceWebVersionString[];
  * otherwise if Status is Canceled, transactionId will be null. If
  * this completionHandler is nil, the delegate property must be set.
  */
-- (void)checkoutWithRequest:(MCSCheckoutRequest *_Nonnull)request completionHandler:(void (^ _Nullable)(MCSCheckoutStatus status, NSString * _Nullable transactionId))completion;
+- (void)checkoutWithRequest:(MCSCheckoutRequest *_Nonnull)request completionHandler:(void (^ _Nullable)(MCSCheckoutStatus status, NSString * _Nullable transactionId))completion NS_SWIFT_NAME(checkout(withRequest:completionHandler:));
 
 @end

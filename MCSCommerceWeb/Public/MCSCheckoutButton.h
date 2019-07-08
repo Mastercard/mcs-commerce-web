@@ -29,14 +29,10 @@ extern CGFloat const kCheckoutButtonWidth;
 extern CGFloat const kCheckoutButtonHeight;
 
 /**
+ * Add the checkout button to the given superview using pre-determined layout constraints.
  *
- * Adds button on the view.
- *
- * This method will add the object of MCSCheckoutButton on the passed UIView object.
- *
- * @param superView UIView object on which button will be added.
- *
+ * @param superview view to which the button will be added
  */
-- (void)addButtonToView:(UIView* _Nonnull) superView;
+- (void)addToSuperview:(UIView * _Nonnull)superview NS_SWIFT_NAME(addToSuperview(superview:));
 
 @end

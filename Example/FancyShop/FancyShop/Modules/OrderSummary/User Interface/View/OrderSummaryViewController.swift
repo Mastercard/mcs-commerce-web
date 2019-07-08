@@ -72,7 +72,7 @@ class OrderSummaryViewController: BaseViewController, OrderSummaryViewProtocol, 
         self.presenter?.fetchItemsFromShoppingCart()
         
         if (self.buttonContainer.subviews.filter{$0 is MCSCheckoutButton}.isEmpty) {
-            let checkoutBUtton = self.presenter?.getCheckoutButton(completionHandler: { (response, error) in
+            let checkoutButton = self.presenter?.getCheckoutButton(completionHandler: { (response, error) in
                 if let err = error {
                     let errorCode = "errorCode :\((err as NSError).code)"
                     let alert = UIAlertController(title:errorCode, message:err.localizedDescription, preferredStyle: UIAlertController.Style.alert)
@@ -87,7 +87,7 @@ class OrderSummaryViewController: BaseViewController, OrderSummaryViewProtocol, 
                 }
             })
             
-                checkoutBUtton?.add(to: self.buttonContainer)
+                checkoutButton?.addToSuperview(superview: self.buttonContainer)
         }
     }
     

@@ -37,8 +37,8 @@ NSString * const kCheckoutButtonAccessibilityIdentifier = @"checkoutButton";
     return self;
 }
 
-- (void)addButtonToView:(UIView *)superView {
-    [super addButtonToView:superView];
+- (void)addToSuperview:(UIView *)superview {
+    [super addButtonToView:superview];
 }
 
 - (void)buttonTapped:(id)sender {
