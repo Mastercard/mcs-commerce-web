@@ -85,6 +85,7 @@ NSString *basePath = @"button/";
     [components setQueryItems:@[localeQueryItem, allowedCardsQueryItem, checkoutIdQueryItetm]];
     
     NSURLSession *session = [NSURLSession sharedSession];
+    MCSCheckoutButtonManager * __weak weakSelf = self;
     [[session downloadTaskWithURL:components.URL completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         if (error) {
@@ -92,14 +93,17 @@ NSString *basePath = @"button/";
         } else {
         NSData *responseData = [NSData dataWithContentsOfURL:location];
         //save the data to file
-        [self imageWithData:responseData completionHandler:^(UIImage *image) {
+        [weakSelf imageWithData:responseData completionHandler:^(UIImage *image) {
             NSData *imageData = UIImagePNGRepresentation(image);
             UIImage *buttonImage = [UIImage imageWithData:imageData];
             NSError *error = nil;
             
             [imageData writeToFile:saveUrl.path options:NSDataWritingAtomic error:&error];
+            if (error) {
+                NSLog(@"Error: %@",[error localizedDescription]);
+            }
             
-            self.buttonImage = buttonImage;
+            weakSelf.buttonImage = buttonImage;
         }];
     }
         
