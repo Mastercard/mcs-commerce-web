@@ -74,7 +74,7 @@ NSString *basePath = @"button/";
         UIImage *defaultImg = [UIImage imageNamed:kMasterPassDefaultButtonImage inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
         self.buttonImage = defaultImg;
     }
-    //If not cached, download from URL
+    //Download image from URL
     NSURLComponents *components = [NSURLComponents componentsWithURL:buttonUrl resolvingAgainstBaseURL:YES];
     NSURLQueryItem *localeQueryItem = [[NSURLQueryItem alloc] initWithName:@"locale" value:locale.localeIdentifier];
     NSURLQueryItem *allowedCardsQueryItem = [[NSURLQueryItem alloc] initWithName:@"acceptedCardBrands" value:[allowedCardTypes.allObjects componentsJoinedByString:@","]];
