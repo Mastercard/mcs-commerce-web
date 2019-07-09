@@ -21,10 +21,11 @@
 #import "MCCSVGImage.h"
 #import "MCSCheckoutButton+Private.h"
 
+NSString *const kMasterPassDefaultButtonImage       = @"MasterpassButton";
+
 @interface MCSCheckoutButtonManager()
 
 @property(nonatomic, strong, nullable) UIImage *buttonImage;
-@property(nonatomic, strong) MCSCheckoutButton *button;
 @property(nonatomic, strong) MCCSVGImage *svg;
 
 @end
@@ -48,12 +49,7 @@ NSString *basePath = @"button/";
     MCSCheckoutButton *checkoutButton = [[MCSCheckoutButton alloc] init];
     
     [checkoutButton setDelegate:delegate];
-    
-    if (self.buttonImage != nil) {
-        [checkoutButton setButtonImage:self.buttonImage];
-    } else {
-        self.button = checkoutButton;
-    }
+    [checkoutButton setButtonImage:self.buttonImage];
     
     return checkoutButton;
 }
@@ -67,46 +63,49 @@ NSString *basePath = @"button/";
     NSURL *saveUrl = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject];
     saveUrl = [saveUrl URLByAppendingPathComponent:fileName];
     
-    
     //Check if image is cached
     NSData *buttonData = [NSData dataWithContentsOfFile:saveUrl.path];
     if (buttonData != nil) {
-        UIImage *buttonImage = [UIImage imageWithData:buttonData];
+        UIImage *cacheImage = [UIImage imageWithData:buttonData];
         
-        if (self.button != nil) {
-            [self.button setButtonImage:buttonImage];
-        } else {
-            self.buttonImage = buttonImage;
-        }
+        self.buttonImage = cacheImage;
     } else {
-        //If not cached, download from URL
-        NSURLComponents *components = [NSURLComponents componentsWithURL:buttonUrl resolvingAgainstBaseURL:YES];
-        NSURLQueryItem *localeQueryItem = [[NSURLQueryItem alloc] initWithName:@"locale" value:locale.localeIdentifier];
-        NSURLQueryItem *allowedCardsQueryItem = [[NSURLQueryItem alloc] initWithName:@"acceptedCardBrands" value:[allowedCardTypes.allObjects componentsJoinedByString:@","]];
-        NSURLQueryItem *checkoutIdQueryItetm = [[NSURLQueryItem alloc] initWithName:@"checkoutId" value:checkoutId];
-        
-        [components setQueryItems:@[localeQueryItem, allowedCardsQueryItem, checkoutIdQueryItetm]];
-        
-        NSURLSession *session = [NSURLSession sharedSession];
-        [[session downloadTaskWithURL:components.URL completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            NSData *responseData = [NSData dataWithContentsOfURL:location];
-            //save the data to file
-            [self imageWithData:responseData completionHandler:^(UIImage *image) {
-                NSData *imageData = UIImagePNGRepresentation(image);
-                UIImage *buttonImage = [UIImage imageWithData:imageData];
-                
-//                [imageData writeToFile:saveUrl.path atomically:YES];
-                
-                NSError *error = nil;
-                [imageData writeToFile:saveUrl.path options:NSDataWritingAtomic error:&error];
-                
-                self.buttonImage = buttonImage;
-                [self.button setButtonImage:buttonImage];
-            }];
-            
-        }] resume];
-        
+        // set default button image
+        UIImage *defaultImg = [UIImage imageNamed:kMasterPassDefaultButtonImage inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
+        self.buttonImage = defaultImg;
     }
+    //Download image from URL
+    NSURLComponents *components = [NSURLComponents componentsWithURL:buttonUrl resolvingAgainstBaseURL:YES];
+    NSURLQueryItem *localeQueryItem = [[NSURLQueryItem alloc] initWithName:@"locale" value:locale.localeIdentifier];
+    NSURLQueryItem *allowedCardsQueryItem = [[NSURLQueryItem alloc] initWithName:@"acceptedCardBrands" value:[allowedCardTypes.allObjects componentsJoinedByString:@","]];
+    NSURLQueryItem *checkoutIdQueryItetm = [[NSURLQueryItem alloc] initWithName:@"checkoutId" value:checkoutId];
+    
+    [components setQueryItems:@[localeQueryItem, allowedCardsQueryItem, checkoutIdQueryItetm]];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    MCSCheckoutButtonManager * __weak weakSelf = self;
+    [[session downloadTaskWithURL:components.URL completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        if (error) {
+            NSLog(@"Error: %@",[error localizedDescription]);
+        } else {
+        NSData *responseData = [NSData dataWithContentsOfURL:location];
+        //save the data to file
+        [weakSelf imageWithData:responseData completionHandler:^(UIImage *image) {
+            NSData *imageData = UIImagePNGRepresentation(image);
+            UIImage *cacheImage = [UIImage imageWithData:imageData];
+            NSError *error = nil;
+            
+            [imageData writeToFile:saveUrl.path options:NSDataWritingAtomic error:&error];
+            if (error) {
+                NSLog(@"Error: %@",[error localizedDescription]);
+            }
+            
+            weakSelf.buttonImage = cacheImage;
+        }];
+    }
+        
+    }] resume];
 }
 
 - (void)imageWithData:(NSData *)imageData completionHandler:(void (^)(UIImage *image))completionHandler {

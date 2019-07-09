@@ -13,7 +13,7 @@
         <!--Order Summary View Controller-->
         <scene sceneID="FqE-Xe-oWg">
             <objects>
-                <viewController storyboardIdentifier="OrderSummaryViewController" id="g28-Kh-nQZ" customClass="OrderSummaryViewController" customModule="MerchantApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrderSummaryViewController" id="g28-Kh-nQZ" customClass="OrderSummaryViewController" customModule="FancyShop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ACP-7g-m2F">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,7 +35,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="titleImage" translatesAutoresizingMaskIntoConstraints="NO" id="hTW-aG-xDn">
                                         <rect key="frame" x="138" y="7.5" width="99" height="35"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="21P-nn-6Mv" customClass="ShoppingCartButton" customModule="MerchantApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="21P-nn-6Mv" customClass="ShoppingCartButton" customModule="FancyShop" customModuleProvider="target">
                                         <rect key="frame" x="327" y="5" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="21P-nn-6Mv" secondAttribute="height" multiplier="1:1" id="0yI-Yo-qF9"/>
@@ -102,7 +102,7 @@
                                     <constraint firstAttribute="height" priority="250" constant="312" id="mYU-Xc-zVZ"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="shoppingCartItemCell" rowHeight="107" id="5Pg-9z-SUE" customClass="ItemViewCell" customModule="MerchantApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="shoppingCartItemCell" rowHeight="107" id="5Pg-9z-SUE" customClass="ItemViewCell" customModule="FancyShop" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="107"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Pg-9z-SUE" id="qPm-NK-blv">
@@ -414,32 +414,8 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ws-rs-m4N">
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShG-kQ-k98">
-                                        <rect key="frame" x="62.5" y="9" width="250" height="45"/>
-                                        <color key="backgroundColor" red="0.1172041185" green="0.7518620466" blue="0.59628260509999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="5Cy-KZ-8cL"/>
-                                            <constraint firstAttribute="width" constant="250" id="8D8-mW-Roo"/>
-                                        </constraints>
-                                        <state key="normal" title="SRC-MARK">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="checkoutButtonAction:" destination="g28-Kh-nQZ" eventType="touchUpInside" id="prh-i1-FiE"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="8F4-kv-jxB"/>
-                                    <constraint firstItem="ShG-kQ-k98" firstAttribute="centerX" secondItem="8ws-rs-m4N" secondAttribute="centerX" id="dAM-Qd-6l6"/>
-                                    <constraint firstItem="ShG-kQ-k98" firstAttribute="centerY" secondItem="8ws-rs-m4N" secondAttribute="centerY" constant="1.5" id="o7Y-8E-0pF"/>
-                                    <constraint firstAttribute="bottom" secondItem="ShG-kQ-k98" secondAttribute="bottom" constant="6" id="t80-9f-GY2"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -472,7 +448,6 @@
                         <outlet property="buttonContainer" destination="8ws-rs-m4N" id="qT6-93-UMH"/>
                         <outlet property="checkoutButtonContainerHeightConstraint" destination="8F4-kv-jxB" id="P5Z-RP-hlQ"/>
                         <outlet property="itemsTableView" destination="Pwi-Zi-Afq" id="KGV-Ym-HUH"/>
-                        <outlet property="masterpassCheckoutButton" destination="ShG-kQ-k98" id="75V-JX-41F"/>
                         <outlet property="shippingView" destination="dmS-xt-ss1" id="FcH-KR-c40"/>
                         <outlet property="shippingViewHeightConstraint" destination="Ux9-Dg-yQQ" id="hDt-k6-wph"/>
                         <outlet property="shoppingCartButton" destination="21P-nn-6Mv" id="jtJ-Dk-Ytr"/>
