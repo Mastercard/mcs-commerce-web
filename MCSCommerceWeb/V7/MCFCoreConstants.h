@@ -137,6 +137,16 @@ extern NSString *const kDash;
 extern NSString *const kCoreErrorInfo;
 
 /**
+ * Custom Internet Connection error title
+ */
+extern NSString *const kCoreNoInternetConnectionErrorInfo;
+
+/**
+ * Custom Internet Connection error message
+ */
+extern NSString *const kCoreNoInternetConnectionMessage;
+
+/**
  *  Security Policy: Unknown
  */
 extern NSString *const kCoreSecurityPolicyUnknown;
