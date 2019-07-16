@@ -174,7 +174,7 @@ func getCheckoutRequest(withHandler: @escaping (MCSCheckoutRequest) -> Void) {
 ```objective-c
 //Objective-C
 - (void)checkoutRequestForTransaction:(nonnull void(^)(MCSCheckoutRequest * _Nonnull checkoutRequest))handler {
-	MCSCheckoutRequest *checkoutRequest = [MCSCheckoutRequest alloc] init];
+	MCSCheckoutRequest *checkoutRequest = [[MCSCheckoutRequest alloc] init];
 	checkoutRequest.amount = [[NSDecimalNumber alloc] initWithString:shoppingCart.total];
 	checkoutRequest.currency = sdkConfig.currency
 	checkoutRequest.cartId = shoppingCart.cartId
