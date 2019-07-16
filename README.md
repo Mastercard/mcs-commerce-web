@@ -24,6 +24,7 @@ pod 'MCSCommerceWeb', '~> 1.0.0-beta3'
 ```
 
 ### <a name="ios-configuration">Configuration</a>
+
 When instantiating `MCSCommerceWeb`, an `MCSConfiguration` object needs to be provided.
 
 `MCSConfiguration` requires the following parameters:
@@ -73,7 +74,7 @@ MCSCommerceWeb *commerceWeb = [MCSCommerceWeb sharedManager];
 
 ### <a name="ios-checkout-button">Checkout Button</a>
 
-One option for initiating a transaction is to add the `MCSCheckoutButton` to the view, allowing the user to touch on it.
+Transactions are initiated by adding `MCSCheckoutButton` to the view.
 
 ```swift
 //Swift
@@ -92,10 +93,10 @@ MCSCheckoutButton *button = [commerceWeb checkoutButtonWithDelegate:checkoutDele
 
 #### `withDelegate:`
 
-
-The `MCSDelegate` provided has the following methods:
+The `MCSCheckoutDelegate` provided has the following methods:
 
 ```swift
+//MCSCheckoutDelegate
 //Swift
 //Fetches the checkout request object required to initiate this transaction.
 func getCheckoutRequest(withHandler: @escaping (MCSCheckoutRequest) -> Void)
@@ -105,6 +106,7 @@ func checkoutCompleted(withRequest request: MCSCheckoutRequest, status: MCSCheck
 ```
 
 ```c
+//MCSCheckoutDelegate
 //Objective-C
 //Fetches the checkout request object required to initiate this transaction.
 - (void)checkoutRequestForTransaction:(nonnull void(^)(MCSCheckoutRequest * _Nonnull checkoutRequest))handler;
@@ -113,105 +115,123 @@ func checkoutCompleted(withRequest request: MCSCheckoutRequest, status: MCSCheck
 - (void)checkoutRequest:(MCSCheckoutRequest *)request didCompleteWithStatus:(MCSCheckoutStatus)status forTransaction:(NSString * _Nullable)transactionId;
 ```
 
+When the user touches up on `MCSCheckoutButton`, `MCSCheckoutRequest` for this transaction is retrieved.
 
-
-### <a name="ios-checkout">Checkout</a>
-
-The second option for initiating a transaction is to call
+#### Checkout Request
 
 ```swift
 //Swift
-func checkout(withRequest: MCSCheckoutRequest, completionHandler: ((MCSCheckoutStatus, String?) -> Void)?)
+func getCheckoutRequest(withHandler: @escaping (MCSCheckoutRequest) -> Void)
+```
+
+```c
+//Objective-C
+- (void)checkoutRequestForTransaction:(nonnull void(^)(MCSCheckoutRequest * _Nonnull checkoutRequest))handler;
+```
+
+`checkoutRequest`: Data object with transaction-specific parameters needed to complete checkout. This request can also override existing merchant configurations.
+
+* Required fields:
+	*  `allowedCardTypes`: Set of all card types accepted for this transaction
+	*  `amount`: The transaction total to be authorized
+	*  `cartId`: Merchant's unique identifier for this transaction
+* Optional Fields: These fields can be assigned to override the default values configured by the merchant.
+	* `callbackUrl`: URL used to communicate back to the merchant application
+	* `cryptoOptions`: Cryptogram formats accepted by this merchant
+	* `cvc2Support`: Enable or disable support for CVC2 card security
+	* `shippingLocationProfile`: Shipping locations available for this merchant
+	* `suppress3Ds`: Enable or disable 3DS verification
+	* `suppressShippingAddress`: Enable or disable shipping options. Typically for digital goods or services, this will be set to `true`.
+	* `unpredictableNumber`: For tokenized transactions, `unpredictableNumber` is required for cryptogram generation
+	* `validityPeriodMinutes`: the expiration time of a generated cryptogram, in minutes
+
+```swift
+//Swift
+func getCheckoutRequest(withHandler: @escaping (MCSCheckoutRequest) -> Void) {
+	let checkoutRequest = MCSCheckoutRequest()
+	checkoutRequest.amount = NSDecimalNumber(string: String(shoppingCart.total))
+	checkoutRequest.currency = sdkConfig.currency
+	checkoutRequest.cartId = shoppingCart.cartId
+	checkoutRequest.allowedCardTypes = [.master,.visa]
+	checkoutRequest.suppressShippingAddress = sdkConfig.suppressShipping
+	checkoutRequest.callbackUrl = "fancyshop://"
+	checkoutRequest.unpredictableNumber = "12345678"
+	    
+	let cryptoOptionVisa = MCSCryptoOptions()
+	cryptoOptionVisa.cardType = "visa"
+	cryptoOptionVisa.format = ["TVV"]
+	
+	let cryptoOptionMaster = MCSCryptoOptions()
+	cryptoOptionMaster.cardType = "master"
+	cryptoOptionMaster.format = ["ICC,UCAF"]
+	
+	checkoutRequest.cryptoOptions = [cryptoOptionMaster,cryptoOptionVisa]
+	    
+	withHandler(checkoutRequest)
+}
 ```
 
 ```objective-c
 //Objective-C
-- (void)checkoutWithRequest:(MCSCheckoutRequest *_Nonnull)request completionHandler:(void (^ _Nullable)(MCSCheckoutStatus status, NSString * _Nullable transactionId))completion;
+- (void)checkoutRequestForTransaction:(nonnull void(^)(MCSCheckoutRequest * _Nonnull checkoutRequest))handler {
+	MCSCheckoutRequest *checkoutRequest = [MCSCheckoutRequest alloc] init];
+	checkoutRequest.amount = [[NSDecimalNumber alloc] initWithString:shoppingCart.total];
+	checkoutRequest.currency = sdkConfig.currency
+	checkoutRequest.cartId = shoppingCart.cartId
+	checkoutRequest.allowedCardTypes = [NSSet setWithObjects:MCSCardTypeMaster, MCSCardTypeVisa, nil];
+	checkoutRequest.suppressShippingAddress = sdkConfig.suppressShipping;
+	checkoutRequest.callbackUrl = @"fancyshop://";
+	checkoutRequest.unpredictableNumber = @"12345678";
+	
+	MCSCryptoOptions *cryptoOptionMaster = [[MCSCryptoOptions alloc] init];
+	cryptoOptionMaster.cardType = MCSCardTypeMaster;
+	cryptoOptionMaster.format = @[MCSCryptoFormatICC, MCSCryptoFormatUCAF];
+	
+	checkoutRequest.cryptoOptions = @[cryptoOptionMaster];
+	
+	handler(checkoutRequest);
+}
 ```
 
-* `request`: Data object with transaction-specific parameters needed to complete checkout. This request can also override existing merchant configurations.
-	* Required fields:
-		*  `allowedCardTypes`: Set of all card types accepted for this transaction
-		*  `amount`: The transaction total to be authorized
-		*  `cartId`: Merchant's unique identifier for this transaction
-	* Optional Fields: These fields can be assigned to override the default values configured by the merchant.
-		* `callbackUrl`: URL used to communicate back to the merchant application
-		* `cryptoOptions`: Cryptogram formats accepted by this merchant
-		* `cvc2Support`: Enable or disable support for CVC2 card security
-		* `shippingLocationProfile`: Shipping locations available for this merchant
-		* `suppress3Ds`: Enable or disable 3DS verification
-		* `suppressShippingAddress`: Enable or disable shipping options. Typically for digital goods or services, this will be set to `true`.
-		* `unpredictableNumber`: For tokenized transactions, `unpredictableNumber` is required for cryptogram generation
-		* `validityPeriodMinutes`: the expiration time of a generated cryptogram, in minutes
+### Transaction Result
 
 ```swift
 //Swift
-let checkoutRequest = MCSCheckoutRequest()
-checkoutRequest.amount = NSDecimalNumber(string: String(shoppingCart.total))
-checkoutRequest.currency = sdkConfig.currency
-checkoutRequest.cartId = shoppingCart.cartId
-checkoutRequest.allowedCardTypes = [.master,.visa]
-checkoutRequest.suppressShippingAddress = sdkConfig.suppressShipping
-checkoutRequest.callbackUrl = "fancyshop://"
-checkoutRequest.unpredictableNumber = "12345678"
-    
-let cryptoOptionVisa = MCSCryptoOptions()
-cryptoOptionVisa.cardType = "visa"
-cryptoOptionVisa.format = ["TVV"]
+func checkoutCompleted(withRequest request: MCSCheckoutRequest, status: MCSCheckoutStatus, transactionId: String?)
+```
 
-let cryptoOptionMaster = MCSCryptoOptions()
-cryptoOptionMaster.cardType = "master"
-cryptoOptionMaster.format = ["ICC,UCAF"]
+```c
+//Objective-C
+- (void)checkoutRequest:(MCSCheckoutRequest *)request didCompleteWithStatus:(MCSCheckoutStatus)status forTransaction:(NSString * _Nullable)transactionId;
+```
 
-checkoutRequest.cryptoOptions = [cryptoOptionMaster,cryptoOptionVisa]
-    
-commerceWeb.checkout(with: checkoutRequest) { (status: MCSCheckoutStatus, transactionId: String?) in
-	if (MCSCheckoutStatus == MCSCheckoutStatus.success) {
-		//complete transaction
-	} else {
-		//transaction canceled
+The result of a transaction is returned to the application via the `MCSCheckoutDelegate` provided when retrieving the `MCSCheckoutButton`.
+
+```swift
+//Swift
+func checkoutCompleted(withRequest request: MCSCheckoutRequest!, status: MCSCheckoutStatus, transactionId: String?) {
+	if (transactionId != nil) {
+		//comlpete transaction
 	}
 }
 ```
 
 ```objective-c
 //Objective-C
-MCSCheckoutRequest *checkoutRequest = [MCSCheckoutRequest alloc] init];
-checkoutRequest.amount = [[NSDecimalNumber alloc] initWithString:shoppingCart.total];
-checkoutRequest.currency = sdkConfig.currency
-checkoutRequest.cartId = shoppingCart.cartId
-checkoutRequest.allowedCardTypes = [NSSet setWithObjects:MCSCardTypeMaster, MCSCardTypeVisa, nil];
-checkoutRequest.suppressShippingAddress = sdkConfig.suppressShipping;
-checkoutRequest.callbackUrl = @"fancyshop://";
-checkoutRequest.unpredictableNumber = @"12345678";
-
-MCSCryptoOptions *cryptoOptionMaster = [[MCSCryptoOptions alloc] init];
-cryptoOptionMaster.cardType = MCSCardTypeMaster;
-cryptoOptionMaster.format = @[MCSCryptoFormatICC, MCSCryptoFormatUCAF];
-
-checkoutRequest.cryptoOptions = @[cryptoOptionMaster];
-
-[commerceWeb checkoutWithRequest:checkoutRequest completionHandler:^(MCSCheckoutStatus status, NSString * _Nullable transactionId) {
-  //Checkout complete
-  //Completion handler can be null
-}];
+- (void)checkoutRequest:(MCSCheckoutRequest *)request didCompleteWithStatus:(MCSCheckoutStatus)status forTransaction:(NSString * _Nullable)transactionId {
+	if (transactionId != nil) {
+		//complete transaction
+	}
+}
 ```
 
-Optionally, a delegate can be assigned to `commerceWeb`
 
-```swift
-//Swift
-commerceWeb.delegate = checkoutDelegate
-```
-
-```objective-c
-//Objective-C
-commerceWeb.delegate = checkoutDelegate;
-```
 
 ### <a name='ios-masterpass'>Migrating from MCCMerchant</a>
 
-If an existing application is using `MCCMerchant` today, it is easy to migrate to `MCSCommerceWeb` with minimal changes. Consider the following when migrating from `MCCMerchant` to `MCSCommerceWeb`
+***Note: `MCCMerchant` APIs are deprecated in `MCSCommerceWeb` and will be removed in subsequent versions. It is encouraged to migrate to the APIs above.***
+
+`MCSCommerceWeb` provides API compatibility for `MCCMerchant`. Existing applications using `MCCmerchant` can easily migrate to `MCSCommerceWeb` with minimal changes. Consider the following when migrating from `MCCMerchant`.
 
 #### Interfaces
 
@@ -257,7 +277,7 @@ import MCSCommerceWeb
 + (BOOL)handleMasterpassResponse:(NSString *_Nonnull)url delegate:(id<MCCMerchantDelegate> _Nonnull)merchantDelegate ;
 ```
 
-`handleMasterpassResponse:delegate` no longer has any effect. This `MCSCommerceWeb` implements `WKWebView` instead of `SFSafariViewController`, this the checkout response is handled using `MCCDelegate` directly. The `MCCDelegate` provided in any checkout calls will be the delegate that receives the checkout response.
+`handleMasterpassResponse:delegate` no longer has any effect. `MCSCommerceWeb` implements `WKWebView` instead of `SFSafariViewController` and the checkout response is handled using `MCCDelegate` directly. The `MCCDelegate` provided in any checkout calls will be the delegate that receives the checkout response.
 
 ##### Add Payment Method
 
