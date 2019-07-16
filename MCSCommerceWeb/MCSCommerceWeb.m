@@ -13,7 +13,7 @@
  * limitations under the License.
  =============================================================================*/
 
-#import "MCSCommerceWeb.h"
+#import "MCSCommerceWeb+Private.h"
 #import "MCSConfigurationManager.h"
 #import "MCSCheckoutUrlBuilder.h"
 #import "MCSCheckoutRouter.h"
@@ -22,8 +22,6 @@
 #import "MCSCheckoutButtonManager.h"
 
 @interface MCSCommerceWeb() <MCSWebCheckoutDelegate>
-
-@property (nonatomic, strong, nullable) void (^completionHandler)(MCSCheckoutStatus, NSString * _Nullable);
 
 @end
 
@@ -51,9 +49,8 @@ static MCSCommerceWeb *sharedManager = nil;
     [MCSCheckoutButtonManager sharedManager];
 }
 
-- (void)checkoutWithRequest:(MCSCheckoutRequest *)request completionHandler:(void (^ _Nullable)(MCSCheckoutStatus status, NSString * _Nullable transactionId))completion {
+- (void)checkoutWithRequest:(MCSCheckoutRequest *)request {
     [[MCSConfigurationManager sharedManager] setCheckoutRequest:request];
-    _completionHandler = completion;
     
     NSURL *url = [MCSCheckoutUrlBuilder urlForCheckout];
     MCSCheckoutRouter *router = [[MCSCheckoutRouter alloc] init];
@@ -72,7 +69,6 @@ static MCSCommerceWeb *sharedManager = nil;
         status = MCSCheckoutStatusCanceled;
     }
     
-    if (_completionHandler) _completionHandler(status, response.transactionId);
     [_delegate checkoutRequest:[[MCSConfigurationManager sharedManager] checkoutRequest] didCompleteWithStatus:status forTransaction:response.transactionId];
 }
 

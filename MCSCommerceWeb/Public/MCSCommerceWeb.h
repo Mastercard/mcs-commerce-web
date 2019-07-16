@@ -64,9 +64,9 @@ FOUNDATION_EXPORT const unsigned char MCSCommerceWebVersionString[];
  */
 @interface MCSCommerceWeb : NSObject
 
-/* Delegate to receive the checkout result */
-@property (nonatomic, weak) id<MCSCheckoutDelegate> delegate;
-
+/**
+ * Return an instance of MCSCommerceWeb
+ */
 + (nonnull instancetype)sharedManager;
 
 /**

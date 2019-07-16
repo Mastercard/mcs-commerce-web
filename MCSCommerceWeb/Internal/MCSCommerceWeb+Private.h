@@ -17,6 +17,9 @@
 
 @interface MCSCommerceWeb()
 
+/* Delegate to receive the checkout result */
+@property (nonatomic, weak) id<MCSCheckoutDelegate> delegate;
+
 /**
  * Start the checkout experience using transaction details specified
  * in the {@link MCSCheckoutRequest} parameter.
@@ -30,6 +33,6 @@
  * otherwise if Status is Canceled, transactionId will be null. If
  * this completionHandler is nil, the delegate property must be set.
  */
-- (void)checkoutWithRequest:(MCSCheckoutRequest *_Nonnull)request completionHandler:(void (^ _Nullable)(MCSCheckoutStatus status, NSString * _Nullable transactionId))completion NS_SWIFT_NAME(checkout(withRequest:completionHandler:));
+- (void)checkoutWithRequest:(MCSCheckoutRequest *_Nonnull)request;
 
 @end

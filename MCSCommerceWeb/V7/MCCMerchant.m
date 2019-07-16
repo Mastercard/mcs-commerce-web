@@ -133,9 +133,7 @@ static id<MCSCheckoutDelegate> delegateBridge;
         delegateBridge = [[MCSDelegateBridge alloc] initWithDelegate:merchantDelegate];
         
         [[MCSCommerceWeb sharedManager] setDelegate:delegateBridge];
-        [[MCSCommerceWeb sharedManager] checkoutWithRequest:commerceRequest completionHandler:^(MCSCheckoutStatus status, NSString * _Nullable transactionId) {
-            
-        }];
+        [[MCSCommerceWeb sharedManager] checkoutWithRequest:commerceRequest];
         
         return YES;
     }];

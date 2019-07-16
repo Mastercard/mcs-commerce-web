@@ -44,9 +44,8 @@ NSString * const kCheckoutButtonAccessibilityIdentifier = @"checkoutButton";
 - (void)buttonTapped:(id)sender {
     //implement checkout on touch of button
     [self.delegate checkoutRequestForTransaction:^(MCSCheckoutRequest *checkoutRequest) {
-        [[MCSConfigurationManager sharedManager] setCheckoutRequest:checkoutRequest];
         [[MCSCommerceWeb sharedManager] setDelegate:self.delegate];
-        [[MCSCommerceWeb sharedManager] checkoutWithRequest:checkoutRequest completionHandler:nil];
+        [[MCSCommerceWeb sharedManager] checkoutWithRequest:checkoutRequest];
     }];
 }
 

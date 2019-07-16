@@ -18,7 +18,7 @@ import UIKit
 import MCSCommerceWeb
 
 /// SRCSDKManager handles all the interaction between the merchant app and the Masterpass SDK
-class SRCSDKManager:NSObject, MCSCheckoutDelegate {
+class SRCSDKManager:NSObject {
     //MARK: variables
     
     /// Singleton instance
@@ -35,24 +35,9 @@ class SRCSDKManager:NSObject, MCSCheckoutDelegate {
     
     func initializeSdk(configuration: MCSConfiguration) {
         commerceWeb.setConfiguration(withConfiguration: configuration)
-        commerceWeb.delegate = self as MCSCheckoutDelegate
     }
     
     func getCheckoutButton(with: MCSCheckoutDelegate) -> MCSCheckoutButton {
         return commerceWeb.getCheckoutButton(withDelegate: with)
-    }
-    
-    // MARK: Delegate methods
-    
-    func getCheckoutRequest(withHandler handler: @escaping (MCSCheckoutRequest) -> Void) {
-        //No-op, only used with CheckoutButton. This class uses direct checkout
-    }
-    
-    func checkoutCompleted(withRequest request: MCSCheckoutRequest!, status: MCSCheckoutStatus, transactionId: String?) {
-        completionHandler?(status, transactionId)
-    }
-    
-    func checkoutDidComplete(with status: MCSCheckoutStatus, forTransaction transactionId: String?) {
-        completionHandler?(status, transactionId)
     }
 }
