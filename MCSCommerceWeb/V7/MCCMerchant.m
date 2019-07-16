@@ -15,6 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import <MCSCommerceWeb/MCSCommerceWeb.h>
+#import "MCSCommerceWeb+Private.h"
 #import "MCCMerchant.h"
 #import "MCCConfigurationManager.h"
 #import "MCSCheckoutButtonManager.h"
@@ -28,9 +29,6 @@
 static MCSCommerceWeb *commerceWeb;
 static id<MCCMerchantDelegate> delegate;
 static id<MCSCheckoutDelegate> delegateBridge;
-
-//Differences:
-// handleResponse: this method is no longer used. Transaction will return to merchant through delegate/completionHandler
 
 @implementation MCCMerchant
 

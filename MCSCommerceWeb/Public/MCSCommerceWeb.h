@@ -77,22 +77,14 @@ FOUNDATION_EXPORT const unsigned char MCSCommerceWebVersionString[];
  */
 - (void)initWithConfiguration:(MCSConfiguration *_Nonnull)configuration NS_SWIFT_NAME(setConfiguration(withConfiguration:));
 
-
-- (MCSCheckoutButton *)checkoutButtonWithDelegate:(id<MCSCheckoutDelegate>)delegate NS_SWIFT_NAME(getCheckoutButton(withDelegate:));
-
 /**
- * Start the checkout experience using transaction details specified
- * in the {@link MCSCheckoutRequest} parameter.
+ * The checkout button is used to handle user touch events to initiate a transaction. MCSCheckoutButton
+ * should be added to the view using {@code addToSuperview:}.
  *
- * @param request A checkout request object specifiying the details
- * of the current transaction, such as
- * the amount, allowed card networks, and supported cryptograms
- * @param completion Completion handler to notify the caller when
- * checkout completes successfully or checkout is canceled. If
- * MCSCheckoutStatus is Success, transactionId will not be null,
- * otherwise if Status is Canceled, transactionId will be null. If
- * this completionHandler is nil, the delegate property must be set.
+ * @param delegate MCSCheckoutDelegate to handle the checkout request and response for this transaction
+ *
+ * @return checkout button to be added to the view
  */
-- (void)checkoutWithRequest:(MCSCheckoutRequest *_Nonnull)request completionHandler:(void (^ _Nullable)(MCSCheckoutStatus status, NSString * _Nullable transactionId))completion NS_SWIFT_NAME(checkout(withRequest:completionHandler:));
+- (MCSCheckoutButton *)checkoutButtonWithDelegate:(id<MCSCheckoutDelegate>)delegate NS_SWIFT_NAME(getCheckoutButton(withDelegate:));
 
 @end

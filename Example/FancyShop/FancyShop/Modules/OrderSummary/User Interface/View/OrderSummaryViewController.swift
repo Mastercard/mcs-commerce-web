@@ -175,27 +175,6 @@ class OrderSummaryViewController: BaseViewController, OrderSummaryViewProtocol, 
         self.presenter?.paymentMethodSelectionButtonAction()
     }
     
-    /// Calls the presenter to trigger checkoutURL
-    ///
-    /// - Parameter sender: Any view
-    @IBAction func checkoutButtonAction(_ sender: Any) {
-        
-        self.presenter?.performCheckout(completionHandler: { (response, error) in
-            if let err = error {
-                let errorCode = "errorCode :\((err as NSError).code)"
-                let alert = UIAlertController(title:errorCode, message:err.localizedDescription, preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-                DispatchQueue.main.async {
-                    self.present(alert, animated: true, completion: nil)
-                }
-            } else {
-                if let returnedResponse = response {
-                    print("Returned Response \(returnedResponse)");
-                }
-            }
-        })
-    }
-    
     /// Gets the index from a given button
     ///
     /// - Parameters:

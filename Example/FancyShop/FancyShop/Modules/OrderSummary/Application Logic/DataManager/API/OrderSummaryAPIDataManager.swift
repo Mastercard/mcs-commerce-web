@@ -109,18 +109,6 @@ class OrderSummaryAPIDataManager: OrderSummaryAPIDataManagerInputProtocol, MCSCh
             completionHandler?(["TransactionId" : transactionId ?? ""], nil)
     }
     
-    /// Perform checkout operation by using commerceSDK manager
-    ///
-    /// - Parameter completionHandler: Block of code to execute after the checkout response
-    func performCheckout(completionHandler: @escaping ([AnyHashable : Any]?, Error?) -> ()) {
-        let checkoutRequest = getCheckoutRequest()
-        
-        SRCSDKManager.sharedInstance.performCheckout(commerceRequest: checkoutRequest) { (status:MCSCheckoutStatus, transactionId: String?) in
-
-            completionHandler(["TransactionId" : transactionId ?? ""], nil)
-        }
-    }
-    
     func getCheckoutRequest() -> MCSCheckoutRequest {
         let shoppingCart: ShoppingCart = ShoppingCart.sharedInstance
         let sdkConfig : SDKConfiguration = SDKConfiguration.sharedInstance
@@ -129,7 +117,7 @@ class OrderSummaryAPIDataManager: OrderSummaryAPIDataManagerInputProtocol, MCSCh
         checkoutRequest.amount = NSDecimalNumber(string: String(shoppingCart.total))
         checkoutRequest.currency = sdkConfig.currency
         checkoutRequest.cartId = shoppingCart.cartId
-        checkoutRequest.allowedCardTypes = [.master,.visa]
+        checkoutRequest.allowedCardTypes = [.master,.visa, .amex]
         checkoutRequest.suppressShippingAddress = sdkConfig.suppressShipping
         checkoutRequest.callbackUrl = BuildConfiguration.sharedInstance.merchantUrlScheme()
         checkoutRequest.unpredictableNumber = "12345678"

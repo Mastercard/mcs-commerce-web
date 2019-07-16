@@ -14,7 +14,7 @@
  =============================================================================*/
 
 #import "MCSCheckoutButton+Private.h"
-#import "MCSCommerceWeb.h"
+#import "MCSCommerceWeb+Private.h"
 #import "MCSConfigurationManager.h"
 
 const CGFloat kCheckoutButtonWidth = 250.0;

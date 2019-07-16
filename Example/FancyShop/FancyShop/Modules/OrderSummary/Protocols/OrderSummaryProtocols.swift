@@ -60,9 +60,6 @@ protocol OrderSummaryPresenterProtocol: class {
     
     func initializeSdk()
     func getCheckoutButton(completionHandler: @escaping ([AnyHashable : Any]?,Error?) -> ()) -> MCSCheckoutButton
-    func performCheckout(completionHandler: @escaping ([AnyHashable : Any]?,Error?) -> ())
-    
-    
 }
 
 /// Method contract between INTERACTOR -> PRESENTER
@@ -99,7 +96,6 @@ protocol OrderSummaryInteractorInputProtocol: class
     func getCheckoutFlow()
     func initializeSdk()
     func getCheckoutButton(completionHandler: @escaping ([AnyHashable : Any]?,Error?) -> ()) -> MCSCheckoutButton
-    func performCheckout(completionHandler: @escaping ([AnyHashable : Any]?,Error?) -> ())
 }
 
 /// Method contract between INTERACTOR -> DATAMANAGER
@@ -110,7 +106,6 @@ protocol OrderSummaryDataManagerInputProtocol: class{
 protocol OrderSummaryAPIDataManagerInputProtocol: class{
     func initializeSdk()
     func getCheckoutButton(completionHandler: @escaping ([AnyHashable : Any]?,Error?) -> ()) -> MCSCheckoutButton
-    func performCheckout(completionHandler: @escaping ([AnyHashable : Any]?,Error?) -> ())
 }
 
 /// Method contract between INTERACTOR -> LOCALDATAMANAGER

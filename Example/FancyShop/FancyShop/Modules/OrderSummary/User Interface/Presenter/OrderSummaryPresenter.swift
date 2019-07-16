@@ -83,18 +83,6 @@ class OrderSummaryPresenter:BasePresenter, OrderSummaryPresenterProtocol, OrderS
         self.wireFrame?.goBackToProductList(animated: animated)
     }
     
-    /// request to perforn checkout
-    func performCheckout(completionHandler: @escaping ([AnyHashable : Any]?, Error?) -> ()) {
-        self.interactor?.performCheckout(completionHandler: { (response, error) in
-            if((error) != nil) {
-                completionHandler(response,error)
-            } else {
-                self.goToConfirmOrderWithPaymentData(paymentData: response as AnyObject)
-            }
-        })
-    }
-    
-    
     // MARK: OrderSummaryInteractorOutputProtocol
     
     /// Tells the view to show the number of products in the cart

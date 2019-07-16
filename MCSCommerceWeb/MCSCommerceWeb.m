@@ -62,7 +62,6 @@ static MCSCommerceWeb *sharedManager = nil;
     [router startWithViewControllerManager:manager errorHandler:^(void) {
         [self.delegate checkoutRequest:[[MCSConfigurationManager sharedManager] checkoutRequest] didCompleteWithStatus:MCSCheckoutStatusCanceled forTransaction:nil];
     }];
-    
 }
 
 - (void)checkoutCompletedWithResponse:(MCSCheckoutResponse *)response {

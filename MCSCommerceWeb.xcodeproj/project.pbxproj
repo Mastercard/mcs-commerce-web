@@ -82,7 +82,6 @@
 		19A0EFC0229F0961006B7AFA /* MCCMerchantDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A0EFA3229F0960006B7AFA /* MCCMerchantDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		19A0EFC1229F0961006B7AFA /* MCCPaymentMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EFA4229F0960006B7AFA /* MCCPaymentMethod.m */; };
 		19A0EFC3229F0961006B7AFA /* MCCPaymentMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A0EFA6229F0961006B7AFA /* MCCPaymentMethod.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		19A0EFCE229F0F24006B7AFA /* MCCMerchantProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A0EFCB229F0F24006B7AFA /* MCCMerchantProtocol.h */; };
 		19A0EFD6229F1471006B7AFA /* MCFEnvironmentConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EFD4229F1471006B7AFA /* MCFEnvironmentConfiguration.m */; };
 		19A0EFD7229F1471006B7AFA /* MCFEnvironmentConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A0EFD5229F1471006B7AFA /* MCFEnvironmentConfiguration.h */; };
 		19A0EFDC229F14CA006B7AFA /* MCFCoreConstants+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EFD8229F14C9006B7AFA /* MCFCoreConstants+Private.m */; };
@@ -105,6 +104,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		190AB70D22DD5CEA00D863C1 /* MCSCommerceWeb+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MCSCommerceWeb+Private.h"; sourceTree = "<group>"; };
 		191D9F9222ADAB5600379703 /* MCSCheckoutButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSCheckoutButton.h; sourceTree = "<group>"; };
 		191D9F9322ADAB5600379703 /* MCSCheckoutButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSCheckoutButton.m; sourceTree = "<group>"; };
 		191D9FA122ADB63700379703 /* Sandbox.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Sandbox.xcconfig; sourceTree = "<group>"; };
@@ -183,7 +183,6 @@
 		19A0EFA3229F0960006B7AFA /* MCCMerchantDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCCMerchantDelegate.h; sourceTree = "<group>"; };
 		19A0EFA4229F0960006B7AFA /* MCCPaymentMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCCPaymentMethod.m; sourceTree = "<group>"; };
 		19A0EFA6229F0961006B7AFA /* MCCPaymentMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCCPaymentMethod.h; sourceTree = "<group>"; };
-		19A0EFCB229F0F24006B7AFA /* MCCMerchantProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCCMerchantProtocol.h; sourceTree = "<group>"; };
 		19A0EFD4229F1471006B7AFA /* MCFEnvironmentConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCFEnvironmentConfiguration.m; sourceTree = "<group>"; };
 		19A0EFD5229F1471006B7AFA /* MCFEnvironmentConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCFEnvironmentConfiguration.h; sourceTree = "<group>"; };
 		19A0EFD8229F14C9006B7AFA /* MCFCoreConstants+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MCFCoreConstants+Private.m"; sourceTree = "<group>"; };
@@ -230,7 +229,6 @@
 		1938731222A97775004CEFEE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B7CBF01722CFA60600D688AB /* MCSReachability */,
 				1934CB6B22B094F50038909C /* SVGTemplate.html */,
 				1938731322A97798004CEFEE /* Images.xcassets */,
 			);
@@ -337,6 +335,8 @@
 		19A0EBF122962C53006B7AFA /* Internal */ = {
 			isa = PBXGroup;
 			children = (
+				B7CBF00B22CF9B1200D688AB /* MCSReachability.h */,
+				B7CBF00C22CF9B1200D688AB /* MCSReachability.m */,
 				19A0EBF222962C53006B7AFA /* MCSCheckoutUrlBuilder.h */,
 				19A0EBF322962C53006B7AFA /* MCSViewControllerManager.h */,
 				19A0EBF422962C53006B7AFA /* MCSCheckoutRouter.h */,
@@ -352,6 +352,7 @@
 				192EFCC122B2D90E0071CC71 /* MCSActivityIndicatorView.m */,
 				195FCD0522B6CFC4009B67DE /* MCSDelegateBridge.h */,
 				195FCD0622B6CFC4009B67DE /* MCSDelegateBridge.m */,
+				190AB70D22DD5CEA00D863C1 /* MCSCommerceWeb+Private.h */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -363,7 +364,6 @@
 				19A0EFF4229F181D006B7AFA /* MCCMerchant.m */,
 				194A90C522A05FE90056DFC0 /* MCCCheckoutHelper.h */,
 				194A90C622A05FE90056DFC0 /* MCCCheckoutHelper.m */,
-				19A0EFCB229F0F24006B7AFA /* MCCMerchantProtocol.h */,
 				19A0EF8F229F095C006B7AFA /* MCCAmount.m */,
 				19A0EF99229F095E006B7AFA /* MCCCardType.m */,
 				19A0EF8B229F095C006B7AFA /* MCCCheckoutRequest.m */,
@@ -387,15 +387,6 @@
 			path = V7;
 			sourceTree = "<group>";
 		};
-		B7CBF01722CFA60600D688AB /* MCSReachability */ = {
-			isa = PBXGroup;
-			children = (
-				B7CBF00B22CF9B1200D688AB /* MCSReachability.h */,
-				B7CBF00C22CF9B1200D688AB /* MCSReachability.m */,
-			);
-			path = MCSReachability;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -406,7 +397,6 @@
 				19A0EC0822962C53006B7AFA /* MCSCheckoutUrlBuilder.h in Headers */,
 				19A0EBFD22962C53006B7AFA /* MCSCheckoutRequest.h in Headers */,
 				1934CB6A22B043570038909C /* MCSCheckoutButton+Private.h in Headers */,
-				19A0EFCE229F0F24006B7AFA /* MCCMerchantProtocol.h in Headers */,
 				19A0EC0622962C53006B7AFA /* MCSCryptoOptions.h in Headers */,
 				195FCD0722B6CFC4009B67DE /* MCSDelegateBridge.h in Headers */,
 				19A0EC0522962C53006B7AFA /* MCSCheckoutStatus.h in Headers */,

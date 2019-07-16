@@ -103,11 +103,4 @@ class OrderSummaryInteractor:BaseInteractor, OrderSummaryInteractorInputProtocol
         self.presenter?.set(subtotal: shoppingCart.subtotal)
         self.presenter?.set(total: shoppingCart.total)
     }
-    
-    func performCheckout(completionHandler: @escaping ([AnyHashable : Any]?, Error?) -> ()) {
-        self.APIDataManager?.performCheckout(completionHandler: { (response, error) in
-            completionHandler(response,error)
-        })
-    }
-    
 }

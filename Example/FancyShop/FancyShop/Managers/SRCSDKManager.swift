@@ -42,14 +42,6 @@ class SRCSDKManager:NSObject, MCSCheckoutDelegate {
         return commerceWeb.getCheckoutButton(withDelegate: with)
     }
     
-    func performCheckout(commerceRequest : MCSCheckoutRequest, completionHandler: @escaping (MCSCheckoutStatus,String?) -> ()) {
-        self.completionHandler = completionHandler
-        commerceWeb.checkout(withRequest: commerceRequest) { (status: MCSCheckoutStatus, transactionId: String?) in
-            print("Transaction completed via completion handler with status: \(status) and id: \(String(describing: transactionId))")
-            completionHandler(status, transactionId)
-        }
-    }
-    
     // MARK: Delegate methods
     
     func getCheckoutRequest(withHandler handler: @escaping (MCSCheckoutRequest) -> Void) {
