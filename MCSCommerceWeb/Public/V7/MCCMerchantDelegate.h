@@ -22,6 +22,7 @@
 /**
  *  The MCCMerchantDelegate protocol defines the methods which will be implemented by Merchant application. Merchant SDK will trigger the delegate methods to receive payment request data and communicate error status.
  */
+__deprecated_msg("You should migrate your code to MCSCommerceWeb. All classes related to MCCMerchant are deprecated")
 @protocol MCCMerchantDelegate <NSObject>
 @required
 

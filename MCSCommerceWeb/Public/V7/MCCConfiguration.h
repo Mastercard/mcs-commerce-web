@@ -28,6 +28,7 @@
  
  */
 
+__deprecated_msg("You should migrate your code to MCSCommerceWeb. All classes related to MCCMerchant are deprecated")
 @interface MCCConfiguration : NSObject
 
 /** locale Information **/

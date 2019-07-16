@@ -16,6 +16,7 @@
 #import <Foundation/Foundation.h>
 #import "MCCMerchantConstants.h"
 
+__deprecated_msg("You should migrate your code to MCSCommerceWeb. All classes related to MCCMerchant are deprecated")
 @interface MCCCardType : NSObject
 
 @property(nonatomic, assign, readonly) MCCCard cardType;

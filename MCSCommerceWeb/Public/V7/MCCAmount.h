@@ -15,6 +15,7 @@
 
 #import <Foundation/Foundation.h>
 
+__deprecated_msg("You should migrate your code to MCSCommerceWeb. All classes related to MCCMerchant are deprecated")
 @interface MCCAmount : NSObject
 
 ///Total to be used for transaction. It may have precision up to 2 decimal places. For example, $12.55 is a valid amount, while $12.456 will not be considered as valid total.

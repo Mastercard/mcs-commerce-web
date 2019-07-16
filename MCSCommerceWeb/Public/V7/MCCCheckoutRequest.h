@@ -22,6 +22,7 @@
  Represents the details required by a single Masterpass transaction. The developer needs to create an instance of this class with valid values & provide it when "Buy With MasterPass" button is clicked.
  */
 
+__deprecated_msg("You should migrate your code to MCSCommerceWeb. All classes related to MCCMerchant are deprecated")
 @interface MCCCheckoutRequest : NSObject
 
 //This property contains checkout id of merchant

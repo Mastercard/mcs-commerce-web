@@ -43,6 +43,7 @@
  @Date 4/27/16
  */
 
+__deprecated_msg("You should migrate your code to MCSCommerceWeb. All classes related to MCCMerchant are deprecated")
 @interface MCCMerchant : NSObject
 
 /**

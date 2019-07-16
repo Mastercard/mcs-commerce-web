@@ -19,6 +19,7 @@
 /**
  Represents the Resopnse details of checkout service. The developer will get object of this class in respones of checkout.
  */
+__deprecated_msg("You should migrate your code to MCSCommerceWeb. All classes related to MCCMerchant are deprecated")
 @interface MCCCheckoutResponse : NSObject
 
 ///This property contains cart id from checkout service for merchant.
