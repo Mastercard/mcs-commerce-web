@@ -108,8 +108,6 @@
     _popup.UIDelegate = self;
     _popup.navigationDelegate = self;
     
-    [_indicatorView show];
-    
     [self.view addSubview:_popup];
     [self setConstraintsForView:_popup];
     

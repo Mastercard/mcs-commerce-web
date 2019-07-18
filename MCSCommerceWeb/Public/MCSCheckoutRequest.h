@@ -29,9 +29,6 @@ extern MCSCryptoFormat const MCSCryptoFormatUCAF;
 extern MCSCryptoFormat const MCSCryptoFormatTVV;
 
 
-/** set of all card types accepted for this transaction **/
-@property (nonatomic, copy, readwrite, nonnull) NSSet <MCSCardType> *allowedCardTypes;
-
 /** the total cost amount of this transaction **/
 @property (nonatomic, copy, readwrite, nonnull) NSDecimalNumber *amount;
 

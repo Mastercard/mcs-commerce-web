@@ -33,9 +33,6 @@ NSString * const _Nonnull kMerchantNameKey                      = @"merchantName
 NSString * const _Nonnull kCryptoOptionsKey                     = @"cryptoOptions";
 NSString * const _Nonnull kChannelKey                           = @"channel";
 NSString * const _Nonnull kChannelValue                         = @"mobile";
-NSString * const _Nonnull kMCSCommerceSDKConfig                = @"SDKConfig";
-NSString * const _Nonnull kMCSCommerceBase_Web_Checkout_URL    = @"BASE_WEB_CHECKOUT_URL";
-NSString * const _Nonnull CHECKOUT_ENDPOINT                     = @"/srci";
 
 @implementation MCSCheckoutUrlBuilder
 
@@ -77,7 +74,7 @@ NSString * const _Nonnull CHECKOUT_ENDPOINT                     = @"/srci";
                                  forKey:kSuppressShippingAdressKey];
     [checkoutRequestDictionary setValue:checkoutRequest.unpredictableNumber forKey:kUnpridictableNumberKey];
     [checkoutRequestDictionary setValue:checkoutRequest.shippingLocationProfile forKey:kShippingLocationProfileKey];
-    [checkoutRequestDictionary setValue:[checkoutRequest.allowedCardTypes.allObjects componentsJoinedByString:@","] forKey:kAllowedCardTypesKey];
+    [checkoutRequestDictionary setValue:[configuration.allowedCardTypes.allObjects componentsJoinedByString:@","] forKey:kAllowedCardTypesKey];
     [checkoutRequestDictionary setValue:kChannelValue forKey:kChannelKey];
     
     if (checkoutRequest.cryptoOptions != nil) {
