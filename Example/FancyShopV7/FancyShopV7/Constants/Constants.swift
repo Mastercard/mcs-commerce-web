@@ -144,6 +144,7 @@ struct Constants {
         static let merchantUrlScheme = BuildConfiguration.sharedInstance.merchantUrlScheme()
         static let checkoutId = EnvironmentConfiguration.sharedInstance.checkoutID
         static let environment = EnvironmentConfiguration.sharedInstance.environmentName
+        static let checkoutHost = EnvironmentConfiguration.sharedInstance.checkoutHost
     }
     
 }

@@ -1,12 +1,5 @@
-
-#include "Debug.xcconfig"
-
-CODE_SIGN_IDENTITY[sdk=*]=iPhone Developer
-//CHECKOUT_HOST=sandbox.src.mastercard.com //srci host
-CHECKOUT_HOST=https:/$()/sandbox.masterpass.com/routing/v2/mobileapi/web-checkout //masterpass host
-PRODUCT_BUNDLE_IDENTIFIER=com.mastercard.
-//CHECKOUT_ID=e19e5f516e3c45ad991e13c8af924f62 //maybe not a sandbox ios merchant
-CHECKOUT_ID=6a151ecefd5644dda5529cd9e8ccf1b9
+PRODUCT_BUNDLE_IDENTIFIER=com.mastercard.commerce.fancyshop
+CHECKOUT_ID=a7887ab9fc7b4e6b96b444621b1e3a28
 ENVIRONMENT_NAME=Sandbox
 MERCHANT_KEY_FILENAME=prdappwebn1-production
 MERCHANT_KEY_PWD=password1

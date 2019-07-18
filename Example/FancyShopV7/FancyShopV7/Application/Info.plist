@@ -26,7 +26,7 @@
 			<key>CFBundleURLIconFile</key>
 			<string></string>
 			<key>CFBundleURLName</key>
-			<string>com.moofwdinc.us.merchantapp</string>
+			<string>com.mastercard.commerce.fancyshopv7</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>fancyshop</string>
@@ -52,6 +52,8 @@
 	<string>To authenticate your purchases using biometrics.</string>
 	<key>TMEnvironmentConfig</key>
 	<dict>
+		<key>CheckoutHost</key>
+		<string>$(CHECKOUT_HOST)</string>
 		<key>TMACheckoutID</key>
 		<string>$(CHECKOUT_ID)</string>
 		<key>TMAConsumerKey</key>
@@ -60,8 +62,6 @@
 		<string>$(MERCHANT_KEY_FILENAME)</string>
 		<key>TMAMerchantKeyPwd</key>
 		<string>$(MERCHANT_KEY_PWD)</string>
-		<key>TMAppLink</key>
-		<string>$(APP_LINK)</string>
 		<key>TMEnvironmentName</key>
 		<string>${ENVIRONMENT_NAME}</string>
 		<key>TMSwitchHost</key>

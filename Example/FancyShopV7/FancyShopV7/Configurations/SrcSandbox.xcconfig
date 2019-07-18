@@ -1,0 +1,3 @@
+#include "Sandbox.xcconfig"
+
+CHECKOUT_HOST=https:/$()/sandbox.src.mastercard.com/srci //srci host

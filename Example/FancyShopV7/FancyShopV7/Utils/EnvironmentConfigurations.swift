@@ -8,7 +8,6 @@
 
 import UIKit
 
-let kAPPLINK = "TMAppLink"
 let Config = "TMEnvironmentConfig"
 let kCheckoutID = "TMACheckoutID"
 let kMerchantKey = "TMAMerchantKey"
@@ -16,6 +15,7 @@ let kConsumerKey = "TMAConsumerKey"
 let kMerchantKeyPwd = "TMAMerchantKeyPwd"
 let kSWITCH_HOST = "TMSwitchHost"
 let kEnvironment_Name = "TMEnvironmentName"
+let kCheckoutHost = "CheckoutHost"
 
 class EnvironmentConfiguration: NSObject {
     
@@ -25,8 +25,8 @@ class EnvironmentConfiguration: NSObject {
     var merchankKeyFileName:String = ""
     var consumerKey:String = ""
     var merchankKeyFilePwd = ""
-    var merchantUniversalLinkDomain = ""
     var environmentName = ""
+    var checkoutHost = ""
     
     class var sharedInstance: EnvironmentConfiguration {
         
@@ -44,12 +44,12 @@ class EnvironmentConfiguration: NSObject {
         if let bundleDictionary = Bundle.main.infoDictionary {
             let dictionary = bundleDictionary[Config] as! NSDictionary
             self.switchHost = dictionary[kSWITCH_HOST] as! String
-            self.merchantUniversalLinkDomain = dictionary[kAPPLINK] as! String
             self.checkoutID = dictionary[kCheckoutID] as! String
             self.consumerKey = dictionary[kConsumerKey] as! String
             self.merchankKeyFileName = dictionary[kMerchantKey] as! String
             self.merchankKeyFilePwd = dictionary[kMerchantKeyPwd] as! String
             self.environmentName = dictionary[kEnvironment_Name] as! String
+            self.checkoutHost = dictionary[kCheckoutHost] as! String
             
         }
     }

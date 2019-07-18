@@ -89,12 +89,13 @@ class OrderSummaryAPIDataManager: OrderSummaryAPIDataManagerInputProtocol, MCSCh
             checkoutId: Constants.SDKConfiguration.checkoutId,
             checkoutUrl: Constants.SDKConfiguration.url,
             callbackScheme: BuildConfiguration.sharedInstance.merchantUrlScheme(),
-            allowedCardTypes: [.master, .visa])
+            allowedCardTypes: [.master, .visa, .amex])
         
         SRCSDKManager.sharedInstance.initializeSdk(configuration: commerceConfig)
     }
     
     func getCheckoutButton(completionHandler: @escaping ([AnyHashable : Any]?, Error?) -> ()) -> MCSCheckoutButton {
+        self.completionHandler = completionHandler
         
         return SRCSDKManager.sharedInstance.getCheckoutButton(with: self)
     }
@@ -117,15 +118,9 @@ class OrderSummaryAPIDataManager: OrderSummaryAPIDataManagerInputProtocol, MCSCh
         checkoutRequest.amount = NSDecimalNumber(string: String(shoppingCart.total))
         checkoutRequest.currency = sdkConfig.currency
         checkoutRequest.cartId = shoppingCart.cartId
-        checkoutRequest.allowedCardTypes = [.master,.visa, .amex]
         checkoutRequest.suppressShippingAddress = sdkConfig.suppressShipping
-        checkoutRequest.callbackUrl = BuildConfiguration.sharedInstance.merchantUrlScheme()
         checkoutRequest.unpredictableNumber = "12345678"
-        //
-        //        let cryptoOptionVisa = MCSCryptoOptions()
-        //        cryptoOptionVisa.cardType = "visa"
-        //        cryptoOptionVisa.format = ["TVV"]
-        
+
         let cryptoOptionMaster = MCSCryptoOptions()
         cryptoOptionMaster.cardType = "master"
         cryptoOptionMaster.format = ["ICC,UCAF"]

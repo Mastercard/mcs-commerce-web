@@ -24,10 +24,10 @@
 			<key>CFBundleURLIconFile</key>
 			<string></string>
 			<key>CFBundleURLName</key>
-			<string>com.mastercard.commerce</string>
+			<string>com.mastercard.commerce.fancyshop</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>principle</string>
+				<string>fancyshop</string>
 			</array>
 		</dict>
 	</array>
@@ -36,7 +36,7 @@
 	<key>Config</key>
 	<dict>
 		<key>Scheme</key>
-		<string>principle</string>
+		<string>fancyshop</string>
 	</dict>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>

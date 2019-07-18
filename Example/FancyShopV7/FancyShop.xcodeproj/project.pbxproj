@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		195FCC5C22B6B1E3009B67DE /* Common.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 195FCB2022B6B1E2009B67DE /* Common.xcconfig */; };
-		195FCC5D22B6B1E3009B67DE /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 195FCB2122B6B1E2009B67DE /* Debug.xcconfig */; };
-		195FCC5E22B6B1E3009B67DE /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 195FCB2222B6B1E2009B67DE /* Release.xcconfig */; };
 		195FCC5F22B6B1E3009B67DE /* Production.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 195FCB2322B6B1E2009B67DE /* Production.xcconfig */; };
 		195FCC6022B6B1E3009B67DE /* Sandbox.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 195FCB2422B6B1E2009B67DE /* Sandbox.xcconfig */; };
 		195FCC6122B6B1E3009B67DE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 195FCB2622B6B1E2009B67DE /* README.md */; };
@@ -205,9 +202,10 @@
 
 /* Begin PBXFileReference section */
 		0324EF379FF038B04EFF05D3 /* Pods_FancyShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FancyShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		195FCB2022B6B1E2009B67DE /* Common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
-		195FCB2122B6B1E2009B67DE /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
-		195FCB2222B6B1E2009B67DE /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		19132C8922E0CE0100F98EAE /* MasterpassSandbox.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MasterpassSandbox.xcconfig; sourceTree = "<group>"; };
+		19132C8A22E0CE4E00F98EAE /* SrcSandbox.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SrcSandbox.xcconfig; sourceTree = "<group>"; };
+		19132C8B22E0CE9A00F98EAE /* SrcStage.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SrcStage.xcconfig; sourceTree = "<group>"; };
+		19132C8C22E0CEB800F98EAE /* Stage.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Stage.xcconfig; sourceTree = "<group>"; };
 		195FCB2322B6B1E2009B67DE /* Production.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		195FCB2422B6B1E2009B67DE /* Sandbox.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Sandbox.xcconfig; sourceTree = "<group>"; };
 		195FCB2622B6B1E2009B67DE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -422,11 +420,12 @@
 		195FCB1F22B6B1E2009B67DE /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
-				195FCB2022B6B1E2009B67DE /* Common.xcconfig */,
-				195FCB2122B6B1E2009B67DE /* Debug.xcconfig */,
-				195FCB2222B6B1E2009B67DE /* Release.xcconfig */,
-				195FCB2322B6B1E2009B67DE /* Production.xcconfig */,
+				19132C8C22E0CEB800F98EAE /* Stage.xcconfig */,
 				195FCB2422B6B1E2009B67DE /* Sandbox.xcconfig */,
+				195FCB2322B6B1E2009B67DE /* Production.xcconfig */,
+				19132C8B22E0CE9A00F98EAE /* SrcStage.xcconfig */,
+				19132C8A22E0CE4E00F98EAE /* SrcSandbox.xcconfig */,
+				19132C8922E0CE0100F98EAE /* MasterpassSandbox.xcconfig */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -1863,7 +1862,6 @@
 				195FCCEF22B6B1E4009B67DE /* PreCheckoutData.strings in Resources */,
 				195FCC6822B6B1E3009B67DE /* outdoor_item2.jpg in Resources */,
 				195FCCA322B6B1E4009B67DE /* CurrencyList.storyboard in Resources */,
-				195FCC5E22B6B1E3009B67DE /* Release.xcconfig in Resources */,
 				195FCC5F22B6B1E3009B67DE /* Production.xcconfig in Resources */,
 				195FCCD622B6B1E4009B67DE /* OrderSummary.storyboard in Resources */,
 				195FCCBD22B6B1E4009B67DE /* PaymentMethods.strings in Resources */,
@@ -1873,11 +1871,9 @@
 				195FCCF322B6B1E4009B67DE /* PreCheckoutData.storyboard in Resources */,
 				195FCC6B22B6B1E3009B67DE /* outdoor_item4.jpg in Resources */,
 				19A0EE5E22986602006B7AFA /* Default-568h@2x.png in Resources */,
-				195FCC5C22B6B1E3009B67DE /* Common.xcconfig in Resources */,
 				195FCCE122B6B1E4009B67DE /* TransactionComplete.storyboard in Resources */,
 				195FCC6522B6B1E3009B67DE /* Assets.xcassets in Resources */,
 				195FCCD422B6B1E4009B67DE /* OrderSummary.strings in Resources */,
-				195FCC5D22B6B1E3009B67DE /* Debug.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2091,7 +2087,7 @@
 /* Begin XCBuildConfiguration section */
 		19A0EC5522970D42006B7AFA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 195FCB2422B6B1E2009B67DE /* Sandbox.xcconfig */;
+			baseConfigurationReference = 19132C8922E0CE0100F98EAE /* MasterpassSandbox.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

@@ -29,11 +29,7 @@
 		19A0EDB322971653006B7AFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EC6B22971651006B7AFA /* LaunchScreen.storyboard */; };
 		19A0EDB422971653006B7AFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EC6D22971651006B7AFA /* AppDelegate.swift */; };
 		19A0EDB622971653006B7AFA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EC7122971651006B7AFA /* Constants.swift */; };
-		19A0EDB722971653006B7AFA /* Perf.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EC7322971651006B7AFA /* Perf.xcconfig */; };
 		19A0EDB822971653006B7AFA /* Stage.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EC7422971651006B7AFA /* Stage.xcconfig */; };
-		19A0EDB922971653006B7AFA /* Common.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EC7522971651006B7AFA /* Common.xcconfig */; };
-		19A0EDBA22971653006B7AFA /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EC7622971651006B7AFA /* Debug.xcconfig */; };
-		19A0EDBB22971653006B7AFA /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EC7722971651006B7AFA /* Release.xcconfig */; };
 		19A0EDBC22971653006B7AFA /* Prod.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EC7822971651006B7AFA /* Prod.xcconfig */; };
 		19A0EDBD22971653006B7AFA /* Sandbox.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EC7922971651006B7AFA /* Sandbox.xcconfig */; };
 		19A0EDBE22971653006B7AFA /* OneServerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EC7B22971651006B7AFA /* OneServerRouter.swift */; };
@@ -210,6 +206,9 @@
 
 /* Begin PBXFileReference section */
 		14DBF72CD0B6B665F46E5CBB /* Pods_FancyShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FancyShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		19132C8D22E0CFEA00F98EAE /* MasterpassSandbox.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MasterpassSandbox.xcconfig; sourceTree = "<group>"; };
+		19132C8E22E0D02B00F98EAE /* SrcSandbox.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SrcSandbox.xcconfig; sourceTree = "<group>"; };
+		19132C8F22E0D6BA00F98EAE /* SrcStage.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SrcStage.xcconfig; sourceTree = "<group>"; };
 		195FCD1922B82B69009B67DE /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NVActivityIndicatorView.framework; path = ../Frameworks/NVActivityIndicatorView.framework; sourceTree = "<group>"; };
 		195FCD1A22B82B69009B67DE /* MerchantServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MerchantServices.framework; path = ../Frameworks/MerchantServices.framework; sourceTree = "<group>"; };
 		195FCD1B22B82B6A009B67DE /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = ../Frameworks/SDWebImage.framework; sourceTree = "<group>"; };
@@ -231,11 +230,7 @@
 		19A0EC6E22971651006B7AFA /* FancyShop-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FancyShop-Bridging-Header.h"; sourceTree = "<group>"; };
 		19A0EC6F22971651006B7AFA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19A0EC7122971651006B7AFA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		19A0EC7322971651006B7AFA /* Perf.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Perf.xcconfig; sourceTree = "<group>"; };
 		19A0EC7422971651006B7AFA /* Stage.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Stage.xcconfig; sourceTree = "<group>"; };
-		19A0EC7522971651006B7AFA /* Common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
-		19A0EC7622971651006B7AFA /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
-		19A0EC7722971651006B7AFA /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		19A0EC7822971651006B7AFA /* Prod.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
 		19A0EC7922971651006B7AFA /* Sandbox.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Sandbox.xcconfig; sourceTree = "<group>"; };
 		19A0EC7B22971651006B7AFA /* OneServerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneServerRouter.swift; sourceTree = "<group>"; };
@@ -497,13 +492,12 @@
 		19A0EC7222971651006B7AFA /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
-				19A0EC7322971651006B7AFA /* Perf.xcconfig */,
 				19A0EC7422971651006B7AFA /* Stage.xcconfig */,
-				19A0EC7522971651006B7AFA /* Common.xcconfig */,
-				19A0EC7622971651006B7AFA /* Debug.xcconfig */,
-				19A0EC7722971651006B7AFA /* Release.xcconfig */,
-				19A0EC7822971651006B7AFA /* Prod.xcconfig */,
 				19A0EC7922971651006B7AFA /* Sandbox.xcconfig */,
+				19A0EC7822971651006B7AFA /* Prod.xcconfig */,
+				19132C8F22E0D6BA00F98EAE /* SrcStage.xcconfig */,
+				19132C8E22E0D02B00F98EAE /* SrcSandbox.xcconfig */,
+				19132C8D22E0CFEA00F98EAE /* MasterpassSandbox.xcconfig */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -1843,7 +1837,6 @@
 				19A0EDDB22971653006B7AFA /* AllowedCardList.strings in Resources */,
 				19A0EDB822971653006B7AFA /* Stage.xcconfig in Resources */,
 				19A0EE3722971653006B7AFA /* Login.strings in Resources */,
-				19A0EDBA22971653006B7AFA /* Debug.xcconfig in Resources */,
 				19A0EDAA22971653006B7AFA /* outdoor_item8.jpg in Resources */,
 				19A0EDEB22971653006B7AFA /* CurrencyList.storyboard in Resources */,
 				19A0EDBC22971653006B7AFA /* Prod.xcconfig in Resources */,
@@ -1862,7 +1855,6 @@
 				19A0EE0722971653006B7AFA /* PaymentMethods.storyboard in Resources */,
 				19A0EE5E22986602006B7AFA /* Default-568h@2x.png in Resources */,
 				19A0EE1122971653006B7AFA /* TransactionFailure.storyboard in Resources */,
-				19A0EDB722971653006B7AFA /* Perf.xcconfig in Resources */,
 				19A0EDD922971653006B7AFA /* Settings.storyboard in Resources */,
 				19A0EDE422971653006B7AFA /* AllowedCardList.storyboard in Resources */,
 				19A0EDB322971653006B7AFA /* LaunchScreen.storyboard in Resources */,
@@ -1871,8 +1863,6 @@
 				19A0EDAE22971653006B7AFA /* outdoor_item5.jpg in Resources */,
 				19A0EE1B22971653006B7AFA /* ProductList.storyboard in Resources */,
 				19A0EDAB22971653006B7AFA /* outdoor_item3.jpg in Resources */,
-				19A0EDBB22971653006B7AFA /* Release.xcconfig in Resources */,
-				19A0EDB922971653006B7AFA /* Common.xcconfig in Resources */,
 				19A0EE3C22971653006B7AFA /* Production.plist in Resources */,
 				19A0EDA922971653006B7AFA /* Assets.xcassets in Resources */,
 				19A0EE3E22971653006B7AFA /* Sandbox.plist in Resources */,
@@ -2095,7 +2085,7 @@
 /* Begin XCBuildConfiguration section */
 		19A0EC5522970D42006B7AFA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 19A0EC7422971651006B7AFA /* Stage.xcconfig */;
+			baseConfigurationReference = 19132C8D22E0CFEA00F98EAE /* MasterpassSandbox.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
