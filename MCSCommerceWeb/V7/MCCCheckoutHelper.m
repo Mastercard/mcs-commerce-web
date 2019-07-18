@@ -26,7 +26,6 @@
 
 + (MCSCheckoutRequest *)requestWithRequest:(MCCCheckoutRequest *)request {
     MCSCheckoutRequest *newRequest = [[MCSCheckoutRequest alloc] init];
-    newRequest.allowedCardTypes = [MCCCheckoutHelper cardTypesWithCardTypes:request.allowedCardTypes];
     newRequest.amount = request.amount.total;
     newRequest.cartId = request.cartId;
     newRequest.currency = request.amount.currencyCode;
