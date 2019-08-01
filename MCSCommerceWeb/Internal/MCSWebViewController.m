@@ -81,12 +81,6 @@
     [self setConstraintsForView:_webview];
 }
 
-- (void)viewWillLayoutSubviews {
-    if (_popup != nil) {
-        [_indicatorView show];
-    }
-}
-
 - (void)setConstraintsForView:(UIView *)view {
     UILayoutGuide *layoutGuide = self.view.safeAreaLayoutGuide;
 
