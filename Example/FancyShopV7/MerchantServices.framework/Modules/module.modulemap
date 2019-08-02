@@ -1,0 +1,6 @@
+framework module MerchantServices {
+  umbrella header "MerchantServices.h"
+
+  export *
+  module * { export * }
+}
