@@ -80,12 +80,6 @@
     [self setConstraintsForView:_srciWebView];
 }
 
-- (void)viewWillLayoutSubviews {
-    if (_dcfWebView != nil) {
-        [_indicatorView show];
-    }
-}
-
 - (void)setConstraintsForView:(UIView *)view {
     UILayoutGuide *layoutGuide = self.view.safeAreaLayoutGuide;
     [view setTranslatesAutoresizingMaskIntoConstraints:NO];
