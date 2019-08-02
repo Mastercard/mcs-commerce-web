@@ -22,7 +22,6 @@
  * parameters and merchant configuration. Using this URL, the web
  * SRCi will be initiated and used to return the checkout result.
  *
- * @author Vrushank Rindani
  * @author Bret Deasy
  */
 @interface MCSCheckoutUrlBuilder : NSObject

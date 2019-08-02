@@ -36,9 +36,18 @@ FOUNDATION_EXPORT double MCSCommerceWebVersionNumber;
 FOUNDATION_EXPORT const unsigned char MCSCommerceWebVersionString[];
 
 @protocol MCSCheckoutDelegate
-
+/**
+ * Initialize checkout for transaction process, that will return completion handler with request object
+ *
+ **/
 - (void)checkoutRequestForTransaction:(nonnull void(^)(MCSCheckoutRequest * _Nonnull checkoutRequest))handler NS_SWIFT_NAME(getCheckoutRequest(withHandler:));
-
+/**
+ * Initialize checkout process with completion block
+ *
+ * @param request MCSCheckoutRequest request object to perform checkout
+ * @param status MCSCheckoutStatus
+ * @param transactionId NSString
+ **/
 - (void)checkoutRequest:(MCSCheckoutRequest *)request didCompleteWithStatus:(MCSCheckoutStatus)status forTransaction:(NSString * _Nullable)transactionId NS_SWIFT_NAME(checkoutCompleted(withRequest:status:transactionId:));
 
 @end

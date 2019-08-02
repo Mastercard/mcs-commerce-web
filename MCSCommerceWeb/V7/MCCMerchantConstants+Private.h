@@ -169,7 +169,7 @@ extern NSString * const kErrorFieldNameUserId;
 extern NSString * const kErrorFieldNameCheckoutId;
 extern NSString * const kErrorFieldNameWalletId;
 
-// Country
+/** Country **/
 extern NSString * const kErrorFieldNameCountryName;
 extern NSString * const kErrorFieldNamePhoneProperties;
 extern NSString * const kErrorFieldNamePhoneCountryCode;
@@ -255,7 +255,7 @@ extern NSString * const MCCMEXLegalContentCategoryToString[];
 extern NSString * const MCCMEXLegalContentCategoryURLToString[];
 extern NSString * const MCCMEXLegalContentCategoryDefaultURLToString[];
 
-//MCCCheckoutResponse
+/** MCCCheckoutResponse **/
 extern NSString * const kCheckoutResponseCartID;
 extern NSString * const kCheckoutResponseCheckoutResourceURLWebKey;
 extern NSString * const kCheckoutResponseTransactionId;
@@ -276,7 +276,7 @@ typedef NS_ENUM(NSInteger, MCCImageResourceType) {
     MCCImageResourceTypeMEXWalletLogoResource = 2
 };
 
-/// Service Error definitions
+/** Service Error definitions **/
 typedef NS_ENUM(NSInteger, MCCServiceErrorType)  {
    
     MCCServiceErrorTypeInfo = 0,
@@ -285,7 +285,7 @@ typedef NS_ENUM(NSInteger, MCCServiceErrorType)  {
     MCCServiceErrorTypeNetworkError = 3
 };
 
-///MCCCheckoutResponse
+/** MCCCheckoutResponse **/
 extern NSString * const kCheckoutResponseCartID;
 extern NSString * const kCheckoutResponseTransactionId;
 extern NSString * const KCheckoutResponsePairingToken;

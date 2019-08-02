@@ -22,9 +22,20 @@
 @class MCSCheckoutRequest;
 
 @interface MCCCheckoutHelper : NSObject
-
+/**
+ * Given a MCCConfiguration it will transform into MCSConfiguration
+ * @param configuration MCCConfiguration
+ *
+ * @return configuration MCSConfiguration
+ */
 + (MCSConfiguration *)configurationWithConfiguration:(MCCConfiguration *)configuration;
 
+/**
+ * Given the MCCCheckoutRequest it will tranform into MCSCheckoutRequest
+ * @param request MCCCheckoutRequest
+ *
+ * @return request MCSCheckoutRequest
+ */
 + (MCSCheckoutRequest *)requestWithRequest:(MCCCheckoutRequest *)request;
 
 @end

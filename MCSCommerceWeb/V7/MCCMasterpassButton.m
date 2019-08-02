@@ -21,11 +21,9 @@
 
 - (void)addButtonToView:(UIView * _Nonnull)superView {
     [superView addSubview:self];
-    
     self.translatesAutoresizingMaskIntoConstraints = NO;
     
     // Set button horizontal and vertical center in super view
-    
     NSLayoutConstraint *centerVertical = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:superView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
     
     NSLayoutConstraint *centerHorizontal = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:superView attribute:NSLayoutAttributeCenterX multiplier:1 constant:0];

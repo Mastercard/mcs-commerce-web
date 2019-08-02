@@ -18,22 +18,22 @@
 #ifndef MCCMerchantConstants_h
 #define MCCMerchantConstants_h
 
-/// Key name for Initialization state status in initialization status callback, to be used by Wallet App and Wallet SDK
+/** Key name for Initialization state status in initialization status callback, to be used by Wallet App and Wallet SDK **/
 extern NSString *const kInitializeStateKey;
 
-//universal link info type key
+/** universal link info type key **/
 extern NSString * const kUniversalLinkInfoTypeKey;
 
-/// Transaction Response Dictionary Keys
+/** Transaction Response Dictionary Keys **/
 extern NSString * const kTransactionResponseStatusKey;
 extern NSString * const kTransactionResponseErrorMessageKey;
 extern NSString * const kTransactionResponseSuccessStatus;
 extern NSString * const kTransactionResponseFailStatus;
 
-/// Payment Method Select Response Keys
+/** Payment Method Select Response Keys **/
 extern NSString * const kPaymentMethodResponseSelectedWalletIdKey;
 
-/// Payment Method Properties Keys
+/** Payment Method Properties Keys **/
 extern NSString * const kPaymentMethodID;
 extern NSString * const kPaymentMethodName;
 extern NSString * const kPaymentMethodLogo;

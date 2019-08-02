@@ -22,7 +22,7 @@ __deprecated_msg("You should migrate your code to MCSCommerceWeb. All classes re
 @property(nonatomic, assign, readonly) MCCCryptogramType cryptogramType;
 @property(nonatomic, copy, readonly,nonnull) NSString *cryptogramIdentifier;
 
-//Unavailable
+/** Unavailable **/
 - (instancetype _Nonnull )init NS_UNAVAILABLE;
 
 /**

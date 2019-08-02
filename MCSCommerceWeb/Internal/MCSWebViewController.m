@@ -20,8 +20,8 @@
 
 @property (nonatomic, strong) NSURL *url;
 @property (nonatomic, strong) NSString *scheme;
-@property (nonatomic, strong) WKWebView *webview;
-@property (nonatomic, strong) WKWebView *popup;
+@property (nonatomic, strong) WKWebView *srciWebView;
+@property (nonatomic, strong) WKWebView *dcfWebView;
 @property (nonatomic, strong) MCSActivityIndicatorView *indicatorView;
 @property (nonatomic, weak) id<MCSWebCheckoutDelegate> delegate;
 @property (nonatomic) BOOL isDismissing;
@@ -37,7 +37,6 @@
         self.scheme = scheme;
         self.delegate = delegate;
         self.indicatorView = [[MCSActivityIndicatorView alloc] initWithTitle:@"Loading..."];
-        
         [self.indicatorView setTargetForCancel:self action:@selector(cancel)];
     }
     
@@ -58,38 +57,37 @@
     configuration.preferences = preferences;
     [configuration setURLSchemeHandler:self forURLScheme:self.scheme];
     
-    _webview = [[WKWebView alloc] initWithFrame:CGRectZero configuration:configuration];
-    _webview.UIDelegate = self;
-    _webview.navigationDelegate = self;
+    _srciWebView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:configuration];
+    _srciWebView.UIDelegate = self;
+    _srciWebView.navigationDelegate = self;
     
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:_url];
     
-    [_webview loadRequest:request];
-    [_webview setAllowsBackForwardNavigationGestures:YES];
+    [_srciWebView loadRequest:request];
+    [_srciWebView setAllowsBackForwardNavigationGestures:YES];
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    [self.view addSubview:_webview];
+    [self.view addSubview:_srciWebView];
     [self.view addSubview:_indicatorView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:NO];
     [_indicatorView show];
 }
 
 - (void)viewSafeAreaInsetsDidChange {
     [super viewSafeAreaInsetsDidChange];
-    
-    [self setConstraintsForView:_webview];
+    [self setConstraintsForView:_srciWebView];
 }
 
 - (void)viewWillLayoutSubviews {
-    if (_popup != nil) {
+    if (_dcfWebView != nil) {
         [_indicatorView show];
     }
 }
 
 - (void)setConstraintsForView:(UIView *)view {
     UILayoutGuide *layoutGuide = self.view.safeAreaLayoutGuide;
-
     [view setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     NSLayoutConstraint *leadingConstraint = [view.leadingAnchor constraintEqualToAnchor:layoutGuide.leadingAnchor];
@@ -104,14 +102,15 @@
 }
 
 - (WKWebView *) webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures {
-    _popup = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:configuration];
-    _popup.UIDelegate = self;
-    _popup.navigationDelegate = self;
     
-    [self.view addSubview:_popup];
-    [self setConstraintsForView:_popup];
+    _dcfWebView = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:configuration];
+    _dcfWebView.UIDelegate = self;
+    _dcfWebView.navigationDelegate = self;
     
-    return _popup;
+    [self.view addSubview:_dcfWebView];
+    [self setConstraintsForView:_dcfWebView];
+    
+    return _dcfWebView;
 }
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
@@ -130,9 +129,9 @@
 }
 
 - (void) webViewDidClose:(WKWebView *)webView {
-    if (webView == _popup) {
-        [_popup removeFromSuperview];
-        _popup = nil;
+    if (webView == _dcfWebView) {
+        [_dcfWebView removeFromSuperview];
+        _dcfWebView = nil;
     } else {
         [self dismiss];
     }
@@ -167,14 +166,15 @@
 
 - (void)dismiss {
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:^{
-        [self->_popup stopLoading];
-        [self->_popup removeFromSuperview];
-        [self->_webview stopLoading];
-        [self->_webview removeFromSuperview];
+        
+        [self->_dcfWebView stopLoading];
+        [self->_dcfWebView removeFromSuperview];
+        [self->_srciWebView stopLoading];
+        [self->_srciWebView removeFromSuperview];
         [self->_indicatorView removeFromSuperview];
         
-        self->_webview = nil;
-        self->_popup = nil;
+        self->_srciWebView = nil;
+        self->_dcfWebView = nil;
         self->_indicatorView = nil;
         self.view = nil;
     }];
@@ -184,7 +184,7 @@
     /* No implementation needed for this right now--or maybe ever */
 }
 
-- (void)cancel {
+- (void)cancel {  
     MCSCheckoutResponse *checkoutResponse = [[MCSCheckoutResponse alloc] init];
     checkoutResponse.status = STATUS_CANCEL;
     
@@ -194,9 +194,10 @@
 
 #if TARGET_IPHONE_SIMULATOR
 - (void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler {
-    NSURLCredential *cred = [[NSURLCredential alloc] initWithTrust:challenge.protectionSpace.serverTrust];
     
-    completionHandler(NSURLSessionAuthChallengeUseCredential, cred);
+    NSURLCredential *credential = [[NSURLCredential alloc] initWithTrust:challenge.protectionSpace.serverTrust];
+    
+    completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
 }
 #endif
 

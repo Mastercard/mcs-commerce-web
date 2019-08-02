@@ -36,6 +36,11 @@ typedef void (^SvgCompletionBlock)(UIImage * __nullable image, NSError * __nulla
  */
 - (void)imageWithContentsOfURL:(NSURL * _Nonnull)url andSize:(CGSize)imageViewSize completionBlock:(__nonnull  SvgCompletionBlock)completionBlock;
 
+/*
+ * This method is responsible for reading image data file, parse the content and create UIImage object out of the received SVG file path
+ * @param data NSData object
+ * @param completionBlock SvgCompletionBlock handler, this completion handler returns UIImage object or NSError object after reading SVG file
+ */
 - (void)imageWithData:( NSData * _Nonnull)data andSize:(CGSize)imageViewSize completionBlock:(__nonnull SvgCompletionBlock)completionBlock;
 
 

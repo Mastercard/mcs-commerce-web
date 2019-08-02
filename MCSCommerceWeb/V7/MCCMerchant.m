@@ -41,11 +41,8 @@ static id<MCSCheckoutDelegate> delegateBridge;
  */
 + (void)initializeSDKWithConfiguration:(MCCConfiguration *_Nonnull)configuration onStatusBlock:(void(^ __nonnull) (NSDictionary * __nonnull status, NSError * __nullable error))status {
     [[MCCConfigurationManager sharedManager] setConfiguration:configuration];
-    
     MCSConfiguration *commerceConfig = [MCCCheckoutHelper configurationWithConfiguration:configuration];
-    
     [[MCSCommerceWeb sharedManager] initWithConfiguration:commerceConfig];
-    
     status(@{kInitializeStateKey : [NSNumber numberWithInt: MCCInitializationStateCompleted] }, nil);
 }
 

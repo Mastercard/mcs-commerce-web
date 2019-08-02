@@ -19,8 +19,15 @@
 
 @interface MCSCheckoutButtonManager : NSObject
 
+/* Shared Manager */
 +(instancetype)sharedManager;
 
+/*
+ * This method is responsible for reading svg file, parse the content and create UIImage object out of the received SVG file path
+ * @param delegate MCSCheckoutDelegate object to implement the checkout delegate call
+ 
+ * @return checkout button MCSCheckoutButton
+ */
 - (MCSCheckoutButton *)checkoutButtonWithDelegate:(id<MCSCheckoutDelegate>)delegate;
 
 @end

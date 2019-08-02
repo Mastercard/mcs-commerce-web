@@ -16,25 +16,25 @@
 
 #import <Foundation/Foundation.h>
 
-/// The domain for errors originating from SDK initialization
+/** The domain for errors originating from SDK initialization **/
 extern NSString * _Nullable const MCCMerchantSDKInitializationErrorDomain;
 
-/// The domain for errors originating from transaction processing
+/** The domain for errors originating from transaction processing **/
 extern NSString * _Nullable const MCCMerchantSDKTransactionErrorDomain;
 
-/// The domain for errors originating from Exception.
+/** The domain for errors originating from Exception. **/
 extern NSString * _Nullable const MCCMerchantErrorDomain;
 
-/// The domain for errors originating from selecting payment method.
+/** The domain for errors originating from selecting payment method. **/
 extern NSString * _Nullable const MCCMerchantSDKPaymentMethodErrorDomain;
 
-/// The domain for cancellation of transaction during web checkout
+/** The domain for cancellation of transaction during web checkout **/
 extern NSString * _Nullable const MCCMerchantSDKTransactionCancelDomain;
 
-/// The domain for errors originating from MEX service communication
+/** The domain for errors originating from MEX service communication **/
 extern NSString *_Nullable const MCCMEXServiceErrorDomain;
 
-/// The domain for errors originating from AEM (LegalContent) service communication
+/** The domain for errors originating from AEM (LegalContent) service communication **/
 extern NSString *_Nullable const MCCMerchantSDKLegalContentErrorDomain;
 /**
  * MCCMerchantErrorCode, this enum is for different error codes based on their classification

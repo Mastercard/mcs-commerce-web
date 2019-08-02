@@ -192,7 +192,7 @@ NSString * const kTransactionCheckoutIdKey              = @"checkoutId";
 
 NSString * const kTransactionShippingProfileIdValue     = @"default";
 
-//Payment method image name
+/** Payment method image name **/
 NSString *const kPaymentMethodMasterPassLogoImageName   = @"logo";
 NSString *const kDefaultWalletIdentifier                = @"101";
 NSString *const kMasterPass                             = @"Masterpass";
@@ -200,14 +200,14 @@ NSString *const kMasterPassBackgroundImageName          = @"background_black";
 NSString *const kMasterPassDefaultButtonImageName       = @"MasterpassButton";
 NSString *const kMasterPassLogoImageName                = @"MP-Logo";
 
-//MEX countries market property types
+/** MEX countries market property types **/
 NSString *const kMEXWalletSelectorMarket                = @"WALLET_SELECTOR";
 
 NSString *const kMEXCardExpiredErrorReasonCode          = @"CARD_EXPIRED";
 NSString *const kMEXCardDeletedErrorReasonCode          = @"CARD_DELETED";
 NSString *const kMEXWalletNotFoundErrorReasonCode       = @"WALLET_NOT_FOUND";
 
-//SVG image constants
+/** SVG image constants **/
 NSString *const kMCCSVGError                            = @"error";
 NSString *const kMCCSVGErrorDomain                      = @"com.masterpass.mccmerchant.svgrendering";
 
@@ -229,14 +229,14 @@ NSString *const kJSContextLoadedKey                     = @"loaded";
 NSString *const kSVGHTMLFileName                        = @"SVGTemplate";
 NSString *const kSVGHTHMLFileType                       = @"html";
 
-//MCCCheckoutResponse
+/** MCCCheckoutResponse **/
 NSString * const kCheckoutResponseCartID                = @"cartId";
 NSString * const kCheckoutResponseCheckoutResourceURLWebKey   = @"checkout_resource_url";
 NSString * const kCheckoutResponseTransactionId         = @"transactionId";
 NSString * const KCheckoutResponsePairingToken          = @"pairing_token";
 NSString * const kCheckoutResponseUserIdKey             = @"userId";
 
-//MEXCheckoutResponse - diff key
+/** MEXCheckoutResponse - diff key **/
 NSString * const kMEXCheckoutResponsePairingTransactionId  = @"pairingTransactionId";
 NSString * const kMEXChekcoutResponseCheckoutResourceURL   = @"checkoutResourceUrl";
 

@@ -21,9 +21,9 @@
 + (MCFEnvironmentConfiguration *) sharedInstance {
     static MCFEnvironmentConfiguration *sharedInstance = nil;
     static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedInstance = [[MCFEnvironmentConfiguration alloc] init];
-    });
+        dispatch_once(&onceToken, ^{
+            sharedInstance = [[MCFEnvironmentConfiguration alloc] init];
+        });
     return sharedInstance;
 }
 
