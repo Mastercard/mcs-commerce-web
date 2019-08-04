@@ -3,18 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		195FCD1D22B82B6A009B67DE /* NVActivityIndicatorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195FCD1922B82B69009B67DE /* NVActivityIndicatorView.framework */; };
-		195FCD1E22B82B6A009B67DE /* NVActivityIndicatorView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 195FCD1922B82B69009B67DE /* NVActivityIndicatorView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		195FCD1F22B82B6A009B67DE /* MerchantServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195FCD1A22B82B69009B67DE /* MerchantServices.framework */; };
-		195FCD2022B82B6A009B67DE /* MerchantServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 195FCD1A22B82B69009B67DE /* MerchantServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		195FCD2122B82B6A009B67DE /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195FCD1B22B82B6A009B67DE /* SDWebImage.framework */; };
-		195FCD2222B82B6A009B67DE /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 195FCD1B22B82B6A009B67DE /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		195FCD2322B82B6A009B67DE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195FCD1C22B82B6A009B67DE /* Alamofire.framework */; };
-		195FCD2422B82B6A009B67DE /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 195FCD1C22B82B6A009B67DE /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0AB5CDBA21440CE97A52C305 /* Pods_FancyShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0856C58D8D369EF0832910B /* Pods_FancyShop.framework */; };
 		19A0EDA722971653006B7AFA /* language.json in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EC5C22971651006B7AFA /* language.json */; };
 		19A0EDA922971653006B7AFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EC5F22971651006B7AFA /* Assets.xcassets */; };
 		19A0EDAA22971653006B7AFA /* outdoor_item8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EC6122971651006B7AFA /* outdoor_item8.jpg */; };
@@ -184,7 +177,8 @@
 		19A0EE5722971653006B7AFA /* LanguageConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EDA222971653006B7AFA /* LanguageConfiguration.swift */; };
 		19A0EE5E22986602006B7AFA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EE5D22986602006B7AFA /* Default-568h@2x.png */; };
 		19A0EF752298A13B006B7AFA /* objectLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EED522989A58006B7AFA /* objectLocator.swift */; };
-		969B2B383CE5EC063F074474 /* Pods_FancyShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DBF72CD0B6B665F46E5CBB /* Pods_FancyShop.framework */; };
+		490E2EC922F4953100B6709F /* MerchantServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490E2EC822F4952400B6709F /* MerchantServices.framework */; };
+		490E2ECA22F4953100B6709F /* MerchantServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 490E2EC822F4952400B6709F /* MerchantServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -194,10 +188,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				195FCD2222B82B6A009B67DE /* SDWebImage.framework in Embed Frameworks */,
-				195FCD1E22B82B6A009B67DE /* NVActivityIndicatorView.framework in Embed Frameworks */,
-				195FCD2422B82B6A009B67DE /* Alamofire.framework in Embed Frameworks */,
-				195FCD2022B82B6A009B67DE /* MerchantServices.framework in Embed Frameworks */,
+				490E2ECA22F4953100B6709F /* MerchantServices.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -205,14 +196,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		14DBF72CD0B6B665F46E5CBB /* Pods_FancyShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FancyShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19132C8D22E0CFEA00F98EAE /* MasterpassSandbox.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MasterpassSandbox.xcconfig; sourceTree = "<group>"; };
 		19132C8E22E0D02B00F98EAE /* SrcSandbox.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SrcSandbox.xcconfig; sourceTree = "<group>"; };
 		19132C8F22E0D6BA00F98EAE /* SrcStage.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SrcStage.xcconfig; sourceTree = "<group>"; };
-		195FCD1922B82B69009B67DE /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NVActivityIndicatorView.framework; path = ../Frameworks/NVActivityIndicatorView.framework; sourceTree = "<group>"; };
-		195FCD1A22B82B69009B67DE /* MerchantServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MerchantServices.framework; path = ../Frameworks/MerchantServices.framework; sourceTree = "<group>"; };
-		195FCD1B22B82B6A009B67DE /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = ../Frameworks/SDWebImage.framework; sourceTree = "<group>"; };
-		195FCD1C22B82B6A009B67DE /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Frameworks/Alamofire.framework; sourceTree = "<group>"; };
 		19A0EC4522970D3E006B7AFA /* FancyShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FancyShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19A0EC5C22971651006B7AFA /* language.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = language.json; sourceTree = "<group>"; };
 		19A0EC5F22971651006B7AFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -386,8 +372,10 @@
 		19A0EDA222971653006B7AFA /* LanguageConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageConfiguration.swift; sourceTree = "<group>"; };
 		19A0EE5D22986602006B7AFA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		19A0EED522989A58006B7AFA /* objectLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = objectLocator.swift; sourceTree = "<group>"; };
-		1ADDEEDD0C3A369E3DC740E9 /* Pods-FancyShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FancyShop/Pods-FancyShop.debug.xcconfig"; sourceTree = "<group>"; };
-		AFF990C434E1922367277CCE /* Pods-FancyShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.release.xcconfig"; path = "Pods/Target Support Files/Pods-FancyShop/Pods-FancyShop.release.xcconfig"; sourceTree = "<group>"; };
+		490E2EC822F4952400B6709F /* MerchantServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MerchantServices.framework; sourceTree = "<group>"; };
+		781D742DDB6790FDA550D18A /* Pods-FancyShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.debug.xcconfig"; path = "Target Support Files/Pods-FancyShop/Pods-FancyShop.debug.xcconfig"; sourceTree = "<group>"; };
+		89AF301D37701947E71B40D1 /* Pods-FancyShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.release.xcconfig"; path = "Target Support Files/Pods-FancyShop/Pods-FancyShop.release.xcconfig"; sourceTree = "<group>"; };
+		D0856C58D8D369EF0832910B /* Pods_FancyShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FancyShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -395,11 +383,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				195FCD2122B82B6A009B67DE /* SDWebImage.framework in Frameworks */,
-				195FCD1D22B82B6A009B67DE /* NVActivityIndicatorView.framework in Frameworks */,
-				195FCD2322B82B6A009B67DE /* Alamofire.framework in Frameworks */,
-				195FCD1F22B82B6A009B67DE /* MerchantServices.framework in Frameworks */,
-				969B2B383CE5EC063F074474 /* Pods_FancyShop.framework in Frameworks */,
+				490E2EC922F4953100B6709F /* MerchantServices.framework in Frameworks */,
+				0AB5CDBA21440CE97A52C305 /* Pods_FancyShop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,8 +397,8 @@
 				19A0EE5D22986602006B7AFA /* Default-568h@2x.png */,
 				19A0EC4722970D3E006B7AFA /* FancyShop */,
 				19A0EC4622970D3E006B7AFA /* Products */,
-				19A0EE5F22986CD1006B7AFA /* Frameworks */,
-				A824F1DF633185EA933C8B77 /* Pods */,
+				E0BF3A63CCB1FA357D996C45 /* Pods */,
+				6E1D67BEF55051C97054A89C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1750,25 +1735,22 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
-		19A0EE5F22986CD1006B7AFA /* Frameworks */ = {
+		6E1D67BEF55051C97054A89C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				195FCD1C22B82B6A009B67DE /* Alamofire.framework */,
-				195FCD1A22B82B69009B67DE /* MerchantServices.framework */,
-				195FCD1922B82B69009B67DE /* NVActivityIndicatorView.framework */,
-				195FCD1B22B82B6A009B67DE /* SDWebImage.framework */,
-				14DBF72CD0B6B665F46E5CBB /* Pods_FancyShop.framework */,
+				490E2EC822F4952400B6709F /* MerchantServices.framework */,
+				D0856C58D8D369EF0832910B /* Pods_FancyShop.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A824F1DF633185EA933C8B77 /* Pods */ = {
+		E0BF3A63CCB1FA357D996C45 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1ADDEEDD0C3A369E3DC740E9 /* Pods-FancyShop.debug.xcconfig */,
-				AFF990C434E1922367277CCE /* Pods-FancyShop.release.xcconfig */,
+				781D742DDB6790FDA550D18A /* Pods-FancyShop.debug.xcconfig */,
+				89AF301D37701947E71B40D1 /* Pods-FancyShop.release.xcconfig */,
 			);
-			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1778,12 +1760,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19A0EC5722970D42006B7AFA /* Build configuration list for PBXNativeTarget "FancyShop" */;
 			buildPhases = (
-				4C7A3911D5DAE0F2F684486F /* [CP] Check Pods Manifest.lock */,
+				13A3685B61BE1DB732BDE7FF /* [CP] Check Pods Manifest.lock */,
 				19A0EC4122970D3E006B7AFA /* Sources */,
 				19A0EC4222970D3E006B7AFA /* Frameworks */,
 				19A0EC4322970D3E006B7AFA /* Resources */,
 				19A0EF782298A311006B7AFA /* Embed Frameworks */,
-				0082EF99B5CB9E8DEEA9EE7B /* [CP] Embed Pods Frameworks */,
+				7BA51CE055C0D9FAEB6C4EFA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1876,40 +1858,43 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0082EF99B5CB9E8DEEA9EE7B /* [CP] Embed Pods Frameworks */ = {
+		13A3685B61BE1DB732BDE7FF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-FancyShop/Pods-FancyShop-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/MCSCommerceWeb/MCSCommerceWeb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MCSCommerceWeb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FancyShop/Pods-FancyShop-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4C7A3911D5DAE0F2F684486F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-FancyShop-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7BA51CE055C0D9FAEB6C4EFA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2085,7 +2070,7 @@
 /* Begin XCBuildConfiguration section */
 		19A0EC5522970D42006B7AFA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 19132C8D22E0CFEA00F98EAE /* MasterpassSandbox.xcconfig */;
+			baseConfigurationReference = 19132C8F22E0D6BA00F98EAE /* SrcStage.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -2213,7 +2198,7 @@
 		};
 		19A0EC5822970D42006B7AFA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1ADDEEDD0C3A369E3DC740E9 /* Pods-FancyShop.debug.xcconfig */;
+			baseConfigurationReference = 781D742DDB6790FDA550D18A /* Pods-FancyShop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -2221,6 +2206,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/../Frameworks",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/FancyShop/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2237,7 +2223,7 @@
 		};
 		19A0EC5922970D42006B7AFA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AFF990C434E1922367277CCE /* Pods-FancyShop.release.xcconfig */;
+			baseConfigurationReference = 89AF301D37701947E71B40D1 /* Pods-FancyShop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -2246,6 +2232,7 @@
 					"$(PROJECT_DIR)/../../Build/**",
 					"$(inherited)",
 					"$(PROJECT_DIR)/../Frameworks",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/FancyShop/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
