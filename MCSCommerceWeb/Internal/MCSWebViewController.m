@@ -155,11 +155,7 @@
     [urlSchemeTask didFinish];
     
     for (NSURLQueryItem *item in [urlComponents queryItems]) {
-        if ([item.name  isEqualToString:@"transactionId"]) {
-            checkoutResponse.transactionId = item.value;
-        } else if ([item.name  isEqualToString:@"status"]) {
-            checkoutResponse.status = item.value;
-        } else if ([item.name isEqualToString:@"oauth_token"]) {
+        if ([item.name isEqualToString:@"oauth_token"]) {
             checkoutResponse.transactionId = item.value;
         } else if ([item.name isEqualToString:@"mpstatus"]) {
             checkoutResponse.status = item.value;

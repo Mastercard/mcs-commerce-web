@@ -374,7 +374,7 @@ func viewDidLoad() {
 
 ###WKWebView
 
-`webView` requires implementing the WKWebView delegate function `webView:startURLSchemeTask:` to override URL handling, page updates and to handle the creation of popups. 
+`webView` requires implementing the WKWebView delegate function `webView:startURLSchemeTask:` for handling the callbackUrl in order to parse the transaction response data:
 
 ```swift
 // Swift
@@ -384,25 +384,28 @@ func webView(_ webView: WKWebView, start urlSchemeTask: WKURLSchemeTask) {
     if let callbackUrl = callbackUrl {
         urlComponents = URLComponents(url: callbackUrl, resolvingAgainstBaseURL: true)
     }
-    let checkoutResponse = MCSCheckoutResponse()
-
+    
     let urlResponse = URLResponse()
     urlSchemeTask.didReceive(urlResponse)
     urlSchemeTask.didFinish()
-
+    
+    var transactionID;
+    var status;
+    
     for item in urlComponents?.queryItems ?? [] {
-        if (item.name == "transactionId") {
-            checkoutResponse.transactionId = item.value
-        } else if (item.name == "status") {
-            checkoutResponse.status = item.value
-        } else if (item.name == "oauth_token") {
-            checkoutResponse.transactionId = item.value
+        if (item.name == "oauth_token") {
+            transactionId = item.value
         } else if (item.name == "mpstatus") {
-            checkoutResponse.status = item.value
+            status = item.value
         }
     }
     
     // handle checkout response here
+    if (status == 'success') {
+    	// handle successful transaction
+    } else {
+    	// handle canceled transaction
+    }
 }
 ```
 
@@ -411,25 +414,28 @@ func webView(_ webView: WKWebView, start urlSchemeTask: WKURLSchemeTask) {
 - (void) webView:(nonnull WKWebView *)webView startURLSchemeTask:(nonnull id<WKURLSchemeTask>)urlSchemeTask {
     NSURL *callbackUrl = urlSchemeTask.request.URL;
     NSURLComponents *urlComponents = [[NSURLComponents alloc] initWithURL:callbackUrl resolvingAgainstBaseURL:YES];
-    MCSCheckoutResponse *checkoutResponse = [[MCSCheckoutResponse alloc] init];
-    
+        
     NSURLResponse *urlResponse = [[NSURLResponse alloc] init];
     [urlSchemeTask didReceiveResponse:urlResponse];
     [urlSchemeTask didFinish];
     
+    NSString *transactionId;
+    NSString *status;
+    
     for (NSURLQueryItem *item in [urlComponents queryItems]) {
-        if ([item.name  isEqualToString:@"transactionId"]) {
-            checkoutResponse.transactionId = item.value;
-        } else if ([item.name  isEqualToString:@"status"]) {
-            checkoutResponse.status = item.value;
-        } else if ([item.name isEqualToString:@"oauth_token"]) {
-            checkoutResponse.transactionId = item.value;
+        if ([item.name isEqualToString:@"oauth_token"]) {
+            transactionId = item.value;
         } else if ([item.name isEqualToString:@"mpstatus"]) {
-            checkoutResponse.status = item.value;
+            status = item.value;
         }
     }
         
     // handle checkout response here
+    if ([status isEqualToString:@"success"]) {
+    	// handle successful transaction
+    } else {
+    	// handle canceled transaction 
+    }
 }
 ```
 
