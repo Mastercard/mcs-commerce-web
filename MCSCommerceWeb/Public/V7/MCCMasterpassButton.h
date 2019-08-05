@@ -16,7 +16,7 @@
 #import <UIKit/UIKit.h>
 
 /**
- * MCCMasterpassButton implements a "Pay with masterpass" button on device's touch screen. This class restrict the use of UIButton methods to set title, image and also restrict to add event on UIButton.
+ MCCMasterpassButton implements a "Pay with masterpass" button on device's touch screen. This class restrict the use of UIButton methods to set title, image and also restrict to add event on UIButton.
  
  Overview:
  
@@ -30,9 +30,9 @@ __deprecated_msg("You should migrate your code to MCSCommerceWeb. All classes re
 @interface MCCMasterpassButton : UIButton
 
 /**
- * Add the Masterpass button to the given superview using pre-determined layout constraints.
- *
- * @param superView superview to which the button will be added
+ Add the Masterpass button to the given superview using pre-determined layout constraints.
+ 
+ @param superView superview to which the button will be added
  */
 - (void)addButtonToView:(UIView* _Nonnull)superView;
 

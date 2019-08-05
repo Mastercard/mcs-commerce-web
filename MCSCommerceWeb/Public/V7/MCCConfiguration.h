@@ -31,34 +31,44 @@
 __deprecated_msg("You should migrate your code to MCSCommerceWeb. All classes related to MCCMerchant are deprecated")
 @interface MCCConfiguration : NSObject
 
-/** locale Information **/
+/**
+ Locale Information
+ */
 @property (nonatomic, copy, nonnull) NSLocale *locale;
-
-/** Checkout ID associated with the merchant **/
+/**
+ Checkout ID associated with the merchant
+ */
 @property (nonatomic, copy, nonnull) NSString *checkoutId;
-
-/** constrains the supported payment networks that the user can select for transaction being performed **/
+/**
+ Constrains the supported payment networks that the user can select for transaction being performed
+ */
 @property (nonatomic, strong, nonnull) NSSet<MCCCardType *> *allowedCardTypes;
-
-/** URL used to load the checkout experience **/
+/**
+ URL used to load the checkout experience
+ */
 @property (nonatomic, strong, nonnull) NSString *checkoutUrl;
-
-/** The merchantName to be used for display on checkout screen of wallet application **/
+/**
+ The merchantName to be used for display on checkout screen of wallet application
+ */
 @property (nonatomic, copy, nonnull) NSString * merchantName;
-
-/** boolean indicating whether this merchant supports express checkout **/
+/**
+ Boolean indicating whether this merchant supports express checkout
+ */
 @property (nonatomic, assign) BOOL expressCheckoutEnabled;
-
-/** URL Scheme (e.g. merchantapp) used to callback from web to the application **/
+/**
+ URL Scheme (e.g. merchantapp) used to callback from web to the application
+ */
 @property (nonatomic, copy, nonnull) NSString * callbackScheme;
 
 #pragma mark -
 #pragma mark Optional
-
-/** merchantCountryCode used for supress 3DS during checkout **/
+/**
+ MerchantCountryCode used for supress 3DS during checkout
+ */
 @property (nonatomic, copy, nullable) NSString * merchantCountryCode;
-
-/** user id must be set if expressCheckoutEnabled is true **/
+/**
+ User id must be set if expressCheckoutEnabled is true
+ */
 @property (nonatomic, copy, nullable) NSString * merchantUserId;
 
 @end

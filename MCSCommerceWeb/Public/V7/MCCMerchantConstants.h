@@ -15,50 +15,55 @@
 
 #import <Foundation/Foundation.h>
 
-#ifndef MCCMerchantConstants_h
-#define MCCMerchantConstants_h
-
-/** Key name for Initialization state status in initialization status callback, to be used by Wallet App and Wallet SDK **/
+/**
+ Key name for Initialization state status in initialization status callback, to be used by Wallet App and Wallet SDK
+ */
 extern NSString *const kInitializeStateKey;
-
-/** universal link info type key **/
+/**
+ Universal link info type key
+ */
 extern NSString * const kUniversalLinkInfoTypeKey;
-
-/** Transaction Response Dictionary Keys **/
+/**
+ Transaction Response Dictionary Keys
+ */
 extern NSString * const kTransactionResponseStatusKey;
 extern NSString * const kTransactionResponseErrorMessageKey;
 extern NSString * const kTransactionResponseSuccessStatus;
 extern NSString * const kTransactionResponseFailStatus;
-
-/** Payment Method Select Response Keys **/
+/**
+ Payment Method Select Response Keys
+ */
 extern NSString * const kPaymentMethodResponseSelectedWalletIdKey;
-
-/** Payment Method Properties Keys **/
+/**
+ Payment Method Properties Keys
+ */
 extern NSString * const kPaymentMethodID;
 extern NSString * const kPaymentMethodName;
 extern NSString * const kPaymentMethodLogo;
 extern NSString * const kPaymentMethodLastFourDigits;
 extern NSString * const kPairingTransactionID;
-
-/*
- * This enumeration defines various initialization states of Merchant SDK
+/**
+ This enumeration defines various initialization states of Merchant SDK
  */
 typedef NS_ENUM(NSInteger, MCCInitializationState) {
     
-    /// Initialization process status as started
+    /**
+      Initialization process status as started
+     */
     MCCInitializationStateStarted = 1,
-    
-    /// Initialization process status as completed
+    /**
+      Initialization process status as completed
+     */
     MCCInitializationStateCompleted = 2,
-    
-    ///Configuration fails
+    /**
+     Configuration fails
+     */
     MCCInitializationStateFail = 3
 };
 
 /**
- *  This enumerations define types of Web Checkout
+ This enumerations define types of Web Checkout
  */
-
 typedef NS_ENUM(NSInteger, MCCWebCheckoutType)
 {
     MCCWebCheckoutOnly               = 1001,
@@ -69,7 +74,7 @@ typedef NS_ENUM(NSInteger, MCCWebCheckoutType)
 };
 
 /**
- *  This enumerations define types of specific Cryptogram type
+ This enumerations define types of specific Cryptogram type
  */
 typedef NS_ENUM (NSInteger, MCCCryptogramType) {    
     MCCCryptogramICC,
@@ -78,7 +83,7 @@ typedef NS_ENUM (NSInteger, MCCCryptogramType) {
 };
 
 /**
- *  This enumerations define types of specific card type
+ This enumerations define types of specific card type
  */
 typedef NS_ENUM (NSInteger, MCCCard) {
     
@@ -91,7 +96,7 @@ typedef NS_ENUM (NSInteger, MCCCard) {
 };
 
 /**
- *  Enumeration define the list of supported Masterpass merchant SDK response type.
+ Enumeration define the list of supported Masterpass merchant SDK response type.
  */
 typedef NS_ENUM(NSInteger, MCCMerchantCheckoutResponse) {
     
@@ -101,8 +106,8 @@ typedef NS_ENUM(NSInteger, MCCMerchantCheckoutResponse) {
     MCCMerchantCheckoutResponseError = 2,
 };
 
-/*
- * This enumeration defines the type of response type for MCCCheckoutResponse object
+/**
+ This enumeration defines the type of response type for MCCCheckoutResponse object
  */
 typedef NS_ENUM(NSInteger, MCCResponseType)
 {
@@ -115,12 +120,9 @@ typedef NS_ENUM(NSInteger, MCCResponseType)
 
 
 /**
- *  This enumerations define category of specific Legal content
+ This enumerations define category of specific Legal content
  */
 typedef NS_ENUM (NSInteger, MCCMEXLegalContentCategory) {
     MCCMEXLegalContentCategoryTnC,
     MCCMEXLegalContentCategoryPP
 };
-
-
-#endif /* MCCMerchantConstants_h */

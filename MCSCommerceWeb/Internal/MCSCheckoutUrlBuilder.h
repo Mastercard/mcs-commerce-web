@@ -18,18 +18,16 @@
 #import "MCSConfiguration.h"
 
 /**
- * MCSCheckoutUrlBuilder is used to generate the checkout URL with request
- * parameters and merchant configuration. Using this URL, the web
- * SRCi will be initiated and used to return the checkout result.
- *
- * @author Bret Deasy
+ MCSCheckoutUrlBuilder is used to generate the checkout URL with request
+ parameters and merchant configuration. Using this URL, the web
+ SRCi will be initiated and used to return the checkout result.
+ 
  */
 @interface MCSCheckoutUrlBuilder : NSObject
 
 /**
- * Given the CheckoutRequest and Configuration, a URL is generated
- * which can be used to initiate the web SRCi to complete checkout.
- *
+ Given the CheckoutRequest and Configuration, a URL is generated
+ which can be used to initiate the web SRCi to complete checkout.
  */
 + (NSURL *)urlForCheckout;
 

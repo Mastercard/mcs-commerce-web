@@ -18,27 +18,49 @@
 #ifndef MCSCardTypes_h
 #define MCSCardTypes_h
 
-/** enum definition for allowable card types **/
+/**
+ Enum definition for allowable card types
+ */
 typedef NSString * MCSCardType NS_STRING_ENUM;
-/** Mastercard card type **/
+/**
+ Mastercard card type
+ */
 extern MCSCardType const MCSCardTypeMaster;
-/** Visa card type **/
+/**
+ Visa card type
+ */
 extern MCSCardType const MCSCardTypeVisa;
-/** Diners Club card type **/
+/**
+ Diners Club card type
+ */
 extern MCSCardType const MCSCardTypeDiners;
-/** Discover card type **/
+/**
+ Discover card type
+ */
 extern MCSCardType const MCSCardTypeDiscover;
-/** JCB card type **/
+/**
+ JCB card type
+ */
 extern MCSCardType const MCSCardTypeJcb;
-/** China Union Pay card type **/
+/**
+ China Union Pay card type
+ */
 extern MCSCardType const MCSCardTypeCup;
-/** American Express card type **/
+/**
+ American Express card type
+ */
 extern MCSCardType const MCSCardTypeAmex;
-/** Maestro card type **/
+/**
+ Maestro card type
+ */
 extern MCSCardType const MCSCardTypeMaestro;
-/** Isracard card type **/
+/**
+ Isracard card type
+ */
 extern MCSCardType const MCSCardTypeIsracard;
-/** Afterpay card type **/
+/**
+ Afterpay card type
+ */
 extern MCSCardType const MCSCardTypeAfterpay;
 
 #endif

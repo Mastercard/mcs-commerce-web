@@ -20,21 +20,20 @@
 #ifndef MCCMerchantConstantsPrivate_h
 #define MCCMerchantConstantsPrivate_h
 
-/*
- * Internal constants
+/**
+ Internal constants
  */
 extern NSString *const kCheckoutHostUrlKey;
 
-/*
- * Default Amount constants
+/**
+ Default Amount constants
  */
 extern NSInteger const kAmountMinimumFractionDigit;
 extern NSInteger const kAmountMaximumFractionDigit;
-
 extern NSInteger const kBackgroundScreenViewTag;
 
 /**
- * ENDPOINT Constants
+ ENDPOINT Constants
  */
 extern NSString *const kConfigJSONRelativePathOtherENV;
 extern NSString *const kConfigJSONRelativePathProductionENV;
@@ -43,7 +42,6 @@ extern NSString *const kProductionEnvironmentKey;
 extern NSString *const kWebCheckoutRelativePath;
 extern NSString *const kExpressPairingOnlyRelativePath;
 extern NSString *const kMEXInitPairingRelativePath;
-
 extern NSString *const kMEXUpdateTnCRelativePath;
 extern NSString *const kMEXVerifyCardRelativePath;
 extern NSString *const kMEXAddCardRelativePath;
@@ -57,24 +55,23 @@ extern NSString *const kMEXSignInRelativePath;
 extern NSString *const kMEXSignInWithPinRelativePath;
 extern NSString *const kMEXLegalContentRelativePath;
 extern NSString *const kMEXLegalContentURLRelativePath;
-
 extern NSString *const kMEXLegalContentServiceCode;
 extern NSString *const kMEXLegalContentServiceFunctionCode;
 
-/*
- *  This constant define size and image for Masterpass button
+/**
+ This constant define size and image for Masterpass button
  */
 extern const CGFloat   kMasterpassButtonWidth;
 extern const CGFloat   kMasterpassButtonHeight;
 
-/*
- * This defines the constants for database file & path
+/**
+ This defines the constants for database file & path
  */
 extern NSString *const kMCCMerchantDatabaseFileName;
 extern NSString *const kMCCMerchantDatabaseBundleIdentifier;
 
-/*
- *  This constant define for MCCMEXCountry
+/**
+ This constant define for MCCMEXCountry
  */
 extern NSString * const kMEXCountryName;
 extern NSString * const kMEXCountrySupportedLocales;
@@ -106,8 +103,8 @@ extern NSString * const kGlobalSettingsRememberWallet;
 extern NSString * const kGlobalSettingsLocaleKey;
 extern NSString * const kGlobalCountryCapabilities;
 
-/*
- *  This constant define for download Config file
+/**
+ This constant define for download Config file
  */
 extern NSString *const kConfigFileName;
 extern NSString *const kCountries;
@@ -117,8 +114,8 @@ extern NSString *const kSettings;
 extern NSString *const kInitPairingRequired;
 extern NSString *const kCardBrandFileName;
 
-/*
- *  This constant define for toggle feature flages in Config file
+/**
+ This constant define for toggle feature flages in Config file
  */
 extern NSString *const kFeatureFlagBiometrics;
 extern NSString *const kFeatureFlagAnalytics;
@@ -128,8 +125,8 @@ extern NSString *const kFeatureFlagAddCard;
 extern NSString *const kFeatureFlagPinAuthentication;
 extern NSString *const kFeatureFlagMEXCheckout;
 
-/*
- *  This constant define for Custom URL Handler
+/**
+ This constant define for Custom URL Handler
  */
 extern NSString * const kCheckoutResourceURLKey;
 extern NSString * const kTransactionCartId;
@@ -141,19 +138,19 @@ extern NSString * const kErrorMessage;
 extern NSString * const kPairingTxnId;
 
 /**
- *  This constant define for Checkout Manager
+ This constant define for Checkout Manager
  */
 extern NSString * const kErrorFieldNamePaymentRequest;
 
-/*
- *  This constant define for MCCConfiguration
+/**
+ This constant define for MCCConfiguration
  */
 extern NSString * const kErrorFieldNamePayToName;
 extern NSString * const kErrorFieldNameLocale;
 extern NSString * const kErrorFieldNameMerchantName;
 
 /**
- * This constant set of all field name which will be shown in error to the user.
+ This constant set of all field name which will be shown in error to the user.
  */
 extern NSString * const kErrorFieldNameAmount;
 extern NSString * const kErrorFieldNameCurrencyCode;
@@ -169,7 +166,9 @@ extern NSString * const kErrorFieldNameUserId;
 extern NSString * const kErrorFieldNameCheckoutId;
 extern NSString * const kErrorFieldNameWalletId;
 
-/** Country **/
+/**
+ Country
+ */
 extern NSString * const kErrorFieldNameCountryName;
 extern NSString * const kErrorFieldNamePhoneProperties;
 extern NSString * const kErrorFieldNamePhoneCountryCode;
@@ -182,8 +181,8 @@ extern NSString * const kErrorFieldNameTenantId;
 extern NSString * const kErrorFieldNameSignInURL;
 
 /**
- * This constant set of all field which will be passed in universal link.
- * String literals used to build the URL
+ This constant set of all field which will be passed in universal link.
+ String literals used to build the URL
  */
 extern NSString * const kTransactionAmountKey;
 extern NSString * const kTransactionCurrencyCodeKey;
@@ -193,7 +192,6 @@ extern NSString * const kTransactionIsShippingRequiredKey;
 extern NSString * const kTransactionCheckoutLocaleKey;
 extern NSString * const kTransactionCryptoFormatKey;
 extern NSString * const kTransactionwalletProviderId;
-
 extern NSString * const kTransactionPairingRequiredKey;
 extern NSString * const kTransactionUserIdKey;
 extern NSString * const kTransactionMerchantNameKey;
@@ -201,11 +199,10 @@ extern NSString * const kTransactionMerchantCountryCodeKey;
 extern NSString * const kTransactionSupress3DSKey;
 extern NSString * const kTransactionCheckoutIdKey;
 extern NSString * const kTransactionCardIdentifier;
-
 extern NSString * const kTransactionShippingProfileIdValue;
 
-/*
- * Payment method image
+/**
+ Payment method image
  */
 extern NSString *const kPaymentMethodMasterPassLogoImageName;
 extern NSString *const kDefaultWalletIdentifier;
@@ -214,17 +211,16 @@ extern NSString *const kMasterPassBackgroundImageName;
 extern NSString *const kMasterPassDefaultButtonImageName;
 extern NSString *const kMasterPassLogoImageName;
 
-/*
- * MEX countries market property types
+/**
+ MEX countries market property types
  */
 extern NSString *const kMEXWalletSelectorMarket;
-
 extern NSString *const kMEXCardExpiredErrorReasonCode;
 extern NSString *const kMEXCardDeletedErrorReasonCode;
 extern NSString *const kMEXWalletNotFoundErrorReasonCode;
 
-/*
- *SVG image constants
+/**
+ SVG image constants
 */
 extern NSString *const kMCCSVGError;
 extern NSString *const kMCCSVGErrorDomain;
@@ -255,7 +251,9 @@ extern NSString * const MCCMEXLegalContentCategoryToString[];
 extern NSString * const MCCMEXLegalContentCategoryURLToString[];
 extern NSString * const MCCMEXLegalContentCategoryDefaultURLToString[];
 
-/** MCCCheckoutResponse **/
+/**
+ MCCCheckoutResponse
+ */
 extern NSString * const kCheckoutResponseCartID;
 extern NSString * const kCheckoutResponseCheckoutResourceURLWebKey;
 extern NSString * const kCheckoutResponseTransactionId;
@@ -263,11 +261,10 @@ extern NSString * const KCheckoutResponsePairingToken;
 extern NSString * const kCheckoutResponseUserIdKey;
 extern NSString * const kMEXCheckoutResponsePairingTransactionId;
 extern NSString * const kMEXChekcoutResponseCheckoutResourceURL;
-
 extern NSString * const kMCCMEXLegalContentCategoryDefaultURLPath;
 
 /**
- *  This enumeration Type of images supported by MCCMerchant
+ This enumeration Type of images supported by MCCMerchant
  */
 typedef NS_ENUM(NSInteger, MCCImageResourceType) {
 
@@ -276,7 +273,9 @@ typedef NS_ENUM(NSInteger, MCCImageResourceType) {
     MCCImageResourceTypeMEXWalletLogoResource = 2
 };
 
-/** Service Error definitions **/
+/**
+ Service Error definitions
+ */
 typedef NS_ENUM(NSInteger, MCCServiceErrorType)  {
    
     MCCServiceErrorTypeInfo = 0,
@@ -285,16 +284,17 @@ typedef NS_ENUM(NSInteger, MCCServiceErrorType)  {
     MCCServiceErrorTypeNetworkError = 3
 };
 
-/** MCCCheckoutResponse **/
+/**
+ MCCCheckoutResponse
+ */
 extern NSString * const kCheckoutResponseCartID;
 extern NSString * const kCheckoutResponseTransactionId;
 extern NSString * const KCheckoutResponsePairingToken;
 extern NSString * const kCheckoutResponseUserIdKey;
 
 /**
- *  This enumerations define the type of service oprations for the service.
+ This enumerations define the type of service oprations for the service.
  */
-
 typedef NS_ENUM(NSInteger, MCCServiceOperationType) {
         
     MCCServiceOperationTypeMEXAccountLookUp,
@@ -317,29 +317,28 @@ typedef NS_ENUM(NSInteger, MCCServiceOperationType) {
 };
 
 /**
- *  This enumerations define types of specific wallet
+ This enumerations define types of specific wallet
  */
 typedef NS_ENUM(NSInteger, MCCMasterpassCheckoutButtonType)
 {
     MCCMasterpassCheckoutDefaultButtonType          = 101
 };
 
-/*
- *  Constants used in constructing the path for storing the encryption certificate
+/**
+ Constants used in constructing the path for storing the encryption certificate
  */
 extern NSString * const kWLW;
 extern NSString * const kL1K;
 
-/*
- *  MCCMerchant category constants
+/**
+ MCCMerchant category constants
  */
 extern NSString *const kDefaultExceptionMessage;
 extern NSString *const kContactMessage;
 extern NSString *const kCanonicalSDKVersion;
 
-
-/*
- *  MCCMerchant Log Envent constants
+/**
+ MCCMerchant Log Envent constants
  */
 typedef NS_ENUM(NSUInteger, MCCMEXLoggerEvent) {
     MCCMEXLoggerEventServiceResponse = 0,

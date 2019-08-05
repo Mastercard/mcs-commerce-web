@@ -71,7 +71,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:NO];
+    [super viewDidAppear:animated];
     [_indicatorView show];
 }
 

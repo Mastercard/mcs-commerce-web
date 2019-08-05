@@ -16,30 +16,32 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-/*
- * A block will provide UIImage object.
- * @param image UIImage of SVG file
- * @param error NSError object containing error in parsing the SVG data
+/**
+ A block will provide UIImage object.
+ 
+ @param image UIImage of SVG file
+ @param error NSError object containing error in parsing the SVG data
  */
 typedef void (^SvgCompletionBlock)(UIImage * __nullable image, NSError * __nullable error);
 
-/*
- * This class responsibility is to read and parse SVG file content and provide UIImage object for the provided SVG file path
+/**
+ This class responsibility is to read and parse SVG file content and provide UIImage object for the provided SVG file path
  */
-
 @interface MCCSVGImage : NSObject
 
-/*
- * This method is responsible for reading svg file, parse the content and create UIImage object out of the received SVG file path
- * @param url NSURL object containing SVG file path
- * @param completionBlock SvgCompletionBlock handler, this completion handler returns UIImage object or NSError object after reading SVG file
+/**
+ This method is responsible for reading svg file, parse the content and create UIImage object out of the received SVG file path
+ 
+ @param url NSURL object containing SVG file path
+ @param completionBlock SvgCompletionBlock handler, this completion handler returns UIImage object or NSError object after reading SVG file
  */
 - (void)imageWithContentsOfURL:(NSURL * _Nonnull)url andSize:(CGSize)imageViewSize completionBlock:(__nonnull  SvgCompletionBlock)completionBlock;
 
-/*
- * This method is responsible for reading image data file, parse the content and create UIImage object out of the received SVG file path
- * @param data NSData object
- * @param completionBlock SvgCompletionBlock handler, this completion handler returns UIImage object or NSError object after reading SVG file
+/**
+ This method is responsible for reading image data file, parse the content and create UIImage object out of the received SVG file path
+ 
+ @param data NSData object
+ @param completionBlock SvgCompletionBlock handler, this completion handler returns UIImage object or NSError object after reading SVG file
  */
 - (void)imageWithData:( NSData * _Nonnull)data andSize:(CGSize)imageViewSize completionBlock:(__nonnull SvgCompletionBlock)completionBlock;
 

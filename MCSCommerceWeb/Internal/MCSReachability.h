@@ -17,7 +17,7 @@
 #import <Foundation/Foundation.h>
 
 /**
- * NetworkStatus, this enum is for different statuses based on the reachability of the internet
+ NetworkStatus, this enum is for different statuses based on the reachability of the internet
  */
 typedef NS_ENUM(NSInteger, NetworkStatus) {
     NotReachable = 0,
@@ -27,27 +27,27 @@ typedef NS_ENUM(NSInteger, NetworkStatus) {
 
 @interface MCSReachability : NSObject
 
-/*
- * Used to check the reachability of a given IP address.
+/**
+ Used to check the reachability of a given IP address.
  */
 + (instancetype)reachabilityWithAddress:(const struct sockaddr *)hostAddress;
 
-/*
- * Checks whether the default route is available.
- * Should be used by applications that do not connect to a particular host.
+/**
+ Checks whether the default route is available.
+ Should be used by applications that do not connect to a particular host.
  */
 + (instancetype)reachabilityForInternetConnection;
 
-/*
- * @return NetworkStatus, the current status for reaching the internet
+/**
+ @return NetworkStatus, the current status for reaching the internet
  */
 - (NetworkStatus)currentReachabilityStatus;
 
-/*
- * Used to check if the internet connection is available on a device.
- * If the error is nil, this means that the internet is active.
- *
- * @return NSError if the internet connection is not available.
+/**
+ Used to check if the internet connection is available on a device.
+ If the error is nil, this means that the internet is active.
+ 
+ @return NSError if the internet connection is not available.
  */
 + (NSError * _Nullable)isNetworkReachable;
 

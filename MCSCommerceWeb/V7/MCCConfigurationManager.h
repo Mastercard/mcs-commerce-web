@@ -19,13 +19,21 @@
 
 @interface MCCConfigurationManager : NSObject
 
-/** SDK initialization configuration **/
+/**
+ SDK initialization configuration
+ */
 @property (nonatomic, strong) MCCConfiguration *configuration;
 
-/** Checkout request for the current transaction **/
+/**
+ Checkout request for the current transaction
+ */
 @property (nonatomic, strong) MCCCheckoutRequest *checkoutRequest;
 
-/** return a shared instance of this configuration manager **/
+/**
+ Shared Manager
+
+ @return a shared instance of this configuration manager
+ */
 + (instancetype)sharedManager;
 
 @end

@@ -18,12 +18,15 @@
 
 @interface MCSDelegateBridge : NSObject<MCSCheckoutDelegate>
     
-/* Delegate to receive the checkout result */
+/**
+ Delegate to receive the checkout result
+ */
 @property (nonatomic, weak) id<MCCMerchantDelegate> delegate;
 
-/*
- * This method is responsible for handling delegate calls back to the merchant app
- * @param delegate MCCMerchantDelegate object to implement merchant delegate call
+/**
+ This method is responsible for handling delegate calls back to the merchant app
+ 
+ @param delegate MCCMerchantDelegate object to implement merchant delegate call
  */
 - (instancetype)initWithDelegate:(__autoreleasing id<MCCMerchantDelegate>)delegate;
 

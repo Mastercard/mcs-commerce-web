@@ -16,7 +16,7 @@
 #import <Foundation/Foundation.h>
 
 /**
- * Response class used internally to return the checkout result.
+ Response class used internally to return the checkout result.
  */
 @interface MCSCheckoutResponse : NSObject
 
