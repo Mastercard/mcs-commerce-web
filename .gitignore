@@ -19,3 +19,7 @@ Example/FancyShopV7/Pods
 Example/FancyShopV7/Podfile.lock
 Example/FancyShop/Pods
 Example/FancyShop/Podfile.lock
+
+# OS X .DS_Store
+**/.DS_Store
+.DS_Store
