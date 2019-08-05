@@ -314,3 +314,96 @@ This payment method, or any other, can be used with `paymentMethodCheckout:` to 
 
 `pairingWithCheckout:merchantDelegate:` will initiate the standard checkout flow if the `isCheckout` value is `YES`. Otherwise, `didFinishCheckout:` is directly messaged to `MCCMerchantDelegate` as if the transaction was canceled.
 
+### <a name="direct-integration">Direct Integration</a>
+ 
+Integrating with the web checkout experience is possible without this SDK. Using `WebKit`, the checkout experience can be embedded into any application.
+
+**Refer to the Apple developer documentation for `UIWebView` [here](https://developer.apple.com/documentation/uikit/uiwebview).**
+
+In the `UIViewController`, configure the `WebView` and initialize the following:
+
+```objc
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    WKPreferences *preferences = [[WKPreferences alloc] init];
+    preferences.javaScriptCanOpenWindowsAutomatically = true;
+    
+    WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
+    configuration.preferences = preferences;
+    [configuration setURLSchemeHandler:self forURLScheme:self.scheme];
+    
+    WKWebView *webview = [[WKWebView alloc] initWithFrame:CGRectZero configuration:configuration];
+    webview.UIDelegate = self;
+    webview.navigationDelegate = self;
+    
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:_url];
+    
+    [webview loadRequest:request];
+    [webview setAllowsBackForwardNavigationGestures:YES];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
+    [self.view addSubview:webview];
+}
+```
+
+###WKWebView
+
+`webView` requires implementing the WKWebView delegate function `webView:startURLSchemeTask:` to override URL handling, page updates and to handle the creation of popups. 
+
+```objc
+- (void) webView:(nonnull WKWebView *)webView startURLSchemeTask:(nonnull id<WKURLSchemeTask>)urlSchemeTask {
+    NSURL *callbackUrl = urlSchemeTask.request.URL;
+    NSURLComponents *urlComponents = [[NSURLComponents alloc] initWithURL:callbackUrl resolvingAgainstBaseURL:YES];
+    MCSCheckoutResponse *checkoutResponse = [[MCSCheckoutResponse alloc] init];
+    
+    NSURLResponse *urlResponse = [[NSURLResponse alloc] init];
+    [urlSchemeTask didReceiveResponse:urlResponse];
+    [urlSchemeTask didFinish];
+    
+    for (NSURLQueryItem *item in [urlComponents queryItems]) {
+        if ([item.name  isEqualToString:@"transactionId"]) {
+            checkoutResponse.transactionId = item.value;
+        } else if ([item.name  isEqualToString:@"status"]) {
+            checkoutResponse.status = item.value;
+        } else if ([item.name isEqualToString:@"oauth_token"]) {
+            checkoutResponse.transactionId = item.value;
+        } else if ([item.name isEqualToString:@"mpstatus"]) {
+            checkoutResponse.status = item.value;
+        }
+    }
+    
+    [self dismiss];
+    
+    // handle checkout response here
+}
+```
+
+`WebView` requires implementing the WKWebView delegate function `webView:createWebViewWithConfiguration:forNavigationAction:windowFeatures:` to enable popup windows from the host web view:
+
+```objc
+- (WKWebView *) webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures {
+    WebView *popup = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:configuration];
+    popup.UIDelegate = self;
+    popup.navigationDelegate = self;
+    
+    [self.view addSubview:popup];
+    [self setConstraintsForView:popup];
+    
+    return popup;
+}
+```
+
+`WebView` requires implementing the WKWebView delegate function `webView:decidePolicyForNavigationAction:decisionHandler:` to decide whether to allow or cancel a navigation:
+
+```objc
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+    if (navigationAction.navigationType == WKNavigationTypeLinkActivated) {
+        NSURL *url = navigationAction.request.URL;
+        [UIApplication.sharedApplication openURL:url options:@{UIApplicationOpenURLOptionsSourceApplicationKey: [[NSBundle mainBundle] bundleIdentifier]} completionHandler:nil];
+        
+        decisionHandler(WKNavigationActionPolicyCancel);
+    } else {
+        decisionHandler(WKNavigationActionPolicyAllow);
+    }
+}
+```
