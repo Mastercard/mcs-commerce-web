@@ -16,13 +16,13 @@
 #import "MCSCheckoutRouter.h"
 #import "MCSReachability.h"
 #import "MCFCoreConstants.h"
-#import "MCSTopMessageVC.h"
+#import "MCSTopMessageView.h"
 
 @interface MCSCheckoutRouter()
 
 @property (nonatomic, strong) NSTimer *networkTimer;
 @property (nonatomic, strong) id <MCSViewControllerManager> viewControllerManager;
-@property (nonatomic, strong) MCSTopMessageVC *topMessageVC;
+@property (nonatomic, strong) MCSTopMessageView *topMessageView;
 
 @end
 
@@ -60,20 +60,23 @@
         if (isReachableError) {
             MCSCheckoutRouter * __weak weakSelf = self;
             dispatch_async(dispatch_get_main_queue(), ^{
-                if(self.topMessageVC == nil){
-                    self.topMessageVC = [[MCSTopMessageVC alloc] initWithNibName:@"MCSTopMessageVC" bundle:[NSBundle bundleForClass:[self class]]];
+                if(self.topMessageView == nil){
+                    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+                    NSArray *nib = [bundle loadNibNamed:@"MCSTopMessageView" owner:self options:nil];
+                    self.topMessageView = (MCSTopMessageView *)[nib lastObject];
                     
                     CGRect mainBounds = [UIScreen mainScreen].bounds;
-                    self.topMessageVC.view.frame = CGRectMake(0.0, 0.0, mainBounds.size.width, self.topMessageVC.view.frame.size.height);
                     
-                    [[weakSelf topViewController].view addSubview:self.topMessageVC.view];
+                    self.topMessageView.frame = CGRectMake(0.0, 0.0, mainBounds.size.width, self.topMessageView.frame.size.height);
+                    
+                    [[weakSelf topViewController].view addSubview:self.topMessageView];
                 }
             });
         } else{
             dispatch_async(dispatch_get_main_queue(), ^(void) {
-                if(self.topMessageVC != nil){
-                    [self.topMessageVC.view removeFromSuperview];
-                    self.topMessageVC = nil;
+                if(self.topMessageView != nil){
+                    [self.topMessageView removeFromSuperview];
+                    self.topMessageView = nil;
                 }
             });
         }
