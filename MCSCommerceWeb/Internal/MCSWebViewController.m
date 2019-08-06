@@ -68,6 +68,7 @@
     [_srciWebView setAllowsBackForwardNavigationGestures:YES];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:_srciWebView];
+    [self setConstraintsForView:_srciWebView];
     [self.view addSubview:_indicatorView];
 }
 

@@ -174,7 +174,7 @@
 		19A0EE5E22986602006B7AFA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EE5D22986602006B7AFA /* Default-568h@2x.png */; };
 		490E2EC322F494A600B6709F /* MerchantServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490E2EC222F4934C00B6709F /* MerchantServices.framework */; };
 		490E2EC422F494A600B6709F /* MerchantServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 490E2EC222F4934C00B6709F /* MerchantServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		973CA8C36B325921190A8D88 /* Pods_FancyShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C4299DDB8C3B3181603DF9 /* Pods_FancyShop.framework */; };
+		C9DA53D6DE6DAA584CE5573F /* Pods_FancyShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E409BA84C2CFED4018D3348 /* Pods_FancyShop.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -366,9 +366,9 @@
 		19A0EC4522970D3E006B7AFA /* FancyShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FancyShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19A0EE5D22986602006B7AFA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		490E2EC222F4934C00B6709F /* MerchantServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MerchantServices.framework; sourceTree = "<group>"; };
-		94C4299DDB8C3B3181603DF9 /* Pods_FancyShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FancyShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A57E587CDEB09F593E4A98CF /* Pods-FancyShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.release.xcconfig"; path = "Target Support Files/Pods-FancyShop/Pods-FancyShop.release.xcconfig"; sourceTree = "<group>"; };
-		F4AF6FD4BFC2ABCCEB463DEC /* Pods-FancyShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.debug.xcconfig"; path = "Target Support Files/Pods-FancyShop/Pods-FancyShop.debug.xcconfig"; sourceTree = "<group>"; };
+		7E409BA84C2CFED4018D3348 /* Pods_FancyShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FancyShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		920D91C0FDF0AF5E1B887189 /* Pods-FancyShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.release.xcconfig"; path = "Target Support Files/Pods-FancyShop/Pods-FancyShop.release.xcconfig"; sourceTree = "<group>"; };
+		98C035F5618C0D5CFCA16FD8 /* Pods-FancyShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.debug.xcconfig"; path = "Target Support Files/Pods-FancyShop/Pods-FancyShop.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -377,7 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				490E2EC322F494A600B6709F /* MerchantServices.framework in Frameworks */,
-				973CA8C36B325921190A8D88 /* Pods_FancyShop.framework in Frameworks */,
+				C9DA53D6DE6DAA584CE5573F /* Pods_FancyShop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,7 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				490E2EC222F4934C00B6709F /* MerchantServices.framework */,
-				94C4299DDB8C3B3181603DF9 /* Pods_FancyShop.framework */,
+				7E409BA84C2CFED4018D3348 /* Pods_FancyShop.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1753,8 +1753,8 @@
 		E6C0BC2C8B64FAC91E4DCC3E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F4AF6FD4BFC2ABCCEB463DEC /* Pods-FancyShop.debug.xcconfig */,
-				A57E587CDEB09F593E4A98CF /* Pods-FancyShop.release.xcconfig */,
+				98C035F5618C0D5CFCA16FD8 /* Pods-FancyShop.debug.xcconfig */,
+				920D91C0FDF0AF5E1B887189 /* Pods-FancyShop.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1766,12 +1766,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19A0EC5722970D42006B7AFA /* Build configuration list for PBXNativeTarget "FancyShop" */;
 			buildPhases = (
-				B882C313F84718923FF4C776 /* [CP] Check Pods Manifest.lock */,
+				FFF4DA00E038C093DC91D1BA /* [CP] Check Pods Manifest.lock */,
 				19A0EC4122970D3E006B7AFA /* Sources */,
 				19A0EC4222970D3E006B7AFA /* Frameworks */,
 				19A0EC4322970D3E006B7AFA /* Resources */,
 				19A0EF782298A311006B7AFA /* Embed Frameworks */,
-				7DD5A3DEE39203A11E09B1E4 /* [CP] Embed Pods Frameworks */,
+				A8C07032037AF75227D94908 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1862,7 +1862,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7DD5A3DEE39203A11E09B1E4 /* [CP] Embed Pods Frameworks */ = {
+		A8C07032037AF75227D94908 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1879,7 +1879,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B882C313F84718923FF4C776 /* [CP] Check Pods Manifest.lock */ = {
+		FFF4DA00E038C093DC91D1BA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2199,7 +2199,7 @@
 		};
 		19A0EC5822970D42006B7AFA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F4AF6FD4BFC2ABCCEB463DEC /* Pods-FancyShop.debug.xcconfig */;
+			baseConfigurationReference = 98C035F5618C0D5CFCA16FD8 /* Pods-FancyShop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -2224,7 +2224,7 @@
 		};
 		19A0EC5922970D42006B7AFA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A57E587CDEB09F593E4A98CF /* Pods-FancyShop.release.xcconfig */;
+			baseConfigurationReference = 920D91C0FDF0AF5E1B887189 /* Pods-FancyShop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
