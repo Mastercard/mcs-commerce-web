@@ -37,7 +37,7 @@ When instantiating `MCSCommerceWeb`, an `MCSConfiguration` object needs to be pr
 
 
 ```swift
-//Swift
+// Swift
 let locale = Locale(identifier: "en_us")
 let checkoutId = "1d45705100044e14b52e71730e71cc5a"
 let checkoutUrl = "https://masterpass.com/routing/v2/mobileapi/web-checkout";
@@ -56,7 +56,7 @@ commerceWeb.setConfiguration(withConfiguration: commerceConfig)
 ```
 
 ```objective-c
-//Objective-C
+// Objective-C
 NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_us"];
 NSString *checkoutId = @"1d45705100044e14b52e71730e71cc5a";
 NSString *checkoutUrl = @"https://masterpass.com/routing/v2/mobileapi/web-checkout";
@@ -77,15 +77,15 @@ MCSCommerceWeb *commerceWeb = [MCSCommerceWeb sharedManager];
 Transactions are initiated by adding `MCSCheckoutButton` to the view.
 
 ```swift
-//Swift
-//SomeViewController.swift
+// Swift
+// SomeViewController.swift
 let button = commerceWeb.getCheckoutButton(withDelegate:checkoutDelegate)
 button.addToSuperview(superview: buttonContainer)
 ```
 
 ```objective-c
-//Objective-C
-//SomeViewController.m
+// Objective-C
+// SomeViewController.m
 MCSCheckoutButton *button = [commerceWeb checkoutButtonWithDelegate:checkoutDelegate];
 [button addToSuperview:buttonContainer];
 ```
@@ -96,19 +96,19 @@ MCSCheckoutButton *button = [commerceWeb checkoutButtonWithDelegate:checkoutDele
 The `MCSCheckoutDelegate` provided has the following methods:
 
 ```swift
-//MCSCheckoutDelegate
-//Swift
-//Fetches the checkout request object required to initiate this transaction.
+// MCSCheckoutDelegate
+// Swift
+// Fetches the checkout request object required to initiate this transaction.
 func getCheckoutRequest(withHandler: @escaping (MCSCheckoutRequest) -> Void)
 
-//Notifies the delegate when the transaction has completed
+// Notifies the delegate when the transaction has completed
 func checkoutCompleted(withRequest request: MCSCheckoutRequest, status: MCSCheckoutStatus, transactionId: String?)
 ```
 
 ```c
-//MCSCheckoutDelegate
-//Objective-C
-//Fetches the checkout request object required to initiate this transaction.
+// MCSCheckoutDelegate
+// Objective-C
+// Fetches the checkout request object required to initiate this transaction.
 - (void)checkoutRequestForTransaction:(nonnull void(^)(MCSCheckoutRequest * _Nonnull checkoutRequest))handler;
 
 //Notifies the delegate when the transaction has completed
@@ -120,12 +120,12 @@ When the user touches up on `MCSCheckoutButton`, `MCSCheckoutRequest` for this t
 #### Checkout Request
 
 ```swift
-//Swift
+// Swift
 func getCheckoutRequest(withHandler: @escaping (MCSCheckoutRequest) -> Void)
 ```
 
 ```c
-//Objective-C
+// Objective-C
 - (void)checkoutRequestForTransaction:(nonnull void(^)(MCSCheckoutRequest * _Nonnull checkoutRequest))handler;
 ```
 
@@ -146,7 +146,7 @@ func getCheckoutRequest(withHandler: @escaping (MCSCheckoutRequest) -> Void)
 	* `validityPeriodMinutes`: the expiration time of a generated cryptogram, in minutes
 
 ```swift
-//Swift
+// Swift
 func getCheckoutRequest(withHandler: @escaping (MCSCheckoutRequest) -> Void) {
 	let checkoutRequest = MCSCheckoutRequest()
 	checkoutRequest.amount = NSDecimalNumber(string: String(shoppingCart.total))
@@ -172,7 +172,7 @@ func getCheckoutRequest(withHandler: @escaping (MCSCheckoutRequest) -> Void) {
 ```
 
 ```objective-c
-//Objective-C
+// Objective-C
 - (void)checkoutRequestForTransaction:(nonnull void(^)(MCSCheckoutRequest * _Nonnull checkoutRequest))handler {
 	MCSCheckoutRequest *checkoutRequest = [[MCSCheckoutRequest alloc] init];
 	checkoutRequest.amount = [[NSDecimalNumber alloc] initWithString:shoppingCart.total];
@@ -196,19 +196,19 @@ func getCheckoutRequest(withHandler: @escaping (MCSCheckoutRequest) -> Void) {
 ### Transaction Result
 
 ```swift
-//Swift
+// Swift
 func checkoutCompleted(withRequest request: MCSCheckoutRequest, status: MCSCheckoutStatus, transactionId: String?)
 ```
 
 ```c
-//Objective-C
+// Objective-C
 - (void)checkoutRequest:(MCSCheckoutRequest *)request didCompleteWithStatus:(MCSCheckoutStatus)status forTransaction:(NSString * _Nullable)transactionId;
 ```
 
 The result of a transaction is returned to the application via the `MCSCheckoutDelegate` provided when retrieving the `MCSCheckoutButton`.
 
 ```swift
-//Swift
+// Swift
 func checkoutCompleted(withRequest request: MCSCheckoutRequest!, status: MCSCheckoutStatus, transactionId: String?) {
 	if (transactionId != nil) {
 		//comlpete transaction
@@ -217,7 +217,7 @@ func checkoutCompleted(withRequest request: MCSCheckoutRequest!, status: MCSChec
 ```
 
 ```objective-c
-//Objective-C
+// Objective-C
 - (void)checkoutRequest:(MCSCheckoutRequest *)request didCompleteWithStatus:(MCSCheckoutStatus)status forTransaction:(NSString * _Nullable)transactionId {
 	if (transactionId != nil) {
 		//complete transaction
@@ -238,20 +238,20 @@ func checkoutCompleted(withRequest request: MCSCheckoutRequest!, status: MCSChec
 The `MCCMerchant` interface is included in this SDK, however `import` statements must update to use the `MCSCommerceWeb` module.
 
 ```swift
-//Swift
-//previous import statement
+// Swift
+// previous import statement
 import MCCMerchant
 
-//current import statement
+// current import statement
 import MCSCommerceWeb
 ```
 
 ```objective-c
-//Objective-C
-//previous
+// Objective-C
+// previous
 #import <MCCMerchant/MCCMerchant.h>
 
-//current
+// current
 #import <MCSCommerceWeb/MCSCommerceWeb.h>
 ```
 
@@ -272,8 +272,8 @@ import MCSCommerceWeb
 
 ##### Handle checkout response
 
-```swift
-//MCCMerchant.h
+```objective-c
+// MCCMerchant.h
 + (BOOL)handleMasterpassResponse:(NSString *_Nonnull)url delegate:(id<MCCMerchantDelegate> _Nonnull)merchantDelegate ;
 ```
 
@@ -281,8 +281,8 @@ import MCSCommerceWeb
 
 ##### Add Payment Method
 
-```swift
-//MCCMerchant.h
+```objective-c
+// MCCMerchant.h
 + (void)addMasterpassPaymentMethod:(id<MCCMerchantDelegate> _Nonnull)merchantDelegate withCompletionBlock:(void(^ __nonnull) (MCCPaymentMethod*  _Nullable mccPayment, NSError * _Nullable error))completionHandler;
 ```
 
@@ -298,8 +298,8 @@ This payment method, or any other, can be used with `paymentMethodCheckout:` to 
 
 ##### Payment Method Checkout
 
-```swift
-//MCCMerchant.h
+```objective-c
+// MCCMerchant.h
 + (void)paymentMethodCheckout:(id<MCCMerchantDelegate> _Nonnull) merchantDelegate;
 ```
 
@@ -307,10 +307,193 @@ This payment method, or any other, can be used with `paymentMethodCheckout:` to 
 
 ##### Pairing With Checkout
 
-```swift
-//MCCMerchant.h
+```objective-c
+// MCCMerchant.h
 + (void)pairingWithCheckout:(BOOL)isCheckout merchantDelegate:(id<MCCMerchantDelegate> _Nonnull) merchantDelegate;
 ```
 
 `pairingWithCheckout:merchantDelegate:` will initiate the standard checkout flow if the `isCheckout` value is `YES`. Otherwise, `didFinishCheckout:` is directly messaged to `MCCMerchantDelegate` as if the transaction was canceled.
 
+### <a name="direct-integration">Direct Integration</a>
+ 
+Integrating with the web checkout experience is possible without this SDK. Using `WebKit`, the checkout experience can be embedded into any application.
+
+**Refer to the Apple developer documentation for `UIWebView` [here](https://developer.apple.com/documentation/uikit/uiwebview).**
+
+In the `UIViewController`, configure the `WebView` and initialize the following:
+
+```swift
+// Swift
+func viewDidLoad() {
+    super.viewDidLoad()
+
+    let preferences = WKPreferences()
+    preferences.javaScriptCanOpenWindowsAutomatically = true
+
+    let configuration = WKWebViewConfiguration()
+    configuration.preferences = preferences
+    configuration.setURLSchemeHandler(self, forURLScheme: scheme)
+
+    let webview = WKWebView(frame: CGRect.zero, configuration: configuration)
+    webview.uiDelegate = self
+    webview.navigationDelegate = self
+
+    let request = URLRequest(url: url)
+
+    webview.load(request)
+    webview.allowsBackForwardNavigationGestures = true
+    view.backgroundColor = UIColor.white
+    view.addSubview(webview)
+}
+```
+
+```objective-c
+// Objective-C
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    WKPreferences *preferences = [[WKPreferences alloc] init];
+    preferences.javaScriptCanOpenWindowsAutomatically = true;
+    
+    WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
+    configuration.preferences = preferences;
+    [configuration setURLSchemeHandler:self forURLScheme:self.scheme];
+    
+    WKWebView *webview = [[WKWebView alloc] initWithFrame:CGRectZero configuration:configuration];
+    webview.UIDelegate = self;
+    webview.navigationDelegate = self;
+    
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:_url];
+    
+    [webview loadRequest:request];
+    [webview setAllowsBackForwardNavigationGestures:YES];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
+    [self.view addSubview:webview];
+}
+```
+
+###WKWebView
+
+`webView` requires implementing the WKWebView delegate function `webView:startURLSchemeTask:` for handling the callbackUrl in order to parse the transaction response data:
+
+```swift
+// Swift
+func webView(_ webView: WKWebView, start urlSchemeTask: WKURLSchemeTask) {
+    let callbackUrl = urlSchemeTask.request.url
+    var urlComponents: URLComponents? = nil
+    if let callbackUrl = callbackUrl {
+        urlComponents = URLComponents(url: callbackUrl, resolvingAgainstBaseURL: true)
+    }
+    
+    let urlResponse = URLResponse()
+    urlSchemeTask.didReceive(urlResponse)
+    urlSchemeTask.didFinish()
+    
+    var transactionID;
+    var status;
+    
+    for item in urlComponents?.queryItems ?? [] {
+        if (item.name == "oauth_token") {
+            transactionId = item.value
+        } else if (item.name == "mpstatus") {
+            status = item.value
+        }
+    }
+    
+    // handle checkout response here
+    if (status == 'success') {
+    	// handle successful transaction
+    } else {
+    	// handle canceled transaction
+    }
+}
+```
+
+```objective-c
+// Objective-C
+- (void) webView:(nonnull WKWebView *)webView startURLSchemeTask:(nonnull id<WKURLSchemeTask>)urlSchemeTask {
+    NSURL *callbackUrl = urlSchemeTask.request.URL;
+    NSURLComponents *urlComponents = [[NSURLComponents alloc] initWithURL:callbackUrl resolvingAgainstBaseURL:YES];
+        
+    NSURLResponse *urlResponse = [[NSURLResponse alloc] init];
+    [urlSchemeTask didReceiveResponse:urlResponse];
+    [urlSchemeTask didFinish];
+    
+    NSString *transactionId;
+    NSString *status;
+    
+    for (NSURLQueryItem *item in [urlComponents queryItems]) {
+        if ([item.name isEqualToString:@"oauth_token"]) {
+            transactionId = item.value;
+        } else if ([item.name isEqualToString:@"mpstatus"]) {
+            status = item.value;
+        }
+    }
+        
+    // handle checkout response here
+    if ([status isEqualToString:@"success"]) {
+    	// handle successful transaction
+    } else {
+    	// handle canceled transaction 
+    }
+}
+```
+
+`WebView` requires implementing the WKWebView delegate function `webView:createWebViewWithConfiguration:forNavigationAction:windowFeatures:` to enable popup windows from the host web view:
+
+```swift
+// Swift
+func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+	let popup = WKWebView(frame: view.bounds, configuration: configuration)
+    popup.uiDelegate = self
+    popup.navigationDelegate = self
+        
+    view.addSubview(popup)
+        
+    return popup
+}
+```
+
+```objective-c
+// Objective-C
+- (WKWebView *) webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures {
+    WebView *popup = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:configuration];
+    popup.UIDelegate = self;
+    popup.navigationDelegate = self;
+    
+    [self.view addSubview:popup];
+        
+    return popup;
+}
+```
+
+`WebView` requires implementing the WKWebView delegate function `webView:decidePolicyForNavigationAction:decisionHandler:` to decide whether to allow or cancel a navigation:
+
+```swift
+// Swift
+func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+   if (navigationAction.navigationType == .linkActivated) {
+        let url = navigationAction.request.url
+        if let url = url {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+        decisionHandler(.cancel)
+    } else {
+        decisionHandler(.allow)
+    }
+}
+```
+
+```objective-c
+// Objective-C
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+    if (navigationAction.navigationType == WKNavigationTypeLinkActivated) {
+        NSURL *url = navigationAction.request.URL;
+        [UIApplication.sharedApplication openURL:url options:@{} completionHandler:nil];
+        
+        decisionHandler(WKNavigationActionPolicyCancel);
+    } else {
+        decisionHandler(WKNavigationActionPolicyAllow);
+    }
+}
+```
