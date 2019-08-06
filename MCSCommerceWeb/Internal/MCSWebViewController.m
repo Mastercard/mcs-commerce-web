@@ -25,12 +25,13 @@
 @property (nonatomic, strong) MCSActivityIndicatorView *indicatorView;
 @property (nonatomic, weak) id<MCSWebCheckoutDelegate> delegate;
 @property (nonatomic) BOOL isDismissing;
+@property (nonatomic) int receiveNavigationForDCFPopupCount;
 
 @end
 
 @implementation MCSWebViewController
 
-- (instancetype) initWithUrl:(NSURL *)url scheme:(NSString *)scheme delegate:(__autoreleasing id<MCSWebCheckoutDelegate>)delegate {
+- (instancetype)initWithUrl:(NSURL *)url scheme:(NSString *)scheme delegate:(__autoreleasing id<MCSWebCheckoutDelegate>)delegate {
     
     if (self = [super initWithNibName:nil bundle:nil]) {
         self.url = url;
@@ -43,7 +44,7 @@
     return self;
 }
 
-- (void) encodeWithCoder:(nonnull NSCoder *)aCoder {
+- (void)encodeWithCoder:(nonnull NSCoder *)aCoder {
     [super encodeWithCoder:aCoder];
 }
 
@@ -67,12 +68,8 @@
     [_srciWebView setAllowsBackForwardNavigationGestures:YES];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:_srciWebView];
+    [self setConstraintsForView:_srciWebView];
     [self.view addSubview:_indicatorView];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [_indicatorView show];
 }
 
 - (void)viewSafeAreaInsetsDidChange {
@@ -82,6 +79,7 @@
 
 - (void)setConstraintsForView:(UIView *)view {
     UILayoutGuide *layoutGuide = self.view.safeAreaLayoutGuide;
+    
     [view setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     NSLayoutConstraint *leadingConstraint = [view.leadingAnchor constraintEqualToAnchor:layoutGuide.leadingAnchor];
@@ -100,6 +98,13 @@
     _dcfWebView = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:configuration];
     _dcfWebView.UIDelegate = self;
     _dcfWebView.navigationDelegate = self;
+    _receiveNavigationForDCFPopupCount = 0;
+    
+    [self.view addSubview:_dcfWebView];
+    [self setConstraintsForView:_dcfWebView];
+    [self.view addSubview:_indicatorView];
+    [self.view bringSubviewToFront:_indicatorView];
+    [_indicatorView show];
     
     [self.view addSubview:_dcfWebView];
     [self setConstraintsForView:_dcfWebView];
@@ -107,8 +112,17 @@
     return _dcfWebView;
 }
 
-- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
-    [_indicatorView hide];
+- (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation {
+    if (_dcfWebView != nil) {
+        _receiveNavigationForDCFPopupCount += 1;
+        if (_receiveNavigationForDCFPopupCount == 2) {
+            [_indicatorView hide];
+            [_indicatorView removeFromSuperview];
+        }
+    } else {
+        [_indicatorView hide];
+        [_indicatorView removeFromSuperview];
+    }
 }
 
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
@@ -131,7 +145,7 @@
     }
 }
 
-- (void) webView:(nonnull WKWebView *)webView startURLSchemeTask:(nonnull id<WKURLSchemeTask>)urlSchemeTask {
+- (void)webView:(nonnull WKWebView *)webView startURLSchemeTask:(nonnull id<WKURLSchemeTask>)urlSchemeTask {
     NSURL *callbackUrl = urlSchemeTask.request.URL;
     NSURLComponents *urlComponents = [[NSURLComponents alloc] initWithURL:callbackUrl resolvingAgainstBaseURL:YES];
     MCSCheckoutResponse *checkoutResponse = [[MCSCheckoutResponse alloc] init];
@@ -159,22 +173,23 @@
 }
 
 - (void)dismiss {
+    __weak MCSWebViewController *weakSelf = self;
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:^{
         
-        [self->_dcfWebView stopLoading];
-        [self->_dcfWebView removeFromSuperview];
-        [self->_srciWebView stopLoading];
-        [self->_srciWebView removeFromSuperview];
-        [self->_indicatorView removeFromSuperview];
+        [weakSelf.dcfWebView stopLoading];
+        [weakSelf.dcfWebView removeFromSuperview];
+        [weakSelf.srciWebView stopLoading];
+        [weakSelf.srciWebView removeFromSuperview];
+        [weakSelf.indicatorView removeFromSuperview];
         
-        self->_srciWebView = nil;
-        self->_dcfWebView = nil;
-        self->_indicatorView = nil;
-        self.view = nil;
+        weakSelf.srciWebView = nil;
+        weakSelf.dcfWebView = nil;
+        weakSelf.indicatorView = nil;
+        weakSelf.view = nil;
     }];
 }
 
-- (void) webView:(nonnull WKWebView *)webView stopURLSchemeTask:(nonnull id<WKURLSchemeTask>)urlSchemeTask {
+- (void)webView:(nonnull WKWebView *)webView stopURLSchemeTask:(nonnull id<WKURLSchemeTask>)urlSchemeTask {
     /* No implementation needed for this right now--or maybe ever */
 }
 
