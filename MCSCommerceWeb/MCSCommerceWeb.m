@@ -23,6 +23,8 @@
 
 @interface MCSCommerceWeb() <MCSWebCheckoutDelegate>
 
+@property (nonatomic, strong) MCSCheckoutRouter *router;
+
 @end
 
 @implementation MCSCommerceWeb
@@ -53,16 +55,17 @@ static MCSCommerceWeb *sharedManager = nil;
     [[MCSConfigurationManager sharedManager] setCheckoutRequest:request];
     
     NSURL *url = [MCSCheckoutUrlBuilder urlForCheckout];
-    MCSCheckoutRouter *router = [[MCSCheckoutRouter alloc] init];
+    self.router = [[MCSCheckoutRouter alloc] init];
     MCSWebViewControllerManager *manager = [[MCSWebViewControllerManager alloc] initWithUrl:[url absoluteString] scheme:[[MCSConfigurationManager sharedManager] configuration].callbackScheme delegate:self];
     
-    [router startWithViewControllerManager:manager errorHandler:^(void) {
+    [self.router startWithViewControllerManager:manager errorHandler:^(void) {
         [self.delegate checkoutRequest:[[MCSConfigurationManager sharedManager] checkoutRequest] didCompleteWithStatus:MCSCheckoutStatusCanceled forTransaction:nil];
     }];
 }
 
 - (void)checkoutCompletedWithResponse:(MCSCheckoutResponse *)response {
     MCSCheckoutStatus status;
+    
     if ([STATUS_SUCCESS isEqualToString:response.status]) {
         status = MCSCheckoutStatusSuccess;
     } else {
@@ -70,6 +73,8 @@ static MCSCommerceWeb *sharedManager = nil;
     }
     
     [_delegate checkoutRequest:[[MCSConfigurationManager sharedManager] checkoutRequest] didCompleteWithStatus:status forTransaction:response.transactionId];
+    
+    [self.router stop];
 }
 
 @end

@@ -21,7 +21,6 @@
 //@property (nonatomic, strong) UIVisualEffectView *vibrancyView;
 //@property (nonatomic, strong) UIBlurEffect *blurEffect;
 @property (nonatomic, strong) UILabel *label;
-@property (nonatomic, strong) UIButton *cancelButton;
 
 @end
 
@@ -32,15 +31,12 @@
         self.title = title;
         self.indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         self.label = [[UILabel alloc] init];
-        self.cancelButton = [[UIButton alloc] init];
         self.hidden = YES;
         
         [_label setText:title];
-        [_cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
         
         [self addSubview:_indicator];
         [self addSubview:_label];
-        [self addSubview:_cancelButton];
         
         [_indicator startAnimating];
     }
@@ -52,13 +48,13 @@
     [super didMoveToSuperview];
     
     UIView *superview = self.superview;
-    CGFloat width = superview.frame.size.width / 2.3;
-    CGFloat height = 150.0;
+    CGFloat width = superview.frame.size.width / 2.9;
+    CGFloat height = 100.0;
     CGFloat indicatorSize = 50;
     
     self.frame = CGRectMake(superview.frame.size.width / 2 - width / 2, superview.frame.size.height / 2 - height / 2, width, height);
     
-    self.indicator.frame = CGRectMake(width / 2 - indicatorSize / 2, height / 4 - indicatorSize / 2, indicatorSize, indicatorSize);
+    self.indicator.frame = CGRectMake(width / 2 - indicatorSize / 2, height / 4 - indicatorSize / 2 + 5, indicatorSize, indicatorSize);
     
     self.layer.cornerRadius = 8.0;
     self.layer.masksToBounds = true;
@@ -67,17 +63,9 @@
     
     self.label.enabled = YES;
     self.label.textAlignment = NSTextAlignmentCenter;
-    self.label.frame = CGRectMake(width / 4, height / 4 + indicatorSize / 2 + 5, width / 2, 30);
+    self.label.frame = CGRectMake(width / 4 , height / 4 + 3 + indicatorSize / 2 + 10, width / 2 + 10, 30);
     self.label.textColor = [UIColor whiteColor];
     self.label.font = [UIFont boldSystemFontOfSize:16];
-    
-    self.cancelButton.enabled = YES;
-    self.cancelButton.frame = CGRectMake(width / 4, height / 4 + indicatorSize / 2 + 10 + 30 + 10, width / 2, 30);
-    [self.cancelButton setTitleColor:self.tintColor forState:UIControlStateNormal];
-}
-
-- (void)setTargetForCancel:(id)target action:(SEL)action {
-    [_cancelButton addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)show {
@@ -87,6 +75,5 @@
 - (void)hide {
     [self setHidden:YES];
 }
-
 
 @end

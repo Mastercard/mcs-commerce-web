@@ -28,9 +28,3 @@
 - (void)hide;
 
 @end
-
-@protocol MCSActivityIndicatorDelegate
-
-- (BOOL)activityIndicator:(MCSActivityIndicatorView *)activityIndicator shouldHandleCancel:(BOOL)handle;
-
-@end

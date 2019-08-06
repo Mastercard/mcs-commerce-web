@@ -38,7 +38,10 @@
         self.scheme = scheme;
         self.delegate = delegate;
         self.indicatorView = [[MCSActivityIndicatorView alloc] initWithTitle:@"Loading..."];
+<<<<<<< HEAD
         [self.indicatorView setTargetForCancel:self action:@selector(cancel)];
+=======
+>>>>>>> Add alert for no-internet condition when user is already inside webView context. 
     }
     
     return self;
@@ -188,6 +191,7 @@
     /* No implementation needed for this right now--or maybe ever */
 }
 
+<<<<<<< HEAD
 - (void)cancel {  
     MCSCheckoutResponse *checkoutResponse = [[MCSCheckoutResponse alloc] init];
     checkoutResponse.status = STATUS_CANCEL;
@@ -196,6 +200,8 @@
     [_delegate checkoutCompletedWithResponse:checkoutResponse];
 }
 
+=======
+>>>>>>> Add alert for no-internet condition when user is already inside webView context. 
 #if TARGET_IPHONE_SIMULATOR
 - (void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler {
     
