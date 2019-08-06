@@ -18,22 +18,18 @@
 #import "MCSViewControllerManager.h"
 
 /**
- * MCSCheckoutRouter interacts with the ViewControllerManager
- * implementations in order to present the correct ViewController to
- * the user to complete checkout.
- *
- * @author Bret Deasy
+ MCSCheckoutRouter interacts with the ViewControllerManager
+ implementations in order to present the correct ViewController to
+ the user to complete checkout.
+ 
  */
 @interface MCSCheckoutRouter : NSObject
 
 /**
- * Route the user to the correct checkout flow using the provided
- * MCSViewControllerManager
- *
- * @param manager MCSViewControllerManager used to present the
- * checkout flow
- * @param errorHandler completion block used for callback
- * in case of an error
+ Route the user to the correct checkout flow using the provided MCSViewControllerManager
+ 
+ @param manager MCSViewControllerManager used to present the checkout flow
+ @param errorHandler completion block used for callback in case of an error
  */
 - (void) startWithViewControllerManager:(id<MCSViewControllerManager>)manager errorHandler:(void (^)(void))errorHandler;
 

@@ -18,25 +18,23 @@
 #import "MCSViewControllerManager.h"
 
 /**
- * Manager class to present SafariViewController to complete
- * checkout with web-based SRCi
- *
- * @author Bret Deasy
+ Manager class to present SafariViewController to complete checkout with web-based SRCi
+ 
  */
 @interface MCSSafariViewControllerManager : NSObject<MCSViewControllerManager, SFSafariViewControllerDelegate>
 
 /**
- * Loads the SFSafariViewController with the provided URL for rendering
- *
- * @param url URL to load within the SFSafariViewController
- * @param cancelHandler Block to message in case the user has cancelled the transaction
+ Loads the SFSafariViewController with the provided URL for rendering
+ 
+ @param url URL to load within the SFSafariViewController
+ @param cancelHandler Block to message in case the user has cancelled the transaction
  */
 - (void) loadWebSessionWithUrl:(NSURL *)url cancelCallback:(void (^ _Nonnull)(void))cancelHandler;
 
 /**
- * Once an instance of SFSafariViewController is loaded, you must start it to display the web data
- *
- * @param viewController The manager needs a {@link UIViewController} to present {@link SFSafariViewController}
+ Once an instance of SFSafariViewController is loaded, you must start it to display the web data
+ 
+ @param viewController The manager needs a {@link UIViewController} to present {@link SFSafariViewController}
  */
 - (void) startWithViewController:(UIViewController *)viewController;
 

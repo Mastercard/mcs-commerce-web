@@ -14,21 +14,22 @@
  =============================================================================*/
 
 /**
- * CryptoOptions is used to determine the compatible Mastercard and
- * Visa formats for cryptograms for tokenized transactions.
- *
- * @author Amit Somani
+ CryptoOptions is used to determine the compatible Mastercard and
+ Visa formats for cryptograms for tokenized transactions.
+ 
+ @author Amit Somani
  */
-	
-
 #import <Foundation/Foundation.h>
 
 @interface MCSCryptoOptions : NSObject
 
-/** card network generating the cryptogram (e.g., master, visa) **/
+/**
+ Card network generating the cryptogram (e.g., master, visa)
+ */
 @property (nonatomic, copy, readwrite, nonnull) NSString *cardType;
-
-/** support cryptogram format for the provided cardType **/
+/**
+ Support cryptogram format for the provided cardType
+ */
 @property (nonatomic, readwrite, nonnull) NSSet<NSString *> *format;
 
 @end

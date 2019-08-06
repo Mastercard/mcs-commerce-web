@@ -19,47 +19,64 @@
 
 @interface MCSCheckoutRequest : NSObject
 
-/** enum definition for allowed crypto formats **/
+/**
+ Enum definition for allowed crypto formats
+ */
 typedef NSString *MCSCryptoFormat NS_STRING_ENUM;
-/** ICC cryptogram format **/
+/**
+ ICC cryptogram format
+ */
 extern MCSCryptoFormat const MCSCryptoFormatICC;
-/** UCAF cryptogram format **/
+/**
+ UCAF cryptogram format
+ */
 extern MCSCryptoFormat const MCSCryptoFormatUCAF;
-/** TVV cryptogram format **/
+/**
+ TVV cryptogram format
+ */
 extern MCSCryptoFormat const MCSCryptoFormatTVV;
-
-
-/** the total cost amount of this transaction **/
+/**
+ The total cost amount of this transaction
+ */
 @property (nonatomic, copy, readwrite, nonnull) NSDecimalNumber *amount;
-
-/** unique identifier for this shopping cart **/
+/**
+ Unique identifier for this shopping cart
+ */
 @property (nonatomic, copy, readwrite, nonnull) NSString *cartId;
-
-/** currency format for which this transaction amount is calculated **/
+/**
+ Currency format for which this transaction amount is calculated
+ */
 @property (nonatomic, copy, readwrite, nonnull) NSString *currency;
-
-/** boolean flag indicating if shipping is required for this transaction **/
+/**
+ Boolean flag indicating if shipping is required for this transaction
+ */
 @property (nonatomic, readwrite) BOOL suppressShippingAddress;
-
-/** optional: set this property to override merchant configuration **/
+/**
+ optional: set this property to override merchant configuration
+ */
 @property (nonatomic, copy, readwrite, nullable) NSString *callbackUrl;
-
-/** optional: set this property to override merchant configuration **/
+/**
+ optional: set this property to override merchant configuration */
 @property (nonatomic, readwrite, nullable) NSArray <MCSCryptoOptions *> *cryptoOptions;
-
-/** optional: setBooleanValue to override merchant configuration **/
+/**
+ optional: setBooleanValue to override merchant configuration
+ */
 @property (nonatomic, readwrite, nullable) NSNumber *cvc2Support;
-
-/** optional: set this property to override merchant configuration **/
+/**
+ optional: set this property to override merchant configuration
+ */
 @property (nonatomic, copy, readwrite, nullable) NSString *shippingLocationProfile;
-
-/** optional: setBooleanValue to override merchant configuration **/
+/**
+ optional: setBooleanValue to override merchant configuration
+ */
 @property (nonatomic, readwrite, nullable) NSNumber *suppress3Ds;
-
-/** optional: unpredictable number used to generate cryptogram **/
+/**
+ optional: unpredictable number used to generate cryptogram
+ */
 @property (nonatomic, copy, readwrite, nullable) NSString *unpredictableNumber;
-
-/** optional: set this property to override merchant configuration **/
+/**
+ optional: set this property to override merchant configuration
+ */
 @property (nonatomic, readwrite, nullable) NSNumber *validityPeriodMinutes;
 
 @end

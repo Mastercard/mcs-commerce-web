@@ -20,8 +20,8 @@ NSInteger const kAmountMinimumFractionDigit             = 2;
 NSInteger const kAmountMaximumFractionDigit             = 2;
 NSInteger const kBackgroundScreenViewTag                = 999;
 
-/*
- * ENDPOINT Constants
+/**
+ ENDPOINT Constants
  */
 NSString *const kConfigJSONRelativePathOtherENV         = @"masterpass-switch/mobilecheckout/ios/%@/environments_config.json";
 NSString *const kConfigJSONRelativePathProductionENV    = @"masterpass-switch/mobilecheckout/ios/%@/config.json";
@@ -48,20 +48,20 @@ NSString *const kMEXLegalContentRelativePath            = @"dm/content/consentma
 NSString *const kMEXLegalContentServiceCode            = @"mp";
 NSString *const kMEXLegalContentServiceFunctionCode    = @"mp-reg";
 
-/*
- *  This constant define size for Masterpass button
+/**
+ This constant define size for Masterpass button
  */
 const CGFloat kMasterpassButtonWidth = 250.0;
 const CGFloat kMasterpassButtonHeight = 58.0;
 
-/*
- * This defines the constants for database file & path
+/**
+ This defines the constants for database file & path
  */
 NSString *const kMCCMerchantDatabaseFileName            = @"MCCMerchantDB";
 NSString *const kMCCMerchantDatabaseBundleIdentifier    = @"com.mastercard.masterpass.merchant";
 
-/*
- *  This constant define for MCCMEXCountry
+/**
+ This constant define for MCCMEXCountry
  */
 NSString * const kMEXCountryName                           = @"name";
 NSString * const kMEXCountrySupportedLocales               = @"supportedLocales";
@@ -93,8 +93,8 @@ NSString * const kGlobalSettingsRememberWallet             = @"rememberWallet";
 NSString * const kGlobalSettingsLocaleKey                  = @"locale";
 NSString * const kGlobalCountryCapabilities                = @"countryCapabilities";
 
-/*
- *  This constant define for download Config file
+/**
+ This constant define for download Config file
  */
 NSString *const kConfigFileName                         = @"config.json";
 NSString *const kCountries                              = @"countries";
@@ -104,8 +104,8 @@ NSString *const kCardBrandFileName                      = @"default-card-schema.
 NSString *const kSettings                               = @"settings";
 NSString *const kInitPairingRequired                    = @"isInitializePairingRequired";
 
-/*
- *  This constant define for toggle feature flages in Config file
+/**
+ This constant define for toggle feature flages in Config file
  */
 NSString *const kFeatureFlagBiometrics                 = @"biometrics";
 NSString *const kFeatureFlagAnalytics                  = @"analytics";
@@ -115,9 +115,8 @@ NSString *const kFeatureFlagAddCard                    = @"addCard";
 NSString *const kFeatureFlagPinAuthentication          = @"pinAuthentication";
 NSString *const kFeatureFlagMEXCheckout                = @"MEXCheckout";
 
-
-/*
- *  This constant define for Universal Link Handler
+/**
+ This constant define for Universal Link Handler
  */
 NSString * const kCheckoutResourceURLKey                = @"checkout_resource_url";
 NSString * const kTransactionCartId                     = @"cartId";
@@ -128,13 +127,13 @@ NSString * const kWebCheckoutStatusValueCancel          = @"cancel";
 NSString * const kErrorMessage                          = @"errormessage";
 NSString * const kPairingTxnId                          = @"pairingTransactionId";
 
-/*
- *  This constant define for Checkout Manager
+/**
+ This constant define for Checkout Manager
  */
 NSString * const kErrorFieldNamePaymentRequest          = @"PaymentRequest";
 
-/*
- * This constant set of all field name which will be shown in error to the user.
+/**
+ This constant set of all field name which will be shown in error to the user.
  */
 NSString * const kErrorFieldNameAmount                  = @"amount";
 NSString * const kErrorFieldNameCurrencyCode            = @"currencyCode";
@@ -147,7 +146,6 @@ NSString * const kErrorFieldNameCallBackUrl             = @"callBackUrl";
 NSString * const kErrorFieldNameCryptogramType          = @"cryptogramType";
 NSString * const kErrorFieldNameShippingToCountries     = @"shippingLocationProfiles";
 NSString * const kErrorFieldNameWalletId                = @"walletId";
-
 NSString * const kErrorFieldNameCountryName             = @"name";
 NSString * const kErrorFieldNamePhoneProperties         = @"phoneProperties";
 NSString * const kErrorFieldNameAddressProperties       = @"addressProperties";
@@ -159,17 +157,16 @@ NSString * const kErrorFieldNamePostalCodeRegex         = @"postalCodeRegex";
 NSString * const kErrorFieldNameTenantId                = @"tenantId";
 NSString * const kErrorFieldNameSignInURL               = @"signInUrl";
 
-/*
- *  This constant define for MCCConfiguration errors
+/**
+ This constant define for MCCConfiguration errors
  */
 NSString * const kErrorFieldNamePayToName              = @"payToName";
 NSString * const kErrorFieldNameLocale                 = @"locale";
 NSString * const kErrorFieldNameUserId                 = @"userId";
 
-
-/*
- * This constant set of all field which will be passed in universal link.
- * String literals used to build the URL
+/**
+ This constant set of all field which will be passed in universal link.
+ String literals used to build the URL
  */
 NSString * const kErrorFieldNameCheckoutId              = @"checkoutId";
 NSString * const kTransactionAmountKey                  = @"amount";
@@ -180,19 +177,18 @@ NSString * const kTransactionIsShippingRequiredKey      = @"suppressShippingAddr
 NSString * const kTransactionCheckoutLocaleKey          = @"locale";
 NSString * const kTransactionCryptoFormatKey            = @"masterCryptoFormat";
 NSString * const kTransactionwalletProviderId           = @"walletProviderId";
-
 NSString * const kTransactionPairingRequiredKey         = @"requestPairing";
 NSString * const kTransactionUserIdKey                  = @"userId";
-
 NSString * const kTransactionMerchantNameKey            = @"merchantName";
 NSString * const kTransactionMerchantCountryCodeKey     = @"merchantCountryCode";
 NSString * const kTransactionSupress3DSKey              = @"supress3DS";
 NSString * const kTransactionCardIdentifier             = @"cardIdentifier";
 NSString * const kTransactionCheckoutIdKey              = @"checkoutId";
-
 NSString * const kTransactionShippingProfileIdValue     = @"default";
 
-//Payment method image name
+/**
+ Payment method image name
+ */
 NSString *const kPaymentMethodMasterPassLogoImageName   = @"logo";
 NSString *const kDefaultWalletIdentifier                = @"101";
 NSString *const kMasterPass                             = @"Masterpass";
@@ -200,14 +196,17 @@ NSString *const kMasterPassBackgroundImageName          = @"background_black";
 NSString *const kMasterPassDefaultButtonImageName       = @"MasterpassButton";
 NSString *const kMasterPassLogoImageName                = @"MP-Logo";
 
-//MEX countries market property types
+/**
+ MEX countries market property types
+ */
 NSString *const kMEXWalletSelectorMarket                = @"WALLET_SELECTOR";
-
 NSString *const kMEXCardExpiredErrorReasonCode          = @"CARD_EXPIRED";
 NSString *const kMEXCardDeletedErrorReasonCode          = @"CARD_DELETED";
 NSString *const kMEXWalletNotFoundErrorReasonCode       = @"WALLET_NOT_FOUND";
 
-//SVG image constants
+/**
+ SVG image constants
+ */
 NSString *const kMCCSVGError                            = @"error";
 NSString *const kMCCSVGErrorDomain                      = @"com.masterpass.mccmerchant.svgrendering";
 
@@ -229,14 +228,18 @@ NSString *const kJSContextLoadedKey                     = @"loaded";
 NSString *const kSVGHTMLFileName                        = @"SVGTemplate";
 NSString *const kSVGHTHMLFileType                       = @"html";
 
-//MCCCheckoutResponse
+/**
+ MCCCheckoutResponse
+ */
 NSString * const kCheckoutResponseCartID                = @"cartId";
 NSString * const kCheckoutResponseCheckoutResourceURLWebKey   = @"checkout_resource_url";
 NSString * const kCheckoutResponseTransactionId         = @"transactionId";
 NSString * const KCheckoutResponsePairingToken          = @"pairing_token";
 NSString * const kCheckoutResponseUserIdKey             = @"userId";
 
-//MEXCheckoutResponse - diff key
+/**
+ MEXCheckoutResponse - diff key
+ */
 NSString * const kMEXCheckoutResponsePairingTransactionId  = @"pairingTransactionId";
 NSString * const kMEXChekcoutResponseCheckoutResourceURL   = @"checkoutResourceUrl";
 

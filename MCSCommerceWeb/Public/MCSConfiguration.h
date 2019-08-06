@@ -17,20 +17,20 @@
 #import "MCSCardTypes.h"
 
 /**
- * Configuration class used to initialize MCSCommerceWeb with the specific
- * merchant parameters.
- *
- * @author Paul Adeyenuwo
+ Configuration class used to initialize MCSCommerceWeb with the specific
+ merchant parameters.
+ 
+ @author Paul Adeyenuwo
  */
 @interface MCSConfiguration : NSObject
 
 /**
- * Initializer for the MCSCommerceConfig
- *
- * @param locale NSString type used for merchant locale.
- * @param checkoutId NSString type used for merchant identification.
- * @param checkoutUrl URL used to initiate checkout
- * @param callbackScheme Custom scheme to communicate checkout response to the app
+ Initializer for the MCSCommerceConfig
+ 
+ @param locale NSString type used for merchant locale.
+ @param checkoutId NSString type used for merchant identification.
+ @param checkoutUrl URL used to initiate checkout
+ @param callbackScheme Custom scheme to communicate checkout response to the app
  */
 - (instancetype _Nonnull)initWithLocale:(NSLocale *_Nonnull)locale
                              checkoutId:(NSString *_Nonnull)checkoutId
@@ -38,19 +38,25 @@
                          callbackScheme:(NSString *_Nonnull)callbackScheme
                        allowedCardTypes:(NSSet <MCSCardType> *)allowedCardTypes;
 
-/** List of card networks accepted by the merchant **/
+/**
+ List of card networks accepted by the merchant
+ */
 @property (nonatomic, copy, readwrite, nonnull) NSSet *allowedCardTypes;
-
-/** Locale associated with the application **/
+/**
+ Locale associated with the application
+ */
 @property (nonatomic, copy, readwrite, nonnull) NSLocale *locale;
-
-/** Merchant checkoutId generated during onboarding **/
+/**
+ Merchant checkoutId generated during onboarding
+ */
 @property (nonatomic, copy, readwrite, nonnull) NSString *checkoutId;
-
-/** the URL used to launch the checkout experience (e.g. src.mastercard.com) **/
+/**
+ URL used to launch the checkout experience (e.g. src.mastercard.com)
+ */
 @property (nonatomic, copy, readwrite, nonnull) NSString *checkoutUrl;
-
-/** The custom URL scheme used to communicate the checkout response back to this app (e.g. merchantapp) **/
+/**
+ Custom URL scheme used to communicate the checkout response back to this app (e.g. merchantapp)
+ */
 @property (nonatomic, copy, readwrite, nonnull) NSString *callbackScheme;
 
 @end

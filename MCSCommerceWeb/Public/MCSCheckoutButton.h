@@ -17,21 +17,25 @@
 #import "MCCMasterpassButton.h"
 
 /**
- * MCSCheckoutButton implements a button to initiate checkout. This class restricts the use of UIButton methods
- * to encapsulate the functionality of calling checkout.
+ MCSCheckoutButton implements a button to initiate checkout. This class restricts the use of UIButton methods
+ to encapsulate the functionality of calling checkout.
  */
 @interface MCSCheckoutButton : MCCMasterpassButton
 
-/** constant width of the checkout button **/
+/**
+ Constant width of the checkout button width
+ */
 extern CGFloat const kCheckoutButtonWidth;
 
-/** constant height of the checkout button **/
+/**
+ Constant height of the checkout button height
+ */
 extern CGFloat const kCheckoutButtonHeight;
 
 /**
- * Add the checkout button to the given superview using pre-determined layout constraints.
- *
- * @param superview view to which the button will be added
+ Add the checkout button to the given superview using pre-determined layout constraints.
+ 
+ @param superview view to which the button will be added
  */
 - (void)addToSuperview:(UIView * _Nonnull)superview NS_SWIFT_NAME(addToSuperview(superview:));
 

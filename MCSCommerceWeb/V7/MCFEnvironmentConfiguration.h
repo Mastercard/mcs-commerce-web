@@ -17,11 +17,15 @@
 
 @interface MCFEnvironmentConfiguration : NSObject
 
-/** Host URL for Dynamic Checkout Button **/
+/**
+ Host URL for Dynamic Checkout Button
+ */
 @property (nonatomic, readonly) NSString *buttonImageHost;
 
 /**
- *  This will return the singleton instance of `MCFEnvironmentConfiguration`
+ This will return the singleton instance of `MCFEnvironmentConfiguration`
+
+ @return MCFEnvironmentConfiguration
  */
 + (MCFEnvironmentConfiguration *)sharedInstance;
 

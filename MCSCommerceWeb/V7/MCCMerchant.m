@@ -34,26 +34,25 @@ static id<MCSCheckoutDelegate> delegateBridge;
 
 # pragma mark -
 # pragma mark Merchant SDK Initialization
+/**
+ Initialization will always return {@code MCCInitializationStateCompleted}
 
-/*
- * Initialization will always return {@code MCCInitializationStateCompleted}
- *
+ @param configuration MCCConfiguration
+ @param status
  */
 + (void)initializeSDKWithConfiguration:(MCCConfiguration *_Nonnull)configuration onStatusBlock:(void(^ __nonnull) (NSDictionary * __nonnull status, NSError * __nullable error))status {
     [[MCCConfigurationManager sharedManager] setConfiguration:configuration];
-    
     MCSConfiguration *commerceConfig = [MCCCheckoutHelper configurationWithConfiguration:configuration];
-    
     [[MCSCommerceWeb sharedManager] initWithConfiguration:commerceConfig];
-    
     status(@{kInitializeStateKey : [NSNumber numberWithInt: MCCInitializationStateCompleted] }, nil);
 }
 
 #pragma mark - getMasterPassButton
+/**
+ Need to determine how we handle the MasterpassButton for checkout with SRCi.
 
-/*
- * Need to determine how we handle the MasterpassButton for checkout with SRCi.
- *
+ @param merchantDelegate
+ @return MCCMasterpassButton
  */
 + (MCCMasterpassButton * _Nullable)getMasterPassButton:(id<MCCMerchantDelegate>) merchantDelegate {
     delegateBridge = [[MCSDelegateBridge alloc] initWithDelegate:merchantDelegate];
@@ -62,7 +61,6 @@ static id<MCSCheckoutDelegate> delegateBridge;
 }
 
 #pragma mark - Masterpass Checkout Response Handler
-
 + (BOOL)handleMasterpassResponse:(NSString *_Nonnull)url delegate: (id<MCCMerchantDelegate> _Nonnull) merchantDelegate {
     //Implementation for this is removed, as Merchant will be getting checkout response from delegate or completion handler. Always returns YES
     
@@ -70,16 +68,16 @@ static id<MCSCheckoutDelegate> delegateBridge;
 }
 
 #pragma mark - Payment Method
+/**
+ Will always checkout using SRCI web implementation
+ Generating URL comes from info.plist configs
+ callbackScheme: Does this come from V7 Merchants? I don't think so. Need to add it for backward compatibility--merchant will be required to pass this in as part of either configuration or checkout request.
+ checkoutResourceUrl -- no longer returned in the checkout response, will need to be handled by the merchant using transactionId
+ error will never be called-- transaction will either be successful or treated as a canceled checkout
+ pairingUserId / pairingTransactionId will never be populated.
+ responseType will always be web checkout
 
-/*
- * Will always checkout using SRCI web implementation
- * Generating URL comes from info.plist configs
- * callbackScheme: Does this come from V7 Merchants? I don't think so. Need to add it for backward compatibility--merchant will be required to pass this in as part of either configuration or checkout request.
- * checkoutResourceUrl -- no longer returned in the checkout response, will need to be handled by the merchant using transactionId
- * error will never be called-- transaction will either be successful or treated as a canceled checkout
- * pairingUserId / pairingTransactionId will never be populated.
- * responseType will always be web checkout
- *
+ @param merchantDelegate
  */
 + (void) paymentMethodCheckout:(id<MCCMerchantDelegate> _Nonnull) merchantDelegate {
     [MCCMerchant checkoutWithDelegate:merchantDelegate];
@@ -87,10 +85,11 @@ static id<MCSCheckoutDelegate> delegateBridge;
 
 #pragma  mark -
 #pragma  mark Express Checkout
+/**
+ This flow will always complete checkout. No pairing id will be returned.
 
-/*
- * This flow will always complete checkout. No pairing id will be returned.
- *
+ @param isCheckout BOOL
+ @param merchantDelegate
  */
 + (void)pairingWithCheckout:(BOOL)isCheckout merchantDelegate:(id<MCCMerchantDelegate> _Nonnull) merchantDelegate {
     if (isCheckout) {
@@ -105,13 +104,13 @@ static id<MCSCheckoutDelegate> delegateBridge;
 
 # pragma  mark -
 # pragma  mark Add Payment
-
-/*
- * This will always return the same payment method, and all payment methods
- * used to initiate checkout will route through MCSCommerceWeb without considering any properties of the payment method itself.
- *
- * didGetPaymentMethod: will never be sent to merchantDelegate.
- *
+/**
+ This will always return the same payment method, and all payment methods
+ used to initiate checkout will route through MCSCommerceWeb without considering any properties of the payment method itself.
+ didGetPaymentMethod: will never be sent to merchantDelegate.
+ 
+ @param merchantDelegate
+ @param completionHandler
  */
 + (void)addMasterpassPaymentMethod:(id<MCCMerchantDelegate> _Nonnull)merchantDelegate withCompletionBlock:(void(^ __nonnull) (MCCPaymentMethod*  _Nullable mccPayment, NSError * _Nullable error))completionHandler {
     
@@ -127,6 +126,11 @@ static id<MCSCheckoutDelegate> delegateBridge;
 
 #pragma mark common checkout method
 
+/**
+ This will initialize the checkout proccess using the merchant delegate
+
+ @param merchantDelegate
+ */
 + (void)checkoutWithDelegate:(id<MCCMerchantDelegate> _Nonnull)merchantDelegate {
     [merchantDelegate didGetCheckoutRequest:^BOOL(MCCCheckoutRequest * _Nonnull checkoutRequest) {
         MCSCheckoutRequest *commerceRequest = [MCCCheckoutHelper requestWithRequest:checkoutRequest];

@@ -17,9 +17,18 @@
 #import "MCSCommerceWeb.h"
 
 @interface MCSCheckoutButton ()
-
+    
+/**
+ Delegate to receive the checkout result
+ */
 @property (nonatomic, weak) id<MCSCheckoutDelegate> delegate;
 
+/**
+ This method is responsible for set button image
+ 
+ @param delegate MCSCheckoutDelegate object to implement the checkout delegate call
+ @return checkout button MCSCheckoutButton
+ */
 - (void) setButtonImage:(UIImage *)image;
 
 @end
