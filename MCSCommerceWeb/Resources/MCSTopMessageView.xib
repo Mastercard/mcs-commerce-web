@@ -13,23 +13,23 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MCSTopMessageVC"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MCSTopMessageView">
-            <rect key="frame" x="0.0" y="0.0" width="400" height="70"/>
+            <rect key="frame" x="0.0" y="0.0" width="400" height="55"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TSg-12-a7r">
-                    <rect key="frame" x="0.0" y="0.0" width="400" height="70"/>
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="55"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Internet connection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u44-al-HVx">
-                            <rect key="frame" x="17" y="32" width="195.5" height="23"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <rect key="frame" x="15" y="29.5" width="175.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" red="0.61960784313725492" green="0.1803921568627451" blue="0.086274509803921567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="lxg-4W-n43" firstAttribute="bottom" secondItem="u44-al-HVx" secondAttribute="bottom" constant="15" id="X5s-ef-sDh"/>
-                        <constraint firstItem="u44-al-HVx" firstAttribute="leading" secondItem="lxg-4W-n43" secondAttribute="leading" constant="17" id="ms3-gI-zLz"/>
+                        <constraint firstItem="lxg-4W-n43" firstAttribute="bottom" secondItem="u44-al-HVx" secondAttribute="bottom" constant="5" id="bmg-T5-XB2"/>
+                        <constraint firstItem="u44-al-HVx" firstAttribute="leading" secondItem="lxg-4W-n43" secondAttribute="leading" constant="15" id="ms3-gI-zLz"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="lxg-4W-n43"/>
                 </view>
