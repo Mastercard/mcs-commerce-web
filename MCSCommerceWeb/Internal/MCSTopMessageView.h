@@ -15,16 +15,7 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol MCSActivityIndicatorDelegate;
-
-@interface MCSActivityIndicatorView : UIView
-
-@property(nonatomic, strong) NSString *title;
-@property(nonatomic, weak) id<MCSActivityIndicatorDelegate> delegate;
-
-- (instancetype)initWithTitle:(NSString *)title;
-- (void)setTargetForCancel:(id)target action:(nonnull SEL)action;
-- (void)show;
-- (void)hide;
+@interface MCSTopMessageView : UIView
 
 @end
+

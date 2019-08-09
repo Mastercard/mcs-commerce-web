@@ -9,5 +9,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/Mastercard/MCSCommerceWeb.git", :tag => "v1.0.0-beta5" }
   s.source_files  = "MCSCommerceWeb", "MCSCommerceWeb/**/*.{h,m}"
   s.public_header_files = "MCSCommerceWeb/Public/**/*.h"
-  s.resources = "MCSCommerceWeb/Resources/**/*.{png,html,xcassets}"
+  s.resources = "MCSCommerceWeb/Resources/**/*.{png,html,xcassets,xib}"
 end

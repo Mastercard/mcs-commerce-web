@@ -38,7 +38,6 @@
         self.scheme = scheme;
         self.delegate = delegate;
         self.indicatorView = [[MCSActivityIndicatorView alloc] initWithTitle:@"Loading..."];
-        [self.indicatorView setTargetForCancel:self action:@selector(cancel)];
     }
     
     return self;
@@ -186,14 +185,6 @@
 
 - (void)webView:(nonnull WKWebView *)webView stopURLSchemeTask:(nonnull id<WKURLSchemeTask>)urlSchemeTask {
     /* No implementation needed for this right now--or maybe ever */
-}
-
-- (void)cancel {  
-    MCSCheckoutResponse *checkoutResponse = [[MCSCheckoutResponse alloc] init];
-    checkoutResponse.status = STATUS_CANCEL;
-    
-    [self dismiss];
-    [_delegate checkoutCompletedWithResponse:checkoutResponse];
 }
 
 #if TARGET_IPHONE_SIMULATOR

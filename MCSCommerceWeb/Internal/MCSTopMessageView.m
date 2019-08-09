@@ -13,18 +13,8 @@
  * limitations under the License.
  =============================================================================*/
 
-#import <UIKit/UIKit.h>
+#import "MCSTopMessageView.h"
 
-@protocol MCSActivityIndicatorDelegate;
-
-@interface MCSActivityIndicatorView : UIView
-
-@property(nonatomic, strong) NSString *title;
-@property(nonatomic, weak) id<MCSActivityIndicatorDelegate> delegate;
-
-- (instancetype)initWithTitle:(NSString *)title;
-- (void)setTargetForCancel:(id)target action:(nonnull SEL)action;
-- (void)show;
-- (void)hide;
+@implementation MCSTopMessageView
 
 @end
