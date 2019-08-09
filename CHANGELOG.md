@@ -1,5 +1,15 @@
 # Change Log
 
+## Version 1.0.0-beta6
+
+Released: August 9, 2019
+
+Changes:
+
+* Adjust Constraints for not hiding SRC mark on iPhone X
+* Add alert for no-internet condition when user is already inside webView context.
+* Remove cancel button for Activity Indicator
+
 ## Version 1.0.0-beta5
 
 Released: August 6, 2019
