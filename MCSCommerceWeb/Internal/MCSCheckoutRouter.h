@@ -33,4 +33,9 @@
  */
 - (void) startWithViewControllerManager:(id<MCSViewControllerManager>)manager errorHandler:(void (^)(void))errorHandler;
 
+/**
+ * Stop router network checking when come back from SDK to Merchant App
+ */
+- (void)stop;
+
 @end
