@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license      = "Apache License, Version 2.0"
   s.author             = { "Bret Deasy" => "bjdeasy@gmail.com" }
   s.platform     = :ios, "11.0"
-  s.source       = { :git => "https://github.com/Mastercard/MCSCommerceWeb.git", :tag => "v1.0.0" }
+  s.source       = { :git => "https://github.com/Mastercard/MCSCommerceWeb.git", :tag => "1.0.0" }
   s.source_files  = "MCSCommerceWeb", "MCSCommerceWeb/**/*.{h,m}"
   s.public_header_files = "MCSCommerceWeb/Public/**/*.h"
   s.resources = "MCSCommerceWeb/Resources/**/*.{png,html,xcassets,xib}"
