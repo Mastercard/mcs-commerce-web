@@ -11,7 +11,7 @@
 
 `MCSCommerceWeb` is a lightweight framework used to integrate Merchants with [**EMV Secure Remote Commerce**](https://www.emvco.com/emv-technologies/src/) and Mastercard's web-based SRC-Initiator with backward compatibility for existing Masterpass integrations. `MCSCommerceWeb` facilitates the initiation of the checkout experience and returns the transaction result to the Merchant after completion.
 
-***Note: currently, this framework is only re ommended for existing U.S. Masterpass merchants.***
+***Note: currently, this framework is only recommended for existing U.S. Masterpass merchants. Merchants using version 2.8 must follow the steps in the migration section. Merchants using version older than 2.8 should follow all steps wihtout migration from this integration guide.***
 
 ### <a name="ios-installation">Installation</a>
 
@@ -131,19 +131,23 @@ func getCheckoutRequest(withHandler: @escaping (MCSCheckoutRequest) -> Void)
 
 `checkoutRequest`: Data object with transaction-specific parameters needed to complete checkout. This request can also override existing merchant configurations.
 
-* Required fields:
-	*  `allowedCardTypes`: Set of all card types accepted for this transaction
-	*  `amount`: The transaction total to be authorized
-	*  `cartId`: Merchant's unique identifier for this transaction
-* Optional Fields: These fields can be assigned to override the default values configured by the merchant.
-	* `callbackUrl`: URL used to communicate back to the merchant application
-	* `cryptoOptions`: Cryptogram formats accepted by this merchant
-	* `cvc2Support`: Enable or disable support for CVC2 card security
-	* `shippingLocationProfile`: Shipping locations available for this merchant
-	* `suppress3Ds`: Enable or disable 3DS verification
-	* `suppressShippingAddress`: Enable or disable shipping options. Typically for digital goods or services, this will be set to `true`.
-	* `unpredictableNumber`: For tokenized transactions, `unpredictableNumber` is required for cryptogram generation
-	* `validityPeriodMinutes`: the expiration time of a generated cryptogram, in minutes
+Here are the required and optional fields:
+
+| Parameter                | Type	       | Required   | Description                                                                                                                  
+|--------------------------|------------|:----------:|---------------------------------------------------------------------------------------------------------|
+| allowedCardTypes         | Array      | Yes        | Set of all card types accepted for this transaction
+| amount                   | Decimal    | Yes        | The transaction total to be authorized
+| cartId                   | String     | Yes        | Merchant's unique identifier for this transaction
+| callbackUrl              | String     | No         | URL used to communicate back to the merchant application
+| cryptoOptions            | Array      | No         | Cryptogram formats accepted by this merchant                           
+| cvc2Support              | Boolean    | No         | Enable or disable support for CVC2 card security                       
+| shippingLocationProfile  | String     | No         | Shipping locations available for this merchant
+| suppress3Ds              | Boolean    | No         | Enable or disable 3DS verification
+| suppressShippingAddress  | Boolean    | No         | Enable or disable shipping options. Typically for digital goods or services, this will be set to `true`
+| unpredictableNumber      | String     | No         | For tokenized transactions, `unpredictableNumber` is required for cryptogram generation
+| validityPeriodMinutes    | Integer    | No         | The expiration time of a generated cryptogram, in minutes
+
+The implementation of the checkout with these parameters:
 
 ```swift
 // Swift
@@ -226,7 +230,6 @@ func checkoutCompleted(withRequest request: MCSCheckoutRequest!, status: MCSChec
 ```
 
 
-
 ### <a name='ios-masterpass'>Migrating from MCCMerchant</a>
 
 ***Note: `MCCMerchant` APIs are deprecated in `MCSCommerceWeb` and will be removed in subsequent versions. It is encouraged to migrate to the APIs above.***
@@ -274,45 +277,40 @@ import MCSCommerceWeb
 
 ```objective-c
 // MCCMerchant.h
-+ (BOOL)handleMasterpassResponse:(NSString *_Nonnull)url delegate:(id<MCCMerchantDelegate> _Nonnull)merchantDelegate ;
++ (BOOL)handleMasterpassResponse:(NSString *_Nonnull)url delegate:(id<MCCMerchantDelegate> _Nonnull)merchantDelegate;
 ```
 
 `handleMasterpassResponse:delegate` no longer has any effect. `MCSCommerceWeb` implements `WKWebView` instead of `SFSafariViewController` and the checkout response is handled using `MCCDelegate` directly. The `MCCDelegate` provided in any checkout calls will be the delegate that receives the checkout response.
 
+
 ##### Add Payment Method
 
 ```objective-c
-// MCCMerchant.h
-+ (void)addMasterpassPaymentMethod:(id<MCCMerchantDelegate> _Nonnull)merchantDelegate withCompletionBlock:(void(^ __nonnull) (MCCPaymentMethod*  _Nullable mccPayment, NSError * _Nullable error))completionHandler;
+// MCSCommerceWeb.h
+- (MCCPaymentMethod *_Nonnull)addPaymentMethod;
 ```
 
-`addMasterpassPaymentMethod:withCompletionBlock:` will always return the same payment method with the following properties:
+`addMasterpassPaymentMethod:withCompletionBlock:` should no longer be called. MCSCommerceWeb now provides the function `addPaymentMethod:` to support payment method. It always returns the same payment method with the following properties:
 
-* `paymentMethodName` : `Masterpass`
-* `paymentMethodId` : `101`
-* `paymentMethodLogo` : The Masterpass logo as `UIImage`
+
+* `paymentMethodName` : `Click to Pay`
+* `paymentMethodLogo` : The SRC logo as `UIImage`
 
 This payment method, or any other, can be used with `paymentMethodCheckout:` to initiate a standard checkout flow (see next).
-
-`didGetPaymentMethod:` is never sent to `MCCMerchantDelegate`.
 
 ##### Payment Method Checkout
 
 ```objective-c
-// MCCMerchant.h
-+ (void)paymentMethodCheckout:(id<MCCMerchantDelegate> _Nonnull) merchantDelegate;
+// MCSCommerceWeb.h
+- (void)paymentMethodCheckout:(id<MCSCheckoutDelegate> _Nonnull)delegate request:(MCSCheckoutRequest *_Nonnull)request;
 ```
 
-`paymentMethodCheckout:` will initiate the standard checkout flow and the `loadPaymentMethod` message will not be sent to `MCCMerchantDelegate`. 
+`paymentMethodCheckout:` should no longer be called. `MCSCommerceWeb` provides `paymentMethodCheckout:delegate:request:` which will initiate the standard SRC checkout flow with the `MCSCheckoutDelegate` handling the response.  
 
-##### Pairing With Checkout
-
-```objective-c
-// MCCMerchant.h
-+ (void)pairingWithCheckout:(BOOL)isCheckout merchantDelegate:(id<MCCMerchantDelegate> _Nonnull) merchantDelegate;
-```
-
-`pairingWithCheckout:merchantDelegate:` will initiate the standard checkout flow if the `isCheckout` value is `YES`. Otherwise, `didFinishCheckout:` is directly messaged to `MCCMerchantDelegate` as if the transaction was canceled.
+| Old Function          | New Function	     
+|-----------------------|--------------------|
+| `+ (void)addMasterpassPaymentMethod:(id<MCCMerchantDelegate> _Nonnull)merchantDelegate withCompletionBlock:(void(^ __nonnull) (MCCPaymentMethod*  _Nullable mccPayment, NSError * _Nullable error))completionHandler;`      | `- (MCCPaymentMethod *_Nonnull)addPaymentMethod;` |
+| `+ (void)paymentMethodCheckout:(id<MCCMerchantDelegate> _Nonnull) merchantDelegate;` | `- (void)paymentMethodCheckout:(id<MCSCheckoutDelegate> _Nonnull)delegate request:(MCSCheckoutRequest *_Nonnull)request`|  
 
 ### <a name="direct-integration">Direct Integration</a>
  
@@ -320,57 +318,26 @@ Integrating with the web checkout experience is possible without this SDK. Using
 
 **Refer to the Apple developer documentation for `UIWebView` [here](https://developer.apple.com/documentation/uikit/uiwebview).**
 
-For the `UIWebView`, we need to build a url with required and optional parameters to load the webView itself. The parameters can be found [here](https://developer.mastercard.com/page/masterpass-checkout-ios-sdk-v2-8#mcccheckoutrequest-object-details):
+### <a name="checkout-url-builder">Checkout URL Builder</a>
 
-```swift
-// Swift
-class func urlForCheckout() -> URL? {
-    // Note: this is just an example of some required parameters
-	var queryDictionary = ["amount": "22.32",
-                        "cartId": "abc123",
-                        "currency": "USD",
-                        "locale": "en-US",
-                        "allowedCardTypes": ["amex","master","visa"]
-                        ]
-                        
-    let components = URLComponents(string: "insert checkoutUrl here")
-    var queryItems: [AnyHashable] = []
+For the `UIWebView`, we need to build a url with required and optional parameters to load the webView itself. The checkout URL sample and parameters can be found below:
 
-    for key in queryDictionary {
-        queryItems.append(URLQueryItem(name: key, value: queryDictionary[key]))
-    }
+`https://stage.src.mastercard.com/srci/?checkoutId=asdfghjk123456&cartId=111111-2222-3333-aaaa-qwerqwerqwer&amount=11.22&currency=USD&allowedCardTypes=master%2Camex%2Cvisa&suppressShippingAddress=false&locale=en_US&channel=mobile&masterCryptoFormat=UCAF%2CICC`
 
-    components?.queryItems = queryItems as? [URLQueryItem]
+| Parameter              | Description
+|------------------------|---------------------|
+| checkoutID             | This value is provided from the merchant onboarding |
+| cartId                 | Randomly generated UUID |
+| amount                 | The amount to be charged |
+| currency               | The currency of the amount |
+| allowedCardTypes       | The cards the merchant supports (Mastercard/Visa/Amex) |
+| suppressShippingAddress| If set to true, Masterpass will not ask for a shipping address |
+| locale 				     | The language Masterpass should load |
+| channel                | Default should be set to mobile |
+| masterCryptoFormat     | Default should be set to UCAF%2CICC |
 
-    return components?.url
-}
-```
 
-```objc
-// Objective-C
-+ (NSURL *)urlForCheckout {
-	// Note: this is just an example of some required parameters
-	
-    NSDictionary * queryDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                               @"amount", [NSDecimalNumber decimalNumberWithString:@"22.32"],
-                               @"cartId", @"abc123",
-                               @"currency", @"USD",
-                               @"locale", @"en-US",
-					           @"allowedCardTypes", @[@"amex", @"master", @"visa"],
-                               nil];
-                               
-    NSURLComponents *components = [NSURLComponents componentsWithString:@"insert checkoutUrl here"];
-    NSMutableArray *queryItems = [NSMutableArray array];
-    
-    for (NSString *key in queryDictionary) {
-        [queryItems addObject:[NSURLQueryItem queryItemWithName:key value:queryDictionary[key]]];
-    }
-    
-    components.queryItems = queryItems;
-        
-    return components.URL;
-}
-```
+###WKWebView
 
 In the `UIViewController`, configure the `WebView` and initialize the following:
 
@@ -423,8 +390,6 @@ func viewDidLoad() {
     [self.view addSubview:webview];
 }
 ```
-
-###WKWebView
 
 `webView` requires implementing the WKWebView delegate function `webView:startURLSchemeTask:` for handling the callbackUrl in order to parse the transaction response data:
 
