@@ -320,6 +320,58 @@ Integrating with the web checkout experience is possible without this SDK. Using
 
 **Refer to the Apple developer documentation for `UIWebView` [here](https://developer.apple.com/documentation/uikit/uiwebview).**
 
+For the `UIWebView`, we need to build a url with required and optional parameters to load the webView itself. The parameters can be found [here](https://developer.mastercard.com/page/masterpass-checkout-ios-sdk-v2-8#mcccheckoutrequest-object-details):
+
+```swift
+// Swift
+class func urlForCheckout() -> URL? {
+    // Note: this is just an example of some required parameters
+	var queryDictionary = ["amount": "22.32",
+                        "cartId": "abc123",
+                        "currency": "USD",
+                        "locale": "en-US",
+                        "allowedCardTypes": ["amex","master","visa"]
+                        ]
+                        
+    let components = URLComponents(string: "insert checkoutUrl here")
+    var queryItems: [AnyHashable] = []
+
+    for key in queryDictionary {
+        queryItems.append(URLQueryItem(name: key, value: queryDictionary[key]))
+    }
+
+    components?.queryItems = queryItems as? [URLQueryItem]
+
+    return components?.url
+}
+```
+
+```objc
+// Objective-C
++ (NSURL *)urlForCheckout {
+	// Note: this is just an example of some required parameters
+	
+    NSDictionary * queryDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                               @"amount", [NSDecimalNumber decimalNumberWithString:@"22.32"],
+                               @"cartId", @"abc123",
+                               @"currency", @"USD",
+                               @"locale", @"en-US",
+					           @"allowedCardTypes", @[@"amex", @"master", @"visa"],
+                               nil];
+                               
+    NSURLComponents *components = [NSURLComponents componentsWithString:@"insert checkoutUrl here"];
+    NSMutableArray *queryItems = [NSMutableArray array];
+    
+    for (NSString *key in queryDictionary) {
+        [queryItems addObject:[NSURLQueryItem queryItemWithName:key value:queryDictionary[key]]];
+    }
+    
+    components.queryItems = queryItems;
+        
+    return components.URL;
+}
+```
+
 In the `UIViewController`, configure the `WebView` and initialize the following:
 
 ```swift
