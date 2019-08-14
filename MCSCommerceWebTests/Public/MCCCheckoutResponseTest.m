@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import <MCSCommerceWeb/MCCCheckoutResponse.h>
-#import "MockHelper/MCSMockData.h"
+#import "MCSMockData.h"
 
 @interface MCCCheckoutResponseTest : XCTestCase
 
