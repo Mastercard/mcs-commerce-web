@@ -91,6 +91,21 @@
 		19A0EFF5229F181D006B7AFA /* MCCMerchant.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EFF4229F181D006B7AFA /* MCCMerchant.m */; };
 		B7CBF00D22CF9B1200D688AB /* MCSReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = B7CBF00B22CF9B1200D688AB /* MCSReachability.h */; };
 		B7CBF00E22CF9B1200D688AB /* MCSReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B7CBF00C22CF9B1200D688AB /* MCSReachability.m */; };
+		E80DC543230484E30071D340 /* MCSActivityIndicatorViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DC540230484E30071D340 /* MCSActivityIndicatorViewTests.m */; };
+		E80DC544230484E30071D340 /* MCSWebViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DC541230484E30071D340 /* MCSWebViewControllerTests.m */; };
+		E80DC545230484E30071D340 /* MCSCheckoutUrlBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DC542230484E30071D340 /* MCSCheckoutUrlBuilderTests.m */; };
+		E80DC5492304854E0071D340 /* MCCSVGImageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DC5472304854E0071D340 /* MCCSVGImageTests.m */; };
+		E80DC54A2304854E0071D340 /* MCSCheckoutButtonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DC5482304854E0071D340 /* MCSCheckoutButtonTest.m */; };
+		E80DC5502304855D0071D340 /* MCSMockData.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DC54C2304855D0071D340 /* MCSMockData.m */; };
+		E80DC5512304855D0071D340 /* MCSMockFileLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DC54F2304855D0071D340 /* MCSMockFileLoader.m */; };
+		E80DC5552304856C0071D340 /* MockResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = E80DC5532304856B0071D340 /* MockResponse.json */; };
+		E80DC5562304856C0071D340 /* MockRequest.json in Resources */ = {isa = PBXBuildFile; fileRef = E80DC5542304856B0071D340 /* MockRequest.json */; };
+		E80DC55E230485740071D340 /* MCSConfigurationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DC558230485740071D340 /* MCSConfigurationTest.m */; };
+		E80DC55F230485740071D340 /* MCCCheckoutResponseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DC559230485740071D340 /* MCCCheckoutResponseTest.m */; };
+		E80DC560230485740071D340 /* MCCCryptogramTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DC55A230485740071D340 /* MCCCryptogramTest.m */; };
+		E80DC561230485740071D340 /* MCCPaymentMethodTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DC55B230485740071D340 /* MCCPaymentMethodTest.m */; };
+		E80DC562230485740071D340 /* MCCCardTypeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DC55C230485740071D340 /* MCCCardTypeTest.m */; };
+		E80DC563230485740071D340 /* MCCAmountTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DC55D230485740071D340 /* MCCAmountTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -192,6 +207,23 @@
 		19A0EFF4229F181D006B7AFA /* MCCMerchant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCCMerchant.m; sourceTree = "<group>"; };
 		B7CBF00B22CF9B1200D688AB /* MCSReachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSReachability.h; sourceTree = "<group>"; };
 		B7CBF00C22CF9B1200D688AB /* MCSReachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSReachability.m; sourceTree = "<group>"; };
+		E80DC540230484E30071D340 /* MCSActivityIndicatorViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSActivityIndicatorViewTests.m; sourceTree = "<group>"; };
+		E80DC541230484E30071D340 /* MCSWebViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSWebViewControllerTests.m; sourceTree = "<group>"; };
+		E80DC542230484E30071D340 /* MCSCheckoutUrlBuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSCheckoutUrlBuilderTests.m; sourceTree = "<group>"; };
+		E80DC5472304854E0071D340 /* MCCSVGImageTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCCSVGImageTests.m; sourceTree = "<group>"; };
+		E80DC5482304854E0071D340 /* MCSCheckoutButtonTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSCheckoutButtonTest.m; sourceTree = "<group>"; };
+		E80DC54C2304855D0071D340 /* MCSMockData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSMockData.m; sourceTree = "<group>"; };
+		E80DC54D2304855D0071D340 /* MCSMockFileLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSMockFileLoader.h; sourceTree = "<group>"; };
+		E80DC54E2304855D0071D340 /* MCSMockData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSMockData.h; sourceTree = "<group>"; };
+		E80DC54F2304855D0071D340 /* MCSMockFileLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSMockFileLoader.m; sourceTree = "<group>"; };
+		E80DC5532304856B0071D340 /* MockResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockResponse.json; sourceTree = "<group>"; };
+		E80DC5542304856B0071D340 /* MockRequest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockRequest.json; sourceTree = "<group>"; };
+		E80DC558230485740071D340 /* MCSConfigurationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSConfigurationTest.m; sourceTree = "<group>"; };
+		E80DC559230485740071D340 /* MCCCheckoutResponseTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCCCheckoutResponseTest.m; sourceTree = "<group>"; };
+		E80DC55A230485740071D340 /* MCCCryptogramTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCCCryptogramTest.m; sourceTree = "<group>"; };
+		E80DC55B230485740071D340 /* MCCPaymentMethodTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCCPaymentMethodTest.m; sourceTree = "<group>"; };
+		E80DC55C230485740071D340 /* MCCCardTypeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCCCardTypeTest.m; sourceTree = "<group>"; };
+		E80DC55D230485740071D340 /* MCCAmountTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCCAmountTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,6 +358,11 @@
 		19A0EBD92295EA40006B7AFA /* MCSCommerceWebTests */ = {
 			isa = PBXGroup;
 			children = (
+				E80DC557230485740071D340 /* Public */,
+				E80DC5522304856B0071D340 /* MockResources */,
+				E80DC54B2304855D0071D340 /* MockHelper */,
+				E80DC5462304854E0071D340 /* MCSCheckoutButton */,
+				E80DC53F230484E30071D340 /* Internal */,
 				19A0EBDA2295EA40006B7AFA /* MCSCommerceWebTests.m */,
 				19A0EBDC2295EA40006B7AFA /* Info.plist */,
 			);
@@ -385,6 +422,58 @@
 				195FCD0A22B6D280009B67DE /* MCCConfigurationManager.m */,
 			);
 			path = V7;
+			sourceTree = "<group>";
+		};
+		E80DC53F230484E30071D340 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				E80DC540230484E30071D340 /* MCSActivityIndicatorViewTests.m */,
+				E80DC541230484E30071D340 /* MCSWebViewControllerTests.m */,
+				E80DC542230484E30071D340 /* MCSCheckoutUrlBuilderTests.m */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		E80DC5462304854E0071D340 /* MCSCheckoutButton */ = {
+			isa = PBXGroup;
+			children = (
+				E80DC5472304854E0071D340 /* MCCSVGImageTests.m */,
+				E80DC5482304854E0071D340 /* MCSCheckoutButtonTest.m */,
+			);
+			path = MCSCheckoutButton;
+			sourceTree = "<group>";
+		};
+		E80DC54B2304855D0071D340 /* MockHelper */ = {
+			isa = PBXGroup;
+			children = (
+				E80DC54C2304855D0071D340 /* MCSMockData.m */,
+				E80DC54D2304855D0071D340 /* MCSMockFileLoader.h */,
+				E80DC54E2304855D0071D340 /* MCSMockData.h */,
+				E80DC54F2304855D0071D340 /* MCSMockFileLoader.m */,
+			);
+			path = MockHelper;
+			sourceTree = "<group>";
+		};
+		E80DC5522304856B0071D340 /* MockResources */ = {
+			isa = PBXGroup;
+			children = (
+				E80DC5532304856B0071D340 /* MockResponse.json */,
+				E80DC5542304856B0071D340 /* MockRequest.json */,
+			);
+			path = MockResources;
+			sourceTree = "<group>";
+		};
+		E80DC557230485740071D340 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				E80DC558230485740071D340 /* MCSConfigurationTest.m */,
+				E80DC559230485740071D340 /* MCCCheckoutResponseTest.m */,
+				E80DC55A230485740071D340 /* MCCCryptogramTest.m */,
+				E80DC55B230485740071D340 /* MCCPaymentMethodTest.m */,
+				E80DC55C230485740071D340 /* MCCCardTypeTest.m */,
+				E80DC55D230485740071D340 /* MCCAmountTest.m */,
+			);
+			path = Public;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -530,6 +619,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E80DC5552304856C0071D340 /* MockResponse.json in Resources */,
+				E80DC5562304856C0071D340 /* MockRequest.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,7 +673,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E80DC55F230485740071D340 /* MCCCheckoutResponseTest.m in Sources */,
+				E80DC562230485740071D340 /* MCCCardTypeTest.m in Sources */,
+				E80DC55E230485740071D340 /* MCSConfigurationTest.m in Sources */,
 				19A0EBDB2295EA40006B7AFA /* MCSCommerceWebTests.m in Sources */,
+				E80DC561230485740071D340 /* MCCPaymentMethodTest.m in Sources */,
+				E80DC545230484E30071D340 /* MCSCheckoutUrlBuilderTests.m in Sources */,
+				E80DC5512304855D0071D340 /* MCSMockFileLoader.m in Sources */,
+				E80DC563230485740071D340 /* MCCAmountTest.m in Sources */,
+				E80DC543230484E30071D340 /* MCSActivityIndicatorViewTests.m in Sources */,
+				E80DC5502304855D0071D340 /* MCSMockData.m in Sources */,
+				E80DC54A2304854E0071D340 /* MCSCheckoutButtonTest.m in Sources */,
+				E80DC544230484E30071D340 /* MCSWebViewControllerTests.m in Sources */,
+				E80DC560230485740071D340 /* MCCCryptogramTest.m in Sources */,
+				E80DC5492304854E0071D340 /* MCCSVGImageTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

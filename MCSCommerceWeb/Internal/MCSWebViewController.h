@@ -57,4 +57,9 @@
  */
 - (instancetype) initWithUrl:(NSURL *)url scheme:(NSString *)scheme delegate:(id<MCSWebCheckoutDelegate>)delegate;
 
+/**
+ Dismiss all the webView loaded on Merchant App
+ */
+-(void)dismiss;
+
 @end
