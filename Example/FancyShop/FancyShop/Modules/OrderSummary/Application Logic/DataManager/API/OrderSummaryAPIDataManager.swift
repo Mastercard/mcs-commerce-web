@@ -57,8 +57,8 @@ class OrderSummaryAPIDataManager: OrderSummaryAPIDataManagerInputProtocol, MCSCh
                 paymentData.card?.brandId = paymentDataDict.value(forKeyPath: "card.brandId") as? String
                 paymentData.card?.brandName = paymentDataDict.value(forKeyPath: "card.brandName") as? String
                 paymentData.card?.cardHolderName = paymentDataDict.value(forKeyPath: "cardHolderName") as? String
-                paymentData.card?.expiryMonth = paymentDataDict.value(forKeyPath: "expiryMonth") as? String
-                paymentData.card?.expiryYear = paymentDataDict.value(forKeyPath: "expiryYear") as? String
+                paymentData.card?.expiryMonth = paymentDataDict.value(forKeyPath: "expiryMonth") as? Int
+                paymentData.card?.expiryYear = paymentDataDict.value(forKeyPath: "expiryYear") as? Int
                 paymentData.card?.accountNumber = paymentDataDict.value(forKeyPath: "card.accountNumber") as? String
                 paymentData.card?.cardHolderName = paymentDataDict.value(forKeyPath: "card.cardHolderName") as? String
                 // Shipping address
@@ -107,7 +107,11 @@ class OrderSummaryAPIDataManager: OrderSummaryAPIDataManagerInputProtocol, MCSCh
     }
     
     func checkoutCompleted(withRequest request: MCSCheckoutRequest!, status: MCSCheckoutStatus, transactionId: String?) {
-            completionHandler?(["TransactionId" : transactionId ?? ""], nil)
+        completionHandler?(["TransactionId" : transactionId ?? ""], nil)
+        CheckoutResponse.sharedInstance.transactionId = transactionId
+        if (status == MCSCheckoutStatus.success) {
+            CallbackResponseHandlerManager.handle(checkoutResponse: CheckoutResponse.sharedInstance, withSDKManager: SRCSDKManager.sharedInstance)
+        }
     }
     
     func getCheckoutRequest() -> MCSCheckoutRequest {

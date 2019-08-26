@@ -55,19 +55,23 @@ class ConfirmOrderInteractor: ConfirmOrderInteractorInputProtocol {
     
     /// Gets the payment data and handles the server response, if it is a success, it will show the payment data, otherwise will tell the presenter to show an error
     func getPaymentData() {
-        if let paymentDataSafe = self.paymentData{
+        if let paymentDataSafe = self.paymentData {
             self.presenter?.got(paymentData: paymentDataSafe)
             self.presenter?.set(shippingStatus: SDKConfiguration.sharedInstance.suppressShipping)
             self.presenter?.set(orderNumber: ShoppingCart.sharedInstance.cartId)
-        }else{
-            self.APIDataManager?.getPaymentData(){ responseObject, error in
+        } else {
+            self.APIDataManager?.getPaymentData() { responseObject, error in
                 let status: String = responseObject?.value(forKey: "status") as! String
                 if status == Constants.status.OK{
-                    self.presenter?.got(paymentData: responseObject?.value(forKey: "paymentData") as! PaymentData)
-                    self.presenter?.set(shippingStatus: SDKConfiguration.sharedInstance.suppressShipping)
-                    self.presenter?.set(orderNumber: ShoppingCart.sharedInstance.cartId)
-                }else {
-                    self.presenter?.showPaymentDataNotFoundError()
+                    DispatchQueue.main.async {
+                        self.presenter?.got(paymentData: responseObject?.value(forKey: "data") as! PaymentData)
+                        self.presenter?.set(shippingStatus: SDKConfiguration.sharedInstance.suppressShipping)
+                        self.presenter?.set(orderNumber: ShoppingCart.sharedInstance.cartId)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.presenter?.showPaymentDataNotFoundError()
+                    }
                 }
             }
         }
@@ -75,18 +79,18 @@ class ConfirmOrderInteractor: ConfirmOrderInteractorInputProtocol {
     
     /// Calls the APIDataManager to confirm and place the order
     func confirmOrder() {
-        self.APIDataManager?.confirmOrder(){ responseObject, error in
+        self.APIDataManager?.confirmOrder() { responseObject, error in
             let status: String = responseObject?.value(forKey: "status") as! String
-            if status == Constants.status.OK{
+            if status == Constants.status.OK {
                 self.presenter?.postbackDone()
-            }else {
+            } else {
                 self.presenter?.showConfirmOrderFailedError()
             }
         }
     }
     
     /// Tells the presenter to show the total, subtotal and taxes values
-    fileprivate func callShoppingTotalizers(){
+    fileprivate func callShoppingTotalizers() {
         let shoppingCart = ShoppingCart.sharedInstance
         self.presenter?.set(taxes: shoppingCart.taxes)
         self.presenter?.set(subtotal: shoppingCart.subtotal)
