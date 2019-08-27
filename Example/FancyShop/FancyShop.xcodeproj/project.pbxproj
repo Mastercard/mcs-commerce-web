@@ -176,9 +176,10 @@
 		19A0EE5722971653006B7AFA /* LanguageConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EDA222971653006B7AFA /* LanguageConfiguration.swift */; };
 		19A0EE5E22986602006B7AFA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EE5D22986602006B7AFA /* Default-568h@2x.png */; };
 		19A0EF752298A13B006B7AFA /* objectLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EED522989A58006B7AFA /* objectLocator.swift */; };
-		408DBF9DF4DA79A568CF8D29 /* Pods_FancyShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AA3B29A862E522ED88571C /* Pods_FancyShop.framework */; };
 		490E2EC922F4953100B6709F /* MerchantServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490E2EC822F4952400B6709F /* MerchantServices.framework */; };
 		490E2ECA22F4953100B6709F /* MerchantServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 490E2EC822F4952400B6709F /* MerchantServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B7D10AB0230479B3003BA8D0 /* stage_fancyshop.p12 in Resources */ = {isa = PBXBuildFile; fileRef = B7D10AAF230479B3003BA8D0 /* stage_fancyshop.p12 */; };
+		DB0EBAC761E0B6EDCF605984 /* Pods_FancyShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2A6ED26B2DFD9371A29369 /* Pods_FancyShop.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -196,6 +197,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		094FD4D9F811561D1315B253 /* Pods-FancyShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.debug.xcconfig"; path = "Target Support Files/Pods-FancyShop/Pods-FancyShop.debug.xcconfig"; sourceTree = "<group>"; };
 		19132C8D22E0CFEA00F98EAE /* MasterpassSandbox.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MasterpassSandbox.xcconfig; sourceTree = "<group>"; };
 		19132C8E22E0D02B00F98EAE /* SrcSandbox.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SrcSandbox.xcconfig; sourceTree = "<group>"; };
 		19132C8F22E0D6BA00F98EAE /* SrcStage.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SrcStage.xcconfig; sourceTree = "<group>"; };
@@ -372,10 +374,10 @@
 		19A0EDA222971653006B7AFA /* LanguageConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageConfiguration.swift; sourceTree = "<group>"; };
 		19A0EE5D22986602006B7AFA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		19A0EED522989A58006B7AFA /* objectLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = objectLocator.swift; sourceTree = "<group>"; };
-		445A426DE8D8CF638255DF00 /* Pods-FancyShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.debug.xcconfig"; path = "Target Support Files/Pods-FancyShop/Pods-FancyShop.debug.xcconfig"; sourceTree = "<group>"; };
+		3E23A35C3258F5F4BF4CBFDA /* Pods-FancyShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.release.xcconfig"; path = "Target Support Files/Pods-FancyShop/Pods-FancyShop.release.xcconfig"; sourceTree = "<group>"; };
 		490E2EC822F4952400B6709F /* MerchantServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MerchantServices.framework; sourceTree = "<group>"; };
-		A7AA3B29A862E522ED88571C /* Pods_FancyShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FancyShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F2786011548AAD141ADC65A1 /* Pods-FancyShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.release.xcconfig"; path = "Target Support Files/Pods-FancyShop/Pods-FancyShop.release.xcconfig"; sourceTree = "<group>"; };
+		9B2A6ED26B2DFD9371A29369 /* Pods_FancyShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FancyShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7D10AAF230479B3003BA8D0 /* stage_fancyshop.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = stage_fancyshop.p12; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -384,7 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				490E2EC922F4953100B6709F /* MerchantServices.framework in Frameworks */,
-				408DBF9DF4DA79A568CF8D29 /* Pods_FancyShop.framework in Frameworks */,
+				DB0EBAC761E0B6EDCF605984 /* Pods_FancyShop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1696,6 +1698,7 @@
 		19A0ED8A22971652006B7AFA /* ExternalComponents */ = {
 			isa = PBXGroup;
 			children = (
+				B7D10AAF230479B3003BA8D0 /* stage_fancyshop.p12 */,
 				19A0ED8B22971652006B7AFA /* README.md */,
 			);
 			path = ExternalComponents;
@@ -1739,7 +1742,7 @@
 			isa = PBXGroup;
 			children = (
 				490E2EC822F4952400B6709F /* MerchantServices.framework */,
-				A7AA3B29A862E522ED88571C /* Pods_FancyShop.framework */,
+				9B2A6ED26B2DFD9371A29369 /* Pods_FancyShop.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1747,8 +1750,8 @@
 		E0BF3A63CCB1FA357D996C45 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				445A426DE8D8CF638255DF00 /* Pods-FancyShop.debug.xcconfig */,
-				F2786011548AAD141ADC65A1 /* Pods-FancyShop.release.xcconfig */,
+				094FD4D9F811561D1315B253 /* Pods-FancyShop.debug.xcconfig */,
+				3E23A35C3258F5F4BF4CBFDA /* Pods-FancyShop.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1760,12 +1763,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19A0EC5722970D42006B7AFA /* Build configuration list for PBXNativeTarget "FancyShop" */;
 			buildPhases = (
-				F05FD71C8F41B86D57324F85 /* [CP] Check Pods Manifest.lock */,
+				A1BA6EFA3A36DBEE63AB5A43 /* [CP] Check Pods Manifest.lock */,
 				19A0EC4122970D3E006B7AFA /* Sources */,
 				19A0EC4222970D3E006B7AFA /* Frameworks */,
 				19A0EC4322970D3E006B7AFA /* Resources */,
 				19A0EF782298A311006B7AFA /* Embed Frameworks */,
-				E6C11E6376CDE1BCBBD82C76 /* [CP] Embed Pods Frameworks */,
+				5CD7E234FE2EAADEA02EA1EB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1833,6 +1836,7 @@
 				19A0EDFE22971653006B7AFA /* AllowedDSRPList.storyboard in Resources */,
 				19A0EE0522971653006B7AFA /* PaymentMethods.strings in Resources */,
 				19A0EE2322971653006B7AFA /* OrderSummary.strings in Resources */,
+				B7D10AB0230479B3003BA8D0 /* stage_fancyshop.p12 in Resources */,
 				19A0EDA722971653006B7AFA /* language.json in Resources */,
 				19A0EE0722971653006B7AFA /* PaymentMethods.storyboard in Resources */,
 				19A0EE5E22986602006B7AFA /* Default-568h@2x.png in Resources */,
@@ -1858,7 +1862,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		E6C11E6376CDE1BCBBD82C76 /* [CP] Embed Pods Frameworks */ = {
+		5CD7E234FE2EAADEA02EA1EB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1875,7 +1879,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F05FD71C8F41B86D57324F85 /* [CP] Check Pods Manifest.lock */ = {
+		A1BA6EFA3A36DBEE63AB5A43 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2137,7 +2141,7 @@
 		};
 		19A0EC5622970D42006B7AFA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 19A0EC7822971651006B7AFA /* Prod.xcconfig */;
+			baseConfigurationReference = 19132C8F22E0D6BA00F98EAE /* SrcStage.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -2198,7 +2202,7 @@
 		};
 		19A0EC5822970D42006B7AFA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 445A426DE8D8CF638255DF00 /* Pods-FancyShop.debug.xcconfig */;
+			baseConfigurationReference = 094FD4D9F811561D1315B253 /* Pods-FancyShop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -2223,7 +2227,7 @@
 		};
 		19A0EC5922970D42006B7AFA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2786011548AAD141ADC65A1 /* Pods-FancyShop.release.xcconfig */;
+			baseConfigurationReference = 3E23A35C3258F5F4BF4CBFDA /* Pods-FancyShop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
