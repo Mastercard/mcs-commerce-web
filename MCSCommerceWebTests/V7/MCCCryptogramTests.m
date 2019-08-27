@@ -13,22 +13,22 @@
  * limitations under the License.
  =============================================================================*/
 
-#import "MCSMockFileLoader.h"
+#import <XCTest/XCTest.h>
+#import <MCSCommerceWeb/MCCCryptogram.h>
 
-@implementation MCSMockFileLoader
+@interface MCCCryptogramTests : XCTestCase
 
-+ (id)loadJSONFromFileNamed:(NSString *)fileName {
+@end
+
+@implementation MCCCryptogramTests
+
+-(void)testInitialization{
     
-    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    NSString *resource = [bundle pathForResource:fileName ofType:@"json"];
+    MCCCryptogram *cryptogram = [[MCCCryptogram alloc] initWithType:MCCCryptogramICC];
     
-    //TODO: Make this asynchronous or use NSInputStream
-    NSData *data = [NSData dataWithContentsOfFile:resource];
-    NSError *error = nil;
-    id mockJSON = [NSJSONSerialization JSONObjectWithData:data
-                                                  options:kNilOptions
-                                                    error:&error];
-    return mockJSON;
+    XCTAssertTrue(cryptogram.cryptogramType == MCCCryptogramICC,@"cryptogramType should be the same");
+    
+    XCTAssertTrue([cryptogram.cryptogramIdentifier isEqualToString: @"ICC"],@"cryptogramIdentifier should be the same");
 }
 
 @end

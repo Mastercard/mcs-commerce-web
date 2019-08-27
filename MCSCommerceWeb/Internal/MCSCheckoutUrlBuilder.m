@@ -62,7 +62,7 @@ NSString * const _Nonnull kChannelValue                         = @"mobile";
 + (NSDictionary *)dictionaryForCheckoutRequest:(MCSCheckoutRequest *)checkoutRequest configuration:(MCSConfiguration *)configuration {
     NSMutableDictionary *checkoutRequestDictionary = [[NSMutableDictionary alloc] init];
     
-    [checkoutRequestDictionary setValue:checkoutRequest.amount forKey:kAmountKey];
+    [checkoutRequestDictionary setValue:[checkoutRequest.amount stringValue] forKey:kAmountKey];
     [checkoutRequestDictionary setValue:checkoutRequest.cartId forKey:kCartIdKey];
     [checkoutRequestDictionary setValue:checkoutRequest.currency forKey:kCurrencyKey];
     [checkoutRequestDictionary setValue:configuration.locale.localeIdentifier forKey:kLocaleKey];

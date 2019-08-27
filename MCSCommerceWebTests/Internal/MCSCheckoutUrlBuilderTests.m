@@ -1,10 +1,17 @@
-//
-//  MCSCheckoutUrlBuilderTests.m
-//  MCSCommerceWebTests
-//
-//  Created by Duan, Yizhu on 8/13/19.
-//  Copyright © 2019 Mastercard. All rights reserved.
-//
+/* Copyright © 2019 Mastercard. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ =============================================================================*/
 
 #import <XCTest/XCTest.h>
 #import "MCSConfigurationManager.h"
@@ -13,25 +20,35 @@
 #import "MCSMockData.h"
 
 
-NSString * const _Nonnull kAllowedCardTypesKey                  = @"allowedCardTypes";
-NSString * const _Nonnull kAmountKey                            = @"amount";
-NSString * const _Nonnull kCartIdKey                            = @"cartId";
-NSString * const _Nonnull kCurrencyKey                          = @"currency";
-NSString * const _Nonnull kLocaleKey                            = @"locale";
-NSString * const _Nonnull kCheckoutIDKey                        = @"checkoutId";
-NSString * const _Nonnull kSuppress3Ds                          = @"suppress3Ds";
-NSString * const _Nonnull kCVC2SupportKey                       = @"cvc2Support";
-NSString * const _Nonnull kSuppressShippingAdressKey            = @"suppressShippingAddress";
-NSString * const _Nonnull kValidityPeriodMinutesKey             = @"validityPeriodMinutes";
-NSString * const _Nonnull kUnpridictableNumberKey               = @"unpredictableNumber";
-NSString * const _Nonnull kShippingLocationProfileKey           = @"shippingLocationProfile";
-NSString * const _Nonnull kMerchantNameKey                      = @"merchantName";
-NSString * const _Nonnull kCryptoOptionsKey                     = @"cryptoOptions";
-NSString * const _Nonnull kChannelKey                           = @"channel";
-NSString * const _Nonnull kChannelValue                         = @"mobile";
+static NSString * const _Nonnull kAllowedCardTypesKey                  = @"allowedCardTypes";
+static NSString * const _Nonnull kAmountKey                            = @"amount";
+static NSString * const _Nonnull kCartIdKey                            = @"cartId";
+static NSString * const _Nonnull kCurrencyKey                          = @"currency";
+static NSString * const _Nonnull kLocaleKey                            = @"locale";
+static NSString * const _Nonnull kCheckoutIDKey                        = @"checkoutId";
+static NSString * const _Nonnull kSuppress3Ds                          = @"suppress3Ds";
+static NSString * const _Nonnull kCVC2SupportKey                       = @"cvc2Support";
+static NSString * const _Nonnull kSuppressShippingAdressKey            = @"suppressShippingAddress";
+static NSString * const _Nonnull kValidityPeriodMinutesKey             = @"validityPeriodMinutes";
+static NSString * const _Nonnull kUnpridictableNumberKey               = @"unpredictableNumber";
+static NSString * const _Nonnull kShippingLocationProfileKey           = @"shippingLocationProfile";
+static NSString * const _Nonnull kMerchantNameKey                      = @"merchantName";
+static NSString * const _Nonnull kCryptoOptionsKey                     = @"cryptoOptions";
+static NSString * const _Nonnull kChannelKey                           = @"channel";
+static NSString * const _Nonnull kChannelValue                         = @"mobile";
 
 
 @interface MCSCheckoutUrlBuilderTests : XCTestCase
+
+@end
+
+@interface MCSCheckoutUrlBuilder (testing)
+
++ (NSDictionary *)dictionaryForCheckoutRequest:(MCSCheckoutRequest *)checkoutRequest configuration:(MCSConfiguration *)configuration;
+
++ (NSString *_Nullable) nilOrStringForBool:(NSNumber *)value;
+
++ (NSString *_Nullable) nilOrStringForNumber:(NSNumber *)value;
 
 @end
 
@@ -42,7 +59,6 @@ NSString * const _Nonnull kChannelValue                         = @"mobile";
     [MCSConfigurationManager sharedManager].configuration = [[MCSConfiguration alloc] initWithLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en"] checkoutId:@"ab230dfe76324d55a04c5955218c5815" checkoutUrl:@"https://stage.src.mastercard.com/srci" callbackScheme:@"fancyshop" allowedCardTypes:nil];
    
     NSDictionary *requestDict =  [[MCSMockData getRequestJsonFromAPIName:@"MCSMockCheckoutRequest"] mutableCopy];
-    NSLog(@"!!!%@", [requestDict description]);
     MCSCheckoutRequest *request = [[MCSCheckoutRequest alloc] init];
     request.amount = [requestDict valueForKey:kAmountKey];
     request.cartId = [requestDict valueForKey:kCartIdKey];

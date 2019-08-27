@@ -31,20 +31,4 @@
  */
 + (NSURL *)urlForCheckout;
 
-/**
- Given the CheckoutReuqest and  Configuration, Dictionary is generated
- which can be used to debug
- */
-+ (NSDictionary *)dictionaryForCheckoutRequest:(MCSCheckoutRequest *)checkoutRequest configuration:(MCSConfiguration *)configuration;
-
-/**
- Used for converting NSString to Bool value
- */
-+ (NSString *_Nullable) nilOrStringForBool:(NSNumber *)value;
-
-/**
- Used for converting NSNumber to Bool value
- */
-+ (NSString *_Nullable) nilOrStringForNumber:(NSNumber *)value;
-
 @end

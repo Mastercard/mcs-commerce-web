@@ -13,22 +13,25 @@
  * limitations under the License.
  =============================================================================*/
 
-#import "MCSMockFileLoader.h"
+#import <XCTest/XCTest.h>
+#import <MCSCommerceWeb/MCCAmount.h>
 
-@implementation MCSMockFileLoader
+@interface MCCAmountTests : XCTestCase
 
-+ (id)loadJSONFromFileNamed:(NSString *)fileName {
+@end
+
+@implementation MCCAmountTests
+
+-(void)testSetTotal{
+    MCCAmount *amount = [[MCCAmount alloc] init];
     
-    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    NSString *resource = [bundle pathForResource:fileName ofType:@"json"];
+    NSDecimalNumber *decimalNumber1 = [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithDouble:10.954]decimalValue]];
     
-    //TODO: Make this asynchronous or use NSInputStream
-    NSData *data = [NSData dataWithContentsOfFile:resource];
-    NSError *error = nil;
-    id mockJSON = [NSJSONSerialization JSONObjectWithData:data
-                                                  options:kNilOptions
-                                                    error:&error];
-    return mockJSON;
+    [amount setTotal:decimalNumber1];
+    
+    NSDecimalNumber *decimalNumber2 = [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithDouble:10.96]decimalValue]];
+    
+    XCTAssertTrue([[amount.total stringValue ] isEqualToString: [decimalNumber2 stringValue]] ,@"total should be the same");
 }
 
 @end

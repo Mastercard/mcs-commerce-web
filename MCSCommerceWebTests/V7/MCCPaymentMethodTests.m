@@ -13,22 +13,27 @@
  * limitations under the License.
  =============================================================================*/
 
-#import "MCSMockFileLoader.h"
+#import <XCTest/XCTest.h>
+#import "MCCPaymentMethod.h"
+#import "MCCSVGImage.h"
 
-@implementation MCSMockFileLoader
+@interface MCCPaymentMethodTests : XCTestCase
 
-+ (id)loadJSONFromFileNamed:(NSString *)fileName {
+@end
+
+@implementation MCCPaymentMethodTests
+
+-(void)testInitialization{
+    MCCPaymentMethod *paymentMethod = [[MCCPaymentMethod alloc] init];
     
-    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    NSString *resource = [bundle pathForResource:fileName ofType:@"json"];
+    XCTAssertTrue([paymentMethod.paymentMethodID isEqualToString: @"101"],@"paymentMethodID should be the same");
+}
+
+-(void)testInitWithID{
     
-    //TODO: Make this asynchronous or use NSInputStream
-    NSData *data = [NSData dataWithContentsOfFile:resource];
-    NSError *error = nil;
-    id mockJSON = [NSJSONSerialization JSONObjectWithData:data
-                                                  options:kNilOptions
-                                                    error:&error];
-    return mockJSON;
+    MCCPaymentMethod *paymentMethod = [[MCCPaymentMethod alloc] initWithID:@"101"];
+    
+    XCTAssertTrue([paymentMethod.paymentMethodID isEqualToString: @"101"],@"paymentMethodID should be the same");
 }
 
 @end

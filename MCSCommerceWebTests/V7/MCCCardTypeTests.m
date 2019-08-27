@@ -13,22 +13,23 @@
  * limitations under the License.
  =============================================================================*/
 
-#import "MCSMockFileLoader.h"
+#import <XCTest/XCTest.h>
+#import <MCSCommerceWeb/MCCCardType.h>
 
-@implementation MCSMockFileLoader
+@interface MCCCardTypeTests : XCTestCase
 
-+ (id)loadJSONFromFileNamed:(NSString *)fileName {
+@end
+
+@implementation MCCCardTypeTests
+
+-(void)testInitialization{
+   
+    MCCCardType *newCardType = [[MCCCardType alloc] initWithType:MCCCardMASTER];
     
-    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    NSString *resource = [bundle pathForResource:fileName ofType:@"json"];
+    XCTAssertTrue(newCardType.cardType == MCCCardMASTER,@"cardType should be the same");
+    XCTAssertTrue([newCardType.cardIdentifier isEqualToString: @"master"],@"cardIdentifier should be the same");
+    XCTAssertTrue([newCardType.cardName isEqualToString: @"Mastercard"],@"cardName should be the same");
     
-    //TODO: Make this asynchronous or use NSInputStream
-    NSData *data = [NSData dataWithContentsOfFile:resource];
-    NSError *error = nil;
-    id mockJSON = [NSJSONSerialization JSONObjectWithData:data
-                                                  options:kNilOptions
-                                                    error:&error];
-    return mockJSON;
 }
 
 @end
