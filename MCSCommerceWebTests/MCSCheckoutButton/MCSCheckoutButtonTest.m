@@ -36,5 +36,14 @@
     XCTAssertTrue([checkoutButton isKindOfClass:[MCSCheckoutButton class]], @"textField should be of type MCSCheckoutButton class");
 }
 
+-(void)testAddToSuperview{
+    
+    MCSCheckoutButton *checkoutButton = [[MCSCheckoutButton alloc] init];
+    UIView *superview = [UIView new];
+    [checkoutButton addToSuperview:superview];
+    
+    XCTAssertNotNil(checkoutButton.superview, "Button should be added to View");
+}
+
 @end
 
