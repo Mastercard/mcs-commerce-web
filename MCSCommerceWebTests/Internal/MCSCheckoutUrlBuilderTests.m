@@ -70,12 +70,32 @@ static NSString * const _Nonnull kChannelValue                         = @"mobil
     request.unpredictableNumber = [requestDict valueForKey:kUnpridictableNumberKey];
     request.shippingLocationProfile = [requestDict valueForKey:kShippingLocationProfileKey];
     request.cryptoOptions = [requestDict valueForKey:kCryptoOptionsKey];
-    
+
     [MCSConfigurationManager sharedManager].checkoutRequest = request;
     
     NSURL *url = [MCSCheckoutUrlBuilder urlForCheckout];
+    NSURLComponents *components = [NSURLComponents componentsWithURL:url resolvingAgainstBaseURL:YES];
+    NSArray<NSURLQueryItem *> *queryItems = components.queryItems;
     
-    XCTAssertTrue([[url absoluteString] isEqualToString:@"https://stage.src.mastercard.com/srci/?amount=25.14&cartId=A6T1C5&channel=mobile&unpredictableNumber=12345678&checkoutId=ab230dfe76324d55a04c5955218c5815&locale=en&suppressShippingAddress=true&suppress3Ds=true&validityPeriodMinutes=1&cvc2Support=true&shippingLocationProfile&currency=USD"],@"url should be the same");
+    for (NSURLQueryItem *queryItem in queryItems) {
+        
+        if([requestDict valueForKey:queryItem.name] ){
+            
+            if([[requestDict valueForKey:queryItem.name] isKindOfClass:[NSString class]]){
+                XCTAssertTrue([queryItem.value isEqualToString:[requestDict valueForKey:queryItem.name]]);
+            }
+            if([[requestDict valueForKey:queryItem.name] isKindOfClass:[NSDecimalNumber class]]){
+                XCTAssertTrue([queryItem.value isEqualToString:[[requestDict valueForKey:queryItem.name] stringValue]]);
+            }
+        }else{
+            if([queryItem.name isEqualToString:@"locale"]){
+              XCTAssertTrue([queryItem.value isEqualToString:@"en"]);
+            }
+        }
+        
+    }
+
+//    XCTAssertTrue([[url absoluteString] isEqualToString:@"https://stage.src.mastercard.com/srci/?amount=25.14&cartId=A6T1C5&channel=mobile&unpredictableNumber=12345678&checkoutId=ab230dfe76324d55a04c5955218c5815&locale=en&suppressShippingAddress=true&suppress3Ds=true&validityPeriodMinutes=1&cvc2Support=true&shippingLocationProfile&currency=USD"],@"url should be the same");
 }
 
 -(void)testDictionaryForCheckoutRequest{
