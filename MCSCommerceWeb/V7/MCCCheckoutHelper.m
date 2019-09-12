@@ -109,6 +109,8 @@
                 break;
         }
     }
+    mastercardCryptoOptions.format = mastercardCryptoFormats;
+    visaCryptoOptions.format = visaCryptoFormats;
     
     return @[mastercardCryptoOptions, visaCryptoOptions];
 }
