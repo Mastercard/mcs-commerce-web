@@ -26,8 +26,7 @@
 /**
  This method is responsible for set button image
  
- @param delegate MCSCheckoutDelegate object to implement the checkout delegate call
- @return checkout button MCSCheckoutButton
+ @param image UIImage object for the button image itself
  */
 - (void) setButtonImage:(UIImage *)image;
 
