@@ -42,11 +42,18 @@ class SettingsInteractor: BaseInteractor, SettingsInteractorInputProtocol {
         configuration.enablePaymentMethodCheckout = !configuration.enablePaymentMethodCheckout
         configuration.saveConfiguration()
         self.getSavedConfig()
+    } 
+    
+    func toggleMasterpassFlowOnOff() {
+        let configuration: SDKConfiguration = SDKConfiguration.sharedInstance
+        configuration.useMasterpassFlow = !configuration.useMasterpassFlow
+        configuration.saveConfiguration()
+        self.getSavedConfig()
     }
     
     /// Returns the saved configuration for all modules
     func getSavedConfig() {
         let conf:SDKConfiguration = SDKConfiguration.sharedInstance
-        self.presenter?.setSavedData(cards: conf.cards, language: conf.language, currency: conf.currency, shippingStatus: conf.suppressShipping, paymentMethodCheckoutStatus: conf.enablePaymentMethodCheckout)
+        self.presenter?.setSavedData(cards: conf.cards, language: conf.language, currency: conf.currency, shippingStatus: conf.suppressShipping, paymentMethodCheckoutStatus: conf.enablePaymentMethodCheckout, isMasterpassCheckoutFlow: conf.useMasterpassFlow)
     }
 }

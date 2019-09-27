@@ -2072,7 +2072,7 @@
 /* Begin XCBuildConfiguration section */
 		19A0EC5522970D42006B7AFA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 19132C8B22E0CE9A00F98EAE /* SrcStage.xcconfig */;
+			baseConfigurationReference = 19132C8C22E0CEB800F98EAE /* Stage.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

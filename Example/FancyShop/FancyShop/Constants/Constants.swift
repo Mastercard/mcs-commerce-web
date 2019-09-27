@@ -109,15 +109,6 @@ struct Constants {
         static let  currentSymbol = currenciesSymbols.DOLLAR
     }
     
-    //MARK: SDK configurations
-    struct SDKConfiguration {
-        static let merchantUrlScheme = BuildConfiguration.sharedInstance.merchantUrlScheme()
-        static let checkoutId = EnvironmentConfiguration.sharedInstance.checkoutID
-        //static let environment = BuildConfiguration.sharedInstance.environmentName()
-        static let environment = EnvironmentConfiguration.sharedInstance.environmentName
-        static let url = EnvironmentConfiguration.sharedInstance.checkoutHost
-    }
-    
     /// SRC CallBack Response Constant
     struct  checkoutResponse {
         static let checkoutStatus = "mpstatus"

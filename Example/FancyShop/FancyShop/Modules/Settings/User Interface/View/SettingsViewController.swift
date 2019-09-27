@@ -25,7 +25,8 @@ fileprivate enum options:String {
     case SuppressShipping
     case EnableDSRPTransaction
     case SelectMethodCheckout
-    static let allValues = [Cards, Language, Currency, SuppressShipping, Shipping, EnableDSRPTransaction, SelectMethodCheckout]
+    case ToggleSrcMasterpassFlow
+    static let allValues = [Cards, Language, Currency, SuppressShipping, Shipping, EnableDSRPTransaction, SelectMethodCheckout, ToggleSrcMasterpassFlow]
 }
 
 /// View controller that shows the available setting for the merchant app
@@ -44,6 +45,7 @@ class SettingsViewController: BaseViewController, SettingsViewProtocol, UITableV
     var selectedCurrency: String?
     var suppressShippingStatus: Bool = false
     var isPaymentMethodCheckoutEnabled: Bool = false
+    var isMasterpassCheckoutFlow: Bool = false
     
     /// Static method will initialize the view
     ///
@@ -107,12 +109,13 @@ class SettingsViewController: BaseViewController, SettingsViewProtocol, UITableV
     ///   - currency: currecny saved
     ///   - shippingStatus: shipping status flag saved
     ///   - paymentMethodCheckoutStatus: paymentMethod checkout flag saved
-    func setSavedData(cards: [CardConfiguration], language: LanguageConfiguration, currency: String, shippingStatus: Bool, paymentMethodCheckoutStatus: Bool){
+    func setSavedData(cards: [CardConfiguration], language: LanguageConfiguration, currency: String, shippingStatus: Bool, paymentMethodCheckoutStatus: Bool, isMasterpassCheckoutFlow: Bool){
         self.selectedCards = cards
         self.selectedLanguage = language
         self.selectedCurrency = currency
         self.suppressShippingStatus = shippingStatus
         self.isPaymentMethodCheckoutEnabled = paymentMethodCheckoutStatus
+        self.isMasterpassCheckoutFlow = isMasterpassCheckoutFlow
         self.settingsTable.reloadData()
     }
     // MARKK: UITableViewDataSource
@@ -170,6 +173,11 @@ class SettingsViewController: BaseViewController, SettingsViewProtocol, UITableV
             cellText.detail.text = ""
             cellText.accessibilityIdentifier = objectLocator.SettingScreenStruct.changePaymentMethod_Identifier
             return cellText
+        case .ToggleSrcMasterpassFlow:
+            cellCheck = tableView.dequeueReusableCell(withIdentifier: checkReuseIdentifier, for: indexPath) as! SettingsCheckViewCell
+            cellCheck.title.text = "MASTERPASS CHECKOUT"
+            cellCheck.switch.setOn(self.isMasterpassCheckoutFlow, animated: true)
+            return cellCheck
         }
     }
     
@@ -181,43 +189,48 @@ class SettingsViewController: BaseViewController, SettingsViewProtocol, UITableV
     fileprivate func handleRowSelectedFrom(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         let option = options.allValues[indexPath.row]
         switch option {
-        case options.Cards:
+        case .Cards:
             self.cardsAllowedOptionSelected()
-        case options.Language:
+        case .Language:
             self.languagesOptionSelected()
-        case options.Currency:
+        case .Currency:
             self.currenciesOptionSelected()
-        case options.Shipping:
+        case .Shipping:
             return
-        case options.SuppressShipping:
+        case .SuppressShipping:
             self.suppressShippingOptionSelected()
-        case options.EnableDSRPTransaction:
+        case .EnableDSRPTransaction:
             self.DSRPAllowedOptionSelected()
         case .SelectMethodCheckout:
             self.selectPaymentMethod()
+        case .ToggleSrcMasterpassFlow:
+            self.toggleMasterpassFlowSelected()
         }
     }
     
     // MARK: Option handlers
-    fileprivate func cardsAllowedOptionSelected(){
+    private func cardsAllowedOptionSelected() {
         self.presenter?.gotToAllowedCardList()
     }
-    fileprivate func languagesOptionSelected(){
+    private func languagesOptionSelected() {
         self.presenter?.goToLanguageList()
     }
-    fileprivate func currenciesOptionSelected(){
+    private func currenciesOptionSelected( ){
         self.presenter?.gotToCurrencyList()
     }
-    fileprivate func suppressShippingOptionSelected(){
+    private func suppressShippingOptionSelected() {
         self.presenter?.suppressShippingAction()
     }
-    fileprivate func DSRPAllowedOptionSelected(){
+    private func DSRPAllowedOptionSelected() {
         self.presenter?.gotToAllowedDSRPList()
     }
-    fileprivate func enablePaymentMethodCheckoutOptionSelected(){
+    private func enablePaymentMethodCheckoutOptionSelected() {
         self.presenter?.togglePaymentMethodCheckoutOptionOnOff()
     }
-    fileprivate func selectPaymentMethod() {
+    private func selectPaymentMethod() {
         self.presenter?.selectPaymentMethod()
+    }
+    private func toggleMasterpassFlowSelected() {
+        self.presenter?.toggleMasterpassFlowOnOff()
     }
 }

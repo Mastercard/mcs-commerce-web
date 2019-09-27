@@ -32,15 +32,34 @@ class ConfirmOrderAPIDataManager: ConfirmOrderAPIDataManagerInputProtocol {
     func getPaymentData(completionHandler: @escaping (NSDictionary?, Error?) -> ()){
         let checkoutResponse: CheckoutResponse = CheckoutResponse.sharedInstance
         
+        var checkoutId = ""
+        var merchantKeyFileName = ""
+        var merchantKeyFilePassword = ""
+        var consumerKey = ""
+        var host = ""
+        if SDKConfiguration.sharedInstance.useMasterpassFlow {
+            checkoutId = EnvironmentConfiguration.sharedInstance.masterpassCheckoutID
+            merchantKeyFileName = EnvironmentConfiguration.sharedInstance.masterpassMerchantKeyFileName
+            merchantKeyFilePassword = EnvironmentConfiguration.sharedInstance.masterpassMerchantKeyFilePwd
+            consumerKey = EnvironmentConfiguration.sharedInstance.masterpassConsumerKey
+            host = EnvironmentConfiguration.sharedInstance.switchHost
+        } else {
+            checkoutId = EnvironmentConfiguration.sharedInstance.checkoutID
+            merchantKeyFileName = EnvironmentConfiguration.sharedInstance.merchantKeyFileName
+            merchantKeyFilePassword = EnvironmentConfiguration.sharedInstance.merchantKeyFilePwd
+            consumerKey = EnvironmentConfiguration.sharedInstance.consumerKey
+            host = EnvironmentConfiguration.sharedInstance.merchantAPIHost
+        }
+        
         let paymentDataService = MDSMerchantServices()
         let paymentDataRequest = MDSPaymentDataRequest()
         paymentDataRequest.cartId = ShoppingCart.sharedInstance.cartId
-        paymentDataRequest.checkoutId =  Constants.SDKConfiguration.checkoutId
+        paymentDataRequest.checkoutId =  checkoutId
         paymentDataRequest.transactionId = checkoutResponse.transactionId!
-        paymentDataRequest.merechantKeyFileName = EnvironmentConfiguration.sharedInstance.merchankKeyFileName
-        paymentDataRequest.merechantKeyFilePassword = EnvironmentConfiguration.sharedInstance.merchankKeyFilePwd
-        paymentDataRequest.consumerKey = EnvironmentConfiguration.sharedInstance.consumerKey
-        paymentDataRequest.host = EnvironmentConfiguration.sharedInstance.merchantAPIHost
+        paymentDataRequest.merechantKeyFileName = merchantKeyFileName
+        paymentDataRequest.merechantKeyFilePassword = merchantKeyFilePassword
+        paymentDataRequest.consumerKey = consumerKey
+        paymentDataRequest.host = host
         
         var responseDict = NSDictionary()
         let responseKeys: [String] = ["status", "data"]
@@ -87,9 +106,10 @@ class ConfirmOrderAPIDataManager: ConfirmOrderAPIDataManagerInputProtocol {
     func confirmOrder(completionHandler: @escaping (NSDictionary?, Error?) -> ()){
         let checkoutResponse: CheckoutResponse = CheckoutResponse.sharedInstance
         let shoppingCart: ShoppingCart = ShoppingCart.sharedInstance
+        let checkoutID = SDKConfiguration.sharedInstance.useMasterpassFlow ? EnvironmentConfiguration.sharedInstance.masterpassCheckoutID : EnvironmentConfiguration.sharedInstance.checkoutID
         let params: [String: Any] = [
             "environment" : EnvironmentConfiguration.sharedInstance.environmentName,
-            "checkoutIdentifier" : EnvironmentConfiguration.sharedInstance.checkoutID,
+            "checkoutIdentifier" : checkoutID,
             "PostbackV7Input": [
                 "transactionId": checkoutResponse.transactionId!,
                 "paymentSuccessful" : true,

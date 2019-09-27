@@ -69,6 +69,18 @@
 		<string>$(ENVIRONMENT_NAME)</string>
 		<key>TMMerchantAPIHost</key>
 		<string>$(MERCHANT_API_HOST)</string>
+		<key>TMSwitchHost</key>
+		<string>${SWITCH_HOST)</string>
+		<key>TMAMasterpassCheckoutID</key>
+		<string>$(MASTERPASS_CHECKOUT_ID)</string>
+		<key>TMAMasterpassConsumerKey</key>
+		<string>$(MASTERPASS_CONSUMER_KEY)</string>
+		<key>TMAMasterpassMerchantKey</key>
+		<string>$(MASTERPASS_MERCHANT_KEY_FILENAME)</string>
+		<key>TMAMasterpassMerchantKeyPwd</key>
+		<string>$(MASTERPASS_MERCHANT_KEY_PWD)</string>
+		<key>TMMasterpassCheckoutHost</key>
+		<string>$(MASTERPASS_CHECKOUT_HOST)</string>
 	</dict>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

@@ -25,7 +25,14 @@ let kCHECKOUT_HOST = "TMCheckoutHost"
 let kEnvironment_Name = "TMEnvironmentName"
 let kMerchant_API_host = "TMMerchantAPIHost"
 
-/// EnvironmentConfiguration  represents property of environment spacific config file.
+let kSwitchHost = "TMSwitchHost"
+let kMasterpassCheckoutID = "TMAMasterpassCheckoutID"
+let kMasterpassConsumerKey = "TMAMasterpassConsumerKey"
+let kMasterpassMerchantKey = "TMAMasterpassMerchantKey"
+let kMasterpassMerchantKeyPwd = "TMAMasterpassMerchantKeyPwd"
+let kMasterpassCheckoutHost = "TMMasterpassCheckoutHost"
+
+/// EnvironmentConfiguration  represents property of environment specific config file.
 
 class EnvironmentConfiguration: NSObject {
     
@@ -38,22 +45,43 @@ class EnvironmentConfiguration: NSObject {
     var checkoutID:String = ""
     
     /// merchant key -> p12 file name
-    var merchankKeyFileName:String = ""
+    var merchantKeyFileName:String = ""
     
-    /// Cosumner key
+    /// Consumer key
     var consumerKey:String = ""
     
-    /// merchantkeyPwe -> p12 file password
-    var merchankKeyFilePwd = ""
+    /// merchantkeyPwd -> p12 file password
+    var merchantKeyFilePwd = ""
     
-     /// merchant callback Universal URL
+    /// merchant callback Universal URL
     var merchantUniversalLinkDomain = ""
     
     /// environment name production,sandbox...
     var environmentName = ""
     
-    /// merchnet api host url
+    /// merchant api host url
     var merchantAPIHost = ""
+    
+    // Mark: Masterpass Keys
+    
+    /// Switch host
+    var switchHost: String = ""
+    
+    /// Masterpass checkout ID
+    var masterpassCheckoutID: String = ""
+    
+    /// Masterpass consumer key
+    var masterpassConsumerKey: String = ""
+    
+    /// Masterpass merchant key -> p12 file name
+    var masterpassMerchantKeyFileName: String = ""
+    
+    /// Masterpass merchantkeyPwd -> p12 file password
+    var masterpassMerchantKeyFilePwd: String = ""
+    
+    /// Masterpass checkout host url
+    var masterpassCheckoutHost: String = ""
+    
     
     class var sharedInstance: EnvironmentConfiguration {
         
@@ -74,10 +102,17 @@ class EnvironmentConfiguration: NSObject {
             self.merchantUniversalLinkDomain = dictionary[kAPPLINK] as! String
             self.checkoutID = dictionary[kCheckoutID] as! String
             self.consumerKey = dictionary[kConsumerKey] as! String
-            self.merchankKeyFileName = dictionary[kMerchantKey] as! String
-            self.merchankKeyFilePwd = dictionary[kMerchantKeyPwd] as! String
+            self.merchantKeyFileName = dictionary[kMerchantKey] as! String
+            self.merchantKeyFilePwd = dictionary[kMerchantKeyPwd] as! String
             self.environmentName = dictionary[kEnvironment_Name] as! String
             self.merchantAPIHost = dictionary[kMerchant_API_host] as! String
+            
+            self.switchHost = dictionary[kSwitchHost] as! String
+            self.masterpassCheckoutID = dictionary[kMasterpassCheckoutID] as! String
+            self.masterpassConsumerKey = dictionary[kMasterpassConsumerKey] as! String
+            self.masterpassMerchantKeyFileName = dictionary[kMasterpassMerchantKey] as! String
+            self.masterpassMerchantKeyFilePwd = dictionary[kMasterpassMerchantKeyPwd] as! String
+            self.masterpassCheckoutHost = dictionary[kMasterpassCheckoutHost] as! String
         }
     }
 }

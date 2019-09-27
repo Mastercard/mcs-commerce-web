@@ -34,15 +34,34 @@ class OrderSummaryAPIDataManager: OrderSummaryAPIDataManagerInputProtocol, MCSCh
     func getPaymentData(completionHandler: @escaping (NSDictionary?, Error?) -> ()){
         let checkoutResponse: CheckoutResponse = CheckoutResponse.sharedInstance
         
+        var checkoutId = ""
+        var merchantKeyFileName = ""
+        var merchantKeyFilePassword = ""
+        var consumerKey = ""
+        var host = ""
+        if SDKConfiguration.sharedInstance.useMasterpassFlow {
+            checkoutId = EnvironmentConfiguration.sharedInstance.masterpassCheckoutID
+            merchantKeyFileName = EnvironmentConfiguration.sharedInstance.masterpassMerchantKeyFileName
+            merchantKeyFilePassword = EnvironmentConfiguration.sharedInstance.masterpassMerchantKeyFilePwd
+            consumerKey = EnvironmentConfiguration.sharedInstance.masterpassConsumerKey
+            host = EnvironmentConfiguration.sharedInstance.switchHost
+        } else {
+            checkoutId = EnvironmentConfiguration.sharedInstance.checkoutID
+            merchantKeyFileName = EnvironmentConfiguration.sharedInstance.merchantKeyFileName
+            merchantKeyFilePassword = EnvironmentConfiguration.sharedInstance.merchantKeyFilePwd
+            consumerKey = EnvironmentConfiguration.sharedInstance.consumerKey
+            host = EnvironmentConfiguration.sharedInstance.merchantAPIHost
+        }
+        
         let paymentDataService = MDSMerchantServices()
         let paymentDataRequest = MDSPaymentDataRequest()
         paymentDataRequest.cartId = ShoppingCart.sharedInstance.cartId
-        paymentDataRequest.checkoutId =  Constants.SDKConfiguration.checkoutId
+        paymentDataRequest.checkoutId = checkoutId
         paymentDataRequest.transactionId = checkoutResponse.transactionId!
-        paymentDataRequest.merechantKeyFileName = EnvironmentConfiguration.sharedInstance.merchankKeyFileName
-        paymentDataRequest.merechantKeyFilePassword = EnvironmentConfiguration.sharedInstance.merchankKeyFilePwd
-        paymentDataRequest.consumerKey = EnvironmentConfiguration.sharedInstance.consumerKey
-        paymentDataRequest.host = EnvironmentConfiguration.sharedInstance.merchantAPIHost
+        paymentDataRequest.merechantKeyFileName = merchantKeyFileName
+        paymentDataRequest.merechantKeyFilePassword = merchantKeyFilePassword
+        paymentDataRequest.consumerKey = consumerKey
+        paymentDataRequest.host = host
         
         var responseDict = NSDictionary()
         let responseKeys: [String] = ["status", "data"]
@@ -88,10 +107,19 @@ class OrderSummaryAPIDataManager: OrderSummaryAPIDataManagerInputProtocol, MCSCh
         * locale: Locale(identifier: "en_GB")
         */
         let configuration: SDKConfiguration = SDKConfiguration.sharedInstance
+        
+        let checkoutId = SDKConfiguration.sharedInstance.useMasterpassFlow ? EnvironmentConfiguration.sharedInstance.masterpassCheckoutID : EnvironmentConfiguration.sharedInstance.checkoutID
+        
+        let checkoutUrl = SDKConfiguration.sharedInstance.useMasterpassFlow ? EnvironmentConfiguration.sharedInstance.masterpassCheckoutHost : EnvironmentConfiguration.sharedInstance.checkoutHost
+        
+        /*
+         * NOTE: Set the locale to "en_GB" if you want to test Prod
+         * locale: Locale(identifier: "en_GB")
+         */
         let commerceConfig: MCSConfiguration = MCSConfiguration(
             locale: configuration.getLocaleFromSelectedLanguage(),
-            checkoutId: Constants.SDKConfiguration.checkoutId,
-            checkoutUrl: Constants.SDKConfiguration.url,
+            checkoutId: checkoutId,
+            checkoutUrl: checkoutUrl,
             callbackScheme: BuildConfiguration.sharedInstance.merchantUrlScheme(),
             allowedCardTypes: [.master, .visa, .amex])
         

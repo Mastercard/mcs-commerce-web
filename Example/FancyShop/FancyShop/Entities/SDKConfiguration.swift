@@ -24,6 +24,7 @@ private struct settingKey {
     static let ksupressShipping = "supressShipping"
     static let kshippingOption = "shippingOption"
     static let kenablePaymentMethodCheckout = "enablePaymentMethodCheckout"
+    static let kUseMasterpassFlow = "useMasterpassFlow"
     static let kDSRPs = "DSRPs"
 }
 
@@ -46,8 +47,11 @@ class SDKConfiguration: NSObject, NSCoding{
     /// DSRP Array (Tokenization)
     var DSRPs: [DSRP]
     
-    /// Enable Checkout With PaymentMethod flag.(If Disabled then checkout with Masterpass Button)
+    /// Enable checkout with PaymentMethod flag.(If disabled then checkout with Masterpass Button)
     var enablePaymentMethodCheckout: Bool
+    
+    /// Change checkout flow between Masterpass and SRC.(If disabled then checkout using SRC flow)
+    var useMasterpassFlow: Bool
     
     /// Singleton instance of SDKConfiguration
     static let sharedInstance : SDKConfiguration = {
@@ -74,6 +78,8 @@ class SDKConfiguration: NSObject, NSCoding{
         self.suppressShipping = false
         //Enable Payment Method Checkout
         self.enablePaymentMethodCheckout = false
+        //Use Masterpass flow
+        self.useMasterpassFlow = false
         //DSRP's
         self.DSRPs = []
         for dsrp in Constants.DSRPEnum.allValues {
@@ -161,6 +167,7 @@ class SDKConfiguration: NSObject, NSCoding{
         self.currency = aDecoder.decodeObject(forKey: settingKey.kcurrency) as! String
         self.suppressShipping = aDecoder.decodeBool(forKey: settingKey.ksupressShipping)
         self.enablePaymentMethodCheckout = aDecoder.decodeBool(forKey: settingKey.kenablePaymentMethodCheckout)
+        self.useMasterpassFlow = aDecoder.decodeBool(forKey: settingKey.kUseMasterpassFlow)
         self.DSRPs = aDecoder.decodeObject(forKey:settingKey.kDSRPs) as! [DSRP]
         super.init()
     }
@@ -175,6 +182,7 @@ class SDKConfiguration: NSObject, NSCoding{
         aCoder.encode(self.currency, forKey:settingKey.kcurrency)
         aCoder.encode(self.suppressShipping, forKey:settingKey.ksupressShipping)
         aCoder.encode(self.enablePaymentMethodCheckout, forKey:settingKey.kenablePaymentMethodCheckout)
+        aCoder.encode(self.useMasterpassFlow, forKey: settingKey.kUseMasterpassFlow)
         aCoder.encode(self.DSRPs, forKey:settingKey.kDSRPs)
     }
 }

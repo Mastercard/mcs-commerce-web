@@ -68,6 +68,10 @@ class SettingsPresenter: BasePresenter, SettingsPresenterProtocol, SettingsInter
         })
     }
     
+    func toggleMasterpassFlowOnOff() {
+        self.interactor?.toggleMasterpassFlowOnOff()
+    }
+    
     /// Goes to Allowed DSRP module
     func gotToAllowedDSRPList() {
         self.wireFrame?.gotToAllowedDSRPList()
@@ -88,8 +92,9 @@ class SettingsPresenter: BasePresenter, SettingsPresenterProtocol, SettingsInter
     ///   - currency: selected currency
     ///   - shippingStatus: shipping status flag
     ///   - paymentMethodStatus: payment Method enable flag
-    func setSavedData(cards: [CardConfiguration], language: LanguageConfiguration, currency: String, shippingStatus: Bool, paymentMethodCheckoutStatus: Bool) {
-        self.view?.setSavedData(cards: cards, language: language, currency: currency, shippingStatus: shippingStatus, paymentMethodCheckoutStatus: paymentMethodCheckoutStatus)
+    ///   - isMasterpassCheckoutFlow: Masterpass flow flag
+    func setSavedData(cards: [CardConfiguration], language: LanguageConfiguration, currency: String, shippingStatus: Bool, paymentMethodCheckoutStatus: Bool, isMasterpassCheckoutFlow: Bool) {
+        self.view?.setSavedData(cards: cards, language: language, currency: currency, shippingStatus: shippingStatus, paymentMethodCheckoutStatus: paymentMethodCheckoutStatus, isMasterpassCheckoutFlow: isMasterpassCheckoutFlow)
     }
     
     /// Goes to login module

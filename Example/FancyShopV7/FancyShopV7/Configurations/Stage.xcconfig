@@ -5,3 +5,4 @@ CHECKOUT_ID=ab230dfe76324d55a04c5955218c5815 //Sandbox ios merchant
 CONSUMER_KEY=6p0QuB-qU7033dnGIuq4UUEJ9Ns2QiwA1Xivy3Sb5354646e!bd8be7099ca64078aa3902a48de4da340000000000000000
 MERCHANT_KEY_FILENAME=Sandbox_Merchant_Key
 MERCHANT_KEY_PWD=Test@123
+CHECKOUT_HOST=https:/$()/stage3.masterpass.com/routing/v2/mobileapi/web-checkout //masterpass host
