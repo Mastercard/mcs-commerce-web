@@ -30,13 +30,13 @@ typedef NS_ENUM(NSInteger, NetworkStatus) {
 /**
  Used to check the reachability of a given IP address.
  */
-+ (instancetype)reachabilityWithAddress:(const struct sockaddr *)hostAddress;
++ (instancetype _Nullable)reachabilityWithAddress:(const struct sockaddr *_Nullable)hostAddress;
 
 /**
  Checks whether the default route is available.
  Should be used by applications that do not connect to a particular host.
  */
-+ (instancetype)reachabilityForInternetConnection;
++ (instancetype _Nullable)reachabilityForInternetConnection;
 
 /**
  @return NetworkStatus, the current status for reaching the internet

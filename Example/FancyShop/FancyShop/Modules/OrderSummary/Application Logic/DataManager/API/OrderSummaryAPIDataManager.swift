@@ -83,6 +83,10 @@ class OrderSummaryAPIDataManager: OrderSummaryAPIDataManagerInputProtocol, MCSCh
     }
     
     func initializeSdk() {
+        /*
+        * NOTE: Set the locale to "en_GB" if you want to test Prod
+        * locale: Locale(identifier: "en_GB")
+        */
         let configuration: SDKConfiguration = SDKConfiguration.sharedInstance
         let commerceConfig: MCSConfiguration = MCSConfiguration(
             locale: configuration.getLocaleFromSelectedLanguage(),
@@ -106,7 +110,7 @@ class OrderSummaryAPIDataManager: OrderSummaryAPIDataManagerInputProtocol, MCSCh
         handler(getCheckoutRequest())
     }
     
-    func checkoutCompleted(withRequest request: MCSCheckoutRequest!, status: MCSCheckoutStatus, transactionId: String?) {
+    func checkoutCompleted(withRequest request: MCSCheckoutRequest, status: MCSCheckoutStatus, transactionId: String?) {
         completionHandler?(["TransactionId" : transactionId ?? ""], nil)
         CheckoutResponse.sharedInstance.transactionId = transactionId
         if (status == MCSCheckoutStatus.success) {

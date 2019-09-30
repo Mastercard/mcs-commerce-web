@@ -19,11 +19,11 @@
 
 @interface MCSActivityIndicatorView : UIView
 
-@property(nonatomic, strong) NSString *title;
-@property(nonatomic, weak) id<MCSActivityIndicatorDelegate> delegate;
+@property(nonatomic, strong, nonnull) NSString *title;
+@property(nonatomic, weak, nullable) id<MCSActivityIndicatorDelegate> delegate;
 
-- (instancetype)initWithTitle:(NSString *)title;
-- (void)setTargetForCancel:(id)target action:(nonnull SEL)action;
+- (instancetype _Nonnull)initWithTitle:(NSString * _Nonnull)title;
+- (void)setTargetForCancel:(_Nonnull id)target action:(_Nonnull SEL)action;
 - (void)show;
 - (void)hide;
 

@@ -26,15 +26,15 @@ typedef NSString *MCSCryptoFormat NS_STRING_ENUM;
 /**
  ICC cryptogram format
  */
-extern MCSCryptoFormat const MCSCryptoFormatICC;
+extern MCSCryptoFormat _Nonnull const  MCSCryptoFormatICC;
 /**
  UCAF cryptogram format
  */
-extern MCSCryptoFormat const MCSCryptoFormatUCAF;
+extern MCSCryptoFormat _Nonnull const  MCSCryptoFormatUCAF;
 /**
  TVV cryptogram format
  */
-extern MCSCryptoFormat const MCSCryptoFormatTVV;
+extern MCSCryptoFormat _Nonnull const  MCSCryptoFormatTVV;
 /**
  The total cost amount of this transaction
  */
