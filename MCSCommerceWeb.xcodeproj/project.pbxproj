@@ -91,6 +91,7 @@
 		19A0EFF5229F181D006B7AFA /* MCCMerchant.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EFF4229F181D006B7AFA /* MCCMerchant.m */; };
 		B7CBF00D22CF9B1200D688AB /* MCSReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = B7CBF00B22CF9B1200D688AB /* MCSReachability.h */; };
 		B7CBF00E22CF9B1200D688AB /* MCSReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B7CBF00C22CF9B1200D688AB /* MCSReachability.m */; };
+		E454AF4F233D3F1900877B10 /* MCSTopMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E454AF4E233D3F1900877B10 /* MCSTopMessageView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -192,6 +193,7 @@
 		19A0EFF4229F181D006B7AFA /* MCCMerchant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCCMerchant.m; sourceTree = "<group>"; };
 		B7CBF00B22CF9B1200D688AB /* MCSReachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSReachability.h; sourceTree = "<group>"; };
 		B7CBF00C22CF9B1200D688AB /* MCSReachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSReachability.m; sourceTree = "<group>"; };
+		E454AF4E233D3F1900877B10 /* MCSTopMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCSTopMessageView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +231,7 @@
 		1938731222A97775004CEFEE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E454AF4E233D3F1900877B10 /* MCSTopMessageView.xib */,
 				1934CB6B22B094F50038909C /* SVGTemplate.html */,
 				1938731322A97798004CEFEE /* Images.xcassets */,
 			);
@@ -522,6 +525,7 @@
 				191D9FAA22ADB63800379703 /* Release.xcconfig in Resources */,
 				191D9FAC22ADB9F900379703 /* Common.xcconfig in Resources */,
 				191D9FA922ADB63800379703 /* Production.xcconfig in Resources */,
+				E454AF4F233D3F1900877B10 /* MCSTopMessageView.xib in Resources */,
 				1934CB6C22B094F50038909C /* SVGTemplate.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
