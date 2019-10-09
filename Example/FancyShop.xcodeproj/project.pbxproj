@@ -179,9 +179,11 @@
 		19A0EF752298A13B006B7AFA /* objectLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EED522989A58006B7AFA /* objectLocator.swift */; };
 		490E2EC922F4953100B6709F /* MerchantServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490E2EC822F4952400B6709F /* MerchantServices.framework */; };
 		490E2ECA22F4953100B6709F /* MerchantServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 490E2EC822F4952400B6709F /* MerchantServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		490ED5422345469200830362 /* prod_fancyshop.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 494FBA032333EE1200F72D4E /* prod_fancyshop.p12 */; };
+		490ED5432345469700830362 /* sandbox_fancyshop.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 49246EBF2327F6DB00EFD86D /* sandbox_fancyshop.p12 */; };
 		493E87CC233D176A00D9B17D /* Sandbox_Merchant_Key.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 493E87CB233D176A00D9B17D /* Sandbox_Merchant_Key.p12 */; };
 		B7D10AB0230479B3003BA8D0 /* stage_fancyshop.p12 in Resources */ = {isa = PBXBuildFile; fileRef = B7D10AAF230479B3003BA8D0 /* stage_fancyshop.p12 */; };
-		DB0EBAC761E0B6EDCF605984 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		DB0EBAC761E0B6EDCF605984 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -388,7 +390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				490E2EC922F4953100B6709F /* MerchantServices.framework in Frameworks */,
-				DB0EBAC761E0B6EDCF605984 /* BuildFile in Frameworks */,
+				DB0EBAC761E0B6EDCF605984 /* (null) in Frameworks */,
 				072B20EA531FA4FDE41A2A11 /* Pods_FancyShop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1847,6 +1849,7 @@
 				19A0EE1122971653006B7AFA /* TransactionFailure.storyboard in Resources */,
 				19A0EDD922971653006B7AFA /* Settings.storyboard in Resources */,
 				19A0EDE422971653006B7AFA /* AllowedCardList.storyboard in Resources */,
+				490ED5422345469200830362 /* prod_fancyshop.p12 in Resources */,
 				19A0EDB322971653006B7AFA /* LaunchScreen.storyboard in Resources */,
 				19A0EDCE22971653006B7AFA /* ConfirmOrder.storyboard in Resources */,
 				19A0EE2522971653006B7AFA /* OrderSummary.storyboard in Resources */,
@@ -1860,6 +1863,7 @@
 				19A0EDB122971653006B7AFA /* outdoor_item7.jpg in Resources */,
 				19A0EDAF22971653006B7AFA /* outdoor_item4.jpg in Resources */,
 				19A0EE3A22971653006B7AFA /* Login.storyboard in Resources */,
+				490ED5432345469700830362 /* sandbox_fancyshop.p12 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

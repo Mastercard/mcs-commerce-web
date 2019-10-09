@@ -1,24 +1,17 @@
 Build
 Index
-Example/FancyShop/Build
-Example/FancyShop/Index
-Example/FancyShopV7/Build
-Example/FancyShopV7/Index
+Example/Build
+Example/Index
 
-Example/FancyShop/FancyShop.xcodeproj/xcuserdata
-Example/FancyShop/FancyShop.xcodeproj/project.xcworkspace/xcuserdata
-Example/FancyShop/FancyShop.xcworkspace/xcuserdata
-Example/FancyShopV7/FancyShop.xcodeproj/xcuserdata
-Example/FancyShopV7/FancyShop.xcodeproj/project.xcworkspace/xcuserdata
-Example/FancyShopV7/FancyShop.xcworkspace/xcuserdata
+Example/FancyShop.xcodeproj/xcuserdata
+Example/FancyShop.xcodeproj/project.xcworkspace/xcuserdata
+Example/FancyShop.xcworkspace/xcuserdata
 
 MCSCommerceWeb.xcodeproj/project.xcworkspace/xcuserdata
 MCSCommerceWeb.xcodeproj/xcuserdata
 
-Example/FancyShopV7/Pods
-Example/FancyShopV7/Podfile.lock
-Example/FancyShop/Pods
-Example/FancyShop/Podfile.lock
+Example/Pods
+Example/Podfile.lock
 
 # OS X .DS_Store
 **/.DS_Store
