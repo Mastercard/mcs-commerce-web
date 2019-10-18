@@ -60,13 +60,27 @@ class OrderSummaryPresenter:BasePresenter, OrderSummaryPresenterProtocol, OrderS
         self.interactor?.removeProductFromShoppingCart(product: product)
     }
     
+    func getCheckoutButton() {
+        self.interactor?.getCheckoutFlow()
+    }
+    
+    func showSRCCheckoutButton() {
+        self.view?.showSRCButton()
+    }
+    
     /// Ask the interactor to evaluates which flow has to be done for the checkout
-    func getCheckoutButton(completionHandler: @escaping ([AnyHashable : Any]?, Error?) -> ()) -> MCSCheckoutButton {
-        return (self.interactor?.getCheckoutButton(completionHandler: completionHandler))!
+    func getSRCCheckoutButton(completionHandler: @escaping ([AnyHashable : Any]?, Error?) -> ()) -> MCSCheckoutButton {
+        
+        return (self.interactor?.getSRCCheckoutButton(completionHandler: completionHandler))!
     }
     
     func initializeSdk() {
         self.interactor?.initializeSdk()
+    }
+    
+    /// Express checkout request
+    func expressCheckoutButtonAction() {
+        self.interactor?.expressCheckout()
     }
     
     /// Payment methods selection request
@@ -132,6 +146,12 @@ class OrderSummaryPresenter:BasePresenter, OrderSummaryPresenterProtocol, OrderS
     func showSDKInitializationError() {
         self.view?.showError(error:super.localizedString(forKey: "SDK_INITIALIZATION_ERROR", fromTable: stringsTableName))
     }
+    
+    /// Shows an error if network is not available
+    func showNetworkError() {
+        self.view?.showError(error:super.localizedString(forKey: "INTERNET_ERROR", fromTable: stringsTableName))
+    }
+    
     /// Set the shippingStatus
     ///
     /// - Parameter taxes: shippingStatus value, used to hide or show the shipping address view
@@ -156,6 +176,17 @@ class OrderSummaryPresenter:BasePresenter, OrderSummaryPresenterProtocol, OrderS
     
     /// Animates the view when SDK Initialization Complete
     func stopActivityLoader() {
+        self.view?.stopAnimating()
+    }
+    
+    /// Animates the view when SDK Initialization start
+    func initializeSDK() {
+        self.view?.stopAnimating()
+        self.view?.startAnimating()
+    }
+    
+    /// Animates the view when SDK Initialization Complete
+    func initializeSDKComplete() {
         self.view?.stopAnimating()
     }
     

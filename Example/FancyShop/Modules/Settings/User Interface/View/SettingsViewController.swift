@@ -26,11 +26,13 @@ fileprivate enum options:String {
     case EnableDSRPTransaction
     case SelectMethodCheckout
     case ToggleSrcMasterpassFlow
-    static let allValues = [Cards, Language, Currency, SuppressShipping, Shipping, EnableDSRPTransaction, SelectMethodCheckout, ToggleSrcMasterpassFlow]
+    case ToggleV7Checkout
+    case TogglePaymentMethodCheckout
+    static let allValues = [Cards, Language, Currency, SuppressShipping, Shipping, EnableDSRPTransaction, SelectMethodCheckout, ToggleSrcMasterpassFlow, ToggleV7Checkout, TogglePaymentMethodCheckout]
 }
 
 /// View controller that shows the available setting for the merchant app
-class SettingsViewController: BaseViewController, SettingsViewProtocol, UITableViewDelegate, UITableViewDataSource {
+class SettingsViewController: BaseViewController, SettingsViewProtocol {
     
     
     // MARK: Variables
@@ -46,6 +48,7 @@ class SettingsViewController: BaseViewController, SettingsViewProtocol, UITableV
     var suppressShippingStatus: Bool = false
     var isPaymentMethodCheckoutEnabled: Bool = false
     var isMasterpassCheckoutFlow: Bool = false
+    var isV7CheckoutFlow: Bool = false
     
     /// Static method will initialize the view
     ///
@@ -109,16 +112,22 @@ class SettingsViewController: BaseViewController, SettingsViewProtocol, UITableV
     ///   - currency: currecny saved
     ///   - shippingStatus: shipping status flag saved
     ///   - paymentMethodCheckoutStatus: paymentMethod checkout flag saved
-    func setSavedData(cards: [CardConfiguration], language: LanguageConfiguration, currency: String, shippingStatus: Bool, paymentMethodCheckoutStatus: Bool, isMasterpassCheckoutFlow: Bool){
+    func setSavedData(cards: [CardConfiguration], language: LanguageConfiguration, currency: String, shippingStatus: Bool, paymentMethodCheckoutStatus: Bool, isMasterpassCheckoutFlow: Bool, isV7CheckoutFlow: Bool) {
         self.selectedCards = cards
         self.selectedLanguage = language
         self.selectedCurrency = currency
         self.suppressShippingStatus = shippingStatus
         self.isPaymentMethodCheckoutEnabled = paymentMethodCheckoutStatus
         self.isMasterpassCheckoutFlow = isMasterpassCheckoutFlow
+        self.isV7CheckoutFlow = isV7CheckoutFlow
         self.settingsTable.reloadData()
     }
-    // MARKK: UITableViewDataSource
+}
+
+// MARK: - UITableViewDelegate, UITableViewDataSource
+
+extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return options.allValues.count
     }
@@ -178,15 +187,30 @@ class SettingsViewController: BaseViewController, SettingsViewProtocol, UITableV
             cellCheck.title.text = "MASTERPASS CHECKOUT"
             cellCheck.switch.setOn(self.isMasterpassCheckoutFlow, animated: true)
             return cellCheck
+        case .ToggleV7Checkout:
+            cellCheck = tableView.dequeueReusableCell(withIdentifier: checkReuseIdentifier, for: indexPath) as! SettingsCheckViewCell
+            cellCheck.title.text = "V7 CHECKOUT"
+            cellCheck.switch.setOn(self.isV7CheckoutFlow, animated: true)
+            return cellCheck
+        case options.TogglePaymentMethodCheckout:
+            cellCheck = tableView.dequeueReusableCell(withIdentifier: checkReuseIdentifier, for: indexPath) as! SettingsCheckViewCell
+            cellCheck.title.text = "ENABLE PAYMENT METHOD"
+            cellCheck.switch.setOn(self.isPaymentMethodCheckoutEnabled, animated: true)
+            return cellCheck
         }
     }
     
-    // MARK: UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         self.handleRowSelectedFrom(tableView, didSelectRowAt: indexPath)
     }
-    fileprivate func handleRowSelectedFrom(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+}
+
+// MARK: Private
+
+private extension SettingsViewController {
+    
+    func handleRowSelectedFrom(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         let option = options.allValues[indexPath.row]
         switch option {
         case .Cards:
@@ -202,35 +226,55 @@ class SettingsViewController: BaseViewController, SettingsViewProtocol, UITableV
         case .EnableDSRPTransaction:
             self.DSRPAllowedOptionSelected()
         case .SelectMethodCheckout:
-            self.selectPaymentMethod()
+            if self.isPaymentMethodCheckoutEnabled {
+                self.selectPaymentMethod()
+            }
         case .ToggleSrcMasterpassFlow:
             self.toggleMasterpassFlowSelected()
+        case .ToggleV7Checkout:
+            self.toggleV7FlowSelected()
+        case .TogglePaymentMethodCheckout:
+            if self.isV7CheckoutFlow {
+                self.enablePaymentMethodCheckoutOptionSelected()
+            }
         }
     }
     
     // MARK: Option handlers
-    private func cardsAllowedOptionSelected() {
+    
+    func cardsAllowedOptionSelected() {
         self.presenter?.gotToAllowedCardList()
     }
-    private func languagesOptionSelected() {
+    
+    func languagesOptionSelected() {
         self.presenter?.goToLanguageList()
     }
-    private func currenciesOptionSelected( ){
+    
+    func currenciesOptionSelected( ){
         self.presenter?.gotToCurrencyList()
     }
-    private func suppressShippingOptionSelected() {
+    
+    func suppressShippingOptionSelected() {
         self.presenter?.suppressShippingAction()
     }
-    private func DSRPAllowedOptionSelected() {
+    
+    func DSRPAllowedOptionSelected() {
         self.presenter?.gotToAllowedDSRPList()
     }
-    private func enablePaymentMethodCheckoutOptionSelected() {
+    
+    func enablePaymentMethodCheckoutOptionSelected() {
         self.presenter?.togglePaymentMethodCheckoutOptionOnOff()
     }
-    private func selectPaymentMethod() {
+    
+    func selectPaymentMethod() {
         self.presenter?.selectPaymentMethod()
     }
-    private func toggleMasterpassFlowSelected() {
+    
+    func toggleMasterpassFlowSelected() {
         self.presenter?.toggleMasterpassFlowOnOff()
+    }
+    
+    func toggleV7FlowSelected() {
+        self.presenter?.toggleV7FlowOnOff()
     }
 }

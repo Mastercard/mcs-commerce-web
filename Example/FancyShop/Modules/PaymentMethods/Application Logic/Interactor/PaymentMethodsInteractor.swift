@@ -14,6 +14,7 @@
  =============================================================================*/
 
 import Foundation
+import MCSCommerceWeb
 
 /// PaymentMethodsInteractor implements PaymentMethodsInteractorInputProtocol protocol, handles the interaction to show the payment methods and enable the masterpass pairing flow
 class PaymentMethodsInteractor:BaseInteractor, PaymentMethodsInteractorInputProtocol {
@@ -39,11 +40,27 @@ class PaymentMethodsInteractor:BaseInteractor, PaymentMethodsInteractorInputProt
     func paymentMethodSelected(method: String) {
         //let user: User = User.sharedInstance
         if method == Constants.paymentMethods.masterpass {
-            if PaymentMethod.sharedInstance.paymentMethodObject != nil {
-                PaymentMethod.sharedInstance.removePaymentMethod()
-            } else {
-                PaymentMethod.sharedInstance.savePaymentMethod()
-            }
+            MCCMerchant.addMasterpassPaymentMethod(MasterpassSDKManager.sharedInstance, withCompletionBlock: { (paymentMethod: MCCPaymentMethod?, error:Error?) -> (Void) in
+                
+                if (error != nil) {
+                    print(error?.localizedDescription as Any);
+                    if ((error! as NSError).code == MCCMerchantErrorCode.MCCInternalError.rawValue) {
+                        self.presenter?.showSDKAddPaymentMethodError(error: error!)
+                    }
+                }
+                else {
+                    let paymentMethodInstance = PaymentMethod.sharedInstance
+                    paymentMethodInstance.paymentMethodObject = paymentMethod
+                    paymentMethodInstance.savePaymentMethod()
+                    if let pairingTransactionID = paymentMethod?.pairingTransactionID {
+                        let user: MasterpassUser = MasterpassUser.sharedInstance
+                        user.pairingId = nil
+                        user.pairingTransactionId = pairingTransactionID
+                        user.saveUser()
+                    }
+                    self.presenter?.setAddedPaymentMethod(paymentMethod: paymentMethodInstance)
+                }
+            })
         }
     }
     

@@ -23,8 +23,10 @@ class DataPersisterManager: NSObject {
     static let sharedInstance = DataPersisterManager()
     
     let kConfiguration = "Configuration"
+    let kMasterpassConfiguration = "MasterpassConfiguration"
     let kShoppingCart = "ShoppingCart"
     let kUser = "User"
+    let kMasterpassUser = "MasterpassUser"
     let kPaymentMethod = "paymentMethod"
     
     // MARK: Initializers
@@ -37,17 +39,31 @@ class DataPersisterManager: NSObject {
     
     
     /// Saves the configuration object in the UserDefaults
-    func saveConfiguration(){
+    func saveConfiguration() {
         UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject:SDKConfiguration.sharedInstance), forKey: kConfiguration)
     }
     
     
     /// Returns the configuration saved in the disk if exists, otherwise will return nil
-    func getConfiguration() -> SDKConfiguration?{
+    func getConfiguration() -> SDKConfiguration? {
         let ud = UserDefaults.standard
         if let decodedNSData = ud.object(forKey: kConfiguration) as? NSData{
 
             return NSKeyedUnarchiver.unarchiveObject(with: decodedNSData as Data) as? SDKConfiguration
+        }
+        return nil
+    }
+    
+    func saveMasterpassConfiguration() {
+        UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject:MasterpassSDKConfiguration.sharedInstance), forKey: kMasterpassConfiguration)
+    }
+    
+    
+    func getMasterpassConfiguration() -> MasterpassSDKConfiguration? {
+        let ud = UserDefaults.standard
+        if let decodedNSData = ud.object(forKey: kMasterpassConfiguration) as? NSData{
+            
+            return NSKeyedUnarchiver.unarchiveObject(with: decodedNSData as Data) as? MasterpassSDKConfiguration
         }
         return nil
     }
@@ -81,6 +97,19 @@ class DataPersisterManager: NSObject {
         if let decodedNSData = ud.object(forKey: kUser) as? NSData{
 
             return NSKeyedUnarchiver.unarchiveObject(with: decodedNSData as Data) as? User
+        }
+        return nil
+    }
+    
+    func saveMasterpassUser() {
+        UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: MasterpassUser.sharedInstance), forKey: kMasterpassUser)
+    }
+    
+    func getMasterpassUser() -> MasterpassUser? {
+        let ud = UserDefaults.standard
+        if let decodedNSData = ud.object(forKey: kMasterpassUser) as? NSData{
+            
+            return NSKeyedUnarchiver.unarchiveObject(with: decodedNSData as Data) as? MasterpassUser
         }
         return nil
     }

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		072B20EA531FA4FDE41A2A11 /* Pods_FancyShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865D966CCB5A3982C46922AD /* Pods_FancyShop.framework */; };
+		0F1830866BE326C0D4CE4EF4 /* Pods_FancyShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E71D00C800E5C534947787D1 /* Pods_FancyShop.framework */; };
 		19A0EDA722971653006B7AFA /* language.json in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EC5C22971651006B7AFA /* language.json */; };
 		19A0EDA922971653006B7AFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EC5F22971651006B7AFA /* Assets.xcassets */; };
 		19A0EDAA22971653006B7AFA /* outdoor_item8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EC6122971651006B7AFA /* outdoor_item8.jpg */; };
@@ -182,8 +182,12 @@
 		490ED5422345469200830362 /* prod_fancyshop.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 494FBA032333EE1200F72D4E /* prod_fancyshop.p12 */; };
 		490ED5432345469700830362 /* sandbox_fancyshop.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 49246EBF2327F6DB00EFD86D /* sandbox_fancyshop.p12 */; };
 		493E87CC233D176A00D9B17D /* Sandbox_Merchant_Key.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 493E87CB233D176A00D9B17D /* Sandbox_Merchant_Key.p12 */; };
+		49B76FC32354F83E00AA0CF7 /* MasterpassSDKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B76FC22354F83E00AA0CF7 /* MasterpassSDKManager.swift */; };
+		49B76FC52354F8ED00AA0CF7 /* MasterpassUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B76FC42354F8ED00AA0CF7 /* MasterpassUser.swift */; };
+		49B76FC72354FA4200AA0CF7 /* MasterpassSDKConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B76FC62354FA4200AA0CF7 /* MasterpassSDKConfiguration.swift */; };
+		49B76FC92354FB7700AA0CF7 /* MasterpassConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B76FC82354FB7700AA0CF7 /* MasterpassConstants.swift */; };
+		49B76FCB235503CB00AA0CF7 /* MasterpassCheckoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B76FCA235503CB00AA0CF7 /* MasterpassCheckoutResponse.swift */; };
 		B7D10AB0230479B3003BA8D0 /* stage_fancyshop.p12 in Resources */ = {isa = PBXBuildFile; fileRef = B7D10AAF230479B3003BA8D0 /* stage_fancyshop.p12 */; };
-		DB0EBAC761E0B6EDCF605984 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -374,14 +378,19 @@
 		19A0EDA222971653006B7AFA /* LanguageConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageConfiguration.swift; sourceTree = "<group>"; };
 		19A0EE5D22986602006B7AFA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		19A0EED522989A58006B7AFA /* objectLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = objectLocator.swift; sourceTree = "<group>"; };
-		40CF16D65C078568B65220A4 /* Pods-FancyShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.debug.xcconfig"; path = "Target Support Files/Pods-FancyShop/Pods-FancyShop.debug.xcconfig"; sourceTree = "<group>"; };
 		490E2EC822F4952400B6709F /* MerchantServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MerchantServices.framework; sourceTree = "<group>"; };
 		49246EBF2327F6DB00EFD86D /* sandbox_fancyshop.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sandbox_fancyshop.p12; sourceTree = "<group>"; };
 		493E87CB233D176A00D9B17D /* Sandbox_Merchant_Key.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sandbox_Merchant_Key.p12; sourceTree = "<group>"; };
 		494FBA032333EE1200F72D4E /* prod_fancyshop.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = prod_fancyshop.p12; sourceTree = "<group>"; };
-		865D966CCB5A3982C46922AD /* Pods_FancyShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FancyShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		49B76FC22354F83E00AA0CF7 /* MasterpassSDKManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterpassSDKManager.swift; sourceTree = "<group>"; };
+		49B76FC42354F8ED00AA0CF7 /* MasterpassUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterpassUser.swift; sourceTree = "<group>"; };
+		49B76FC62354FA4200AA0CF7 /* MasterpassSDKConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterpassSDKConfiguration.swift; sourceTree = "<group>"; };
+		49B76FC82354FB7700AA0CF7 /* MasterpassConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterpassConstants.swift; sourceTree = "<group>"; };
+		49B76FCA235503CB00AA0CF7 /* MasterpassCheckoutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterpassCheckoutResponse.swift; sourceTree = "<group>"; };
+		5D16EB98180BFB479060E264 /* Pods-FancyShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.release.xcconfig"; path = "Target Support Files/Pods-FancyShop/Pods-FancyShop.release.xcconfig"; sourceTree = "<group>"; };
+		7387542DDA6456961F83E94B /* Pods-FancyShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.debug.xcconfig"; path = "Target Support Files/Pods-FancyShop/Pods-FancyShop.debug.xcconfig"; sourceTree = "<group>"; };
 		B7D10AAF230479B3003BA8D0 /* stage_fancyshop.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = stage_fancyshop.p12; sourceTree = "<group>"; };
-		EA7851ADAFFAA29E7ABA72F2 /* Pods-FancyShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.release.xcconfig"; path = "Target Support Files/Pods-FancyShop/Pods-FancyShop.release.xcconfig"; sourceTree = "<group>"; };
+		E71D00C800E5C534947787D1 /* Pods_FancyShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FancyShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -390,8 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				490E2EC922F4953100B6709F /* MerchantServices.framework in Frameworks */,
-				DB0EBAC761E0B6EDCF605984 /* (null) in Frameworks */,
-				072B20EA531FA4FDE41A2A11 /* Pods_FancyShop.framework in Frameworks */,
+				0F1830866BE326C0D4CE4EF4 /* Pods_FancyShop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +485,7 @@
 			isa = PBXGroup;
 			children = (
 				19A0EC7122971651006B7AFA /* Constants.swift */,
+				49B76FC82354FB7700AA0CF7 /* MasterpassConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -1690,6 +1699,7 @@
 		19A0ED8622971652006B7AFA /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				49B76FC22354F83E00AA0CF7 /* MasterpassSDKManager.swift */,
 				19A0ED8722971652006B7AFA /* CallbackResponseHandlerManager.swift */,
 				19A0ED8822971652006B7AFA /* SRCSDKManager.swift */,
 				19A0ED8922971652006B7AFA /* DataPersisterManager.swift */,
@@ -1729,9 +1739,11 @@
 				19A0ED9622971653006B7AFA /* DSRP.swift */,
 				19A0ED9722971653006B7AFA /* ShippingAddress.swift */,
 				19A0ED9822971653006B7AFA /* SDKConfiguration.swift */,
+				49B76FC62354FA4200AA0CF7 /* MasterpassSDKConfiguration.swift */,
 				19A0ED9922971653006B7AFA /* PaymentData.swift */,
 				19A0ED9A22971653006B7AFA /* Card.swift */,
 				19A0ED9B22971653006B7AFA /* User.swift */,
+				49B76FC42354F8ED00AA0CF7 /* MasterpassUser.swift */,
 				19A0ED9C22971653006B7AFA /* PaymentMethod.swift */,
 				19A0ED9D22971653006B7AFA /* CheckoutResponse.swift */,
 				19A0ED9E22971653006B7AFA /* Product.swift */,
@@ -1739,6 +1751,7 @@
 				19A0EDA022971653006B7AFA /* ShoppingCartItem.swift */,
 				19A0EDA122971653006B7AFA /* CardConfiguration.swift */,
 				19A0EDA222971653006B7AFA /* LanguageConfiguration.swift */,
+				49B76FCA235503CB00AA0CF7 /* MasterpassCheckoutResponse.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1747,7 +1760,7 @@
 			isa = PBXGroup;
 			children = (
 				490E2EC822F4952400B6709F /* MerchantServices.framework */,
-				865D966CCB5A3982C46922AD /* Pods_FancyShop.framework */,
+				E71D00C800E5C534947787D1 /* Pods_FancyShop.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1755,8 +1768,8 @@
 		E0BF3A63CCB1FA357D996C45 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				40CF16D65C078568B65220A4 /* Pods-FancyShop.debug.xcconfig */,
-				EA7851ADAFFAA29E7ABA72F2 /* Pods-FancyShop.release.xcconfig */,
+				7387542DDA6456961F83E94B /* Pods-FancyShop.debug.xcconfig */,
+				5D16EB98180BFB479060E264 /* Pods-FancyShop.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1768,12 +1781,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19A0EC5722970D42006B7AFA /* Build configuration list for PBXNativeTarget "FancyShop" */;
 			buildPhases = (
-				0682D652652BD8A19432EC34 /* [CP] Check Pods Manifest.lock */,
+				F645164D56F71CD53B999424 /* [CP] Check Pods Manifest.lock */,
 				19A0EC4122970D3E006B7AFA /* Sources */,
 				19A0EC4222970D3E006B7AFA /* Frameworks */,
 				19A0EC4322970D3E006B7AFA /* Resources */,
 				19A0EF782298A311006B7AFA /* Embed Frameworks */,
-				A1DBF87F74E4B68F3914BE21 /* [CP] Embed Pods Frameworks */,
+				AEC9A5838B5415E17473E5E2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1870,7 +1883,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0682D652652BD8A19432EC34 /* [CP] Check Pods Manifest.lock */ = {
+		AEC9A5838B5415E17473E5E2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F645164D56F71CD53B999424 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1892,23 +1922,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A1DBF87F74E4B68F3914BE21 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1928,11 +1941,13 @@
 				19A0EDCC22971653006B7AFA /* ConfirmOrderWireFrame.swift in Sources */,
 				19A0EDD522971653006B7AFA /* SettingsWireFrame.swift in Sources */,
 				19A0EDDD22971653006B7AFA /* AllowedCardListAPIDataManager.swift in Sources */,
+				49B76FC72354FA4200AA0CF7 /* MasterpassSDKConfiguration.swift in Sources */,
 				19A0EDF122971653006B7AFA /* LanguageListProtocols.swift in Sources */,
 				19A0EE3522971653006B7AFA /* LoginInteractor.swift in Sources */,
 				19A0EDF222971653006B7AFA /* LanguageListPresenter.swift in Sources */,
 				19A0EE0622971653006B7AFA /* PaymentMethodsWireFrame.swift in Sources */,
 				19A0EE5222971653006B7AFA /* CheckoutResponse.swift in Sources */,
+				49B76FC92354FB7700AA0CF7 /* MasterpassConstants.swift in Sources */,
 				19A0EDC422971653006B7AFA /* NetworkReachability.swift in Sources */,
 				19A0EDE822971653006B7AFA /* CurrencyListProtocols.swift in Sources */,
 				19A0EDE922971653006B7AFA /* CurrencyListPresenter.swift in Sources */,
@@ -1965,6 +1980,7 @@
 				19A0EDC022971653006B7AFA /* NavigationHelper.swift in Sources */,
 				19A0EE2B22971653006B7AFA /* TransactionCompleteProtocols.swift in Sources */,
 				19A0EDD622971653006B7AFA /* SettingsTextViewCell.swift in Sources */,
+				49B76FC52354F8ED00AA0CF7 /* MasterpassUser.swift in Sources */,
 				19A0EE2F22971653006B7AFA /* TransactionCompleteViewController.swift in Sources */,
 				19A0EE2E22971653006B7AFA /* TransactionCompleteItemViewCell.swift in Sources */,
 				19A0EDCA22971653006B7AFA /* ConfirmOrderPresenter.swift in Sources */,
@@ -2001,6 +2017,7 @@
 				19A0EE4022971653006B7AFA /* SRCSDKManager.swift in Sources */,
 				19A0EE0422971653006B7AFA /* PaymentMethodsPresenter.swift in Sources */,
 				19A0EDF022971653006B7AFA /* LanguageListInteractor.swift in Sources */,
+				49B76FC32354F83E00AA0CF7 /* MasterpassSDKManager.swift in Sources */,
 				19A0EE0822971653006B7AFA /* PaymentMethodsTableViewCell.swift in Sources */,
 				19A0EE0C22971653006B7AFA /* TransactionFailureInteractor.swift in Sources */,
 				19A0EDF522971653006B7AFA /* LanguageListViewController.swift in Sources */,
@@ -2014,6 +2031,7 @@
 				19A0EDF422971653006B7AFA /* LanguageTableViewCell.swift in Sources */,
 				19A0EE0022971653006B7AFA /* PaymentMethodsLocalDataManager.swift in Sources */,
 				19A0EDC522971653006B7AFA /* SessionTimer.swift in Sources */,
+				49B76FCB235503CB00AA0CF7 /* MasterpassCheckoutResponse.swift in Sources */,
 				19A0EE4C22971653006B7AFA /* ShippingAddress.swift in Sources */,
 				19A0EDCD22971653006B7AFA /* ConfirmOrderItemViewCell.swift in Sources */,
 				19A0EE1D22971653006B7AFA /* ProductListViewController.swift in Sources */,
@@ -2210,7 +2228,7 @@
 		};
 		19A0EC5822970D42006B7AFA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 40CF16D65C078568B65220A4 /* Pods-FancyShop.debug.xcconfig */;
+			baseConfigurationReference = 7387542DDA6456961F83E94B /* Pods-FancyShop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -2235,7 +2253,7 @@
 		};
 		19A0EC5922970D42006B7AFA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EA7851ADAFFAA29E7ABA72F2 /* Pods-FancyShop.release.xcconfig */;
+			baseConfigurationReference = 5D16EB98180BFB479060E264 /* Pods-FancyShop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

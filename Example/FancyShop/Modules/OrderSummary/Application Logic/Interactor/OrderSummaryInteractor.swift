@@ -82,13 +82,56 @@ class OrderSummaryInteractor:BaseInteractor, OrderSummaryInteractorInputProtocol
             self.presenter?.goBackToProductList()
         }
     }
-        
-    /// Evaluates the checkout flow to follow, if it has all the data and the configuration is enable, will go for a express checkout
-    func getCheckoutFlow() {
-        self.APIDataManager?.initializeSdk()
+    
+    /// Evaluates if it has all the necessary data to make a expresscheckout
+    func expressCheckout() {
+        let configuration: SDKConfiguration = SDKConfiguration.sharedInstance
+        if configuration.enablePaymentMethodCheckout {
+            
+            super.initiatePaymentMethodCheckout(completionHandler: { error in
+                DispatchQueue.main.async {
+                    self.presenter?.showAddPaymentMethodAlert()
+                }
+            })
+        }
     }
     
-    func getCheckoutButton(completionHandler: @escaping ([AnyHashable : Any]?, Error?) -> ()) -> MCSCheckoutButton {
+    /// Evaluates the checkout flow to follow, if it has all the data and the configuration is enable, will go for a express checkout
+    func getCheckoutFlow() {
+        let configuration: SDKConfiguration = SDKConfiguration.sharedInstance
+        
+        if configuration.useV7Flow {
+            
+            let masterpassConfiguration: MasterpassSDKConfiguration = MasterpassSDKConfiguration.sharedInstance
+            if NetworkReachability.isNetworkRechable() {
+                self.presenter?.initializeSDK()
+                super.initSDK(isPairingOnly: false, isExpressEnable: masterpassConfiguration.enableExpressCheckout) { responseObject, error in
+                    
+                    DispatchQueue.main.async {
+                        self.presenter?.initializeSDKComplete()
+                        let status: String = responseObject?.value(forKey: "status") as! String
+                        if status == Constants.status.OK {
+                            
+                            if configuration.enablePaymentMethodCheckout {
+                                self.presenter?.showPaymentMethodCheckoutFlow()
+                            } else {
+                                self.presenter?.showMasterpassButtonCheckoutFlow()
+                            }
+                        } else if status == Constants.status.NOK && error != nil {
+                            self.presenter?.showSDKInitializationError()
+                        }
+                    }
+                }
+            } else {
+                self.presenter?.showNetworkError()
+            }
+        } else {
+            self.presenter?.showSRCCheckoutButton()
+//            self.APIDataManager?.initializeSdk()
+        }
+    }
+    
+    func getSRCCheckoutButton(completionHandler: @escaping ([AnyHashable : Any]?, Error?) -> ()) -> MCSCheckoutButton {
         return (self.APIDataManager?.getCheckoutButton(completionHandler: completionHandler))!
     }
     

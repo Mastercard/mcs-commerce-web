@@ -72,6 +72,17 @@ class SettingsPresenter: BasePresenter, SettingsPresenterProtocol, SettingsInter
         self.interactor?.toggleMasterpassFlowOnOff()
     }
     
+    func toggleV7FlowOnOff() {
+        self.interactor?.toggleV7FlowOnOff()
+    }
+    
+    func paymentMethod() {
+        
+        self.wireFrame?.goToPaymentMethods(completion: {
+            
+        })
+    }
+    
     /// Goes to Allowed DSRP module
     func gotToAllowedDSRPList() {
         self.wireFrame?.gotToAllowedDSRPList()
@@ -93,8 +104,8 @@ class SettingsPresenter: BasePresenter, SettingsPresenterProtocol, SettingsInter
     ///   - shippingStatus: shipping status flag
     ///   - paymentMethodStatus: payment Method enable flag
     ///   - isMasterpassCheckoutFlow: Masterpass flow flag
-    func setSavedData(cards: [CardConfiguration], language: LanguageConfiguration, currency: String, shippingStatus: Bool, paymentMethodCheckoutStatus: Bool, isMasterpassCheckoutFlow: Bool) {
-        self.view?.setSavedData(cards: cards, language: language, currency: currency, shippingStatus: shippingStatus, paymentMethodCheckoutStatus: paymentMethodCheckoutStatus, isMasterpassCheckoutFlow: isMasterpassCheckoutFlow)
+    func setSavedData(cards: [CardConfiguration], language: LanguageConfiguration, currency: String, shippingStatus: Bool, paymentMethodCheckoutStatus: Bool, isMasterpassCheckoutFlow: Bool, isV7CheckoutFlow: Bool) {
+        self.view?.setSavedData(cards: cards, language: language, currency: currency, shippingStatus: shippingStatus, paymentMethodCheckoutStatus: paymentMethodCheckoutStatus, isMasterpassCheckoutFlow: isMasterpassCheckoutFlow, isV7CheckoutFlow: isV7CheckoutFlow)
     }
     
     /// Goes to login module
@@ -115,5 +126,10 @@ class SettingsPresenter: BasePresenter, SettingsPresenterProtocol, SettingsInter
     /// Shows an error if the SDK has issues to initialize
     func showSDKInitializationError() {
         self.view?.showError(error:super.localizedString(forKey: "SDK_INITIALIZATION_ERROR", fromTable: stringsTableName))
+    }
+    
+    /// Shows an error if network is not available
+    func showNetworkError() {
+        self.view?.showError(error:super.localizedString(forKey: "INTERNET_ERROR", fromTable: stringsTableName))
     }
 }

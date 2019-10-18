@@ -61,10 +61,15 @@ struct Constants {
     
     /// Cards enumeration shown in the application
     enum cardsEnum:String {
-        case MasterCard = "Mastercard"
-        case VISA = "Visa"
-        case AmericanExpress = "American Express"
-        static let allValues = [AmericanExpress, MasterCard, VISA]
+        case AmericanExpress
+        case Discover
+        //        case JCB
+        case MasterCard
+        //        case Unionpay
+        case VISA
+        case Maestro
+        case DinersClub
+        static let allValues = [AmericanExpress, Discover, MasterCard, VISA, Maestro,DinersClub]
     }
     
     /// Languages used in the application, to initialize the SDK

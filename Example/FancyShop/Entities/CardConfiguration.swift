@@ -56,6 +56,10 @@ class CardConfiguration: NSObject, NSCoding {
             return "visa"
         case Constants.cardsEnum.AmericanExpress:
             return "amex"
+        case Constants.cardsEnum.Discover,
+            Constants.cardsEnum.DinersClub,
+            Constants.cardsEnum.Maestro:
+            return ""
         }
     }
     

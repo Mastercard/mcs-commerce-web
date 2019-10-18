@@ -19,7 +19,7 @@ import Foundation
 protocol SettingsViewProtocol: class {
     var presenter: SettingsPresenterProtocol? { get set }
     
-    func setSavedData(cards: [CardConfiguration], language: LanguageConfiguration, currency: String, shippingStatus: Bool, paymentMethodCheckoutStatus: Bool, isMasterpassCheckoutFlow: Bool)
+    func setSavedData(cards: [CardConfiguration], language: LanguageConfiguration, currency: String, shippingStatus: Bool, paymentMethodCheckoutStatus: Bool, isMasterpassCheckoutFlow: Bool, isV7CheckoutFlow: Bool)
     func startAnimating()
     func stopAnimating()
     func showError(error: String)
@@ -53,16 +53,19 @@ protocol SettingsPresenterProtocol: class {
     func getSavedConfig()
     func selectPaymentMethod()
     func toggleMasterpassFlowOnOff()
+    func toggleV7FlowOnOff()
 }
 
 /// Method contract between INTERACTOR -> PRESENTER
 protocol SettingsInteractorOutputProtocol: class {
-    func setSavedData(cards: [CardConfiguration], language: LanguageConfiguration,  currency: String, shippingStatus: Bool, paymentMethodCheckoutStatus: Bool, isMasterpassCheckoutFlow: Bool)
+    func setSavedData(cards: [CardConfiguration], language: LanguageConfiguration,  currency: String, shippingStatus: Bool, paymentMethodCheckoutStatus: Bool, isMasterpassCheckoutFlow: Bool, isV7CheckoutFlow: Bool)
     func userNotLoggedIn()
     func initializeSDK()
     func initializeSDKComplete()
     func selectPaymentMethod()
     func showSDKInitializationError()
+    func paymentMethod()
+    func showNetworkError()
 }
 
 /// Method contract between PRESENTER -> INTERACTOR
@@ -74,6 +77,7 @@ protocol SettingsInteractorInputProtocol: class
     func suppressShipping()
     func togglePaymentMethodCheckoutOptionOnOff()
     func toggleMasterpassFlowOnOff()
+    func toggleV7FlowOnOff()
     func getSavedConfig()
 }
 

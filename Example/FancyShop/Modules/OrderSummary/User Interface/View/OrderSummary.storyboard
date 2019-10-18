@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -96,11 +96,8 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="103" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pwi-Zi-Afq">
-                                <rect key="frame" x="0.0" y="112" width="375" height="312"/>
+                                <rect key="frame" x="0.0" y="112" width="375" height="203"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" priority="250" constant="312" id="mYU-Xc-zVZ"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="shoppingCartItemCell" rowHeight="107" id="5Pg-9z-SUE" customClass="ItemViewCell" customModule="FancyShop" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="107"/>
@@ -228,7 +225,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2T-jB-jAz" userLabel="TotalInfo Container">
-                                <rect key="frame" x="0.0" y="422" width="375" height="180"/>
+                                <rect key="frame" x="0.0" y="329" width="375" height="188"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dmS-xt-ss1" userLabel="shippingView">
                                         <rect key="frame" x="0.0" y="4" width="375" height="50"/>
@@ -398,7 +395,6 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="SHh-PP-6aF" firstAttribute="leading" secondItem="M2T-jB-jAz" secondAttribute="leading" id="1jd-Lj-95g"/>
-                                    <constraint firstAttribute="height" constant="180" id="AIa-4g-RZw"/>
                                     <constraint firstItem="dmS-xt-ss1" firstAttribute="top" secondItem="M2T-jB-jAz" secondAttribute="top" constant="4" id="M1U-PI-rej"/>
                                     <constraint firstItem="SHh-PP-6aF" firstAttribute="top" secondItem="FAa-Pg-xSV" secondAttribute="bottom" constant="3" id="PBJ-Re-IGc"/>
                                     <constraint firstAttribute="trailing" secondItem="FAa-Pg-xSV" secondAttribute="trailing" id="RGc-ac-uOR"/>
@@ -409,51 +405,114 @@
                                     <constraint firstItem="Dhf-UC-PjG" firstAttribute="top" secondItem="dmS-xt-ss1" secondAttribute="bottom" constant="2" id="gqS-O7-UJV"/>
                                     <constraint firstAttribute="trailing" secondItem="dmS-xt-ss1" secondAttribute="trailing" id="i6w-fd-E08"/>
                                     <constraint firstAttribute="trailing" secondItem="Dhf-UC-PjG" secondAttribute="trailing" id="p23-AS-oIj"/>
+                                    <constraint firstAttribute="height" constant="188" id="ujF-Od-PV4"/>
                                     <constraint firstAttribute="trailing" secondItem="SHh-PP-6aF" secondAttribute="trailing" id="ylP-iP-9UR"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ws-rs-m4N">
-                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bim-Qa-0AK">
+                                <rect key="frame" x="0.0" y="517" width="375" height="150"/>
+                                <subviews>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHa-TP-yM2">
+                                        <rect key="frame" x="56" y="30" width="263" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="263" id="4Cn-DP-OzJ"/>
+                                            <constraint firstAttribute="height" constant="50" id="TQ9-yU-sGi"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="18"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="25" maxY="0.0"/>
+                                        <state key="normal" title="Payment Method &gt;">
+                                            <color key="titleColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="paymetMethodSelectionAction:" destination="g28-Kh-nQZ" eventType="touchUpInside" id="PeG-G7-WFx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fz-IV-BFx">
+                                        <rect key="frame" x="56" y="91" width="263" height="53"/>
+                                        <color key="backgroundColor" red="0.90588235289999997" green="0.46274509800000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="263" id="CSK-pY-q11"/>
+                                            <constraint firstAttribute="height" constant="53" id="U7L-bG-4s2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="18"/>
+                                        <state key="normal" title="CHECKOUT">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="expressCheckoutAction:" destination="g28-Kh-nQZ" eventType="touchUpInside" id="QwX-b8-a9l"/>
+                                        </connections>
+                                    </button>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PAYMENT METHOD:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ih9-4M-ghk">
+                                        <rect key="frame" x="56" y="8" width="263" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="kuD-xQ-ven"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="8F4-kv-jxB"/>
+                                    <constraint firstItem="Ih9-4M-ghk" firstAttribute="trailing" secondItem="EHa-TP-yM2" secondAttribute="trailing" id="Jcb-Ui-Gvw"/>
+                                    <constraint firstAttribute="height" constant="150" id="KzE-iq-f8f"/>
+                                    <constraint firstItem="EHa-TP-yM2" firstAttribute="centerX" secondItem="bim-Qa-0AK" secondAttribute="centerX" id="SGo-bm-1kw"/>
+                                    <constraint firstItem="2fz-IV-BFx" firstAttribute="centerX" secondItem="bim-Qa-0AK" secondAttribute="centerX" id="Ux8-kN-KJs"/>
+                                    <constraint firstItem="2fz-IV-BFx" firstAttribute="top" secondItem="EHa-TP-yM2" secondAttribute="bottom" constant="11" id="gxj-a3-Amh"/>
+                                    <constraint firstAttribute="bottom" secondItem="2fz-IV-BFx" secondAttribute="bottom" constant="6" id="gzC-U1-m21"/>
+                                    <constraint firstItem="Ih9-4M-ghk" firstAttribute="leading" secondItem="EHa-TP-yM2" secondAttribute="leading" id="us6-6Y-KvB"/>
+                                    <constraint firstItem="EHa-TP-yM2" firstAttribute="top" secondItem="Ih9-4M-ghk" secondAttribute="bottom" constant="1" id="yAm-ht-sE7"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fe3-ho-nD5" firstAttribute="trailing" secondItem="8ws-rs-m4N" secondAttribute="trailing" id="0ou-Bw-Wct"/>
+                            <constraint firstItem="bim-Qa-0AK" firstAttribute="bottom" secondItem="fe3-ho-nD5" secondAttribute="bottom" id="0rj-aY-4gn"/>
                             <constraint firstItem="M2T-jB-jAz" firstAttribute="leading" secondItem="fe3-ho-nD5" secondAttribute="leading" id="46d-OJ-uR1"/>
                             <constraint firstItem="pvm-US-Q98" firstAttribute="top" secondItem="qBT-2A-1dV" secondAttribute="bottom" id="745-RL-HRg"/>
                             <constraint firstAttribute="trailing" secondItem="d0n-xW-D50" secondAttribute="trailing" constant="8" id="7WT-rT-MT0"/>
+                            <constraint firstItem="bim-Qa-0AK" firstAttribute="trailing" secondItem="fe3-ho-nD5" secondAttribute="trailing" id="971-bL-PdM"/>
                             <constraint firstItem="fe3-ho-nD5" firstAttribute="trailing" secondItem="Pwi-Zi-Afq" secondAttribute="trailing" id="C2E-Hc-Qqh"/>
                             <constraint firstItem="Pwi-Zi-Afq" firstAttribute="top" secondItem="d0n-xW-D50" secondAttribute="bottom" id="CNO-oy-xoO"/>
                             <constraint firstItem="Pwi-Zi-Afq" firstAttribute="leading" secondItem="fe3-ho-nD5" secondAttribute="leading" id="CaY-Is-f5y"/>
                             <constraint firstItem="qBT-2A-1dV" firstAttribute="trailing" secondItem="fe3-ho-nD5" secondAttribute="trailing" id="GOz-Oz-AYE"/>
                             <constraint firstItem="qBT-2A-1dV" firstAttribute="top" secondItem="fe3-ho-nD5" secondAttribute="top" id="GdV-gp-Jc9"/>
-                            <constraint firstItem="8ws-rs-m4N" firstAttribute="leading" secondItem="fe3-ho-nD5" secondAttribute="leading" id="MVt-NN-w1e"/>
-                            <constraint firstItem="8ws-rs-m4N" firstAttribute="centerX" secondItem="ACP-7g-m2F" secondAttribute="centerX" id="N8E-6r-RvI"/>
-                            <constraint firstItem="fe3-ho-nD5" firstAttribute="bottom" secondItem="8ws-rs-m4N" secondAttribute="bottom" id="X8I-fc-phc"/>
-                            <constraint firstItem="8ws-rs-m4N" firstAttribute="top" secondItem="M2T-jB-jAz" secondAttribute="bottom" constant="5" id="YgZ-MX-MEi"/>
+                            <constraint firstItem="M2T-jB-jAz" firstAttribute="top" secondItem="Pwi-Zi-Afq" secondAttribute="bottom" constant="14" id="GiA-Bs-aQc"/>
+                            <constraint firstItem="bim-Qa-0AK" firstAttribute="top" secondItem="M2T-jB-jAz" secondAttribute="bottom" id="ICp-BG-aPv"/>
+                            <constraint firstItem="bim-Qa-0AK" firstAttribute="leading" secondItem="fe3-ho-nD5" secondAttribute="leading" id="a0c-yI-icC"/>
                             <constraint firstItem="pvm-US-Q98" firstAttribute="trailing" secondItem="fe3-ho-nD5" secondAttribute="trailing" id="aQQ-ec-i2f"/>
                             <constraint firstItem="d0n-xW-D50" firstAttribute="top" secondItem="pvm-US-Q98" secondAttribute="bottom" id="bNn-8C-jeZ"/>
                             <constraint firstItem="fe3-ho-nD5" firstAttribute="trailing" secondItem="M2T-jB-jAz" secondAttribute="trailing" id="bb0-Zf-Dzr"/>
                             <constraint firstItem="qBT-2A-1dV" firstAttribute="leading" secondItem="fe3-ho-nD5" secondAttribute="leading" id="gtz-kO-crV"/>
                             <constraint firstItem="d0n-xW-D50" firstAttribute="leading" secondItem="ACP-7g-m2F" secondAttribute="leading" constant="8" id="rSI-Nf-Ncw"/>
                             <constraint firstItem="pvm-US-Q98" firstAttribute="leading" secondItem="fe3-ho-nD5" secondAttribute="leading" id="uX5-qS-96l"/>
+                            <constraint firstItem="bim-Qa-0AK" firstAttribute="centerX" secondItem="ACP-7g-m2F" secondAttribute="centerX" id="v2d-nD-jk2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fe3-ho-nD5"/>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="i6d-4n-uqO" id="zHJ-0F-5eH"/>
-                        <outlet property="buttonContainer" destination="8ws-rs-m4N" id="qT6-93-UMH"/>
-                        <outlet property="checkoutButtonContainerHeightConstraint" destination="8F4-kv-jxB" id="P5Z-RP-hlQ"/>
+                        <outlet property="buttonContainer" destination="bim-Qa-0AK" id="A51-A0-Gbq"/>
+                        <outlet property="checkoutButton" destination="2fz-IV-BFx" id="Xwy-BV-Pnf"/>
+                        <outlet property="checkoutButtonContainerHeightConstraint" destination="KzE-iq-f8f" id="spU-kn-Zlz"/>
                         <outlet property="itemsTableView" destination="Pwi-Zi-Afq" id="KGV-Ym-HUH"/>
+                        <outlet property="paymentMethodButton" destination="EHa-TP-yM2" id="qfz-gA-VcZ"/>
+                        <outlet property="paymentMethodLabel" destination="Ih9-4M-ghk" id="PFR-Vq-zUM"/>
                         <outlet property="shippingView" destination="dmS-xt-ss1" id="FcH-KR-c40"/>
                         <outlet property="shippingViewHeightConstraint" destination="Ux9-Dg-yQQ" id="hDt-k6-wph"/>
                         <outlet property="shoppingCartButton" destination="21P-nn-6Mv" id="jtJ-Dk-Ytr"/>
                         <outlet property="subtotalLabel" destination="d58-1M-ZmH" id="iDt-9A-5g2"/>
                         <outlet property="taxesLabel" destination="BJZ-sO-mjx" id="K4Y-Rw-bhg"/>
-                        <outlet property="totalInfoContainerHeightConstraint" destination="AIa-4g-RZw" id="dlC-53-6Px"/>
+                        <outlet property="totalInfoContainerHeightConstraint" destination="ujF-Od-PV4" id="dPb-p4-h5P"/>
                         <outlet property="totalLabel" destination="kxg-5u-9vF" id="n6I-qh-JJM"/>
                     </connections>
                 </viewController>

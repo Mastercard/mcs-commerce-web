@@ -27,10 +27,20 @@ class BaseInteractor {
         completionHandler(nil)
     }
     
+    /// Initialize the SDK using V7
+    ///
+    /// - Parameters:
+    ///   - isPairingOnly: Flag to handle the flows
+    ///   - completionHandler: block to execute after the SDK is initialized
+    func initSDK(isPairingOnly:Bool,isExpressEnable:Bool, completionHandler: @escaping (NSDictionary?, Error?) -> ()){
+        MasterpassSDKManager.sharedInstance.initMCCMerchant(isPairingOnly: isPairingOnly, isExpressEnable: isExpressEnable, completionHandler: completionHandler)
+    }
+    
     /// Initialize PaymentMethod checkout
     ///
     /// - Parameters:
     ///   - completionHandler: block to execute after the Payment method is initialized
     func initiatePaymentMethodCheckout(completionHandler: @escaping (Error?) -> ()){
+        MasterpassSDKManager.sharedInstance.initiatePaymentMethodCheckout(completionHandler: completionHandler)
     }
 }

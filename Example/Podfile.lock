@@ -10,7 +10,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - MCSCommerceWeb (from `../../`)
+  - MCSCommerceWeb (from `../`)
   - NVActivityIndicatorView
   - SDWebImage
 
@@ -22,7 +22,7 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   MCSCommerceWeb:
-    :path: "../../"
+    :path: "../"
 
 SPEC CHECKSUMS:
   Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
@@ -30,6 +30,6 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   SDWebImage: 609192dcf3898c910a2848032372ead951e66364
 
-PODFILE CHECKSUM: 6e0d47aa63d7eee85775c47819eb94a0cb182109
+PODFILE CHECKSUM: 2f1cf93c5deee6a8c8150f15d19d5e415b4ea56e
 
 COCOAPODS: 1.7.5

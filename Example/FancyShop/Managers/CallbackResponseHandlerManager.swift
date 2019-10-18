@@ -31,4 +31,17 @@ class CallbackResponseHandlerManager: NSObject {
             }
         return false
     }
+    
+    /// Evaluates if Confirm Order module needs to be called
+    ///
+    /// - Parameters:
+    ///   - checkoutResponse: Checkout response
+    ///   - withSDKManager: SDK manager
+    @discardableResult class func handle(checkoutResponse:CheckoutResponse, withSDKManager: MasterpassSDKManager) -> Bool {
+        
+        DispatchQueue.main.async {
+            ConfirmOrderWireFrame.presentConfirmOrderModule(fromView: self, paymentData: nil)
+        }
+        return false
+    }
 }

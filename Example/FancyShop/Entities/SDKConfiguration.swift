@@ -25,6 +25,7 @@ private struct settingKey {
     static let kshippingOption = "shippingOption"
     static let kenablePaymentMethodCheckout = "enablePaymentMethodCheckout"
     static let kUseMasterpassFlow = "useMasterpassFlow"
+    static let kUseV7Flow = "useV7Flow"
     static let kDSRPs = "DSRPs"
 }
 
@@ -53,6 +54,9 @@ class SDKConfiguration: NSObject, NSCoding{
     /// Change checkout flow between Masterpass and SRC.(If disabled then checkout using SRC flow)
     var useMasterpassFlow: Bool
     
+    /// Change checkout to use V7 integration.(If disabled uses CommerceWeb SDK directly)
+    var useV7Flow: Bool
+    
     /// Singleton instance of SDKConfiguration
     static let sharedInstance : SDKConfiguration = {
         if let instance = DataPersisterManager.sharedInstance.getConfiguration() {
@@ -80,6 +84,8 @@ class SDKConfiguration: NSObject, NSCoding{
         self.enablePaymentMethodCheckout = false
         //Use Masterpass flow
         self.useMasterpassFlow = false
+        //Use V7 Flow
+        self.useV7Flow = false
         //DSRP's
         self.DSRPs = []
         for dsrp in Constants.DSRPEnum.allValues {
@@ -168,6 +174,7 @@ class SDKConfiguration: NSObject, NSCoding{
         self.suppressShipping = aDecoder.decodeBool(forKey: settingKey.ksupressShipping)
         self.enablePaymentMethodCheckout = aDecoder.decodeBool(forKey: settingKey.kenablePaymentMethodCheckout)
         self.useMasterpassFlow = aDecoder.decodeBool(forKey: settingKey.kUseMasterpassFlow)
+        self.useV7Flow = aDecoder.decodeBool(forKey: settingKey.kUseV7Flow)
         self.DSRPs = aDecoder.decodeObject(forKey:settingKey.kDSRPs) as! [DSRP]
         super.init()
     }
@@ -183,6 +190,7 @@ class SDKConfiguration: NSObject, NSCoding{
         aCoder.encode(self.suppressShipping, forKey:settingKey.ksupressShipping)
         aCoder.encode(self.enablePaymentMethodCheckout, forKey:settingKey.kenablePaymentMethodCheckout)
         aCoder.encode(self.useMasterpassFlow, forKey: settingKey.kUseMasterpassFlow)
+        aCoder.encode(self.useV7Flow, forKey: settingKey.kUseV7Flow)
         aCoder.encode(self.DSRPs, forKey:settingKey.kDSRPs)
     }
 }

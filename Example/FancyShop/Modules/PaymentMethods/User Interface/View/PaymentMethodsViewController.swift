@@ -121,7 +121,9 @@ class PaymentMethodsViewController: BaseViewController, PaymentMethodsViewProtoc
     ///
     /// - Parameter paymentMethods: NSDictionary array
     func setAddedPaymentMethod(paymentMethod: PaymentMethod){
-        self.paymentMethodsTableView.reloadData()
+        DispatchQueue.main.async {
+            self.paymentMethodsTableView.reloadData()
+        }
     }
     
     /// Shows an error in an alert

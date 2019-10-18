@@ -23,14 +23,14 @@ class NetworkReachability : NSObject {
     /// Returns the bool flage either network is available.
     ///
     /// - Returns: Bool is network available.
-    func isNetworkRechable() -> Bool {
+    class func isNetworkRechable() -> Bool {
         return self.checkForReachability()
     }
     
     /// checks with the SCNetworkReachabilityFlags result and return.
     ///
     /// - Returns: Bool is network available.
-    func checkForReachability () -> Bool {
+    class func checkForReachability () -> Bool {
         
         var zeroAddress = sockaddr_in(sin_len: 0, sin_family: 0, sin_port: 0, sin_addr: in_addr(s_addr: 0), sin_zero: (0, 0, 0, 0, 0, 0, 0, 0))
         zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
