@@ -59,7 +59,16 @@ NSString *basePath = @"button/";
     NSSet *allowedCardTypes = [MCSConfigurationManager sharedManager].configuration.allowedCardTypes;
     NSString *checkoutId = [MCSConfigurationManager sharedManager].configuration.checkoutId;
     NSURL *buttonUrl = [NSURL URLWithString:[MCFEnvironmentConfiguration sharedInstance].buttonImageHost];
-    NSString *fileName = [NSString stringWithFormat:@"%lu%lu", [locale hash], [allowedCardTypes hash]];
+    
+    // Sort allowedCardTypes and concatenate values into String for unique hashing
+    NSArray *allowedCardTypesArray = [NSArray arrayWithArray:[allowedCardTypes allObjects]];
+    NSArray *sortedAllowedCardTypes = [allowedCardTypesArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    NSMutableString *cardTypesString = [[NSMutableString alloc] init];
+    for (NSString *allowedCardType in sortedAllowedCardTypes) {
+        [cardTypesString appendString:allowedCardType];
+    }
+    
+    NSString *fileName = [NSString stringWithFormat:@"%lu%lu", [locale hash], [cardTypesString hash]];
     NSURL *saveUrl = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject];
     saveUrl = [saveUrl URLByAppendingPathComponent:fileName];
     
