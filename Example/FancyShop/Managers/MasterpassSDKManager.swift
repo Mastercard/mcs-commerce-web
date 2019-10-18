@@ -36,12 +36,16 @@ class MasterpassSDKManager:NSObject, MCCMerchantDelegate {
     ///   - completionHandler: block to execute after the SDK is initialized
     func initMCCMerchant(isPairingOnly:Bool,isExpressEnable:Bool, completionHandler: @escaping (NSDictionary?, Error?) -> ()){
         let user: MasterpassUser = MasterpassUser.sharedInstance
-        let configuration: MasterpassSDKConfiguration = MasterpassSDKConfiguration.sharedInstance
+        let masterpassConfiguration: MasterpassSDKConfiguration = MasterpassSDKConfiguration.sharedInstance
+        let configuration: SDKConfiguration = SDKConfiguration.sharedInstance
         let mcConfiguration: MCCConfiguration = MCCConfiguration()
         
-        mcConfiguration.checkoutId = MasterpassConstants.SDKConfigurations.checkoutId
-        mcConfiguration.allowedCardTypes = configuration.getAllowedCardsSet()
-        mcConfiguration.checkoutUrl = MasterpassConstants.SDKConfigurations.checkoutHost
+        let checkoutId = SDKConfiguration.sharedInstance.useMasterpassFlow ? EnvironmentConfiguration.sharedInstance.masterpassCheckoutID : EnvironmentConfiguration.sharedInstance.checkoutID
+        let checkoutUrl = SDKConfiguration.sharedInstance.useMasterpassFlow ? EnvironmentConfiguration.sharedInstance.masterpassCheckoutHost : EnvironmentConfiguration.sharedInstance.checkoutHost
+        
+        mcConfiguration.checkoutId = checkoutId
+        mcConfiguration.allowedCardTypes = masterpassConfiguration.getAllowedCardsSet()
+        mcConfiguration.checkoutUrl = checkoutUrl
         mcConfiguration.merchantName = "FancyShop"
         
         mcConfiguration.callbackScheme = BuildConfiguration.sharedInstance.merchantUrlScheme()

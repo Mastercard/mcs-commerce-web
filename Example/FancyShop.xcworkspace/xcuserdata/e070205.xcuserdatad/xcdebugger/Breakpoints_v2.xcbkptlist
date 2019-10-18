@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FancyShop/Modules/OrderSummary/User Interface/View/OrderSummaryViewController.swift"
-            timestampString = "592780824.790014"
+            timestampString = "593125167.921711"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "299"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../MCSCommerceWeb/V7/MCCMerchant.m"
-            timestampString = "592780824.790431"
+            timestampString = "593124883.972831"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../MCSCommerceWeb/V7/MCCMerchant.m"
-            timestampString = "592780824.790647"
+            timestampString = "593124883.973137"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "60"
@@ -58,12 +58,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../MCSCommerceWeb/V7/MCCMerchant.m"
-            timestampString = "592780824.790696"
+            timestampString = "593124883.9733371"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "83"
             endingLineNumber = "83"
             landmarkName = "+paymentMethodCheckout:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FancyShop/Modules/OrderSummary/Application Logic/Interactor/OrderSummaryInteractor.swift"
+            timestampString = "593124550.300737"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "initializeSdk()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FancyShop/Modules/OrderSummary/Application Logic/DataManager/API/OrderSummaryAPIDataManager.swift"
+            timestampString = "593124605.2765779"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "initializeSdk()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
