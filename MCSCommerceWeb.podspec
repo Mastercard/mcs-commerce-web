@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files  = "MCSCommerceWeb", "MCSCommerceWeb/**/*.{h,m}"
   s.public_header_files = "MCSCommerceWeb/Public/**/*.h"
   s.resources = "MCSCommerceWeb/Resources/**/*.{png,html,xcassets,xib}"
+  s.dependency 'SVGKit', '3.0.0beta3'
 end

@@ -9,9 +9,13 @@ Example/FancyShop.xcworkspace/xcuserdata
 
 MCSCommerceWeb.xcodeproj/project.xcworkspace/xcuserdata
 MCSCommerceWeb.xcodeproj/xcuserdata
+MCSCommerceWeb.xcworkspace/xcuserdata
 
 Example/Pods
 Example/Podfile.lock
+
+Pods/
+Podfile.lock
 
 # OS X .DS_Store
 **/.DS_Store

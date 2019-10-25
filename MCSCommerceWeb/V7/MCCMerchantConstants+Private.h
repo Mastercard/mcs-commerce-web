@@ -219,30 +219,6 @@ extern NSString *const kMEXCardExpiredErrorReasonCode;
 extern NSString *const kMEXCardDeletedErrorReasonCode;
 extern NSString *const kMEXWalletNotFoundErrorReasonCode;
 
-/**
- SVG image constants
-*/
-extern NSString *const kMCCSVGError;
-extern NSString *const kMCCSVGErrorDomain;
-
-extern int const kMCCSVGErrorCodeNoValidSVG;
-extern int const kMCCSVGErrorCodeImageNotGenerated;
-extern int const kMCCSVGErrorCodeJSNotLoaded;
-extern int const kMCCSVGErrorCodeMemoryWarning;
-
-extern NSString *const kWebViewJavaScriptEvaluation;
-extern NSString *const kWebViewLoadEmptyHTML;
-
-extern NSString *const kParserEelementName;
-extern NSString *const kParserAttribureWidth;
-extern NSString *const kParserAttribureHeight;
-
-extern NSString *const kJSContextKeyPath;
-extern NSString *const kJSContextLoadedKey;
-
-extern NSString *const kSVGHTMLFileName;
-extern NSString *const kSVGHTHMLFileType;
-
 extern NSString * const MCCCryptogramTypeToString[];
 extern NSString * const MCCCardTypeToString[];
 extern NSString * const MCCCardTypeToNameString[];
