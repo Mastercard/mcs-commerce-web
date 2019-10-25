@@ -1,0 +1,35 @@
+PODS:
+  - Alamofire (4.9.0)
+  - MCSCommerceWeb (1.0.0-alpha1)
+  - NVActivityIndicatorView (4.8.0):
+    - NVActivityIndicatorView/Presenter (= 4.8.0)
+  - NVActivityIndicatorView/Presenter (4.8.0)
+  - SDWebImage (5.2.2):
+    - SDWebImage/Core (= 5.2.2)
+  - SDWebImage/Core (5.2.2)
+
+DEPENDENCIES:
+  - Alamofire
+  - MCSCommerceWeb (from `../../`)
+  - NVActivityIndicatorView
+  - SDWebImage
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - NVActivityIndicatorView
+    - SDWebImage
+
+EXTERNAL SOURCES:
+  MCSCommerceWeb:
+    :path: "../../"
+
+SPEC CHECKSUMS:
+  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  MCSCommerceWeb: 44d10149645f1f0110b136b83bb8eac3f7a23c58
+  NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
+  SDWebImage: 5fcdb02cc35e05fc35791ec514b191d27189f872
+
+PODFILE CHECKSUM: 6e0d47aa63d7eee85775c47819eb94a0cb182109
+
+COCOAPODS: 1.7.5

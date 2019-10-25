@@ -1,0 +1,17 @@
+// SRC CONFIGURATION
+PRODUCT_BUNDLE_IDENTIFIER=com.mastercard.commerce.fancyshop
+CHECKOUT_ID=a7887ab9fc7b4e6b96b444621b1e3a28
+ENVIRONMENT_NAME=Sandbox
+CONSUMER_KEY=ph3MHQtvmb7eCUOutflY7rRgsxpl8KDs_lovZ7O_f4a513bf!0c55e219ce3e467eaeb8418ac49edd950000000000000000
+MERCHANT_KEY_FILENAME=sandbox_fancyshop
+MERCHANT_KEY_PWD=sbxfancyshop
+MERCHANT_API_HOST=sandbox.api.mastercard.com
+CHECKOUT_HOST=https:/$()/sandbox.src.mastercard.com/srci
+
+// MASTERPASS CONFIGURATION
+SWITCH_HOST=sandbox.api.mastercard.com
+MASTERPASS_CHECKOUT_ID=a7887ab9fc7b4e6b96b444621b1e3a28
+MASTERPASS_CONSUMER_KEY=ph3MHQtvmb7eCUOutflY7rRgsxpl8KDs_lovZ7O_f4a513bf!0c55e219ce3e467eaeb8418ac49edd950000000000000000
+MASTERPASS_MERCHANT_KEY_FILENAME=sandbox_fancyshop
+MASTERPASS_MERCHANT_KEY_PWD=sbxfancyshop
+MASTERPASS_CHECKOUT_HOST=https:/$()/sandbox.masterpass.com/routing/v2/mobileapi/web-checkout

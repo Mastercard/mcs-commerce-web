@@ -1,6 +1,0 @@
-PRODUCT_BUNDLE_IDENTIFIER=com.mastercard.commerce.fancyshop
-CHECKOUT_ID=a7887ab9fc7b4e6b96b444621b1e3a28
-ENVIRONMENT_NAME=Sandbox
-MERCHANT_KEY_FILENAME=prdappwebn1-production
-MERCHANT_KEY_PWD=password1
-MERCHANT_API_HOST=stage.api.mastercard.com/stage1/masterpass
