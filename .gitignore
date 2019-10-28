@@ -4,10 +4,10 @@ Example/Build
 Example/Index
 
 Example/FancyShop.xcodeproj/xcuserdata
-Example/FancyShop.xcodeproj/project.xcworkspace/xcuserdata
-Example/FancyShop.xcworkspace/xcuserdata
+Example/FancyShop.xcodeproj/project.xcworkspace/xcuserdata/
+Example/FancyShop/FancyShop.xcworkspace/xcuserdata/
 
-MCSCommerceWeb.xcodeproj/project.xcworkspace/xcuserdata
+MCSCommerceWeb.xcodeproj/project.xcworkspace/xcuserdata/
 MCSCommerceWeb.xcodeproj/xcuserdata
 MCSCommerceWeb.xcworkspace/xcuserdata
 
@@ -20,3 +20,4 @@ Podfile.lock
 # OS X .DS_Store
 **/.DS_Store
 .DS_Store
+

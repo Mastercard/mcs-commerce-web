@@ -96,18 +96,21 @@ NSString *basePath = @"button/";
     MCSCheckoutButtonManager * __weak weakSelf = self;
 
     [[session downloadTaskWithURL:components.URL completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        SVGKImage* cacheImage = [SVGKImage imageWithContentsOfURL:location];
-        NSData *imageData = UIImagePNGRepresentation(cacheImage.UIImage);
-        
-        if (imageData != nil) {
-            NSError *svgImageError;
-            [imageData writeToFile:saveUrl.path options:NSDataWritingAtomic error:&svgImageError];
-            weakSelf.buttonImage = cacheImage.UIImage;
-        }
-        else {
+        if (error) {
             NSLog(@"Error: %@",[error localizedDescription]);
+        } else {
+            SVGKImage* cacheImage = [SVGKImage imageWithContentsOfURL:location];
+            NSData *imageData = UIImagePNGRepresentation(cacheImage.UIImage);
+            
+            if (imageData != nil) {
+                NSError *svgImageError;
+                [imageData writeToFile:saveUrl.path options:NSDataWritingAtomic error:&svgImageError];
+                weakSelf.buttonImage = cacheImage.UIImage;
+            }
+            else {
+                NSLog(@"Error: %@",[error localizedDescription]);
+            }
         }
-        
     }] resume];
 }
 
