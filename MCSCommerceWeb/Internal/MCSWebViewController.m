@@ -38,6 +38,9 @@
         self.scheme = scheme;
         self.delegate = delegate;
         self.indicatorView = [[MCSActivityIndicatorView alloc] initWithTitle:@"Loading..."];
+        if (@available(iOS 13.0, *)) {
+            [self setModalPresentationStyle:UIModalPresentationFullScreen];
+        }
     }
     
     return self;
