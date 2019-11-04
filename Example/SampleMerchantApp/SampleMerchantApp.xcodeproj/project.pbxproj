@@ -1,0 +1,877 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9BFAAAB1C832C54171B759C3 /* Pods_SampleMerchantApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0EC2B11D369970BC1A2A1A8 /* Pods_SampleMerchantApp.framework */; };
+		B717F4882367708700803509 /* SettingsTextFieldViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B717F4872367708700803509 /* SettingsTextFieldViewCell.swift */; };
+		B7520301235775F500791723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7520300235775F500791723 /* AppDelegate.swift */; };
+		B7520305235775F500791723 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7520304235775F500791723 /* SettingsViewController.swift */; };
+		B7520308235775F500791723 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7520306235775F500791723 /* Main.storyboard */; };
+		B752030A235775F600791723 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7520309235775F600791723 /* Assets.xcassets */; };
+		B752030D235775F700791723 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B752030B235775F700791723 /* LaunchScreen.storyboard */; };
+		B7520318235775F700791723 /* SampleMerchantAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7520317235775F700791723 /* SampleMerchantAppTests.swift */; };
+		B7520323235775F700791723 /* SampleMerchantAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7520322235775F700791723 /* SampleMerchantAppUITests.swift */; };
+		B7A0C710235F5C6D00051F3F /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A0C70F235F5C6D00051F3F /* NavigationHelper.swift */; };
+		B7A0C712235F5F4B00051F3F /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A0C711235F5F4B00051F3F /* SettingsCoordinator.swift */; };
+		B7A0C716235F610200051F3F /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A0C713235F610200051F3F /* CurrencyTableViewCell.swift */; };
+		B7A0C717235F610200051F3F /* CurrencyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A0C714235F610200051F3F /* CurrencyListViewController.swift */; };
+		B7A0C718235F610200051F3F /* CurrencyList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A0C715235F610200051F3F /* CurrencyList.storyboard */; };
+		B7A0C71D235F6F9200051F3F /* LanguageList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A0C71A235F6F9200051F3F /* LanguageList.storyboard */; };
+		B7A0C71E235F6F9200051F3F /* LanguageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A0C71B235F6F9200051F3F /* LanguageTableViewCell.swift */; };
+		B7A0C71F235F6F9200051F3F /* LanguageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A0C71C235F6F9200051F3F /* LanguageListViewController.swift */; };
+		B7A0C723235F781800051F3F /* LanguagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A0C722235F781800051F3F /* LanguagesViewModel.swift */; };
+		B7A0C725235F7A4800051F3F /* language.json in Resources */ = {isa = PBXBuildFile; fileRef = B7A0C724235F7A4800051F3F /* language.json */; };
+		B7A0C72A2360C7F900051F3F /* AllowedDSRPListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A0C7272360C7F900051F3F /* AllowedDSRPListViewController.swift */; };
+		B7A0C72B2360C7F900051F3F /* AllowedDSRPList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A0C7282360C7F900051F3F /* AllowedDSRPList.storyboard */; };
+		B7A0C72C2360C7F900051F3F /* DSRPTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A0C7292360C7F900051F3F /* DSRPTableViewCell.swift */; };
+		B7A0C7312360CDD800051F3F /* AllowedCardList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A0C72E2360CDD800051F3F /* AllowedCardList.storyboard */; };
+		B7A0C7322360CDD800051F3F /* AllowedCardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A0C72F2360CDD800051F3F /* AllowedCardListViewController.swift */; };
+		B7A0C7332360CDD800051F3F /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A0C7302360CDD800051F3F /* CardTableViewCell.swift */; };
+		B7A0C73823621C3B00051F3F /* SRCSDKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A0C73723621C3B00051F3F /* SRCSDKManager.swift */; };
+		B7A0C73C2362468F00051F3F /* DataPersisterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A0C73B2362468F00051F3F /* DataPersisterManager.swift */; };
+		B7AB9D172358BA760084C7A1 /* DSRP.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB9D162358BA760084C7A1 /* DSRP.swift */; };
+		B7AB9D1C2358BF980084C7A1 /* ObjectLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB9D1B2358BF980084C7A1 /* ObjectLocator.swift */; };
+		B7AB9D212358C6C90084C7A1 /* SettingsCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB9D1E2358C6C90084C7A1 /* SettingsCardViewCell.swift */; };
+		B7AB9D222358C6C90084C7A1 /* SettingsTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB9D1F2358C6C90084C7A1 /* SettingsTextViewCell.swift */; };
+		B7AB9D232358C6C90084C7A1 /* SettingsCheckViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB9D202358C6C90084C7A1 /* SettingsCheckViewCell.swift */; };
+		B7BCE628235795E0003E6B2A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BCE627235795E0003E6B2A /* Constants.swift */; };
+		B7BCE62D23579EF9003E6B2A /* SDKConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BCE62C23579EF9003E6B2A /* SDKConfiguration.swift */; };
+		B7BCE62F23579FF2003E6B2A /* CardConfigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BCE62E23579FF2003E6B2A /* CardConfigration.swift */; };
+		B7BCE63123579FFF003E6B2A /* LanguageConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BCE63023579FFF003E6B2A /* LanguageConfiguration.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B7520314235775F700791723 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B75202F5235775F500791723 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B75202FC235775F500791723;
+			remoteInfo = SampleMerchantApp;
+		};
+		B752031F235775F700791723 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B75202F5235775F500791723 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B75202FC235775F500791723;
+			remoteInfo = SampleMerchantApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B717F4872367708700803509 /* SettingsTextFieldViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTextFieldViewCell.swift; sourceTree = "<group>"; };
+		B75202FD235775F500791723 /* SampleMerchantApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleMerchantApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7520300235775F500791723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B7520304235775F500791723 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B7520307235775F500791723 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B7520309235775F600791723 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B752030C235775F700791723 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B752030E235775F700791723 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7520313235775F700791723 /* SampleMerchantAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleMerchantAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7520317235775F700791723 /* SampleMerchantAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleMerchantAppTests.swift; sourceTree = "<group>"; };
+		B7520319235775F700791723 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B752031E235775F700791723 /* SampleMerchantAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleMerchantAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7520322235775F700791723 /* SampleMerchantAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleMerchantAppUITests.swift; sourceTree = "<group>"; };
+		B7520324235775F700791723 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7A0C70F235F5C6D00051F3F /* NavigationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
+		B7A0C711235F5F4B00051F3F /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		B7A0C713235F610200051F3F /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
+		B7A0C714235F610200051F3F /* CurrencyListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyListViewController.swift; sourceTree = "<group>"; };
+		B7A0C715235F610200051F3F /* CurrencyList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CurrencyList.storyboard; sourceTree = "<group>"; };
+		B7A0C71A235F6F9200051F3F /* LanguageList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LanguageList.storyboard; sourceTree = "<group>"; };
+		B7A0C71B235F6F9200051F3F /* LanguageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageTableViewCell.swift; sourceTree = "<group>"; };
+		B7A0C71C235F6F9200051F3F /* LanguageListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageListViewController.swift; sourceTree = "<group>"; };
+		B7A0C722235F781800051F3F /* LanguagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesViewModel.swift; sourceTree = "<group>"; };
+		B7A0C724235F7A4800051F3F /* language.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = language.json; sourceTree = "<group>"; };
+		B7A0C7272360C7F900051F3F /* AllowedDSRPListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllowedDSRPListViewController.swift; sourceTree = "<group>"; };
+		B7A0C7282360C7F900051F3F /* AllowedDSRPList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AllowedDSRPList.storyboard; sourceTree = "<group>"; };
+		B7A0C7292360C7F900051F3F /* DSRPTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSRPTableViewCell.swift; sourceTree = "<group>"; };
+		B7A0C72E2360CDD800051F3F /* AllowedCardList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AllowedCardList.storyboard; sourceTree = "<group>"; };
+		B7A0C72F2360CDD800051F3F /* AllowedCardListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllowedCardListViewController.swift; sourceTree = "<group>"; };
+		B7A0C7302360CDD800051F3F /* CardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
+		B7A0C73723621C3B00051F3F /* SRCSDKManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCSDKManager.swift; sourceTree = "<group>"; };
+		B7A0C73B2362468F00051F3F /* DataPersisterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersisterManager.swift; sourceTree = "<group>"; };
+		B7AB9D162358BA760084C7A1 /* DSRP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSRP.swift; sourceTree = "<group>"; };
+		B7AB9D1B2358BF980084C7A1 /* ObjectLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectLocator.swift; sourceTree = "<group>"; };
+		B7AB9D1E2358C6C90084C7A1 /* SettingsCardViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCardViewCell.swift; sourceTree = "<group>"; };
+		B7AB9D1F2358C6C90084C7A1 /* SettingsTextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTextViewCell.swift; sourceTree = "<group>"; };
+		B7AB9D202358C6C90084C7A1 /* SettingsCheckViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCheckViewCell.swift; sourceTree = "<group>"; };
+		B7BCE627235795E0003E6B2A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B7BCE62C23579EF9003E6B2A /* SDKConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDKConfiguration.swift; sourceTree = "<group>"; };
+		B7BCE62E23579FF2003E6B2A /* CardConfigration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardConfigration.swift; sourceTree = "<group>"; };
+		B7BCE63023579FFF003E6B2A /* LanguageConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageConfiguration.swift; sourceTree = "<group>"; };
+		C0EC2B11D369970BC1A2A1A8 /* Pods_SampleMerchantApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleMerchantApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEEE483B2A04B75EC46AD3AF /* Pods-SampleMerchantApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleMerchantApp.release.xcconfig"; path = "Target Support Files/Pods-SampleMerchantApp/Pods-SampleMerchantApp.release.xcconfig"; sourceTree = "<group>"; };
+		F7CC38AA1FC0C80213DBB1C6 /* Pods-SampleMerchantApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleMerchantApp.debug.xcconfig"; path = "Target Support Files/Pods-SampleMerchantApp/Pods-SampleMerchantApp.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B75202FA235775F500791723 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BFAAAB1C832C54171B759C3 /* Pods_SampleMerchantApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7520310235775F700791723 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B752031B235775F700791723 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4BCFA84E54643DA6CCB023CD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F7CC38AA1FC0C80213DBB1C6 /* Pods-SampleMerchantApp.debug.xcconfig */,
+				DEEE483B2A04B75EC46AD3AF /* Pods-SampleMerchantApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AC5D0E04DAD2777CE7DDE7A3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0EC2B11D369970BC1A2A1A8 /* Pods_SampleMerchantApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B75202F4235775F500791723 = {
+			isa = PBXGroup;
+			children = (
+				B75202FF235775F500791723 /* SampleMerchantApp */,
+				B7520316235775F700791723 /* SampleMerchantAppTests */,
+				B7520321235775F700791723 /* SampleMerchantAppUITests */,
+				B75202FE235775F500791723 /* Products */,
+				4BCFA84E54643DA6CCB023CD /* Pods */,
+				AC5D0E04DAD2777CE7DDE7A3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B75202FE235775F500791723 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B75202FD235775F500791723 /* SampleMerchantApp.app */,
+				B7520313235775F700791723 /* SampleMerchantAppTests.xctest */,
+				B752031E235775F700791723 /* SampleMerchantAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B75202FF235775F500791723 /* SampleMerchantApp */ = {
+			isa = PBXGroup;
+			children = (
+				B7A0C72D2360CBC100051F3F /* Cards List */,
+				B7A0C726235F9B1C00051F3F /* Tokenization */,
+				B7A0C719235F6F6C00051F3F /* Languages */,
+				B7A0C721235F736C00051F3F /* Resources */,
+				B7AB9D62235A24710084C7A1 /* Currency */,
+				B7BCE62A23579ED5003E6B2A /* Configuration */,
+				B7BCE626235795D0003E6B2A /* Constants */,
+				B7BCE625235795C8003E6B2A /* Settings */,
+				B7520300235775F500791723 /* AppDelegate.swift */,
+				B7520306235775F500791723 /* Main.storyboard */,
+				B7520309235775F600791723 /* Assets.xcassets */,
+				B752030B235775F700791723 /* LaunchScreen.storyboard */,
+				B752030E235775F700791723 /* Info.plist */,
+			);
+			path = SampleMerchantApp;
+			sourceTree = "<group>";
+		};
+		B7520316235775F700791723 /* SampleMerchantAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				B7520317235775F700791723 /* SampleMerchantAppTests.swift */,
+				B7520319235775F700791723 /* Info.plist */,
+			);
+			path = SampleMerchantAppTests;
+			sourceTree = "<group>";
+		};
+		B7520321235775F700791723 /* SampleMerchantAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B7520322235775F700791723 /* SampleMerchantAppUITests.swift */,
+				B7520324235775F700791723 /* Info.plist */,
+			);
+			path = SampleMerchantAppUITests;
+			sourceTree = "<group>";
+		};
+		B7A0C70E235F5B2200051F3F /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				B7A0C70F235F5C6D00051F3F /* NavigationHelper.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		B7A0C719235F6F6C00051F3F /* Languages */ = {
+			isa = PBXGroup;
+			children = (
+				B7A0C71A235F6F9200051F3F /* LanguageList.storyboard */,
+				B7A0C71C235F6F9200051F3F /* LanguageListViewController.swift */,
+				B7A0C71B235F6F9200051F3F /* LanguageTableViewCell.swift */,
+				B7A0C722235F781800051F3F /* LanguagesViewModel.swift */,
+			);
+			path = Languages;
+			sourceTree = "<group>";
+		};
+		B7A0C721235F736C00051F3F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B7A0C724235F7A4800051F3F /* language.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B7A0C726235F9B1C00051F3F /* Tokenization */ = {
+			isa = PBXGroup;
+			children = (
+				B7A0C7282360C7F900051F3F /* AllowedDSRPList.storyboard */,
+				B7A0C7272360C7F900051F3F /* AllowedDSRPListViewController.swift */,
+				B7A0C7292360C7F900051F3F /* DSRPTableViewCell.swift */,
+			);
+			path = Tokenization;
+			sourceTree = "<group>";
+		};
+		B7A0C72D2360CBC100051F3F /* Cards List */ = {
+			isa = PBXGroup;
+			children = (
+				B7A0C72E2360CDD800051F3F /* AllowedCardList.storyboard */,
+				B7A0C72F2360CDD800051F3F /* AllowedCardListViewController.swift */,
+				B7A0C7302360CDD800051F3F /* CardTableViewCell.swift */,
+			);
+			path = "Cards List";
+			sourceTree = "<group>";
+		};
+		B7A0C73623621C2700051F3F /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B7A0C73723621C3B00051F3F /* SRCSDKManager.swift */,
+				B7A0C73B2362468F00051F3F /* DataPersisterManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		B7AB9D1A2358BF890084C7A1 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				B7AB9D1B2358BF980084C7A1 /* ObjectLocator.swift */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		B7AB9D1D2358C1ED0084C7A1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B717F4872367708700803509 /* SettingsTextFieldViewCell.swift */,
+				B7AB9D1E2358C6C90084C7A1 /* SettingsCardViewCell.swift */,
+				B7AB9D202358C6C90084C7A1 /* SettingsCheckViewCell.swift */,
+				B7AB9D1F2358C6C90084C7A1 /* SettingsTextViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B7AB9D62235A24710084C7A1 /* Currency */ = {
+			isa = PBXGroup;
+			children = (
+				B7A0C715235F610200051F3F /* CurrencyList.storyboard */,
+				B7A0C714235F610200051F3F /* CurrencyListViewController.swift */,
+				B7A0C713235F610200051F3F /* CurrencyTableViewCell.swift */,
+			);
+			path = Currency;
+			sourceTree = "<group>";
+		};
+		B7BCE625235795C8003E6B2A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B7A0C711235F5F4B00051F3F /* SettingsCoordinator.swift */,
+				B7520304235775F500791723 /* SettingsViewController.swift */,
+				B7A0C73623621C2700051F3F /* Managers */,
+				B7A0C70E235F5B2200051F3F /* Navigation */,
+				B7AB9D1D2358C1ED0084C7A1 /* Cells */,
+				B7AB9D1A2358BF890084C7A1 /* Modules */,
+				B7BCE62923579E81003E6B2A /* Configurations */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		B7BCE626235795D0003E6B2A /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				B7BCE627235795E0003E6B2A /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		B7BCE62923579E81003E6B2A /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				B7BCE63023579FFF003E6B2A /* LanguageConfiguration.swift */,
+				B7BCE62E23579FF2003E6B2A /* CardConfigration.swift */,
+				B7AB9D162358BA760084C7A1 /* DSRP.swift */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		B7BCE62A23579ED5003E6B2A /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				B7BCE62C23579EF9003E6B2A /* SDKConfiguration.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B75202FC235775F500791723 /* SampleMerchantApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7520327235775F700791723 /* Build configuration list for PBXNativeTarget "SampleMerchantApp" */;
+			buildPhases = (
+				4ACC2F7C2068B56D9A06D821 /* [CP] Check Pods Manifest.lock */,
+				B75202F9235775F500791723 /* Sources */,
+				B75202FA235775F500791723 /* Frameworks */,
+				B75202FB235775F500791723 /* Resources */,
+				28E77871B067BF8DC3F524AE /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SampleMerchantApp;
+			productName = SampleMerchantApp;
+			productReference = B75202FD235775F500791723 /* SampleMerchantApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B7520312235775F700791723 /* SampleMerchantAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B752032A235775F700791723 /* Build configuration list for PBXNativeTarget "SampleMerchantAppTests" */;
+			buildPhases = (
+				B752030F235775F700791723 /* Sources */,
+				B7520310235775F700791723 /* Frameworks */,
+				B7520311235775F700791723 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B7520315235775F700791723 /* PBXTargetDependency */,
+			);
+			name = SampleMerchantAppTests;
+			productName = SampleMerchantAppTests;
+			productReference = B7520313235775F700791723 /* SampleMerchantAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B752031D235775F700791723 /* SampleMerchantAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B752032D235775F700791723 /* Build configuration list for PBXNativeTarget "SampleMerchantAppUITests" */;
+			buildPhases = (
+				B752031A235775F700791723 /* Sources */,
+				B752031B235775F700791723 /* Frameworks */,
+				B752031C235775F700791723 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B7520320235775F700791723 /* PBXTargetDependency */,
+			);
+			name = SampleMerchantAppUITests;
+			productName = SampleMerchantAppUITests;
+			productReference = B752031E235775F700791723 /* SampleMerchantAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B75202F5235775F500791723 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1110;
+				LastUpgradeCheck = 1110;
+				ORGANIZATIONNAME = "Robinson, Marcus";
+				TargetAttributes = {
+					B75202FC235775F500791723 = {
+						CreatedOnToolsVersion = 11.1;
+					};
+					B7520312235775F700791723 = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = B75202FC235775F500791723;
+					};
+					B752031D235775F700791723 = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = B75202FC235775F500791723;
+					};
+				};
+			};
+			buildConfigurationList = B75202F8235775F500791723 /* Build configuration list for PBXProject "SampleMerchantApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B75202F4235775F500791723;
+			productRefGroup = B75202FE235775F500791723 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B75202FC235775F500791723 /* SampleMerchantApp */,
+				B7520312235775F700791723 /* SampleMerchantAppTests */,
+				B752031D235775F700791723 /* SampleMerchantAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B75202FB235775F500791723 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B752030D235775F700791723 /* LaunchScreen.storyboard in Resources */,
+				B7A0C725235F7A4800051F3F /* language.json in Resources */,
+				B7A0C718235F610200051F3F /* CurrencyList.storyboard in Resources */,
+				B752030A235775F600791723 /* Assets.xcassets in Resources */,
+				B7A0C71D235F6F9200051F3F /* LanguageList.storyboard in Resources */,
+				B7A0C72B2360C7F900051F3F /* AllowedDSRPList.storyboard in Resources */,
+				B7520308235775F500791723 /* Main.storyboard in Resources */,
+				B7A0C7312360CDD800051F3F /* AllowedCardList.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7520311235775F700791723 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B752031C235775F700791723 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		28E77871B067BF8DC3F524AE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SampleMerchantApp/Pods-SampleMerchantApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SampleMerchantApp/Pods-SampleMerchantApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SampleMerchantApp/Pods-SampleMerchantApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4ACC2F7C2068B56D9A06D821 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SampleMerchantApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B75202F9235775F500791723 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7520305235775F500791723 /* SettingsViewController.swift in Sources */,
+				B7A0C723235F781800051F3F /* LanguagesViewModel.swift in Sources */,
+				B7AB9D212358C6C90084C7A1 /* SettingsCardViewCell.swift in Sources */,
+				B7A0C71E235F6F9200051F3F /* LanguageTableViewCell.swift in Sources */,
+				B7AB9D232358C6C90084C7A1 /* SettingsCheckViewCell.swift in Sources */,
+				B7A0C73823621C3B00051F3F /* SRCSDKManager.swift in Sources */,
+				B717F4882367708700803509 /* SettingsTextFieldViewCell.swift in Sources */,
+				B7A0C717235F610200051F3F /* CurrencyListViewController.swift in Sources */,
+				B7A0C7332360CDD800051F3F /* CardTableViewCell.swift in Sources */,
+				B7A0C7322360CDD800051F3F /* AllowedCardListViewController.swift in Sources */,
+				B7A0C71F235F6F9200051F3F /* LanguageListViewController.swift in Sources */,
+				B7A0C73C2362468F00051F3F /* DataPersisterManager.swift in Sources */,
+				B7A0C710235F5C6D00051F3F /* NavigationHelper.swift in Sources */,
+				B7520301235775F500791723 /* AppDelegate.swift in Sources */,
+				B7BCE62F23579FF2003E6B2A /* CardConfigration.swift in Sources */,
+				B7BCE63123579FFF003E6B2A /* LanguageConfiguration.swift in Sources */,
+				B7AB9D222358C6C90084C7A1 /* SettingsTextViewCell.swift in Sources */,
+				B7A0C712235F5F4B00051F3F /* SettingsCoordinator.swift in Sources */,
+				B7AB9D1C2358BF980084C7A1 /* ObjectLocator.swift in Sources */,
+				B7A0C716235F610200051F3F /* CurrencyTableViewCell.swift in Sources */,
+				B7A0C72C2360C7F900051F3F /* DSRPTableViewCell.swift in Sources */,
+				B7BCE62D23579EF9003E6B2A /* SDKConfiguration.swift in Sources */,
+				B7A0C72A2360C7F900051F3F /* AllowedDSRPListViewController.swift in Sources */,
+				B7AB9D172358BA760084C7A1 /* DSRP.swift in Sources */,
+				B7BCE628235795E0003E6B2A /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B752030F235775F700791723 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7520318235775F700791723 /* SampleMerchantAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B752031A235775F700791723 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7520323235775F700791723 /* SampleMerchantAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B7520315235775F700791723 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B75202FC235775F500791723 /* SampleMerchantApp */;
+			targetProxy = B7520314235775F700791723 /* PBXContainerItemProxy */;
+		};
+		B7520320235775F700791723 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B75202FC235775F500791723 /* SampleMerchantApp */;
+			targetProxy = B752031F235775F700791723 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B7520306235775F500791723 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B7520307235775F500791723 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B752030B235775F700791723 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B752030C235775F700791723 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B7520325235775F700791723 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B7520326235775F700791723 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B7520328235775F700791723 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7CC38AA1FC0C80213DBB1C6 /* Pods-SampleMerchantApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2SQA5NR8R5;
+				INFOPLIST_FILE = SampleMerchantApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.srcmerchant.SampleMerchantApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B7520329235775F700791723 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DEEE483B2A04B75EC46AD3AF /* Pods-SampleMerchantApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2SQA5NR8R5;
+				INFOPLIST_FILE = SampleMerchantApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.srcmerchant.SampleMerchantApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B752032B235775F700791723 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2SQA5NR8R5;
+				INFOPLIST_FILE = SampleMerchantAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.srcmerchant.SampleMerchantAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SampleMerchantApp.app/SampleMerchantApp";
+			};
+			name = Debug;
+		};
+		B752032C235775F700791723 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2SQA5NR8R5;
+				INFOPLIST_FILE = SampleMerchantAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.srcmerchant.SampleMerchantAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SampleMerchantApp.app/SampleMerchantApp";
+			};
+			name = Release;
+		};
+		B752032E235775F700791723 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2SQA5NR8R5;
+				INFOPLIST_FILE = SampleMerchantAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.srcmerchant.SampleMerchantAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SampleMerchantApp;
+			};
+			name = Debug;
+		};
+		B752032F235775F700791723 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2SQA5NR8R5;
+				INFOPLIST_FILE = SampleMerchantAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.srcmerchant.SampleMerchantAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SampleMerchantApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B75202F8235775F500791723 /* Build configuration list for PBXProject "SampleMerchantApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7520325235775F700791723 /* Debug */,
+				B7520326235775F700791723 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B7520327235775F700791723 /* Build configuration list for PBXNativeTarget "SampleMerchantApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7520328235775F700791723 /* Debug */,
+				B7520329235775F700791723 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B752032A235775F700791723 /* Build configuration list for PBXNativeTarget "SampleMerchantAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B752032B235775F700791723 /* Debug */,
+				B752032C235775F700791723 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B752032D235775F700791723 /* Build configuration list for PBXNativeTarget "SampleMerchantAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B752032E235775F700791723 /* Debug */,
+				B752032F235775F700791723 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B75202F5235775F500791723 /* Project object */;
+}

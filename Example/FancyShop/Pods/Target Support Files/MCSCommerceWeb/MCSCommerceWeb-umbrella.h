@@ -18,7 +18,6 @@
 #import "MCSCommerceWeb.h"
 #import "MCSConfiguration.h"
 #import "MCSCryptoOptions.h"
-#import "MCSPaymentMethod.h"
 #import "MCCAmount.h"
 #import "MCCCardType.h"
 #import "MCCCheckoutRequest.h"

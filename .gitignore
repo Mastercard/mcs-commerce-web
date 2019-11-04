@@ -3,16 +3,23 @@ Index
 Example/Build
 Example/Index
 
-Example/FancyShop.xcodeproj/xcuserdata
-Example/FancyShop.xcodeproj/project.xcworkspace/xcuserdata/
+Example/FancyShop/FancyShop.xcodeproj/xcuserdata
+Example/FancyShop/FancyShop.xcodeproj/project.xcworkspace/xcuserdata/
 Example/FancyShop/FancyShop.xcworkspace/xcuserdata/
 
 MCSCommerceWeb.xcodeproj/project.xcworkspace/xcuserdata/
-MCSCommerceWeb.xcodeproj/xcuserdata
-MCSCommerceWeb.xcworkspace/xcuserdata
+MCSCommerceWeb.xcodeproj/xcuserdata/
+MCSCommerceWeb.xcworkspace/xcuserdata/
 
-Example/Pods
-Example/Podfile.lock
+Example/SampleMerchantApp/SampleMerchantApp.xcodeproj/xcuserdata/
+Example/SampleMerchantApp/SampleMerchantApp.xcodeproj/project.xcworkspace/xcuserdata/
+Example/SampleMerchantApp/SampleMerchantApp.xcworkspace/xcuserdata/
+
+Example/FancyShop/Pods
+Example/FancyShop/Podfile.lock
+
+Example/SampleMerchantApp/Pods
+Example/SampleMerchantApp/Podfile.lock
 
 Pods/
 Podfile.lock
