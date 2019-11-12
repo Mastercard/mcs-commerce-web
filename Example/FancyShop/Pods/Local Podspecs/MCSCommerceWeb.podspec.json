@@ -19,5 +19,10 @@
     "MCSCommerceWeb/**/*.{h,m}"
   ],
   "public_header_files": "MCSCommerceWeb/Public/**/*.h",
-  "resources": "MCSCommerceWeb/Resources/**/*.{png,html,xcassets,xib}"
+  "resources": "MCSCommerceWeb/Resources/**/*.{png,html,xcassets,xib}",
+  "dependencies": {
+    "SVGKit": [
+      "3.0.0beta3"
+    ]
+  }
 }
