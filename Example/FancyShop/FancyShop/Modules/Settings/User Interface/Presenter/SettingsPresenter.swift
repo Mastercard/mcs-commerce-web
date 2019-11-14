@@ -52,6 +52,11 @@ class SettingsPresenter: BasePresenter, SettingsPresenterProtocol, SettingsInter
         self.wireFrame?.gotToCurrencyList()
     }
     
+    /// Goes to Environment list module
+    func gotToEnvironmentList() {
+        self.wireFrame?.gotToEnvironmentList()
+    }
+    
     /// Changes the suppress shipping flag status
     func suppressShippingAction() {
         self.interactor?.suppressShipping()
@@ -104,8 +109,9 @@ class SettingsPresenter: BasePresenter, SettingsPresenterProtocol, SettingsInter
     ///   - shippingStatus: shipping status flag
     ///   - paymentMethodStatus: payment Method enable flag
     ///   - isMasterpassCheckoutFlow: Masterpass flow flag
-    func setSavedData(cards: [CardConfiguration], language: LanguageConfiguration, currency: String, shippingStatus: Bool, paymentMethodCheckoutStatus: Bool, isMasterpassCheckoutFlow: Bool, isV7CheckoutFlow: Bool) {
-        self.view?.setSavedData(cards: cards, language: language, currency: currency, shippingStatus: shippingStatus, paymentMethodCheckoutStatus: paymentMethodCheckoutStatus, isMasterpassCheckoutFlow: isMasterpassCheckoutFlow, isV7CheckoutFlow: isV7CheckoutFlow)
+    ///   - environment: selected environment
+    func setSavedData(cards: [CardConfiguration], language: LanguageConfiguration, currency: String, shippingStatus: Bool, paymentMethodCheckoutStatus: Bool, isMasterpassCheckoutFlow: Bool, isV7CheckoutFlow: Bool,environment:Constants.envEnum) {
+        self.view?.setSavedData(cards: cards, language: language, currency: currency, shippingStatus: shippingStatus, paymentMethodCheckoutStatus: paymentMethodCheckoutStatus, isMasterpassCheckoutFlow: isMasterpassCheckoutFlow, isV7CheckoutFlow: isV7CheckoutFlow,environment: environment)
     }
     
     /// Goes to login module

@@ -32,24 +32,24 @@ class ConfirmOrderAPIDataManager: ConfirmOrderAPIDataManagerInputProtocol {
     func getPaymentData(completionHandler: @escaping (NSDictionary?, Error?) -> ()){
         let checkoutResponse: CheckoutResponse = CheckoutResponse.sharedInstance
         
-        var checkoutId = ""
-        var merchantKeyFileName = ""
-        var merchantKeyFilePassword = ""
-        var consumerKey = ""
-        var host = ""
-        if SDKConfiguration.sharedInstance.useMasterpassFlow {
-            checkoutId = EnvironmentConfiguration.sharedInstance.masterpassCheckoutID
-            merchantKeyFileName = EnvironmentConfiguration.sharedInstance.masterpassMerchantKeyFileName
-            merchantKeyFilePassword = EnvironmentConfiguration.sharedInstance.masterpassMerchantKeyFilePwd
-            consumerKey = EnvironmentConfiguration.sharedInstance.masterpassConsumerKey
-            host = EnvironmentConfiguration.sharedInstance.switchHost
-        } else {
-            checkoutId = EnvironmentConfiguration.sharedInstance.checkoutID
-            merchantKeyFileName = EnvironmentConfiguration.sharedInstance.merchantKeyFileName
-            merchantKeyFilePassword = EnvironmentConfiguration.sharedInstance.merchantKeyFilePwd
-            consumerKey = EnvironmentConfiguration.sharedInstance.consumerKey
-            host = EnvironmentConfiguration.sharedInstance.merchantAPIHost
-        }
+        var checkoutId:String!
+        var merchantKeyFileName:String!
+        var merchantKeyFilePassword:String!
+        var consumerKey:String!
+        var host:String!
+        
+        let env = SDKConfiguration.sharedInstance.environment
+           switch env {
+           case .SANDBOX:
+                XCCParser.sharedInstance.parseXCConfig(configName: Constants.envEnum.SANDBOX.rawValue)
+                XCCParser.sharedInstance.paymentDataXConfig(&checkoutId, &merchantKeyFileName, &merchantKeyFilePassword, &consumerKey, &host)
+           case .STAGE:
+                XCCParser.sharedInstance.parseXCConfig(configName: Constants.envEnum.STAGE.rawValue)
+                XCCParser.sharedInstance.paymentDataXConfig(&checkoutId, &merchantKeyFileName, &merchantKeyFilePassword, &consumerKey, &host)
+           case .PRODUCTION:
+                XCCParser.sharedInstance.parseXCConfig(configName: Constants.envEnum.PRODUCTION.rawValue)
+                XCCParser.sharedInstance.paymentDataXConfig(&checkoutId, &merchantKeyFileName, &merchantKeyFilePassword, &consumerKey, &host)
+           }
         
         let paymentDataService = MDSMerchantServices()
         let paymentDataRequest = MDSPaymentDataRequest()

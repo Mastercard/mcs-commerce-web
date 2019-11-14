@@ -30,6 +30,8 @@ class objectLocator: NSObject {
         static let changeTokenization_Identifier     = "TOKENIZATION"
         static let changePaymentMethod_Identifier    = "PAYMENT_METHODS"
         static let backButton_Identifier             = "SETTING_BACK_BUTTON"
+        static let changeEnvironment_Identifier      = "ENVIRONMENT"
+
     }
     
     struct loginScreenStruct {
@@ -218,5 +220,11 @@ class objectLocator: NSObject {
         static let txtOtp_Identifier = "TextField_View_OTPValidation"
         static let btnContinue_Identifier = "Button_Continue_View_Continue"
     }
+    
+    struct environmentListScreenStruct {
+           
+           static let environment_Identifier            = "ENVIRONMENT_ID"
+           static let backButton_Identifier          = "ENVIRONMENTLIST_BACK_BUTTON"
+       }
     
 }

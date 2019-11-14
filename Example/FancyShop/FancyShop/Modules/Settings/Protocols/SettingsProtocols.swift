@@ -19,7 +19,7 @@ import Foundation
 protocol SettingsViewProtocol: class {
     var presenter: SettingsPresenterProtocol? { get set }
     
-    func setSavedData(cards: [CardConfiguration], language: LanguageConfiguration, currency: String, shippingStatus: Bool, paymentMethodCheckoutStatus: Bool, isMasterpassCheckoutFlow: Bool, isV7CheckoutFlow: Bool)
+    func setSavedData(cards: [CardConfiguration], language: LanguageConfiguration, currency: String, shippingStatus: Bool, paymentMethodCheckoutStatus: Bool, isMasterpassCheckoutFlow: Bool, isV7CheckoutFlow: Bool, environment:Constants.envEnum)
     func startAnimating()
     func stopAnimating()
     func showError(error: String)
@@ -36,6 +36,7 @@ protocol SettingsWireFrameProtocol: class {
     func gotToCurrencyList()
     func goToLogin()
     func goToPaymentMethods(completion: (() -> Void)?)
+    func gotToEnvironmentList()
 }
 
 /// Method contract between VIEW -> PRESENTER
@@ -54,11 +55,12 @@ protocol SettingsPresenterProtocol: class {
     func selectPaymentMethod()
     func toggleMasterpassFlowOnOff()
     func toggleV7FlowOnOff()
+    func gotToEnvironmentList()
 }
 
 /// Method contract between INTERACTOR -> PRESENTER
 protocol SettingsInteractorOutputProtocol: class {
-    func setSavedData(cards: [CardConfiguration], language: LanguageConfiguration,  currency: String, shippingStatus: Bool, paymentMethodCheckoutStatus: Bool, isMasterpassCheckoutFlow: Bool, isV7CheckoutFlow: Bool)
+    func setSavedData(cards: [CardConfiguration], language: LanguageConfiguration,  currency: String, shippingStatus: Bool, paymentMethodCheckoutStatus: Bool, isMasterpassCheckoutFlow: Bool, isV7CheckoutFlow: Bool,environment:Constants.envEnum)
     func userNotLoggedIn()
     func initializeSDK()
     func initializeSDKComplete()
