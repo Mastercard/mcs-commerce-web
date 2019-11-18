@@ -26,7 +26,6 @@
 @property (nonatomic, weak) id<MCSWebCheckoutDelegate> delegate;
 @property (nonatomic) BOOL isDismissing;
 @property (nonatomic) int receiveNavigationForDCFPopupCount;
-
 @end
 
 @implementation MCSWebViewController
@@ -129,6 +128,9 @@
 
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
     if (navigationAction.navigationType == WKNavigationTypeLinkActivated) {
+        //leaving context dismiss spinner if is showing
+        [_indicatorView hide];
+        [_indicatorView removeFromSuperview];
         NSURL *url = navigationAction.request.URL;
         [UIApplication.sharedApplication openURL:url options:@{} completionHandler:nil];
         decisionHandler(WKNavigationActionPolicyCancel);
