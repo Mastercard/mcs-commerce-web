@@ -23,7 +23,7 @@
 #import "MCCMerchantConstants+Private.h"
 
 NSString *const kMasterPassDefaultButtonImage       = @"MasterpassButton";
-NSString *const kSRCDefaultButtonImage              = @"SRCButton";
+NSString *const kClickToPayefaultButtonImage              = @"ClickToPayButton";
 
 @interface MCSCheckoutButtonManager()
 
@@ -83,7 +83,7 @@ NSString *basePath = @"button/";
     } else {
         //TODO: fixme we provide different default image base on locale, we need to find a scalable solution
         if([locale.localeIdentifier  isEqual: @"en_US"]){
-            UIImage *defaultImg = [UIImage imageNamed:kSRCDefaultButtonImage inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
+            UIImage *defaultImg = [UIImage imageNamed:kClickToPayefaultButtonImage inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
             self.buttonImage = defaultImg;
         }else{
             UIImage *defaultImg = [UIImage imageNamed:kMasterPassDefaultButtonImage inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
