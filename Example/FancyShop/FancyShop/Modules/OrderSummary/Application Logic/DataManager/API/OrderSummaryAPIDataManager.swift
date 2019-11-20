@@ -167,6 +167,7 @@ class OrderSummaryAPIDataManager: OrderSummaryAPIDataManagerInputProtocol, MCSCh
         checkoutRequest.currency = sdkConfig.currency
         checkoutRequest.cartId = shoppingCart.cartId
         checkoutRequest.suppressShippingAddress = sdkConfig.suppressShipping
+        checkoutRequest.unpredictableNumber = "12345678"
 
         let cryptoOptionMaster = MCSCryptoOptions()
         cryptoOptionMaster.cardType = "master"
