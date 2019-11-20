@@ -82,4 +82,10 @@ class SettingsWireFrame: SettingsWireFrameProtocol {
     func goToPaymentMethods(completion: (() -> Void)?) {
         PaymentMethodsWireFrame.presentPaymentMethodsModule(fromView: self, finalCallback: completion)
     }
+    
+    /// Goes to Environment List module
+    func gotToEnvironmentList() {
+        EnvironmentListWireFrame.presentEnvironmentListModule(fromView: self)
+        
+    }
 }

@@ -27,6 +27,8 @@ private struct settingKey {
     static let kUseMasterpassFlow = "useMasterpassFlow"
     static let kUseV7Flow = "useV7Flow"
     static let kDSRPs = "DSRPs"
+    static let kEnv = "environment"
+
 }
 
 /// SDK Configuration, handles all the changes made in the setting screens
@@ -57,6 +59,10 @@ class SDKConfiguration: NSObject, NSCoding{
     /// Change checkout to use V7 integration.(If disabled uses CommerceWeb SDK directly)
     var useV7Flow: Bool
     
+    /// Selected Environment
+    var environment: Constants.envEnum
+
+    
     /// Singleton instance of SDKConfiguration
     static let sharedInstance : SDKConfiguration = {
         if let instance = DataPersisterManager.sharedInstance.getConfiguration() {
@@ -86,6 +92,8 @@ class SDKConfiguration: NSObject, NSCoding{
         self.useMasterpassFlow = false
         //Use V7 Flow
         self.useV7Flow = false
+        //Current Environment
+        self.environment = Constants.envEnum.SANDBOX
         //DSRP's
         self.DSRPs = []
         for dsrp in Constants.DSRPEnum.allValues {
@@ -117,6 +125,14 @@ class SDKConfiguration: NSObject, NSCoding{
         self.saveConfiguration()
     }
     
+    /// Saves the selected currency as the current one
+    ///
+    /// - Parameter currency: Selected currency
+    func setEnvironment(environment: Constants.envEnum) {
+        self.environment = environment
+        self.saveConfiguration()
+    }
+
     /// Returns the currency code, based on the selected currency
     ///
     /// - Returns: String Currency code
@@ -176,6 +192,7 @@ class SDKConfiguration: NSObject, NSCoding{
         self.useMasterpassFlow = aDecoder.decodeBool(forKey: settingKey.kUseMasterpassFlow)
         self.useV7Flow = aDecoder.decodeBool(forKey: settingKey.kUseV7Flow)
         self.DSRPs = aDecoder.decodeObject(forKey:settingKey.kDSRPs) as! [DSRP]
+        self.environment = Constants.envEnum(rawValue: aDecoder.decodeObject(forKey: settingKey.kEnv) as! String)!
         super.init()
     }
     
@@ -192,5 +209,7 @@ class SDKConfiguration: NSObject, NSCoding{
         aCoder.encode(self.useMasterpassFlow, forKey: settingKey.kUseMasterpassFlow)
         aCoder.encode(self.useV7Flow, forKey: settingKey.kUseV7Flow)
         aCoder.encode(self.DSRPs, forKey:settingKey.kDSRPs)
+        aCoder.encode(self.environment.rawValue, forKey:settingKey.kEnv)
+
     }
 }

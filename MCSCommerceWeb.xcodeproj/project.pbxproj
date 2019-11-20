@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		055FE159F6993D985473FD92 /* Pods_MCSCommerceWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B562261A45EE0DB14869E8FF /* Pods_MCSCommerceWeb.framework */; };
 		191D9F9422ADAB5600379703 /* MCSCheckoutButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 191D9F9222ADAB5600379703 /* MCSCheckoutButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		191D9F9522ADAB5600379703 /* MCSCheckoutButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 191D9F9322ADAB5600379703 /* MCSCheckoutButton.m */; };
 		191D9FA622ADB63800379703 /* Sandbox.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 191D9FA122ADB63700379703 /* Sandbox.xcconfig */; };
@@ -88,7 +89,6 @@
 		19A0EFF5229F181D006B7AFA /* MCCMerchant.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EFF4229F181D006B7AFA /* MCCMerchant.m */; };
 		B7CBF00D22CF9B1200D688AB /* MCSReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = B7CBF00B22CF9B1200D688AB /* MCSReachability.h */; };
 		B7CBF00E22CF9B1200D688AB /* MCSReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B7CBF00C22CF9B1200D688AB /* MCSReachability.m */; };
-		E3A448AAD0F36BF7AC0AF63C /* Pods_MCSCommerceWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE78DFD48678BE728E027D6 /* Pods_MCSCommerceWeb.framework */; };
 		E454AF4F233D3F1900877B10 /* MCSTopMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E454AF4E233D3F1900877B10 /* MCSTopMessageView.xib */; };
 /* End PBXBuildFile section */
 
@@ -186,12 +186,12 @@
 		19A0EFDA229F14CA006B7AFA /* MCFCoreConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCFCoreConstants.h; sourceTree = "<group>"; };
 		19A0EFDB229F14CA006B7AFA /* MCFCoreConstants+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MCFCoreConstants+Private.h"; sourceTree = "<group>"; };
 		19A0EFF4229F181D006B7AFA /* MCCMerchant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCCMerchant.m; sourceTree = "<group>"; };
-		1F60AEE36666D5FF6F61BD4E /* Pods-MCSCommerceWeb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCSCommerceWeb.release.xcconfig"; path = "Target Support Files/Pods-MCSCommerceWeb/Pods-MCSCommerceWeb.release.xcconfig"; sourceTree = "<group>"; };
+		29F8F5AE4944607CB2B16BDF /* Pods-MCSCommerceWeb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCSCommerceWeb.release.xcconfig"; path = "Target Support Files/Pods-MCSCommerceWeb/Pods-MCSCommerceWeb.release.xcconfig"; sourceTree = "<group>"; };
+		5CF5EDF1C0CEA00D61DA1E39 /* Pods-MCSCommerceWeb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCSCommerceWeb.debug.xcconfig"; path = "Target Support Files/Pods-MCSCommerceWeb/Pods-MCSCommerceWeb.debug.xcconfig"; sourceTree = "<group>"; };
+		B562261A45EE0DB14869E8FF /* Pods_MCSCommerceWeb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCSCommerceWeb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7CBF00B22CF9B1200D688AB /* MCSReachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSReachability.h; sourceTree = "<group>"; };
 		B7CBF00C22CF9B1200D688AB /* MCSReachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSReachability.m; sourceTree = "<group>"; };
-		BCE78DFD48678BE728E027D6 /* Pods_MCSCommerceWeb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCSCommerceWeb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E454AF4E233D3F1900877B10 /* MCSTopMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCSTopMessageView.xib; sourceTree = "<group>"; };
-		F1D7B036D7515141A8F64CBF /* Pods-MCSCommerceWeb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCSCommerceWeb.debug.xcconfig"; path = "Target Support Files/Pods-MCSCommerceWeb/Pods-MCSCommerceWeb.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,7 +199,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3A448AAD0F36BF7AC0AF63C /* Pods_MCSCommerceWeb.framework in Frameworks */,
+				055FE159F6993D985473FD92 /* Pods_MCSCommerceWeb.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,8 +391,8 @@
 		9F534EA88BB07C383D935917 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F1D7B036D7515141A8F64CBF /* Pods-MCSCommerceWeb.debug.xcconfig */,
-				1F60AEE36666D5FF6F61BD4E /* Pods-MCSCommerceWeb.release.xcconfig */,
+				5CF5EDF1C0CEA00D61DA1E39 /* Pods-MCSCommerceWeb.debug.xcconfig */,
+				29F8F5AE4944607CB2B16BDF /* Pods-MCSCommerceWeb.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -400,7 +400,7 @@
 		B7DC79D12355014D003350A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BCE78DFD48678BE728E027D6 /* Pods_MCSCommerceWeb.framework */,
+				B562261A45EE0DB14869E8FF /* Pods_MCSCommerceWeb.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -460,7 +460,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19A0EBE02295EA40006B7AFA /* Build configuration list for PBXNativeTarget "MCSCommerceWeb" */;
 			buildPhases = (
-				2EB236EA948AB9D0F0715BF7 /* [CP] Check Pods Manifest.lock */,
+				4C58305C86E2BA7C69D345EE /* [CP] Check Pods Manifest.lock */,
 				19A0EBC72295EA40006B7AFA /* Headers */,
 				19A0EBC82295EA40006B7AFA /* Sources */,
 				19A0EBC92295EA40006B7AFA /* Frameworks */,
@@ -554,7 +554,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2EB236EA948AB9D0F0715BF7 /* [CP] Check Pods Manifest.lock */ = {
+		4C58305C86E2BA7C69D345EE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -692,7 +692,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -750,7 +750,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -763,7 +763,7 @@
 		};
 		19A0EBE12295EA40006B7AFA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F1D7B036D7515141A8F64CBF /* Pods-MCSCommerceWeb.debug.xcconfig */;
+			baseConfigurationReference = 5CF5EDF1C0CEA00D61DA1E39 /* Pods-MCSCommerceWeb.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -792,7 +792,7 @@
 		};
 		19A0EBE22295EA40006B7AFA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1F60AEE36666D5FF6F61BD4E /* Pods-MCSCommerceWeb.release.xcconfig */;
+			baseConfigurationReference = 29F8F5AE4944607CB2B16BDF /* Pods-MCSCommerceWeb.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;

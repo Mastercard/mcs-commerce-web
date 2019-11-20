@@ -23,6 +23,7 @@
 #import "MCCMerchantConstants+Private.h"
 
 NSString *const kMasterPassDefaultButtonImage       = @"MasterpassButton";
+NSString *const kClickToPayDefaultButtonImage              = @"ClickToPayButton";
 
 @interface MCSCheckoutButtonManager()
 
@@ -80,18 +81,24 @@ NSString *basePath = @"button/";
         
         self.buttonImage = cacheImage;
     } else {
-        // set default button image
-        UIImage *defaultImg = [UIImage imageNamed:kMasterPassDefaultButtonImage inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
-        self.buttonImage = defaultImg;
+        //TODO: fixme we provide different default image base on locale, we need to find a scalable solution
+        if([locale.localeIdentifier  isEqual: @"en_US"]){
+            UIImage *defaultImg = [UIImage imageNamed:kClickToPayDefaultButtonImage inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
+            self.buttonImage = defaultImg;
+        }else{
+            UIImage *defaultImg = [UIImage imageNamed:kMasterPassDefaultButtonImage inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
+            self.buttonImage = defaultImg;
+        }
+        
     }
     
     //Download image from URL
     NSURLComponents *components = [NSURLComponents componentsWithURL:buttonUrl resolvingAgainstBaseURL:YES];
     NSURLQueryItem *localeQueryItem = [[NSURLQueryItem alloc] initWithName:@"locale" value:locale.localeIdentifier];
-    NSURLQueryItem *allowedCardsQueryItem = [[NSURLQueryItem alloc] initWithName:@"acceptedCardBrands" value:[allowedCardTypes.allObjects componentsJoinedByString:@","]];
-    NSURLQueryItem *checkoutIdQueryItetm = [[NSURLQueryItem alloc] initWithName:@"checkoutId" value:checkoutId];
+    NSURLQueryItem *paymentMethodQueryItem = [[NSURLQueryItem alloc] initWithName:@"paymentmethod" value:[allowedCardTypes.allObjects componentsJoinedByString:@","]];
+    NSURLQueryItem *checkoutIdQueryItetm = [[NSURLQueryItem alloc] initWithName:@"checkoutid" value:checkoutId];
     
-    [components setQueryItems:@[localeQueryItem, allowedCardsQueryItem, checkoutIdQueryItetm]];
+    [components setQueryItems:@[localeQueryItem, paymentMethodQueryItem, checkoutIdQueryItetm]];
     NSURLSession *session = [NSURLSession sharedSession];
     MCSCheckoutButtonManager * __weak weakSelf = self;
 

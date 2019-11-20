@@ -17,8 +17,6 @@
 #import "MCSCommerceWeb+Private.h"
 #import "MCSConfigurationManager.h"
 
-const CGFloat kCheckoutButtonWidth = 250.0;
-const CGFloat kCheckoutButtonHeight = 58.0;
 NSString * const kCheckoutButtonAccessibilityIdentifier = @"checkoutButton";
 
 @implementation MCSCheckoutButton
@@ -29,7 +27,6 @@ NSString * const kCheckoutButtonAccessibilityIdentifier = @"checkoutButton";
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        [self addConstraints];
         [self setAccessibilityIdentifier:kCheckoutButtonAccessibilityIdentifier];
         [super addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -49,13 +46,6 @@ NSString * const kCheckoutButtonAccessibilityIdentifier = @"checkoutButton";
     }];
 }
 
-- (void)addConstraints {
-    NSLayoutConstraint *width = [NSLayoutConstraint  constraintWithItem:self attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1.0 constant:kCheckoutButtonWidth];
-    
-    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1.0 constant:kCheckoutButtonHeight];
-    
-    [self addConstraints:@[width, height]];
-}
 
 #pragma mark Private Interface
 

@@ -258,8 +258,12 @@ class OrderSummaryViewController: BaseViewController, OrderSummaryViewProtocol, 
                     }
                 }
             })
-            
+           
             srcCheckoutButton?.addToSuperview(superview: self.buttonContainer)
+            NSLayoutConstraint.activate([
+                (srcCheckoutButton?.widthAnchor.constraint(equalToConstant: 250))!,
+                (srcCheckoutButton?.heightAnchor.constraint(equalToConstant: 58))!
+            ])
             checkoutButton.removeFromSuperview()
         }
     }

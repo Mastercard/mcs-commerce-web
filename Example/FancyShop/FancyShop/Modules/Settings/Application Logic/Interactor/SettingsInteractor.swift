@@ -86,6 +86,6 @@ class SettingsInteractor: BaseInteractor, SettingsInteractorInputProtocol {
     /// Returns the saved configuration for all modules
     func getSavedConfig() {
         let conf:SDKConfiguration = SDKConfiguration.sharedInstance
-        self.presenter?.setSavedData(cards: conf.cards, language: conf.language, currency: conf.currency, shippingStatus: conf.suppressShipping, paymentMethodCheckoutStatus: conf.enablePaymentMethodCheckout, isMasterpassCheckoutFlow: conf.useMasterpassFlow, isV7CheckoutFlow: conf.useV7Flow)
+        self.presenter?.setSavedData(cards: conf.cards, language: conf.language, currency: conf.currency, shippingStatus: conf.suppressShipping, paymentMethodCheckoutStatus: conf.enablePaymentMethodCheckout, isMasterpassCheckoutFlow: conf.useMasterpassFlow, isV7CheckoutFlow: conf.useV7Flow,environment: conf.environment)
     }
 }

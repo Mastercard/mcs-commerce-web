@@ -28,7 +28,8 @@ fileprivate enum options:String {
     case ToggleSrcMasterpassFlow
     case ToggleV7Checkout
     case TogglePaymentMethodCheckout
-    static let allValues = [Cards, Language, Currency, SuppressShipping, Shipping, EnableDSRPTransaction, SelectMethodCheckout, ToggleSrcMasterpassFlow, ToggleV7Checkout, TogglePaymentMethodCheckout]
+    case Environment
+    static let allValues = [Cards, Language, Currency, SuppressShipping, Shipping, EnableDSRPTransaction, SelectMethodCheckout, ToggleSrcMasterpassFlow, ToggleV7Checkout, TogglePaymentMethodCheckout, Environment]
 }
 
 /// View controller that shows the available setting for the merchant app
@@ -45,6 +46,7 @@ class SettingsViewController: BaseViewController, SettingsViewProtocol {
     var selectedCards: [CardConfiguration]?
     var selectedLanguage: LanguageConfiguration?
     var selectedCurrency: String?
+    var selectedEnvironment: Constants.envEnum?
     var suppressShippingStatus: Bool = false
     var isPaymentMethodCheckoutEnabled: Bool = false
     var isMasterpassCheckoutFlow: Bool = false
@@ -112,7 +114,7 @@ class SettingsViewController: BaseViewController, SettingsViewProtocol {
     ///   - currency: currecny saved
     ///   - shippingStatus: shipping status flag saved
     ///   - paymentMethodCheckoutStatus: paymentMethod checkout flag saved
-    func setSavedData(cards: [CardConfiguration], language: LanguageConfiguration, currency: String, shippingStatus: Bool, paymentMethodCheckoutStatus: Bool, isMasterpassCheckoutFlow: Bool, isV7CheckoutFlow: Bool) {
+    func setSavedData(cards: [CardConfiguration], language: LanguageConfiguration, currency: String, shippingStatus: Bool, paymentMethodCheckoutStatus: Bool, isMasterpassCheckoutFlow: Bool, isV7CheckoutFlow: Bool, environment:Constants.envEnum) {
         self.selectedCards = cards
         self.selectedLanguage = language
         self.selectedCurrency = currency
@@ -120,6 +122,7 @@ class SettingsViewController: BaseViewController, SettingsViewProtocol {
         self.isPaymentMethodCheckoutEnabled = paymentMethodCheckoutStatus
         self.isMasterpassCheckoutFlow = isMasterpassCheckoutFlow
         self.isV7CheckoutFlow = isV7CheckoutFlow
+        self.selectedEnvironment = environment
         self.settingsTable.reloadData()
     }
 }
@@ -197,6 +200,13 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             cellCheck.title.text = "ENABLE PAYMENT METHOD"
             cellCheck.switch.setOn(self.isPaymentMethodCheckoutEnabled, animated: true)
             return cellCheck
+            
+        case options.Environment:
+            cellText = tableView.dequeueReusableCell(withIdentifier: textReuseIdentifier, for: indexPath) as! SettingsTextViewCell
+            cellText.title.text = "ENVIRONMENT"
+            cellText.detail.text = self.selectedEnvironment?.rawValue
+            cellText.accessibilityIdentifier = objectLocator.SettingScreenStruct.changeEnvironment_Identifier
+            return cellText
         }
     }
     
@@ -237,6 +247,8 @@ private extension SettingsViewController {
             if self.isV7CheckoutFlow {
                 self.enablePaymentMethodCheckoutOptionSelected()
             }
+        case .Environment:
+            self.environmentOptionSelected()
         }
     }
     
@@ -252,6 +264,10 @@ private extension SettingsViewController {
     
     func currenciesOptionSelected( ){
         self.presenter?.gotToCurrencyList()
+    }
+    
+    func environmentOptionSelected( ){
+        self.presenter?.gotToEnvironmentList()
     }
     
     func suppressShippingOptionSelected() {
