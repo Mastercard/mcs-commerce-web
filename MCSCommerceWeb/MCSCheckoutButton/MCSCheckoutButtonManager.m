@@ -52,6 +52,10 @@ NSString *basePath = @"button/";
     
     [checkoutButton setDelegate:delegate];
     [checkoutButton setButtonImage:self.buttonImage];
+    [checkoutButton setIsAccessibilityElement:YES];
+    [checkoutButton setAccessibilityLabel:NSLocalizedStringFromTable(@"Click to pay with card",
+                                                                     @"MCSCommerceWeb",
+                                                                     @"VoiceOver text for checkout button")];
     
     return checkoutButton;
 }
