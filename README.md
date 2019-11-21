@@ -20,7 +20,7 @@
 To include `MCSCommerceWeb` in your Xcode project, include the following in your project's `Podfile`:
 
 ``` 
-pod 'MCSCommerceWeb', '1.0.0'
+pod 'MCSCommerceWeb', '1.0.1'
 ```
 
 ### <a name="ios-configuration">Configuration</a>

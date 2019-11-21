@@ -1,5 +1,20 @@
 # Change Log
 
+## Version 1.0.1
+
+Released: November 21, 2019
+
+Changes:
+
+* Improved nullability checks
+* Fixed an issue where network error message was not dismissing
+* Fixed an issue where button image cache file was incorrectly named
+* Removed use of deprecated UIWebView class when rendering the checkout button image from SVG
+* Fixed null pointer exception when the checkout button image failed to download
+* Fixed an issue causing the wrong checkout button image to download
+* Fixed an issue causing the wrong checkout button default image to display
+
+
 ## Version 1.0.0
 
 Released: August 12, 2019
