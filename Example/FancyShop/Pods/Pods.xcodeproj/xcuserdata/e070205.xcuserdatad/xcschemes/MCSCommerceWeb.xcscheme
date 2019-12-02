@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0653EC5B0CDA0CFAA1D422B6D11554C8"
-               BuildableName = "MCSCommerceWeb.framework"
+               BuildableName = "MCSCommerceWeb"
                BlueprintName = "MCSCommerceWeb"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

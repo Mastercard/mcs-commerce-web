@@ -6,9 +6,9 @@ Pod::Spec.new do |s|
   s.license      = "Apache License, Version 2.0"
   s.author             = { "Bret Deasy" => "bjdeasy@gmail.com" }
   s.platform     = :ios, "11.0"
-  s.source       = { :git => "https://github.com/Mastercard/MCSCommerceWeb.git", :tag => "1.0.1" }
-  s.source_files  = "MCSCommerceWeb", "MCSCommerceWeb/**/*.{h,m}"
-  s.public_header_files = "MCSCommerceWeb/Public/**/*.h"
+  s.ios.vendored_frameworks = "MCSCommerceWeb.framework"
+  s.source       = { :path => "MCSCommerceWeb.framework" }
+  s.exclude_files = "Classes/Exclude"
   s.resources = "MCSCommerceWeb/Resources/**/*.{png,html,xcassets,xib}"
   s.dependency 'SVGKit', '3.0.0beta3'
 end
