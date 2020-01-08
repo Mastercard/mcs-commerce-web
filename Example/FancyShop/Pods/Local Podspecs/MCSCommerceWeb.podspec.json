@@ -17,7 +17,11 @@
     "path": "MCSCommerceWeb.framework"
   },
   "exclude_files": "Classes/Exclude",
-  "resources": "MCSCommerceWeb/Resources/**/*.{png,html,xcassets,xib}",
+  "resource_bundles": {
+    "MCSCommerceWebResources": [
+      "MCSCommerceWeb/Resources/**/*.{png,html,xcassets,xib}"
+    ]
+  },
   "dependencies": {
     "SVGKit": [
       "3.0.0beta3"

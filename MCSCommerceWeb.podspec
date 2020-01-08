@@ -7,8 +7,8 @@ Pod::Spec.new do |s|
   s.author             = { "Bret Deasy" => "bjdeasy@gmail.com" }
   s.platform     = :ios, "11.0"
   s.ios.vendored_frameworks = "MCSCommerceWeb.framework"
-  s.source       = { :path => "MCSCommerceWeb.framework" }
+  s.source       = { :http => "https://github.com/Mastercard/MCSCommerceWeb/tree/feature/S1144036/MCSCommerceWeb.framework" }
   s.exclude_files = "Classes/Exclude"
-  s.resources = "MCSCommerceWeb/Resources/**/*.{png,html,xcassets,xib}"
+  s.resource_bundle = { 'MCSCommerceWebResources' => ["MCSCommerceWeb/Resources/**/*.{png,html,xcassets,xib}"] }
   s.dependency 'SVGKit', '3.0.0beta3'
 end
