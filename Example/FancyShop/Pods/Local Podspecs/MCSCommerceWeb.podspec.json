@@ -14,7 +14,7 @@
     "vendored_frameworks": "MCSCommerceWeb.framework"
   },
   "source": {
-    "path": "MCSCommerceWeb.framework"
+    "http": "https://github.com/Mastercard/MCSCommerceWeb/blob/feature/S1144036/MCSCommerceWeb.zip?raw=true"
   },
   "exclude_files": "Classes/Exclude",
   "resource_bundles": {

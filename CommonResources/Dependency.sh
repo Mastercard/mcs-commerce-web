@@ -21,8 +21,7 @@ echo "Building for Device"
 xcodebuild -workspace "${PROJECT_NAME}.xcworkspace" -scheme "${TARGET_NAME}" -configuration ${CONFIGURATION} -sdk iphoneos ONLY_ACTIVE_ARCH=NO -UseModernBuildSystem='NO' BUILD_DIR="${BUILD_DIR}" BUILD_ROOT="${BUILD_ROOT}" clean build
 
 # # Step 1. Copy the framework structure (from iphoneos build) to the universal folder
-# echo "Copying to output folder"
-# cp -R "${BUILD_DIR}/${CONFIGURATION}-iphoneos/" "${UNIVERSAL_OUTPUTFOLDER}/"
+cp -R "${BUILD_DIR}/${CONFIGURATION}-iphoneos/" "${UNIVERSAL_OUTPUTFOLDER}/"
 
 # Step 2. Copy Swift modules from iphonesimulator build (if it exists) to the copied framework directory
 SIMULATOR_SWIFT_MODULES_DIR="${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${TARGET_NAME}.framework/Modules/${TARGET_NAME}.swiftmodule/."
@@ -32,7 +31,7 @@ fi
 
 # Step 3. Create universal binary file using lipo and place the combined executable in the copied framework directory
 echo "Combining executables"
-lipo -create -output "${UNIVERSAL_OUTPUTFOLDER}/${EXECUTABLE_PATH}" "${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${EXECUTABLE_PATH}" "${BUILD_DIR}/${CONFIGURATION}-iphoneos/${EXECUTABLE_PATH}"
+lipo -create -output "${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}" "${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/${PROJECT_NAME}" "${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework/${PROJECT_NAME}"
 
 # Step 4. Create universal binaries for embedded frameworks
 #for SUB_FRAMEWORK in $( ls "${UNIVERSAL_OUTPUTFOLDER}/${TARGET_NAME}.framework/Frameworks" ); do

@@ -466,6 +466,7 @@
 				19A0EBC92295EA40006B7AFA /* Frameworks */,
 				19A0EBCA2295EA40006B7AFA /* Resources */,
 				49D716D72398123F00886133 /* ShellScript */,
+				49F67C7A23C9029600CBAD1C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -571,6 +572,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "${PROJECT_DIR}/CommonResources/Dependency.sh\n";
+		};
+		49F67C7A23C9029600CBAD1C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "zip -r ${TARGET_NAME}.zip LICENSE ${TARGET_NAME}.framework\n";
 		};
 		B744E21B819E72D6ACF8D951 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
