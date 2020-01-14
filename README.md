@@ -316,7 +316,7 @@ This payment method, or any other, can be used with `paymentMethodCheckout:` to 
  
 Integrating with the web checkout experience is possible without this SDK. Using `WebKit`, the checkout experience can be embedded into any application.
 
-**Refer to the Apple developer documentation for `WKWebView` [here](https://developer.apple.com/documentation/uikit/wkwebview).**
+**Refer to the Apple developer documentation for `WKWebView` [here](https://developer.apple.com/documentation/webkit/wkwebview).**
 
 ### <a name="checkout-url-builder">Checkout URL Builder</a>
 
