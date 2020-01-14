@@ -1,6 +1,6 @@
 {
   "name": "MCSCommerceWeb",
-  "version": "1.0.0-alpha1",
+  "version": "1.0.1",
   "summary": "Objective-C iOS wrapper for Mastercard's web SRC Initiator",
   "homepage": "https://github.com/Mastercard/MCSCommerceWeb",
   "license": "Apache License, Version 2.0",
@@ -10,16 +10,18 @@
   "platforms": {
     "ios": "11.0"
   },
-  "source": {
-    "git": "https://github.com/Mastercard/MCSCommerceWeb.git",
-    "tag": "1.0.0-alpha1"
+  "ios": {
+    "vendored_frameworks": "MCSCommerceWeb.framework"
   },
-  "source_files": [
-    "MCSCommerceWeb",
-    "MCSCommerceWeb/**/*.{h,m}"
-  ],
-  "public_header_files": "MCSCommerceWeb/Public/**/*.h",
-  "resources": "MCSCommerceWeb/Resources/**/*.{png,html,xcassets,xib}",
+  "source": {
+    "http": "https://github.com/Mastercard/MCSCommerceWeb/blob/feature/S1144036/MCSCommerceWeb.zip?raw=true"
+  },
+  "exclude_files": "Classes/Exclude",
+  "resource_bundles": {
+    "MCSCommerceWebResources": [
+      "MCSCommerceWeb/Resources/**/*.{png,html,xcassets,xib}"
+    ]
+  },
   "dependencies": {
     "SVGKit": [
       "3.0.0beta3"

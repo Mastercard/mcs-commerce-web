@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		055FE159F6993D985473FD92 /* Pods_MCSCommerceWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B562261A45EE0DB14869E8FF /* Pods_MCSCommerceWeb.framework */; };
 		191D9F9422ADAB5600379703 /* MCSCheckoutButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 191D9F9222ADAB5600379703 /* MCSCheckoutButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		191D9F9522ADAB5600379703 /* MCSCheckoutButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 191D9F9322ADAB5600379703 /* MCSCheckoutButton.m */; };
 		191D9FA622ADB63800379703 /* Sandbox.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 191D9FA122ADB63700379703 /* Sandbox.xcconfig */; };
@@ -87,6 +86,7 @@
 		19A0EFDE229F14CA006B7AFA /* MCFCoreConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A0EFDA229F14CA006B7AFA /* MCFCoreConstants.h */; };
 		19A0EFDF229F14CA006B7AFA /* MCFCoreConstants+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A0EFDB229F14CA006B7AFA /* MCFCoreConstants+Private.h */; };
 		19A0EFF5229F181D006B7AFA /* MCCMerchant.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EFF4229F181D006B7AFA /* MCCMerchant.m */; };
+		6F02CA2D396AF59C59E3BC09 /* Pods_MCSCommerceWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429C09D0DEECE923EFED0AA7 /* Pods_MCSCommerceWeb.framework */; };
 		B7CBF00D22CF9B1200D688AB /* MCSReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = B7CBF00B22CF9B1200D688AB /* MCSReachability.h */; };
 		B7CBF00E22CF9B1200D688AB /* MCSReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B7CBF00C22CF9B1200D688AB /* MCSReachability.m */; };
 		E454AF4F233D3F1900877B10 /* MCSTopMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E454AF4E233D3F1900877B10 /* MCSTopMessageView.xib */; };
@@ -186,9 +186,9 @@
 		19A0EFDA229F14CA006B7AFA /* MCFCoreConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCFCoreConstants.h; sourceTree = "<group>"; };
 		19A0EFDB229F14CA006B7AFA /* MCFCoreConstants+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MCFCoreConstants+Private.h"; sourceTree = "<group>"; };
 		19A0EFF4229F181D006B7AFA /* MCCMerchant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCCMerchant.m; sourceTree = "<group>"; };
-		29F8F5AE4944607CB2B16BDF /* Pods-MCSCommerceWeb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCSCommerceWeb.release.xcconfig"; path = "Target Support Files/Pods-MCSCommerceWeb/Pods-MCSCommerceWeb.release.xcconfig"; sourceTree = "<group>"; };
-		5CF5EDF1C0CEA00D61DA1E39 /* Pods-MCSCommerceWeb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCSCommerceWeb.debug.xcconfig"; path = "Target Support Files/Pods-MCSCommerceWeb/Pods-MCSCommerceWeb.debug.xcconfig"; sourceTree = "<group>"; };
-		B562261A45EE0DB14869E8FF /* Pods_MCSCommerceWeb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCSCommerceWeb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		429C09D0DEECE923EFED0AA7 /* Pods_MCSCommerceWeb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCSCommerceWeb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		505F913947B4FABFA4A4AD5C /* Pods-MCSCommerceWeb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCSCommerceWeb.release.xcconfig"; path = "Target Support Files/Pods-MCSCommerceWeb/Pods-MCSCommerceWeb.release.xcconfig"; sourceTree = "<group>"; };
+		B609585A700B0745611D17B7 /* Pods-MCSCommerceWeb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCSCommerceWeb.debug.xcconfig"; path = "Target Support Files/Pods-MCSCommerceWeb/Pods-MCSCommerceWeb.debug.xcconfig"; sourceTree = "<group>"; };
 		B7CBF00B22CF9B1200D688AB /* MCSReachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSReachability.h; sourceTree = "<group>"; };
 		B7CBF00C22CF9B1200D688AB /* MCSReachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSReachability.m; sourceTree = "<group>"; };
 		E454AF4E233D3F1900877B10 /* MCSTopMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCSTopMessageView.xib; sourceTree = "<group>"; };
@@ -199,7 +199,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				055FE159F6993D985473FD92 /* Pods_MCSCommerceWeb.framework in Frameworks */,
+				6F02CA2D396AF59C59E3BC09 /* Pods_MCSCommerceWeb.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,11 +285,11 @@
 		19A0EBC22295EA40006B7AFA = {
 			isa = PBXGroup;
 			children = (
-				B7DC79D12355014D003350A0 /* Frameworks */,
 				19A0EBCE2295EA40006B7AFA /* MCSCommerceWeb */,
 				19A0EBD92295EA40006B7AFA /* MCSCommerceWebTests */,
 				19A0EBCD2295EA40006B7AFA /* Products */,
 				9F534EA88BB07C383D935917 /* Pods */,
+				7D82AAAF6225F3CD36CCB700 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -388,21 +388,21 @@
 			path = V7;
 			sourceTree = "<group>";
 		};
+		7D82AAAF6225F3CD36CCB700 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				429C09D0DEECE923EFED0AA7 /* Pods_MCSCommerceWeb.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9F534EA88BB07C383D935917 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5CF5EDF1C0CEA00D61DA1E39 /* Pods-MCSCommerceWeb.debug.xcconfig */,
-				29F8F5AE4944607CB2B16BDF /* Pods-MCSCommerceWeb.release.xcconfig */,
+				B609585A700B0745611D17B7 /* Pods-MCSCommerceWeb.debug.xcconfig */,
+				505F913947B4FABFA4A4AD5C /* Pods-MCSCommerceWeb.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		B7DC79D12355014D003350A0 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B562261A45EE0DB14869E8FF /* Pods_MCSCommerceWeb.framework */,
-			);
-			path = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -460,11 +460,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19A0EBE02295EA40006B7AFA /* Build configuration list for PBXNativeTarget "MCSCommerceWeb" */;
 			buildPhases = (
-				4C58305C86E2BA7C69D345EE /* [CP] Check Pods Manifest.lock */,
+				B744E21B819E72D6ACF8D951 /* [CP] Check Pods Manifest.lock */,
 				19A0EBC72295EA40006B7AFA /* Headers */,
 				19A0EBC82295EA40006B7AFA /* Sources */,
 				19A0EBC92295EA40006B7AFA /* Frameworks */,
 				19A0EBCA2295EA40006B7AFA /* Resources */,
+				49D716D72398123F00886133 /* ShellScript */,
+				49F67C7A23C9029600CBAD1C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -554,7 +556,41 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4C58305C86E2BA7C69D345EE /* [CP] Check Pods Manifest.lock */ = {
+		49D716D72398123F00886133 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PROJECT_DIR}/CommonResources/Dependency.sh\n";
+		};
+		49F67C7A23C9029600CBAD1C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "zip -r ${TARGET_NAME}.zip LICENSE ${TARGET_NAME}.framework\n";
+		};
+		B744E21B819E72D6ACF8D951 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -763,7 +799,7 @@
 		};
 		19A0EBE12295EA40006B7AFA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5CF5EDF1C0CEA00D61DA1E39 /* Pods-MCSCommerceWeb.debug.xcconfig */;
+			baseConfigurationReference = B609585A700B0745611D17B7 /* Pods-MCSCommerceWeb.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -792,7 +828,7 @@
 		};
 		19A0EBE22295EA40006B7AFA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29F8F5AE4944607CB2B16BDF /* Pods-MCSCommerceWeb.release.xcconfig */;
+			baseConfigurationReference = 505F913947B4FABFA4A4AD5C /* Pods-MCSCommerceWeb.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -810,6 +846,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mastercard.commerce.MCSCommerceWeb;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
