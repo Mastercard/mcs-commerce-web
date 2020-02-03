@@ -9,12 +9,6 @@
 /* Begin PBXBuildFile section */
 		191D9F9422ADAB5600379703 /* MCSCheckoutButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 191D9F9222ADAB5600379703 /* MCSCheckoutButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		191D9F9522ADAB5600379703 /* MCSCheckoutButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 191D9F9322ADAB5600379703 /* MCSCheckoutButton.m */; };
-		191D9FA622ADB63800379703 /* Sandbox.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 191D9FA122ADB63700379703 /* Sandbox.xcconfig */; };
-		191D9FA722ADB63800379703 /* Stage.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 191D9FA222ADB63700379703 /* Stage.xcconfig */; };
-		191D9FA822ADB63800379703 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 191D9FA322ADB63800379703 /* Debug.xcconfig */; };
-		191D9FA922ADB63800379703 /* Production.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 191D9FA422ADB63800379703 /* Production.xcconfig */; };
-		191D9FAA22ADB63800379703 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 191D9FA522ADB63800379703 /* Release.xcconfig */; };
-		191D9FAC22ADB9F900379703 /* Common.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 191D9FAB22ADB9F900379703 /* Common.xcconfig */; };
 		191D9FAF22AEB24000379703 /* MCSCheckoutButtonManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 191D9FAD22AEB24000379703 /* MCSCheckoutButtonManager.h */; };
 		191D9FB022AEB24000379703 /* MCSCheckoutButtonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 191D9FAE22AEB24000379703 /* MCSCheckoutButtonManager.m */; };
 		191D9FB322AEBAF100379703 /* MCSConfigurationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 191D9FB122AEBAF100379703 /* MCSConfigurationManager.h */; };
@@ -106,12 +100,6 @@
 		190AB70D22DD5CEA00D863C1 /* MCSCommerceWeb+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MCSCommerceWeb+Private.h"; sourceTree = "<group>"; };
 		191D9F9222ADAB5600379703 /* MCSCheckoutButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSCheckoutButton.h; sourceTree = "<group>"; };
 		191D9F9322ADAB5600379703 /* MCSCheckoutButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSCheckoutButton.m; sourceTree = "<group>"; };
-		191D9FA122ADB63700379703 /* Sandbox.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Sandbox.xcconfig; sourceTree = "<group>"; };
-		191D9FA222ADB63700379703 /* Stage.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Stage.xcconfig; sourceTree = "<group>"; };
-		191D9FA322ADB63800379703 /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
-		191D9FA422ADB63800379703 /* Production.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
-		191D9FA522ADB63800379703 /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
-		191D9FAB22ADB9F900379703 /* Common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
 		191D9FAD22AEB24000379703 /* MCSCheckoutButtonManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSCheckoutButtonManager.h; sourceTree = "<group>"; };
 		191D9FAE22AEB24000379703 /* MCSCheckoutButtonManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSCheckoutButtonManager.m; sourceTree = "<group>"; };
 		191D9FB122AEBAF100379703 /* MCSConfigurationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSConfigurationManager.h; sourceTree = "<group>"; };
@@ -234,19 +222,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		194A90BA22A054220056DFC0 /* Configurations */ = {
-			isa = PBXGroup;
-			children = (
-				191D9FA322ADB63800379703 /* Debug.xcconfig */,
-				191D9FA422ADB63800379703 /* Production.xcconfig */,
-				191D9FA522ADB63800379703 /* Release.xcconfig */,
-				191D9FA122ADB63700379703 /* Sandbox.xcconfig */,
-				191D9FA222ADB63700379703 /* Stage.xcconfig */,
-				191D9FAB22ADB9F900379703 /* Common.xcconfig */,
-			);
-			path = Configurations;
-			sourceTree = "<group>";
-		};
 		195FCD2522B8A1DC009B67DE /* Public */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,7 +283,6 @@
 				196DBED222AA1F3B00A05E38 /* Info.plist */,
 				195FCD2522B8A1DC009B67DE /* Public */,
 				1938731222A97775004CEFEE /* Resources */,
-				194A90BA22A054220056DFC0 /* Configurations */,
 				19A0EF86229EF6E2006B7AFA /* V7 */,
 				19A0EBF122962C53006B7AFA /* Internal */,
 				191D9F9622ADAB6400379703 /* MCSCheckoutButton */,
@@ -535,13 +509,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				191D9FA622ADB63800379703 /* Sandbox.xcconfig in Resources */,
-				191D9FA722ADB63800379703 /* Stage.xcconfig in Resources */,
 				1938731422A97798004CEFEE /* Images.xcassets in Resources */,
-				191D9FA822ADB63800379703 /* Debug.xcconfig in Resources */,
-				191D9FAA22ADB63800379703 /* Release.xcconfig in Resources */,
-				191D9FAC22ADB9F900379703 /* Common.xcconfig in Resources */,
-				191D9FA922ADB63800379703 /* Production.xcconfig in Resources */,
 				E454AF4F233D3F1900877B10 /* MCSTopMessageView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -21,7 +21,6 @@
 		19A0EDB322971653006B7AFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EC6B22971651006B7AFA /* LaunchScreen.storyboard */; };
 		19A0EDB422971653006B7AFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EC6D22971651006B7AFA /* AppDelegate.swift */; };
 		19A0EDB622971653006B7AFA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EC7122971651006B7AFA /* Constants.swift */; };
-		19A0EDB822971653006B7AFA /* Stage.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EC7422971651006B7AFA /* Stage.xcconfig */; };
 		19A0EDBC22971653006B7AFA /* Prod.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EC7822971651006B7AFA /* Prod.xcconfig */; };
 		19A0EDBD22971653006B7AFA /* Sandbox.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EC7922971651006B7AFA /* Sandbox.xcconfig */; };
 		19A0EDBE22971653006B7AFA /* OneServerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EC7B22971651006B7AFA /* OneServerRouter.swift */; };
@@ -153,7 +152,6 @@
 		19A0EE3F22971653006B7AFA /* CallbackResponseHandlerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0ED8722971652006B7AFA /* CallbackResponseHandlerManager.swift */; };
 		19A0EE4022971653006B7AFA /* SRCSDKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0ED8822971652006B7AFA /* SRCSDKManager.swift */; };
 		19A0EE4122971653006B7AFA /* DataPersisterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0ED8922971652006B7AFA /* DataPersisterManager.swift */; };
-		19A0EE4222971653006B7AFA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 19A0ED8B22971652006B7AFA /* README.md */; };
 		19A0EE4322971653006B7AFA /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0ED8D22971652006B7AFA /* ViewExtensions.swift */; };
 		19A0EE4422971653006B7AFA /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0ED8E22971652006B7AFA /* UIColorExtension.swift */; };
 		19A0EE4522971653006B7AFA /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0ED8F22971652006B7AFA /* BaseViewController.swift */; };
@@ -176,18 +174,16 @@
 		19A0EE5722971653006B7AFA /* LanguageConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EDA222971653006B7AFA /* LanguageConfiguration.swift */; };
 		19A0EE5E22986602006B7AFA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EE5D22986602006B7AFA /* Default-568h@2x.png */; };
 		19A0EF752298A13B006B7AFA /* objectLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EED522989A58006B7AFA /* objectLocator.swift */; };
-		3B7130CAB4C89664D54A4C3C /* Pods_FancyShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC167FFDF7E8167217120B33 /* Pods_FancyShop.framework */; };
 		490E2EC922F4953100B6709F /* MerchantServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490E2EC822F4952400B6709F /* MerchantServices.framework */; };
 		490E2ECA22F4953100B6709F /* MerchantServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 490E2EC822F4952400B6709F /* MerchantServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		490ED5422345469200830362 /* prod_fancyshop.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 494FBA032333EE1200F72D4E /* prod_fancyshop.p12 */; };
 		490ED5432345469700830362 /* sandbox_fancyshop.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 49246EBF2327F6DB00EFD86D /* sandbox_fancyshop.p12 */; };
-		493E87CC233D176A00D9B17D /* Sandbox_Merchant_Key.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 493E87CB233D176A00D9B17D /* Sandbox_Merchant_Key.p12 */; };
 		49B76FC32354F83E00AA0CF7 /* MasterpassSDKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B76FC22354F83E00AA0CF7 /* MasterpassSDKManager.swift */; };
 		49B76FC52354F8ED00AA0CF7 /* MasterpassUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B76FC42354F8ED00AA0CF7 /* MasterpassUser.swift */; };
 		49B76FC72354FA4200AA0CF7 /* MasterpassSDKConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B76FC62354FA4200AA0CF7 /* MasterpassSDKConfiguration.swift */; };
 		49B76FC92354FB7700AA0CF7 /* MasterpassConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B76FC82354FB7700AA0CF7 /* MasterpassConstants.swift */; };
 		49B76FCB235503CB00AA0CF7 /* MasterpassCheckoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B76FCA235503CB00AA0CF7 /* MasterpassCheckoutResponse.swift */; };
-		B7D10AB0230479B3003BA8D0 /* stage_fancyshop.p12 in Resources */ = {isa = PBXBuildFile; fileRef = B7D10AAF230479B3003BA8D0 /* stage_fancyshop.p12 */; };
+		6D7D81F29D5D78949A7011DD /* Pods_FancyShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A5EE078A3A83E6A7040329 /* Pods_FancyShop.framework */; };
 		E484A4AF237CA21C001DD283 /* EnvironmentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E484A4AC237CA21C001DD283 /* EnvironmentListViewController.swift */; };
 		E484A4B0237CA21C001DD283 /* EnvironmentList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E484A4AD237CA21C001DD283 /* EnvironmentList.storyboard */; };
 		E484A4B1237CA21C001DD283 /* EnvironmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E484A4AE237CA21C001DD283 /* EnvironmentTableViewCell.swift */; };
@@ -213,7 +209,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		15EC21F062C916065D4CC7F3 /* Pods-FancyShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.debug.xcconfig"; path = "Target Support Files/Pods-FancyShop/Pods-FancyShop.debug.xcconfig"; sourceTree = "<group>"; };
 		19A0EC4522970D3E006B7AFA /* FancyShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FancyShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19A0EC5C22971651006B7AFA /* language.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = language.json; sourceTree = "<group>"; };
 		19A0EC5F22971651006B7AFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -231,7 +226,6 @@
 		19A0EC6E22971651006B7AFA /* FancyShop-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FancyShop-Bridging-Header.h"; sourceTree = "<group>"; };
 		19A0EC6F22971651006B7AFA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19A0EC7122971651006B7AFA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		19A0EC7422971651006B7AFA /* Stage.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Stage.xcconfig; sourceTree = "<group>"; };
 		19A0EC7822971651006B7AFA /* Prod.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
 		19A0EC7922971651006B7AFA /* Sandbox.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Sandbox.xcconfig; sourceTree = "<group>"; };
 		19A0EC7B22971651006B7AFA /* OneServerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneServerRouter.swift; sourceTree = "<group>"; };
@@ -396,9 +390,9 @@
 		49B76FC62354FA4200AA0CF7 /* MasterpassSDKConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterpassSDKConfiguration.swift; sourceTree = "<group>"; };
 		49B76FC82354FB7700AA0CF7 /* MasterpassConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterpassConstants.swift; sourceTree = "<group>"; };
 		49B76FCA235503CB00AA0CF7 /* MasterpassCheckoutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterpassCheckoutResponse.swift; sourceTree = "<group>"; };
-		4D6C895DF95E7544CA8683FD /* Pods-FancyShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.release.xcconfig"; path = "Target Support Files/Pods-FancyShop/Pods-FancyShop.release.xcconfig"; sourceTree = "<group>"; };
-		AC167FFDF7E8167217120B33 /* Pods_FancyShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FancyShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7D10AAF230479B3003BA8D0 /* stage_fancyshop.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = stage_fancyshop.p12; sourceTree = "<group>"; };
+		CE9C0D0DE4D8DDD5BA02B4D0 /* Pods-FancyShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.debug.xcconfig"; path = "Target Support Files/Pods-FancyShop/Pods-FancyShop.debug.xcconfig"; sourceTree = "<group>"; };
+		D2A5EE078A3A83E6A7040329 /* Pods_FancyShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FancyShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E484A4AC237CA21C001DD283 /* EnvironmentListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentListViewController.swift; sourceTree = "<group>"; };
 		E484A4AD237CA21C001DD283 /* EnvironmentList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EnvironmentList.storyboard; sourceTree = "<group>"; };
 		E484A4AE237CA21C001DD283 /* EnvironmentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentTableViewCell.swift; sourceTree = "<group>"; };
@@ -407,6 +401,7 @@
 		E484A4B8237CA34B001DD283 /* EnvironmentListProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentListProtocols.swift; sourceTree = "<group>"; };
 		E484A4BC237CA6E1001DD283 /* EnvironmentListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentListInteractor.swift; sourceTree = "<group>"; };
 		E484A4C4237DBCE7001DD283 /* XCCParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCCParser.swift; sourceTree = "<group>"; };
+		F7AC70EF3B749C0C50486011 /* Pods-FancyShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.release.xcconfig"; path = "Target Support Files/Pods-FancyShop/Pods-FancyShop.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -415,7 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				490E2EC922F4953100B6709F /* MerchantServices.framework in Frameworks */,
-				3B7130CAB4C89664D54A4C3C /* Pods_FancyShop.framework in Frameworks */,
+				6D7D81F29D5D78949A7011DD /* Pods_FancyShop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,7 +504,6 @@
 		19A0EC7222971651006B7AFA /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
-				19A0EC7422971651006B7AFA /* Stage.xcconfig */,
 				19A0EC7922971651006B7AFA /* Sandbox.xcconfig */,
 				19A0EC7822971651006B7AFA /* Prod.xcconfig */,
 			);
@@ -1778,7 +1772,7 @@
 			isa = PBXGroup;
 			children = (
 				490E2EC822F4952400B6709F /* MerchantServices.framework */,
-				AC167FFDF7E8167217120B33 /* Pods_FancyShop.framework */,
+				D2A5EE078A3A83E6A7040329 /* Pods_FancyShop.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1786,8 +1780,8 @@
 		E0BF3A63CCB1FA357D996C45 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				15EC21F062C916065D4CC7F3 /* Pods-FancyShop.debug.xcconfig */,
-				4D6C895DF95E7544CA8683FD /* Pods-FancyShop.release.xcconfig */,
+				CE9C0D0DE4D8DDD5BA02B4D0 /* Pods-FancyShop.debug.xcconfig */,
+				F7AC70EF3B749C0C50486011 /* Pods-FancyShop.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1861,13 +1855,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19A0EC5722970D42006B7AFA /* Build configuration list for PBXNativeTarget "FancyShop" */;
 			buildPhases = (
-				ABD516737F08312F43959063 /* [CP] Check Pods Manifest.lock */,
+				C77C1EDB0F07FED7C04A57E3 /* [CP] Check Pods Manifest.lock */,
 				19A0EC4122970D3E006B7AFA /* Sources */,
 				19A0EC4222970D3E006B7AFA /* Frameworks */,
 				19A0EC4322970D3E006B7AFA /* Resources */,
 				19A0EF782298A311006B7AFA /* Embed Frameworks */,
-				95F245284211A8BB3AC54DFA /* [CP] Embed Pods Frameworks */,
-				D8DD1C6A8FE34753396C48F3 /* [CP] Copy Pods Resources */,
+				9740BBEE91099633577DB155 /* [CP] Embed Pods Frameworks */,
+				6B4BB1819D23D039B309276F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1919,24 +1913,20 @@
 				19A0EE1722971653006B7AFA /* ProductList.strings in Resources */,
 				19A0EDB222971653006B7AFA /* products.json in Resources */,
 				19A0EDDB22971653006B7AFA /* AllowedCardList.strings in Resources */,
-				19A0EDB822971653006B7AFA /* Stage.xcconfig in Resources */,
 				19A0EE3722971653006B7AFA /* Login.strings in Resources */,
 				19A0EDAA22971653006B7AFA /* outdoor_item8.jpg in Resources */,
 				19A0EDEB22971653006B7AFA /* CurrencyList.storyboard in Resources */,
 				19A0EDBC22971653006B7AFA /* Prod.xcconfig in Resources */,
 				19A0EDCB22971653006B7AFA /* ConfirmOrder.strings in Resources */,
 				19A0EDAD22971653006B7AFA /* outdoor_item1.jpg in Resources */,
-				19A0EE4222971653006B7AFA /* README.md in Resources */,
 				19A0EDBD22971653006B7AFA /* Sandbox.xcconfig in Resources */,
 				19A0EDF622971653006B7AFA /* LanguageList.storyboard in Resources */,
 				19A0EE3D22971653006B7AFA /* ITF.plist in Resources */,
 				19A0EDAC22971653006B7AFA /* outdoor_item2.jpg in Resources */,
-				493E87CC233D176A00D9B17D /* Sandbox_Merchant_Key.p12 in Resources */,
 				19A0EDB022971653006B7AFA /* outdoor_item6.jpg in Resources */,
 				19A0EDFE22971653006B7AFA /* AllowedDSRPList.storyboard in Resources */,
 				19A0EE0522971653006B7AFA /* PaymentMethods.strings in Resources */,
 				19A0EE2322971653006B7AFA /* OrderSummary.strings in Resources */,
-				B7D10AB0230479B3003BA8D0 /* stage_fancyshop.p12 in Resources */,
 				19A0EDA722971653006B7AFA /* language.json in Resources */,
 				19A0EE0722971653006B7AFA /* PaymentMethods.storyboard in Resources */,
 				19A0EE5E22986602006B7AFA /* Default-568h@2x.png in Resources */,
@@ -1965,7 +1955,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		95F245284211A8BB3AC54DFA /* [CP] Embed Pods Frameworks */ = {
+		6B4BB1819D23D039B309276F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9740BBEE91099633577DB155 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1982,7 +1989,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		ABD516737F08312F43959063 /* [CP] Check Pods Manifest.lock */ = {
+		C77C1EDB0F07FED7C04A57E3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2002,23 +2009,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D8DD1C6A8FE34753396C48F3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2334,7 +2324,7 @@
 		};
 		19A0EC5822970D42006B7AFA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 15EC21F062C916065D4CC7F3 /* Pods-FancyShop.debug.xcconfig */;
+			baseConfigurationReference = CE9C0D0DE4D8DDD5BA02B4D0 /* Pods-FancyShop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -2359,7 +2349,7 @@
 		};
 		19A0EC5922970D42006B7AFA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4D6C895DF95E7544CA8683FD /* Pods-FancyShop.release.xcconfig */;
+			baseConfigurationReference = F7AC70EF3B749C0C50486011 /* Pods-FancyShop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
