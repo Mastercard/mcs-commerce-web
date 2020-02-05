@@ -20,8 +20,7 @@
 
 @property (nonatomic, strong) NSURL *url;
 @property (nonatomic, strong) NSString *scheme;
-@property (nonatomic, strong) WKWebView *srciWebView;
-@property (nonatomic, strong) WKWebView *dcfWebView;
+@property (nonatomic, strong) NSMutableArray<WKWebView *> *webViews;
 @property (nonatomic, strong) MCSActivityIndicatorView *indicatorView;
 @property (nonatomic, weak) id<MCSWebCheckoutDelegate> delegate;
 @property (nonatomic) BOOL isDismissing;
@@ -59,23 +58,27 @@
     configuration.preferences = preferences;
     [configuration setURLSchemeHandler:self forURLScheme:self.scheme];
     
-    _srciWebView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:configuration];
-    _srciWebView.UIDelegate = self;
-    _srciWebView.navigationDelegate = self;
+    WKWebView *srciWebView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:configuration];
+    srciWebView.UIDelegate = self;
+    srciWebView.navigationDelegate = self;
     
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:_url];
     
-    [_srciWebView loadRequest:request];
-    [_srciWebView setAllowsBackForwardNavigationGestures:YES];
+    [srciWebView loadRequest:request];
+    [srciWebView setAllowsBackForwardNavigationGestures:YES];
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    [self.view addSubview:_srciWebView];
-    [self setConstraintsForView:_srciWebView];
+    [self.view addSubview:srciWebView];
+    [self setConstraintsForView:srciWebView];
+    [self.webViews addObject:srciWebView];
     [self.view addSubview:_indicatorView];
 }
 
 - (void)viewSafeAreaInsetsDidChange {
     [super viewSafeAreaInsetsDidChange];
-    [self setConstraintsForView:_srciWebView];
+    if (self.webViews.count > 0) {
+        WKWebView *topWebView = self.webViews.firstObject;
+        [self setConstraintsForView:topWebView];
+    }
 }
 
 - (void)setConstraintsForView:(UIView *)view {
@@ -96,25 +99,23 @@
 
 - (WKWebView *) webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures {
     
-    _dcfWebView = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:configuration];
-    _dcfWebView.UIDelegate = self;
-    _dcfWebView.navigationDelegate = self;
+    WKWebView *newWebView = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:configuration];
+    newWebView.UIDelegate = self;
+    newWebView.navigationDelegate = self;
     _receiveNavigationForDCFPopupCount = 0;
     
-    [self.view addSubview:_dcfWebView];
-    [self setConstraintsForView:_dcfWebView];
+    [self.view addSubview:newWebView];
+    [self setConstraintsForView:newWebView];
     [self.view addSubview:_indicatorView];
     [self.view bringSubviewToFront:_indicatorView];
     [_indicatorView show];
+    [self.webViews addObject:newWebView];
     
-    [self.view addSubview:_dcfWebView];
-    [self setConstraintsForView:_dcfWebView];
-    
-    return _dcfWebView;
+    return newWebView;
 }
 
 - (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation {
-    if (_dcfWebView != nil) {
+    if (self.webViews.count > 1) {
         _receiveNavigationForDCFPopupCount += 1;
         if (_receiveNavigationForDCFPopupCount == 2) {
             [_indicatorView hide];
@@ -139,10 +140,11 @@
     }
 }
 
-- (void) webViewDidClose:(WKWebView *)webView {
-    if (webView == _dcfWebView) {
-        [_dcfWebView removeFromSuperview];
-        _dcfWebView = nil;
+- (void)webViewDidClose:(WKWebView *)webView {
+    if (self.webViews.count == 2) {
+        WKWebView *topWebView = self.webViews.lastObject;
+        [topWebView removeFromSuperview];
+        [self.webViews removeLastObject];
     } else {
         [self dismiss];
     }
@@ -175,14 +177,13 @@
     __weak MCSWebViewController *weakSelf = self;
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:^{
         
-        [weakSelf.dcfWebView stopLoading];
-        [weakSelf.dcfWebView removeFromSuperview];
-        [weakSelf.srciWebView stopLoading];
-        [weakSelf.srciWebView removeFromSuperview];
-        [weakSelf.indicatorView removeFromSuperview];
+        for (WKWebView *webView in weakSelf.webViews) {
+            [webView stopLoading];
+            [webView removeFromSuperview];
+        }
         
-        weakSelf.srciWebView = nil;
-        weakSelf.dcfWebView = nil;
+        [weakSelf.webViews removeAllObjects];
+        [weakSelf.indicatorView removeFromSuperview];
         weakSelf.indicatorView = nil;
         weakSelf.view = nil;
     }];
