@@ -18,6 +18,8 @@ Example/SampleMerchantApp/SampleMerchantApp.xcworkspace/xcuserdata/
 
 Example/FancyShop/Pods
 Example/FancyShop/Podfile.lock
+Example/FancyShop/FancyShop/ExternalComponents
+
 
 Example/SampleMerchantApp/Pods
 Example/SampleMerchantApp/Podfile.lock
@@ -29,3 +31,5 @@ Podfile.lock
 **/.DS_Store
 .DS_Store
 
+MCSCommerceWeb/Configurations
+Example/FancyShop/FancyShop/Configurations

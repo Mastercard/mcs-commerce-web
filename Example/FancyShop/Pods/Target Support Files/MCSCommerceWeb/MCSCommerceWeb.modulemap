@@ -1,6 +1,0 @@
-framework module MCSCommerceWeb {
-  umbrella header "MCSCommerceWeb-umbrella.h"
-
-  export *
-  module * { export * }
-}
