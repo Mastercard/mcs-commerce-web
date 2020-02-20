@@ -128,7 +128,12 @@
 }
 
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
-    if (navigationAction.navigationType == WKNavigationTypeLinkActivated) {
+    if ([[navigationAction.request.URL absoluteString] isEqualToString:@"https://www.masterpass.com/"]) {
+        //masterpass redirects to callbackUrl, waits 200ms, then redirects to masterpass.com. This causes an issue
+        //where webView:startUrlSchemeTask: is not triggered. If we cancel navigation to masterpass.com, the
+        //callback urlSchemeTask triggers
+        decisionHandler(WKNavigationActionPolicyCancel);
+    } else if (navigationAction.navigationType == WKNavigationTypeLinkActivated) {
         //leaving context dismiss spinner if is showing
         [_indicatorView hide];
         [_indicatorView removeFromSuperview];
