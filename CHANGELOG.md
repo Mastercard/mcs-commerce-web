@@ -1,5 +1,16 @@
 # Change Log
 
+## Version 1.1.0
+
+Released: February 24, 2020
+
+Changes:
+
+* Fix issue redirecting to merchant callback URL from masterpass.com
+* Refactored WebViewControllerManager to dynamically add and remove webviews based on all incoming requests
+* Updated dependency script lipo command, added zip file for distribution
+* Updated podspec and build settings for MCSCommerceWeb to distribute as .framework instead of source files
+
 ## Version 1.0.1
 
 Released: November 21, 2019
