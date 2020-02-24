@@ -9,6 +9,5 @@ Pod::Spec.new do |s|
   s.ios.vendored_frameworks = "MCSCommerceWeb.framework"
   s.source       = { :http => "https://github.com/Mastercard/MCSCommerceWeb/blob/release/1.1.0/MCSCommerceWeb.zip?raw=true" }
   s.exclude_files = "Classes/Exclude"
-  s.resource_bundle = { 'MCSCommerceWebResources' => ["MCSCommerceWeb/Resources/**/*.{png,html,xcassets,xib}"] }
   s.dependency 'SVGKit', '3.0.0beta3'
 end
