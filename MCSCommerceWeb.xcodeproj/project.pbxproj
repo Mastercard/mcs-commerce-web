@@ -15,8 +15,6 @@
 		191D9FB422AEBAF100379703 /* MCSConfigurationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 191D9FB222AEBAF100379703 /* MCSConfigurationManager.m */; };
 		191D9FB822AEE05600379703 /* MCSCardTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 191D9FB622AEE05500379703 /* MCSCardTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		191D9FB922AEE05600379703 /* MCSCardTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 191D9FB722AEE05500379703 /* MCSCardTypes.m */; };
-		192EFCC222B2D90E0071CC71 /* MCSActivityIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 192EFCC022B2D90E0071CC71 /* MCSActivityIndicatorView.h */; };
-		192EFCC322B2D90E0071CC71 /* MCSActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 192EFCC122B2D90E0071CC71 /* MCSActivityIndicatorView.m */; };
 		1934CB6A22B043570038909C /* MCSCheckoutButton+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 1934CB6922B043570038909C /* MCSCheckoutButton+Private.h */; };
 		1938731422A97798004CEFEE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1938731322A97798004CEFEE /* Images.xcassets */; };
 		194A90C722A05FE90056DFC0 /* MCCCheckoutHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 194A90C522A05FE90056DFC0 /* MCCCheckoutHelper.h */; };
@@ -106,8 +104,6 @@
 		191D9FB222AEBAF100379703 /* MCSConfigurationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSConfigurationManager.m; sourceTree = "<group>"; };
 		191D9FB622AEE05500379703 /* MCSCardTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSCardTypes.h; sourceTree = "<group>"; };
 		191D9FB722AEE05500379703 /* MCSCardTypes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSCardTypes.m; sourceTree = "<group>"; };
-		192EFCC022B2D90E0071CC71 /* MCSActivityIndicatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSActivityIndicatorView.h; sourceTree = "<group>"; };
-		192EFCC122B2D90E0071CC71 /* MCSActivityIndicatorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSActivityIndicatorView.m; sourceTree = "<group>"; };
 		1934CB6922B043570038909C /* MCSCheckoutButton+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MCSCheckoutButton+Private.h"; sourceTree = "<group>"; };
 		1938731322A97798004CEFEE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		194A90C522A05FE90056DFC0 /* MCCCheckoutHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCCCheckoutHelper.h; sourceTree = "<group>"; };
@@ -323,8 +319,6 @@
 				19A0EBFB22962C53006B7AFA /* MCSWebViewController.h */,
 				19A0EBF722962C53006B7AFA /* MCSWebViewController.m */,
 				19A0EBF922962C53006B7AFA /* MCSCheckoutRouter.m */,
-				192EFCC022B2D90E0071CC71 /* MCSActivityIndicatorView.h */,
-				192EFCC122B2D90E0071CC71 /* MCSActivityIndicatorView.m */,
 				195FCD0522B6CFC4009B67DE /* MCSDelegateBridge.h */,
 				195FCD0622B6CFC4009B67DE /* MCSDelegateBridge.m */,
 				190AB70D22DD5CEA00D863C1 /* MCSCommerceWeb+Private.h */,
@@ -419,7 +413,6 @@
 				19A0EC1122962C53006B7AFA /* MCSWebViewController.h in Headers */,
 				19A0EC0A22962C53006B7AFA /* MCSCheckoutRouter.h in Headers */,
 				19A0EC0922962C53006B7AFA /* MCSViewControllerManager.h in Headers */,
-				192EFCC222B2D90E0071CC71 /* MCSActivityIndicatorView.h in Headers */,
 				195FCD0B22B6D280009B67DE /* MCCConfigurationManager.h in Headers */,
 				B7CBF00D22CF9B1200D688AB /* MCSReachability.h in Headers */,
 				19A0EFB8229F0961006B7AFA /* MCCMerchantConstants+Private.h in Headers */,
@@ -619,7 +612,6 @@
 				19A0EC0E22962C53006B7AFA /* MCSCheckoutUrlBuilder.m in Sources */,
 				195FCD0822B6CFC4009B67DE /* MCSDelegateBridge.m in Sources */,
 				19A0EFBD229F0961006B7AFA /* MCCMasterpassButton.m in Sources */,
-				192EFCC322B2D90E0071CC71 /* MCSActivityIndicatorView.m in Sources */,
 				19A0EC0D22962C53006B7AFA /* MCSWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

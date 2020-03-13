@@ -14,14 +14,12 @@
  =============================================================================*/
 
 #import "MCSWebViewController.h"
-#import "MCSActivityIndicatorView.h"
 
 @interface MCSWebViewController()
 
 @property (nonatomic, strong) NSURL *url;
 @property (nonatomic, strong) NSString *scheme;
 @property (nonatomic, strong) NSMutableArray<WKWebView *> *webViews;
-@property (nonatomic, strong) MCSActivityIndicatorView *indicatorView;
 @property (nonatomic, weak) id<MCSWebCheckoutDelegate> delegate;
 @property (nonatomic) BOOL isDismissing;
 @property (nonatomic) int receiveNavigationForDCFPopupCount;
@@ -35,7 +33,6 @@
         self.url = url;
         self.scheme = scheme;
         self.delegate = delegate;
-        self.indicatorView = [[MCSActivityIndicatorView alloc] initWithTitle:@"Loading..."];
         if (@available(iOS 13.0, *)) {
             [self setModalPresentationStyle:UIModalPresentationFullScreen];
         }
@@ -50,7 +47,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.webViews = [NSMutableArray array];
     WKPreferences *preferences = [[WKPreferences alloc] init];
     preferences.javaScriptCanOpenWindowsAutomatically = true;
     
@@ -70,7 +67,6 @@
     [self.view addSubview:srciWebView];
     [self setConstraintsForView:srciWebView];
     [self.webViews addObject:srciWebView];
-    [self.view addSubview:_indicatorView];
 }
 
 - (void)viewSafeAreaInsetsDidChange {
@@ -106,9 +102,6 @@
     
     [self.view addSubview:newWebView];
     [self setConstraintsForView:newWebView];
-    [self.view addSubview:_indicatorView];
-    [self.view bringSubviewToFront:_indicatorView];
-    [_indicatorView show];
     [self.webViews addObject:newWebView];
     
     return newWebView;
@@ -117,13 +110,6 @@
 - (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation {
     if (self.webViews.count > 1) {
         _receiveNavigationForDCFPopupCount += 1;
-        if (_receiveNavigationForDCFPopupCount == 2) {
-            [_indicatorView hide];
-            [_indicatorView removeFromSuperview];
-        }
-    } else {
-        [_indicatorView hide];
-        [_indicatorView removeFromSuperview];
     }
 }
 
@@ -134,9 +120,6 @@
         //callback urlSchemeTask triggers
         decisionHandler(WKNavigationActionPolicyCancel);
     } else if (navigationAction.navigationType == WKNavigationTypeLinkActivated) {
-        //leaving context dismiss spinner if is showing
-        [_indicatorView hide];
-        [_indicatorView removeFromSuperview];
         NSURL *url = navigationAction.request.URL;
         [UIApplication.sharedApplication openURL:url options:@{} completionHandler:nil];
         decisionHandler(WKNavigationActionPolicyCancel);
@@ -188,8 +171,6 @@
         }
         
         [weakSelf.webViews removeAllObjects];
-        [weakSelf.indicatorView removeFromSuperview];
-        weakSelf.indicatorView = nil;
         weakSelf.view = nil;
     }];
 }
