@@ -1,25 +1,35 @@
 Build
 Index
-Example/FancyShop/Build
-Example/FancyShop/Index
-Example/FancyShopV7/Build
-Example/FancyShopV7/Index
+Example/Build
+Example/Index
 
 Example/FancyShop/FancyShop.xcodeproj/xcuserdata
-Example/FancyShop/FancyShop.xcodeproj/project.xcworkspace/xcuserdata
-Example/FancyShop/FancyShop.xcworkspace/xcuserdata
-Example/FancyShopV7/FancyShop.xcodeproj/xcuserdata
-Example/FancyShopV7/FancyShop.xcodeproj/project.xcworkspace/xcuserdata
-Example/FancyShopV7/FancyShop.xcworkspace/xcuserdata
+Example/FancyShop/FancyShop.xcodeproj/project.xcworkspace/xcuserdata/
+Example/FancyShop/FancyShop.xcworkspace/xcuserdata/
 
-MCSCommerceWeb.xcodeproj/project.xcworkspace/xcuserdata
-MCSCommerceWeb.xcodeproj/xcuserdata
+MCSCommerceWeb.xcodeproj/project.xcworkspace/xcuserdata/
+MCSCommerceWeb.xcodeproj/xcuserdata/
+MCSCommerceWeb.xcworkspace/xcuserdata/
+MCSCommerceWeb.framework
 
-Example/FancyShopV7/Pods
-Example/FancyShopV7/Podfile.lock
+Example/SampleMerchantApp/SampleMerchantApp.xcodeproj/xcuserdata/
+Example/SampleMerchantApp/SampleMerchantApp.xcodeproj/project.xcworkspace/xcuserdata/
+Example/SampleMerchantApp/SampleMerchantApp.xcworkspace/xcuserdata/
+
 Example/FancyShop/Pods
 Example/FancyShop/Podfile.lock
+Example/FancyShop/FancyShop/ExternalComponents
+
+
+Example/SampleMerchantApp/Pods
+Example/SampleMerchantApp/Podfile.lock
+
+Pods/
+Podfile.lock
 
 # OS X .DS_Store
 **/.DS_Store
 .DS_Store
+
+MCSCommerceWeb/Configurations
+Example/FancyShop/FancyShop/Configurations

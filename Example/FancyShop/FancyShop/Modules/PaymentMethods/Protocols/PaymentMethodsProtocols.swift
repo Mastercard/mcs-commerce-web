@@ -48,6 +48,7 @@ protocol PaymentMethodsInteractorOutputProtocol: class {
     func goBack(animated: Bool)
     func userIsNotLoggedIn()
     func showSDKInitializationError()
+    func showSDKAddPaymentMethodError(error: Error)
 }
 
 /// Method contract between PRESENTER -> INTERACTOR

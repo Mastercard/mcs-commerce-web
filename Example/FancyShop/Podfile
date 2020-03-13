@@ -1,8 +1,12 @@
-platform :ios, '11.0'
-use_frameworks!
+source 'https://github.com/CocoaPods/Specs.git'
+
 target 'FancyShop' do
-  pod 'MCSCommerceWeb', :path => '../../'
-  
+  use_frameworks!
+  platform :ios, '11.0'
+
+  # Pods for MerchantApp
+  pod 'MCSCommerceWeb', :podspec => '../../MCSCommerceWeb.podspec'
+
   pod 'Alamofire'
   pod 'SDWebImage'
   pod 'NVActivityIndicatorView'

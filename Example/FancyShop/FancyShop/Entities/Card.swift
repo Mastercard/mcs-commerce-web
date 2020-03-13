@@ -35,10 +35,10 @@ struct Card{
     var cardId: String?
     
     /// Card expiryYear
-    var expiryYear: String?
+    var expiryYear: Int?
     
     /// Card expiryMonth
-    var expiryMonth: String?
+    var expiryMonth: Int?
     
     /// Card lastFour
     var lastFour: String?

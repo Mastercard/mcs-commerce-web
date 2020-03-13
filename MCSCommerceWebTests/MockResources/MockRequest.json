@@ -1,0 +1,46 @@
+{
+    "MCCMockCheckoutRequest":{
+        "allowedCardTypes" : "master,visa,amex",
+        "amount" : 25.14,
+        "cartId" : "A6T1C5",
+        "channel" : "mobile",
+        "checkoutId" : "ab230dfe76324d55a04c5955218c5815",
+        "currency" : "USD",
+        "locale" : "en_US",
+        "masterCryptoFormat" : "ICC,UCAF",
+        "suppressShippingAddress" : false,
+        "unpredictableNumber" : "12345678",
+        "cryptoOptions": [
+            {
+                "cardType": "master",
+                "format": [
+                    "UCAF",
+                    "ICC"
+                ]
+            },
+            {
+                "cardType": "visa",
+                "format": [
+                    "TAVV"
+                ]
+            }
+        ],
+        "callbackUrl" : null,
+        "cvc2Support" : true,
+        "shippingLocationProfile" : null,
+        "suppress3Ds" : true,
+        "validityPeriodMinutes" : 1.0
+    },
+    "MCSMockCheckoutRequest":{
+        "amount" : 25.14,
+        "cartId" : "A6T1C5",
+        "currency" : "USD",
+        "suppressShippingAddress" : true,
+        "cvc2Support" : 1,
+        "shippingLocationProfile" : null,
+        "suppress3Ds" : 1,
+        "unpredictableNumber" : "12345678",
+        "validityPeriodMinutes" : 1.0
+    }
+}
+

@@ -42,7 +42,8 @@ class PaymentMethodsWireFrame: PaymentMethodsWireFrameProtocol {
         interactor.localDatamanager = localDataManager
         
         let viewController = view as! PaymentMethodsViewController
-        NavigationHelper.pushViewController(viewController:viewController, animated: true)
+        viewController.finalCallback = finalCallback
+        NavigationHelper.presentViewController(viewController: viewController)
     }
     /// Goes to the previous screen
     ///

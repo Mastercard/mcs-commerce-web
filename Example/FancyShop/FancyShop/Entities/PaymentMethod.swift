@@ -15,15 +15,13 @@
 
 import Foundation
 
-/// Private Struct - PaymentMethod
-private struct PaymentMethodStruct {
-    static let kPaymentMethodObject = "paymentMethodObject"
-}
+import Foundation
+import MCSCommerceWeb
 
 /// PaymentMethod object, handles the paymentMethod info after paymentMethod set by user.
 class PaymentMethod: NSObject, NSCoding {
     
-    var paymentMethodObject : NSObject?
+    var paymentMethodObject : MCCPaymentMethod?
     
     /// Singleton instance
     static let sharedInstance : PaymentMethod = {
@@ -43,7 +41,6 @@ class PaymentMethod: NSObject, NSCoding {
     /// Saves the PaymentMethod
     func savePaymentMethod(){
         DataPersisterManager.sharedInstance.savePaymentMethod()
-        self.paymentMethodObject = DataPersisterManager.sharedInstance.getPaymentMethod() 
     }
     
     /// Removes the PaymentMethod
@@ -58,7 +55,7 @@ class PaymentMethod: NSObject, NSCoding {
     /// - Parameters:
     ///   - coder: NSCoder instance
     internal required init?(coder aDecoder: NSCoder) {
-        self.paymentMethodObject = aDecoder.decodeObject(forKey: PaymentMethodStruct.kPaymentMethodObject) as? NSObject
+        self.paymentMethodObject = aDecoder.decodeObject(forKey: "paymentMethodObject") as? MCCPaymentMethod
         super.init()
     }
     
@@ -67,6 +64,6 @@ class PaymentMethod: NSObject, NSCoding {
     ///
     /// - Parameter aCoder: NSCoder instance
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(self.paymentMethodObject, forKey:PaymentMethodStruct.kPaymentMethodObject)
+        aCoder.encode(self.paymentMethodObject, forKey:"paymentMethodObject")
     }
 }

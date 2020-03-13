@@ -42,11 +42,50 @@ class SettingsInteractor: BaseInteractor, SettingsInteractorInputProtocol {
         configuration.enablePaymentMethodCheckout = !configuration.enablePaymentMethodCheckout
         configuration.saveConfiguration()
         self.getSavedConfig()
+    } 
+    
+    func toggleMasterpassFlowOnOff() {
+        let configuration: SDKConfiguration = SDKConfiguration.sharedInstance
+        configuration.useMasterpassFlow = !configuration.useMasterpassFlow
+        configuration.saveConfiguration()
+        self.getSavedConfig()
+    }
+    
+    func toggleV7FlowOnOff() {
+        let configuration: SDKConfiguration = SDKConfiguration.sharedInstance
+        configuration.useV7Flow = !configuration.useV7Flow
+        configuration.saveConfiguration()
+        self.getSavedConfig()
+    }
+    
+    func selectPaymentMethod() {
+        
+        if NetworkReachability.isNetworkRechable() {
+            let configuration: MasterpassSDKConfiguration = MasterpassSDKConfiguration.sharedInstance
+            self.presenter?.initializeSDK()
+            super.initSDK(isPairingOnly: false, isExpressEnable: configuration.enableExpressCheckout) { responseObject, error in
+                
+                DispatchQueue.main.async {
+                    self.presenter?.initializeSDKComplete()
+                    let status: String = responseObject?.value(forKey: "status") as! String
+                    if status == MasterpassConstants.status.OK {
+                        
+                        self.presenter?.paymentMethod()
+                        
+                    } else if status == MasterpassConstants.status.NOK && error != nil {
+                        
+                        self.presenter?.showSDKInitializationError()
+                    }
+                }
+            }
+        } else {
+            self.presenter?.showNetworkError()
+        }
     }
     
     /// Returns the saved configuration for all modules
     func getSavedConfig() {
         let conf:SDKConfiguration = SDKConfiguration.sharedInstance
-        self.presenter?.setSavedData(cards: conf.cards, language: conf.language, currency: conf.currency, shippingStatus: conf.suppressShipping, paymentMethodCheckoutStatus: conf.enablePaymentMethodCheckout)
+        self.presenter?.setSavedData(cards: conf.cards, language: conf.language, currency: conf.currency, shippingStatus: conf.suppressShipping, paymentMethodCheckoutStatus: conf.enablePaymentMethodCheckout, isMasterpassCheckoutFlow: conf.useMasterpassFlow, isV7CheckoutFlow: conf.useV7Flow,environment: conf.environment)
     }
 }

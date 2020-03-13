@@ -34,15 +34,34 @@ class OrderSummaryAPIDataManager: OrderSummaryAPIDataManagerInputProtocol, MCSCh
     func getPaymentData(completionHandler: @escaping (NSDictionary?, Error?) -> ()){
         let checkoutResponse: CheckoutResponse = CheckoutResponse.sharedInstance
         
+        var checkoutId:String!
+        var merchantKeyFileName:String!
+        var merchantKeyFilePassword:String!
+        var consumerKey:String!
+        var host:String!
+        
+        let env = SDKConfiguration.sharedInstance.environment
+           switch env {
+           case .SANDBOX:
+                XCCParser.sharedInstance.parseXCConfig(configName: Constants.envEnum.SANDBOX.rawValue)
+                XCCParser.sharedInstance.paymentDataXConfig(&checkoutId, &merchantKeyFileName, &merchantKeyFilePassword, &consumerKey, &host)
+           case .STAGE:
+                XCCParser.sharedInstance.parseXCConfig(configName: Constants.envEnum.STAGE.rawValue)
+                XCCParser.sharedInstance.paymentDataXConfig(&checkoutId, &merchantKeyFileName, &merchantKeyFilePassword, &consumerKey, &host)
+           case .PRODUCTION:
+                XCCParser.sharedInstance.parseXCConfig(configName: Constants.envEnum.PRODUCTION.rawValue)
+                XCCParser.sharedInstance.paymentDataXConfig(&checkoutId, &merchantKeyFileName, &merchantKeyFilePassword, &consumerKey, &host)
+           }
+        
         let paymentDataService = MDSMerchantServices()
         let paymentDataRequest = MDSPaymentDataRequest()
         paymentDataRequest.cartId = ShoppingCart.sharedInstance.cartId
-        paymentDataRequest.checkoutId =  Constants.SDKConfiguration.checkoutId
+        paymentDataRequest.checkoutId = checkoutId
         paymentDataRequest.transactionId = checkoutResponse.transactionId!
-        paymentDataRequest.merechantKeyFileName = EnvironmentConfiguration.sharedInstance.merchankKeyFileName
-        paymentDataRequest.merechantKeyFilePassword = EnvironmentConfiguration.sharedInstance.merchankKeyFilePwd
-        paymentDataRequest.consumerKey = EnvironmentConfiguration.sharedInstance.consumerKey
-        paymentDataRequest.host = EnvironmentConfiguration.sharedInstance.merchantAPIHost
+        paymentDataRequest.merechantKeyFileName = merchantKeyFileName
+        paymentDataRequest.merechantKeyFilePassword = merchantKeyFilePassword
+        paymentDataRequest.consumerKey = consumerKey
+        paymentDataRequest.host = host
         
         var responseDict = NSDictionary()
         let responseKeys: [String] = ["status", "data"]
@@ -57,8 +76,8 @@ class OrderSummaryAPIDataManager: OrderSummaryAPIDataManagerInputProtocol, MCSCh
                 paymentData.card?.brandId = paymentDataDict.value(forKeyPath: "card.brandId") as? String
                 paymentData.card?.brandName = paymentDataDict.value(forKeyPath: "card.brandName") as? String
                 paymentData.card?.cardHolderName = paymentDataDict.value(forKeyPath: "cardHolderName") as? String
-                paymentData.card?.expiryMonth = paymentDataDict.value(forKeyPath: "expiryMonth") as? String
-                paymentData.card?.expiryYear = paymentDataDict.value(forKeyPath: "expiryYear") as? String
+                paymentData.card?.expiryMonth = paymentDataDict.value(forKeyPath: "expiryMonth") as? Int
+                paymentData.card?.expiryYear = paymentDataDict.value(forKeyPath: "expiryYear") as? Int
                 paymentData.card?.accountNumber = paymentDataDict.value(forKeyPath: "card.accountNumber") as? String
                 paymentData.card?.cardHolderName = paymentDataDict.value(forKeyPath: "card.cardHolderName") as? String
                 // Shipping address
@@ -82,12 +101,37 @@ class OrderSummaryAPIDataManager: OrderSummaryAPIDataManagerInputProtocol, MCSCh
         }
     }
     
+    
+    
     func initializeSdk() {
+        /*
+        * NOTE: Set the locale to "en_GB" if you want to test Prod
+        * locale: Locale(identifier: "en_GB")
+        */
         let configuration: SDKConfiguration = SDKConfiguration.sharedInstance
+        var checkoutId:String!
+        var checkoutUrl:String!
+        let env = SDKConfiguration.sharedInstance.environment
+        switch env {
+        case .SANDBOX:
+            XCCParser.sharedInstance.parseXCConfig(configName: Constants.envEnum.SANDBOX.rawValue)
+            XCCParser.sharedInstance.xconfigEnvironment(&checkoutId, &checkoutUrl)
+        case .STAGE:
+            XCCParser.sharedInstance.parseXCConfig(configName: Constants.envEnum.STAGE.rawValue)
+            XCCParser.sharedInstance.xconfigEnvironment(&checkoutId, &checkoutUrl)
+        case .PRODUCTION:
+            XCCParser.sharedInstance.parseXCConfig(configName: Constants.envEnum.PRODUCTION.rawValue)
+            XCCParser.sharedInstance.xconfigEnvironment(&checkoutId, &checkoutUrl)
+        }
+        
+        /*
+         * NOTE: Set the locale to "en_GB" if you want to test Prod
+         * locale: Locale(identifier: "en_GB")
+         */
         let commerceConfig: MCSConfiguration = MCSConfiguration(
             locale: configuration.getLocaleFromSelectedLanguage(),
-            checkoutId: Constants.SDKConfiguration.checkoutId,
-            checkoutUrl: Constants.SDKConfiguration.url,
+            checkoutId: checkoutId,
+            checkoutUrl: checkoutUrl,
             callbackScheme: BuildConfiguration.sharedInstance.merchantUrlScheme(),
             allowedCardTypes: [.master, .visa, .amex])
         
@@ -106,8 +150,12 @@ class OrderSummaryAPIDataManager: OrderSummaryAPIDataManagerInputProtocol, MCSCh
         handler(getCheckoutRequest())
     }
     
-    func checkoutCompleted(withRequest request: MCSCheckoutRequest!, status: MCSCheckoutStatus, transactionId: String?) {
-            completionHandler?(["TransactionId" : transactionId ?? ""], nil)
+    func checkoutCompleted(withRequest request: MCSCheckoutRequest, status: MCSCheckoutStatus, transactionId: String?) {
+        completionHandler?(["TransactionId" : transactionId ?? ""], nil)
+        CheckoutResponse.sharedInstance.transactionId = transactionId
+        if (status == MCSCheckoutStatus.success) {
+            CallbackResponseHandlerManager.handle(checkoutResponse: CheckoutResponse.sharedInstance, withSDKManager: SRCSDKManager.sharedInstance)
+        }
     }
     
     func getCheckoutRequest() -> MCSCheckoutRequest {

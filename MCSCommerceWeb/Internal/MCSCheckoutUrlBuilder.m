@@ -33,6 +33,9 @@ NSString * const _Nonnull kMerchantNameKey                      = @"merchantName
 NSString * const _Nonnull kCryptoOptionsKey                     = @"cryptoOptions";
 NSString * const _Nonnull kChannelKey                           = @"channel";
 NSString * const _Nonnull kChannelValue                         = @"mobile";
+NSString * const _Nonnull kSdkVersionKey                        = @"sdkVersion";
+NSString * const _Nonnull kPlatformKey                          = @"platform";
+NSString * const _Nonnull kPlatformValue                        = @"ios";
 
 @implementation MCSCheckoutUrlBuilder
 
@@ -62,7 +65,7 @@ NSString * const _Nonnull kChannelValue                         = @"mobile";
 + (NSDictionary *)dictionaryForCheckoutRequest:(MCSCheckoutRequest *)checkoutRequest configuration:(MCSConfiguration *)configuration {
     NSMutableDictionary *checkoutRequestDictionary = [[NSMutableDictionary alloc] init];
     
-    [checkoutRequestDictionary setValue:[checkoutRequest.amount stringValue]  forKey:kAmountKey];
+    [checkoutRequestDictionary setValue:[checkoutRequest.amount stringValue] forKey:kAmountKey];
     [checkoutRequestDictionary setValue:checkoutRequest.cartId forKey:kCartIdKey];
     [checkoutRequestDictionary setValue:checkoutRequest.currency forKey:kCurrencyKey];
     [checkoutRequestDictionary setValue:configuration.locale.localeIdentifier forKey:kLocaleKey];
@@ -85,6 +88,11 @@ NSString * const _Nonnull kChannelValue                         = @"mobile";
             [checkoutRequestDictionary setValue:cryptoFormatValue forKey:cryptoFormatKey];
         }
     }
+    
+    // Used for remote logging
+    NSBundle *frameworkBundle = [NSBundle bundleForClass:[self class]];
+    [checkoutRequestDictionary setValue:frameworkBundle.infoDictionary[@"CFBundleShortVersionString"] forKey:kSdkVersionKey];
+    [checkoutRequestDictionary setValue:kPlatformValue forKey:kPlatformKey];
     
     return checkoutRequestDictionary;
 }

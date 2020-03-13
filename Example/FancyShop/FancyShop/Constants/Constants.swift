@@ -61,10 +61,15 @@ struct Constants {
     
     /// Cards enumeration shown in the application
     enum cardsEnum:String {
-        case MasterCard = "Mastercard"
-        case VISA = "Visa"
-        case AmericanExpress = "American Express"
-        static let allValues = [AmericanExpress, MasterCard, VISA]
+        case AmericanExpress
+        case Discover
+        //        case JCB
+        case MasterCard
+        //        case Unionpay
+        case VISA
+        case Maestro
+        case DinersClub
+        static let allValues = [AmericanExpress, Discover, MasterCard, VISA, Maestro,DinersClub]
     }
     
     /// Languages used in the application, to initialize the SDK
@@ -109,15 +114,6 @@ struct Constants {
         static let  currentSymbol = currenciesSymbols.DOLLAR
     }
     
-    //MARK: SDK configurations
-    struct SDKConfiguration {
-        static let merchantUrlScheme = BuildConfiguration.sharedInstance.merchantUrlScheme()
-        static let checkoutId = EnvironmentConfiguration.sharedInstance.checkoutID
-        //static let environment = BuildConfiguration.sharedInstance.environmentName()
-        static let environment = EnvironmentConfiguration.sharedInstance.environmentName
-        static let url = EnvironmentConfiguration.sharedInstance.checkoutHost
-    }
-    
     /// SRC CallBack Response Constant
     struct  checkoutResponse {
         static let checkoutStatus = "mpstatus"
@@ -135,6 +131,31 @@ struct Constants {
         static let select = "select.png"
         static let unselect = "unselect.png"
         static let disableSelect = "disableSelect.png"
+    }
+    
+    /// Environment used in the application, to initialize the SDK    
+    enum envEnum:String {
+        case STAGE = "Stage"
+        case SANDBOX = "Sandbox"
+        case PRODUCTION = "Prod"
+        static let allValues = [STAGE, SANDBOX, PRODUCTION]
+    }
+    
+    /// xcconfig constants
+    struct xcconfigConstants {
+        static let masterpassCheckoutID = "MASTERPASS_CHECKOUT_ID"
+        static let masterpassCheckoutHost = "MASTERPASS_CHECKOUT_HOST"
+        static let masterpassMerchantKeyFileName = "MASTERPASS_MERCHANT_KEY_FILENAME"
+        static let masterpassMerchantKeyPwd = "MASTERPASS_MERCHANT_KEY_PWD"
+        static let masterpassConsumerKey = "MASTERPASS_CONSUMER_KEY"
+        static let switchHost = "SWITCH_HOST"
+        static let checkoutID = "CHECKOUT_ID"
+        static let checkoutHost = "CHECKOUT_HOST"
+        static let merchantKeyFileName = "MERCHANT_KEY_FILENAME"
+        static let merchantKeyPwd = "MERCHANT_KEY_PWD"
+        static let consumerKey = "CONSUMER_KEY"
+        static let merchantApiHost = "MERCHANT_API_HOST"
+        
     }
 }
 

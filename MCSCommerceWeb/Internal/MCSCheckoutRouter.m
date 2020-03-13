@@ -33,20 +33,20 @@
     self.viewControllerManager = manager;
     NSError *isReachableError = [MCSReachability isNetworkReachable];
     if (isReachableError) {
-         [self showAlert:kCoreNoInternetConnectionErrorInfo message:kCoreNoInternetConnectionMessage handler:^(UIAlertAction *action){
-             errorHandler();
-         }];
+        [self showAlert:kCoreNoInternetConnectionErrorInfo message:kCoreNoInternetConnectionMessage handler:^(UIAlertAction *action){
+            errorHandler();
+        }];
     } else {
         [manager startWithViewController:[self topViewController]];
         [self initiateNetworkAvailabilityCheck];
     }
-   
+    
 }
 
 #pragma mark - Check Internet Connectivity
 - (void)initiateNetworkAvailabilityCheck {
     
-    self.networkTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(checkNetworkAvailablity) userInfo:nil repeats:YES];
+    self.networkTimer = [NSTimer scheduledTimerWithTimeInterval:15.0 target:self selector:@selector(checkNetworkAvailablity) userInfo:nil repeats:YES];
     [self.networkTimer fire];
 }
 
@@ -70,13 +70,13 @@
                     self.topMessageView.frame = CGRectMake(0.0, 0.0, mainBounds.size.width, self.topMessageView.frame.size.height);
                     
                     [[weakSelf topViewController].view addSubview:self.topMessageView];
-                }
-            });
-        } else{
-            dispatch_async(dispatch_get_main_queue(), ^(void) {
-                if(self.topMessageView != nil){
-                    [self.topMessageView removeFromSuperview];
-                    self.topMessageView = nil;
+                    //remove after 5 seconds
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        if(self.topMessageView != nil){
+                            [self.topMessageView removeFromSuperview];
+                            self.topMessageView = nil;
+                        }
+                    });
                 }
             });
         }

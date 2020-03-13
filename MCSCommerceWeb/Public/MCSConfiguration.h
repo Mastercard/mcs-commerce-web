@@ -36,7 +36,7 @@
                              checkoutId:(NSString *_Nonnull)checkoutId
                                 checkoutUrl:(NSString *_Nonnull)checkoutUrl
                          callbackScheme:(NSString *_Nonnull)callbackScheme
-                       allowedCardTypes:(NSSet <MCSCardType> *)allowedCardTypes;
+                       allowedCardTypes:(NSSet <MCSCardType> *_Nonnull)allowedCardTypes;
 
 /**
  List of card networks accepted by the merchant

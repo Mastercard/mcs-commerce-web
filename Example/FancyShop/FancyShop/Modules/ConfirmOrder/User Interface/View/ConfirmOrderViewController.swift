@@ -68,7 +68,7 @@ class ConfirmOrderViewController: BaseViewController, ConfirmOrderViewProtocol, 
         super.viewWillAppear(animated)
         //startAnimating()
         self.presenter?.fetchItemsFromShoppingCart()
-        //self.presenter?.getPaymentData()
+        self.presenter?.getPaymentData()
     }
     
     /// Sets Identifiers

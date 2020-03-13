@@ -1,3 +1,0 @@
-#include "Sandbox.xcconfig"
-
-CHECKOUT_HOST=https:/$()/sandbox.masterpass.com/routing/v2/mobileapi/web-checkout //masterpass host

@@ -21,7 +21,6 @@
 		19A0EDB322971653006B7AFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EC6B22971651006B7AFA /* LaunchScreen.storyboard */; };
 		19A0EDB422971653006B7AFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EC6D22971651006B7AFA /* AppDelegate.swift */; };
 		19A0EDB622971653006B7AFA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EC7122971651006B7AFA /* Constants.swift */; };
-		19A0EDB822971653006B7AFA /* Stage.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EC7422971651006B7AFA /* Stage.xcconfig */; };
 		19A0EDBC22971653006B7AFA /* Prod.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EC7822971651006B7AFA /* Prod.xcconfig */; };
 		19A0EDBD22971653006B7AFA /* Sandbox.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EC7922971651006B7AFA /* Sandbox.xcconfig */; };
 		19A0EDBE22971653006B7AFA /* OneServerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EC7B22971651006B7AFA /* OneServerRouter.swift */; };
@@ -153,7 +152,6 @@
 		19A0EE3F22971653006B7AFA /* CallbackResponseHandlerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0ED8722971652006B7AFA /* CallbackResponseHandlerManager.swift */; };
 		19A0EE4022971653006B7AFA /* SRCSDKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0ED8822971652006B7AFA /* SRCSDKManager.swift */; };
 		19A0EE4122971653006B7AFA /* DataPersisterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0ED8922971652006B7AFA /* DataPersisterManager.swift */; };
-		19A0EE4222971653006B7AFA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 19A0ED8B22971652006B7AFA /* README.md */; };
 		19A0EE4322971653006B7AFA /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0ED8D22971652006B7AFA /* ViewExtensions.swift */; };
 		19A0EE4422971653006B7AFA /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0ED8E22971652006B7AFA /* UIColorExtension.swift */; };
 		19A0EE4522971653006B7AFA /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0ED8F22971652006B7AFA /* BaseViewController.swift */; };
@@ -176,9 +174,24 @@
 		19A0EE5722971653006B7AFA /* LanguageConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EDA222971653006B7AFA /* LanguageConfiguration.swift */; };
 		19A0EE5E22986602006B7AFA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EE5D22986602006B7AFA /* Default-568h@2x.png */; };
 		19A0EF752298A13B006B7AFA /* objectLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EED522989A58006B7AFA /* objectLocator.swift */; };
-		408DBF9DF4DA79A568CF8D29 /* Pods_FancyShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AA3B29A862E522ED88571C /* Pods_FancyShop.framework */; };
 		490E2EC922F4953100B6709F /* MerchantServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490E2EC822F4952400B6709F /* MerchantServices.framework */; };
 		490E2ECA22F4953100B6709F /* MerchantServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 490E2EC822F4952400B6709F /* MerchantServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		490ED5422345469200830362 /* prod_fancyshop.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 494FBA032333EE1200F72D4E /* prod_fancyshop.p12 */; };
+		490ED5432345469700830362 /* sandbox_fancyshop.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 49246EBF2327F6DB00EFD86D /* sandbox_fancyshop.p12 */; };
+		49B76FC32354F83E00AA0CF7 /* MasterpassSDKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B76FC22354F83E00AA0CF7 /* MasterpassSDKManager.swift */; };
+		49B76FC52354F8ED00AA0CF7 /* MasterpassUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B76FC42354F8ED00AA0CF7 /* MasterpassUser.swift */; };
+		49B76FC72354FA4200AA0CF7 /* MasterpassSDKConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B76FC62354FA4200AA0CF7 /* MasterpassSDKConfiguration.swift */; };
+		49B76FC92354FB7700AA0CF7 /* MasterpassConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B76FC82354FB7700AA0CF7 /* MasterpassConstants.swift */; };
+		49B76FCB235503CB00AA0CF7 /* MasterpassCheckoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B76FCA235503CB00AA0CF7 /* MasterpassCheckoutResponse.swift */; };
+		6D7D81F29D5D78949A7011DD /* Pods_FancyShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A5EE078A3A83E6A7040329 /* Pods_FancyShop.framework */; };
+		E484A4AF237CA21C001DD283 /* EnvironmentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E484A4AC237CA21C001DD283 /* EnvironmentListViewController.swift */; };
+		E484A4B0237CA21C001DD283 /* EnvironmentList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E484A4AD237CA21C001DD283 /* EnvironmentList.storyboard */; };
+		E484A4B1237CA21C001DD283 /* EnvironmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E484A4AE237CA21C001DD283 /* EnvironmentTableViewCell.swift */; };
+		E484A4B3237CA259001DD283 /* EnvironmentListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E484A4B2237CA259001DD283 /* EnvironmentListPresenter.swift */; };
+		E484A4B6237CA2D4001DD283 /* EnvironmentListWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E484A4B5237CA2D4001DD283 /* EnvironmentListWireFrame.swift */; };
+		E484A4B9237CA34B001DD283 /* EnvironmentListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E484A4B8237CA34B001DD283 /* EnvironmentListProtocols.swift */; };
+		E484A4BD237CA6E1001DD283 /* EnvironmentListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E484A4BC237CA6E1001DD283 /* EnvironmentListInteractor.swift */; };
+		E484A4C5237DBCE7001DD283 /* XCCParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E484A4C4237DBCE7001DD283 /* XCCParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -196,9 +209,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		19132C8D22E0CFEA00F98EAE /* MasterpassSandbox.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MasterpassSandbox.xcconfig; sourceTree = "<group>"; };
-		19132C8E22E0D02B00F98EAE /* SrcSandbox.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SrcSandbox.xcconfig; sourceTree = "<group>"; };
-		19132C8F22E0D6BA00F98EAE /* SrcStage.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SrcStage.xcconfig; sourceTree = "<group>"; };
 		19A0EC4522970D3E006B7AFA /* FancyShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FancyShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19A0EC5C22971651006B7AFA /* language.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = language.json; sourceTree = "<group>"; };
 		19A0EC5F22971651006B7AFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -216,7 +226,6 @@
 		19A0EC6E22971651006B7AFA /* FancyShop-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FancyShop-Bridging-Header.h"; sourceTree = "<group>"; };
 		19A0EC6F22971651006B7AFA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19A0EC7122971651006B7AFA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		19A0EC7422971651006B7AFA /* Stage.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Stage.xcconfig; sourceTree = "<group>"; };
 		19A0EC7822971651006B7AFA /* Prod.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
 		19A0EC7922971651006B7AFA /* Sandbox.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Sandbox.xcconfig; sourceTree = "<group>"; };
 		19A0EC7B22971651006B7AFA /* OneServerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneServerRouter.swift; sourceTree = "<group>"; };
@@ -372,10 +381,27 @@
 		19A0EDA222971653006B7AFA /* LanguageConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageConfiguration.swift; sourceTree = "<group>"; };
 		19A0EE5D22986602006B7AFA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		19A0EED522989A58006B7AFA /* objectLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = objectLocator.swift; sourceTree = "<group>"; };
-		445A426DE8D8CF638255DF00 /* Pods-FancyShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.debug.xcconfig"; path = "Target Support Files/Pods-FancyShop/Pods-FancyShop.debug.xcconfig"; sourceTree = "<group>"; };
 		490E2EC822F4952400B6709F /* MerchantServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MerchantServices.framework; sourceTree = "<group>"; };
-		A7AA3B29A862E522ED88571C /* Pods_FancyShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FancyShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F2786011548AAD141ADC65A1 /* Pods-FancyShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.release.xcconfig"; path = "Target Support Files/Pods-FancyShop/Pods-FancyShop.release.xcconfig"; sourceTree = "<group>"; };
+		49246EBF2327F6DB00EFD86D /* sandbox_fancyshop.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sandbox_fancyshop.p12; sourceTree = "<group>"; };
+		493E87CB233D176A00D9B17D /* Sandbox_Merchant_Key.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sandbox_Merchant_Key.p12; sourceTree = "<group>"; };
+		494FBA032333EE1200F72D4E /* prod_fancyshop.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = prod_fancyshop.p12; sourceTree = "<group>"; };
+		49B76FC22354F83E00AA0CF7 /* MasterpassSDKManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterpassSDKManager.swift; sourceTree = "<group>"; };
+		49B76FC42354F8ED00AA0CF7 /* MasterpassUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterpassUser.swift; sourceTree = "<group>"; };
+		49B76FC62354FA4200AA0CF7 /* MasterpassSDKConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterpassSDKConfiguration.swift; sourceTree = "<group>"; };
+		49B76FC82354FB7700AA0CF7 /* MasterpassConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterpassConstants.swift; sourceTree = "<group>"; };
+		49B76FCA235503CB00AA0CF7 /* MasterpassCheckoutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterpassCheckoutResponse.swift; sourceTree = "<group>"; };
+		B7D10AAF230479B3003BA8D0 /* stage_fancyshop.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = stage_fancyshop.p12; sourceTree = "<group>"; };
+		CE9C0D0DE4D8DDD5BA02B4D0 /* Pods-FancyShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.debug.xcconfig"; path = "Target Support Files/Pods-FancyShop/Pods-FancyShop.debug.xcconfig"; sourceTree = "<group>"; };
+		D2A5EE078A3A83E6A7040329 /* Pods_FancyShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FancyShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E484A4AC237CA21C001DD283 /* EnvironmentListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentListViewController.swift; sourceTree = "<group>"; };
+		E484A4AD237CA21C001DD283 /* EnvironmentList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EnvironmentList.storyboard; sourceTree = "<group>"; };
+		E484A4AE237CA21C001DD283 /* EnvironmentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentTableViewCell.swift; sourceTree = "<group>"; };
+		E484A4B2237CA259001DD283 /* EnvironmentListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentListPresenter.swift; sourceTree = "<group>"; };
+		E484A4B5237CA2D4001DD283 /* EnvironmentListWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentListWireFrame.swift; sourceTree = "<group>"; };
+		E484A4B8237CA34B001DD283 /* EnvironmentListProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentListProtocols.swift; sourceTree = "<group>"; };
+		E484A4BC237CA6E1001DD283 /* EnvironmentListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentListInteractor.swift; sourceTree = "<group>"; };
+		E484A4C4237DBCE7001DD283 /* XCCParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCCParser.swift; sourceTree = "<group>"; };
+		F7AC70EF3B749C0C50486011 /* Pods-FancyShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.release.xcconfig"; path = "Target Support Files/Pods-FancyShop/Pods-FancyShop.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -384,7 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				490E2EC922F4953100B6709F /* MerchantServices.framework in Frameworks */,
-				408DBF9DF4DA79A568CF8D29 /* Pods_FancyShop.framework in Frameworks */,
+				6D7D81F29D5D78949A7011DD /* Pods_FancyShop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +496,7 @@
 			isa = PBXGroup;
 			children = (
 				19A0EC7122971651006B7AFA /* Constants.swift */,
+				49B76FC82354FB7700AA0CF7 /* MasterpassConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -477,12 +504,8 @@
 		19A0EC7222971651006B7AFA /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
-				19A0EC7422971651006B7AFA /* Stage.xcconfig */,
 				19A0EC7922971651006B7AFA /* Sandbox.xcconfig */,
 				19A0EC7822971651006B7AFA /* Prod.xcconfig */,
-				19132C8F22E0D6BA00F98EAE /* SrcStage.xcconfig */,
-				19132C8E22E0D02B00F98EAE /* SrcSandbox.xcconfig */,
-				19132C8D22E0CFEA00F98EAE /* MasterpassSandbox.xcconfig */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -505,6 +528,7 @@
 				19A0EC8122971651006B7AFA /* URLbuilder.swift */,
 				19A0EC8222971651006B7AFA /* NetworkReachability.swift */,
 				19A0EC8322971651006B7AFA /* SessionTimer.swift */,
+				E484A4C4237DBCE7001DD283 /* XCCParser.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -512,6 +536,7 @@
 		19A0EC8422971651006B7AFA /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E484A4A9237CA1BC001DD283 /* Environment */,
 				19A0EED522989A58006B7AFA /* objectLocator.swift */,
 				19A0ECC622971651006B7AFA /* CurrencyList */,
 				19A0ED1A22971652006B7AFA /* TransactionFailure */,
@@ -1686,6 +1711,7 @@
 		19A0ED8622971652006B7AFA /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				49B76FC22354F83E00AA0CF7 /* MasterpassSDKManager.swift */,
 				19A0ED8722971652006B7AFA /* CallbackResponseHandlerManager.swift */,
 				19A0ED8822971652006B7AFA /* SRCSDKManager.swift */,
 				19A0ED8922971652006B7AFA /* DataPersisterManager.swift */,
@@ -1696,6 +1722,10 @@
 		19A0ED8A22971652006B7AFA /* ExternalComponents */ = {
 			isa = PBXGroup;
 			children = (
+				493E87CB233D176A00D9B17D /* Sandbox_Merchant_Key.p12 */,
+				494FBA032333EE1200F72D4E /* prod_fancyshop.p12 */,
+				49246EBF2327F6DB00EFD86D /* sandbox_fancyshop.p12 */,
+				B7D10AAF230479B3003BA8D0 /* stage_fancyshop.p12 */,
 				19A0ED8B22971652006B7AFA /* README.md */,
 			);
 			path = ExternalComponents;
@@ -1721,9 +1751,11 @@
 				19A0ED9622971653006B7AFA /* DSRP.swift */,
 				19A0ED9722971653006B7AFA /* ShippingAddress.swift */,
 				19A0ED9822971653006B7AFA /* SDKConfiguration.swift */,
+				49B76FC62354FA4200AA0CF7 /* MasterpassSDKConfiguration.swift */,
 				19A0ED9922971653006B7AFA /* PaymentData.swift */,
 				19A0ED9A22971653006B7AFA /* Card.swift */,
 				19A0ED9B22971653006B7AFA /* User.swift */,
+				49B76FC42354F8ED00AA0CF7 /* MasterpassUser.swift */,
 				19A0ED9C22971653006B7AFA /* PaymentMethod.swift */,
 				19A0ED9D22971653006B7AFA /* CheckoutResponse.swift */,
 				19A0ED9E22971653006B7AFA /* Product.swift */,
@@ -1731,6 +1763,7 @@
 				19A0EDA022971653006B7AFA /* ShoppingCartItem.swift */,
 				19A0EDA122971653006B7AFA /* CardConfiguration.swift */,
 				19A0EDA222971653006B7AFA /* LanguageConfiguration.swift */,
+				49B76FCA235503CB00AA0CF7 /* MasterpassCheckoutResponse.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1739,7 +1772,7 @@
 			isa = PBXGroup;
 			children = (
 				490E2EC822F4952400B6709F /* MerchantServices.framework */,
-				A7AA3B29A862E522ED88571C /* Pods_FancyShop.framework */,
+				D2A5EE078A3A83E6A7040329 /* Pods_FancyShop.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1747,10 +1780,72 @@
 		E0BF3A63CCB1FA357D996C45 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				445A426DE8D8CF638255DF00 /* Pods-FancyShop.debug.xcconfig */,
-				F2786011548AAD141ADC65A1 /* Pods-FancyShop.release.xcconfig */,
+				CE9C0D0DE4D8DDD5BA02B4D0 /* Pods-FancyShop.debug.xcconfig */,
+				F7AC70EF3B749C0C50486011 /* Pods-FancyShop.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E484A4A9237CA1BC001DD283 /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				E484A4BB237CA6B8001DD283 /* Interactor */,
+				E484A4B7237CA30F001DD283 /* Protocols */,
+				E484A4BA237CA3D5001DD283 /* User Interface */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
+		E484A4AA237CA1D0001DD283 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E484A4AD237CA21C001DD283 /* EnvironmentList.storyboard */,
+				E484A4AC237CA21C001DD283 /* EnvironmentListViewController.swift */,
+				E484A4AE237CA21C001DD283 /* EnvironmentTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E484A4AB237CA1D8001DD283 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E484A4B2237CA259001DD283 /* EnvironmentListPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E484A4B4237CA2AA001DD283 /* WireFrame */ = {
+			isa = PBXGroup;
+			children = (
+				E484A4B5237CA2D4001DD283 /* EnvironmentListWireFrame.swift */,
+			);
+			path = WireFrame;
+			sourceTree = "<group>";
+		};
+		E484A4B7237CA30F001DD283 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				E484A4B8237CA34B001DD283 /* EnvironmentListProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E484A4BA237CA3D5001DD283 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				E484A4AA237CA1D0001DD283 /* View */,
+				E484A4AB237CA1D8001DD283 /* Presenter */,
+				E484A4B4237CA2AA001DD283 /* WireFrame */,
+			);
+			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		E484A4BB237CA6B8001DD283 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				E484A4BC237CA6E1001DD283 /* EnvironmentListInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1760,12 +1855,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19A0EC5722970D42006B7AFA /* Build configuration list for PBXNativeTarget "FancyShop" */;
 			buildPhases = (
-				F05FD71C8F41B86D57324F85 /* [CP] Check Pods Manifest.lock */,
+				C77C1EDB0F07FED7C04A57E3 /* [CP] Check Pods Manifest.lock */,
 				19A0EC4122970D3E006B7AFA /* Sources */,
 				19A0EC4222970D3E006B7AFA /* Frameworks */,
 				19A0EC4322970D3E006B7AFA /* Resources */,
 				19A0EF782298A311006B7AFA /* Embed Frameworks */,
-				E6C11E6376CDE1BCBBD82C76 /* [CP] Embed Pods Frameworks */,
+				9740BBEE91099633577DB155 /* [CP] Embed Pods Frameworks */,
+				6B4BB1819D23D039B309276F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1817,14 +1913,12 @@
 				19A0EE1722971653006B7AFA /* ProductList.strings in Resources */,
 				19A0EDB222971653006B7AFA /* products.json in Resources */,
 				19A0EDDB22971653006B7AFA /* AllowedCardList.strings in Resources */,
-				19A0EDB822971653006B7AFA /* Stage.xcconfig in Resources */,
 				19A0EE3722971653006B7AFA /* Login.strings in Resources */,
 				19A0EDAA22971653006B7AFA /* outdoor_item8.jpg in Resources */,
 				19A0EDEB22971653006B7AFA /* CurrencyList.storyboard in Resources */,
 				19A0EDBC22971653006B7AFA /* Prod.xcconfig in Resources */,
 				19A0EDCB22971653006B7AFA /* ConfirmOrder.strings in Resources */,
 				19A0EDAD22971653006B7AFA /* outdoor_item1.jpg in Resources */,
-				19A0EE4222971653006B7AFA /* README.md in Resources */,
 				19A0EDBD22971653006B7AFA /* Sandbox.xcconfig in Resources */,
 				19A0EDF622971653006B7AFA /* LanguageList.storyboard in Resources */,
 				19A0EE3D22971653006B7AFA /* ITF.plist in Resources */,
@@ -1839,11 +1933,13 @@
 				19A0EE1122971653006B7AFA /* TransactionFailure.storyboard in Resources */,
 				19A0EDD922971653006B7AFA /* Settings.storyboard in Resources */,
 				19A0EDE422971653006B7AFA /* AllowedCardList.storyboard in Resources */,
+				490ED5422345469200830362 /* prod_fancyshop.p12 in Resources */,
 				19A0EDB322971653006B7AFA /* LaunchScreen.storyboard in Resources */,
 				19A0EDCE22971653006B7AFA /* ConfirmOrder.storyboard in Resources */,
 				19A0EE2522971653006B7AFA /* OrderSummary.storyboard in Resources */,
 				19A0EDAE22971653006B7AFA /* outdoor_item5.jpg in Resources */,
 				19A0EE1B22971653006B7AFA /* ProductList.storyboard in Resources */,
+				E484A4B0237CA21C001DD283 /* EnvironmentList.storyboard in Resources */,
 				19A0EDAB22971653006B7AFA /* outdoor_item3.jpg in Resources */,
 				19A0EE3C22971653006B7AFA /* Production.plist in Resources */,
 				19A0EDA922971653006B7AFA /* Assets.xcassets in Resources */,
@@ -1852,13 +1948,31 @@
 				19A0EDB122971653006B7AFA /* outdoor_item7.jpg in Resources */,
 				19A0EDAF22971653006B7AFA /* outdoor_item4.jpg in Resources */,
 				19A0EE3A22971653006B7AFA /* Login.storyboard in Resources */,
+				490ED5432345469700830362 /* sandbox_fancyshop.p12 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		E6C11E6376CDE1BCBBD82C76 /* [CP] Embed Pods Frameworks */ = {
+		6B4BB1819D23D039B309276F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9740BBEE91099633577DB155 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1875,7 +1989,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F05FD71C8F41B86D57324F85 /* [CP] Check Pods Manifest.lock */ = {
+		C77C1EDB0F07FED7C04A57E3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1912,15 +2026,18 @@
 				19A0EE1C22971653006B7AFA /* ProductCell.swift in Sources */,
 				19A0EDD822971653006B7AFA /* SettingsCardViewCell.swift in Sources */,
 				19A0EDE122971653006B7AFA /* AllowedCardListWireFrame.swift in Sources */,
+				E484A4B6237CA2D4001DD283 /* EnvironmentListWireFrame.swift in Sources */,
 				19A0EE1622971653006B7AFA /* ProductListProtocols.swift in Sources */,
 				19A0EDCC22971653006B7AFA /* ConfirmOrderWireFrame.swift in Sources */,
 				19A0EDD522971653006B7AFA /* SettingsWireFrame.swift in Sources */,
 				19A0EDDD22971653006B7AFA /* AllowedCardListAPIDataManager.swift in Sources */,
+				49B76FC72354FA4200AA0CF7 /* MasterpassSDKConfiguration.swift in Sources */,
 				19A0EDF122971653006B7AFA /* LanguageListProtocols.swift in Sources */,
 				19A0EE3522971653006B7AFA /* LoginInteractor.swift in Sources */,
 				19A0EDF222971653006B7AFA /* LanguageListPresenter.swift in Sources */,
 				19A0EE0622971653006B7AFA /* PaymentMethodsWireFrame.swift in Sources */,
 				19A0EE5222971653006B7AFA /* CheckoutResponse.swift in Sources */,
+				49B76FC92354FB7700AA0CF7 /* MasterpassConstants.swift in Sources */,
 				19A0EDC422971653006B7AFA /* NetworkReachability.swift in Sources */,
 				19A0EDE822971653006B7AFA /* CurrencyListProtocols.swift in Sources */,
 				19A0EDE922971653006B7AFA /* CurrencyListPresenter.swift in Sources */,
@@ -1950,9 +2067,11 @@
 				19A0EE2D22971653006B7AFA /* TransactionCompleteWireFrame.swift in Sources */,
 				19A0EE5122971653006B7AFA /* PaymentMethod.swift in Sources */,
 				19A0EDDF22971653006B7AFA /* AllowedCardListProtocols.swift in Sources */,
+				E484A4B9237CA34B001DD283 /* EnvironmentListProtocols.swift in Sources */,
 				19A0EDC022971653006B7AFA /* NavigationHelper.swift in Sources */,
 				19A0EE2B22971653006B7AFA /* TransactionCompleteProtocols.swift in Sources */,
 				19A0EDD622971653006B7AFA /* SettingsTextViewCell.swift in Sources */,
+				49B76FC52354F8ED00AA0CF7 /* MasterpassUser.swift in Sources */,
 				19A0EE2F22971653006B7AFA /* TransactionCompleteViewController.swift in Sources */,
 				19A0EE2E22971653006B7AFA /* TransactionCompleteItemViewCell.swift in Sources */,
 				19A0EDCA22971653006B7AFA /* ConfirmOrderPresenter.swift in Sources */,
@@ -1989,6 +2108,7 @@
 				19A0EE4022971653006B7AFA /* SRCSDKManager.swift in Sources */,
 				19A0EE0422971653006B7AFA /* PaymentMethodsPresenter.swift in Sources */,
 				19A0EDF022971653006B7AFA /* LanguageListInteractor.swift in Sources */,
+				49B76FC32354F83E00AA0CF7 /* MasterpassSDKManager.swift in Sources */,
 				19A0EE0822971653006B7AFA /* PaymentMethodsTableViewCell.swift in Sources */,
 				19A0EE0C22971653006B7AFA /* TransactionFailureInteractor.swift in Sources */,
 				19A0EDF522971653006B7AFA /* LanguageListViewController.swift in Sources */,
@@ -1996,12 +2116,14 @@
 				19A0EE0D22971653006B7AFA /* TransactionFailureProtocols.swift in Sources */,
 				19A0EE5422971653006B7AFA /* ShoppingCart.swift in Sources */,
 				19A0EE1E22971653006B7AFA /* OrderSummaryLocalDataManager.swift in Sources */,
+				E484A4AF237CA21C001DD283 /* EnvironmentListViewController.swift in Sources */,
 				19A0EE3622971653006B7AFA /* LoginProtocols.swift in Sources */,
 				19A0EDEF22971653006B7AFA /* LanguageListAPIDataManager.swift in Sources */,
 				19A0EDFD22971653006B7AFA /* DSRPTableViewCell.swift in Sources */,
 				19A0EDF422971653006B7AFA /* LanguageTableViewCell.swift in Sources */,
 				19A0EE0022971653006B7AFA /* PaymentMethodsLocalDataManager.swift in Sources */,
 				19A0EDC522971653006B7AFA /* SessionTimer.swift in Sources */,
+				49B76FCB235503CB00AA0CF7 /* MasterpassCheckoutResponse.swift in Sources */,
 				19A0EE4C22971653006B7AFA /* ShippingAddress.swift in Sources */,
 				19A0EDCD22971653006B7AFA /* ConfirmOrderItemViewCell.swift in Sources */,
 				19A0EE1D22971653006B7AFA /* ProductListViewController.swift in Sources */,
@@ -2010,9 +2132,11 @@
 				19A0EE1F22971653006B7AFA /* OrderSummaryAPIDataManager.swift in Sources */,
 				19A0EDEE22971653006B7AFA /* LanguageListLocalDataManager.swift in Sources */,
 				19A0EDC322971653006B7AFA /* URLbuilder.swift in Sources */,
+				E484A4BD237CA6E1001DD283 /* EnvironmentListInteractor.swift in Sources */,
 				19A0EDEC22971653006B7AFA /* CurrencyListViewController.swift in Sources */,
 				19A0EE5622971653006B7AFA /* CardConfiguration.swift in Sources */,
 				19A0EE3822971653006B7AFA /* LoginPresenter.swift in Sources */,
+				E484A4B3237CA259001DD283 /* EnvironmentListPresenter.swift in Sources */,
 				19A0EE2622971653006B7AFA /* OrderSummaryViewController.swift in Sources */,
 				19A0EE1922971653006B7AFA /* ProductListWireFrame.swift in Sources */,
 				19A0EE4722971653006B7AFA /* DoubleExtension.swift in Sources */,
@@ -2025,7 +2149,9 @@
 				19A0EE2722971653006B7AFA /* ItemViewCell.swift in Sources */,
 				19A0EDC822971653006B7AFA /* ConfirmOrderInteractor.swift in Sources */,
 				19A0EE3922971653006B7AFA /* LoginWireFrame.swift in Sources */,
+				E484A4B1237CA21C001DD283 /* EnvironmentTableViewCell.swift in Sources */,
 				19A0EE4322971653006B7AFA /* ViewExtensions.swift in Sources */,
+				E484A4C5237DBCE7001DD283 /* XCCParser.swift in Sources */,
 				19A0EE2A22971653006B7AFA /* TransactionCompleteInteractor.swift in Sources */,
 				19A0EDED22971653006B7AFA /* CurrencyTableViewCell.swift in Sources */,
 				19A0EE4B22971653006B7AFA /* DSRP.swift in Sources */,
@@ -2070,7 +2196,7 @@
 /* Begin XCBuildConfiguration section */
 		19A0EC5522970D42006B7AFA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 19132C8F22E0D6BA00F98EAE /* SrcStage.xcconfig */;
+			baseConfigurationReference = 19A0EC7922971651006B7AFA /* Sandbox.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -2125,7 +2251,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2186,7 +2312,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -2198,7 +2324,7 @@
 		};
 		19A0EC5822970D42006B7AFA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 445A426DE8D8CF638255DF00 /* Pods-FancyShop.debug.xcconfig */;
+			baseConfigurationReference = CE9C0D0DE4D8DDD5BA02B4D0 /* Pods-FancyShop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -2217,13 +2343,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FancyShop/Application/FancyShop-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		19A0EC5922970D42006B7AFA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2786011548AAD141ADC65A1 /* Pods-FancyShop.release.xcconfig */;
+			baseConfigurationReference = F7AC70EF3B749C0C50486011 /* Pods-FancyShop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -2243,7 +2369,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FancyShop/Application/FancyShop-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

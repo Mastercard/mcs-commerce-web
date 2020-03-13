@@ -72,4 +72,9 @@ class PaymentMethodsPresenter:BasePresenter, PaymentMethodsPresenterProtocol, Pa
     func showSDKInitializationError() {
         self.view?.showError(error: super.localizedString(forKey:"SDK_INITIALIZATION_ERROR", fromTable: stringsTableName));
     }
+    
+    /// Shows an error if there is something wrong while initializing the sdk
+    func showSDKAddPaymentMethodError(error: Error) {
+        self.view?.showError(error: error.localizedDescription);
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "MCCMockCheckoutResponse":{
+        "cartId" : "W1MPAK",
+        "checkout_resource_url" : "https://stage.src.mastercard.com",
+        "transactionId" : "12345678",
+        "responseType" : 1,
+        "pairing_token" : "12345678",
+        "userId" : "87654321",
+    },
+    "MCSMockCheckoutResponse":{
+        "oauth_token" : "123456",
+        "mpstatus" : "success"
+    }
+}

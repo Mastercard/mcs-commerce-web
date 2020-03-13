@@ -1,6 +1,0 @@
-PRODUCT_BUNDLE_IDENTIFIER=com.mastercard.commerce.fancyshop
-CHECKOUT_ID=ab230dfe76324d55a04c5955218c5815
-ENVIRONMENT_NAME=Stage
-MERCHANT_KEY_FILENAME=prdappwebn1-production
-MERCHANT_KEY_PWD=password1
-MERCHANT_API_HOST=stage.api.mastercard.com/stage1/masterpass

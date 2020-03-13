@@ -1,3 +1,0 @@
-#include "Stage.xcconfig"
-
-CHECKOUT_HOST=https:/$()/stage.src.mastercard.com/srci //srci host

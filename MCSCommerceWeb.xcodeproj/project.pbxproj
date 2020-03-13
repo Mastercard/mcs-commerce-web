@@ -9,24 +9,13 @@
 /* Begin PBXBuildFile section */
 		191D9F9422ADAB5600379703 /* MCSCheckoutButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 191D9F9222ADAB5600379703 /* MCSCheckoutButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		191D9F9522ADAB5600379703 /* MCSCheckoutButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 191D9F9322ADAB5600379703 /* MCSCheckoutButton.m */; };
-		191D9FA622ADB63800379703 /* Sandbox.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 191D9FA122ADB63700379703 /* Sandbox.xcconfig */; };
-		191D9FA722ADB63800379703 /* Stage.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 191D9FA222ADB63700379703 /* Stage.xcconfig */; };
-		191D9FA822ADB63800379703 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 191D9FA322ADB63800379703 /* Debug.xcconfig */; };
-		191D9FA922ADB63800379703 /* Production.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 191D9FA422ADB63800379703 /* Production.xcconfig */; };
-		191D9FAA22ADB63800379703 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 191D9FA522ADB63800379703 /* Release.xcconfig */; };
-		191D9FAC22ADB9F900379703 /* Common.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 191D9FAB22ADB9F900379703 /* Common.xcconfig */; };
 		191D9FAF22AEB24000379703 /* MCSCheckoutButtonManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 191D9FAD22AEB24000379703 /* MCSCheckoutButtonManager.h */; };
 		191D9FB022AEB24000379703 /* MCSCheckoutButtonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 191D9FAE22AEB24000379703 /* MCSCheckoutButtonManager.m */; };
 		191D9FB322AEBAF100379703 /* MCSConfigurationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 191D9FB122AEBAF100379703 /* MCSConfigurationManager.h */; };
 		191D9FB422AEBAF100379703 /* MCSConfigurationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 191D9FB222AEBAF100379703 /* MCSConfigurationManager.m */; };
 		191D9FB822AEE05600379703 /* MCSCardTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 191D9FB622AEE05500379703 /* MCSCardTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		191D9FB922AEE05600379703 /* MCSCardTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 191D9FB722AEE05500379703 /* MCSCardTypes.m */; };
-		192EFCC222B2D90E0071CC71 /* MCSActivityIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 192EFCC022B2D90E0071CC71 /* MCSActivityIndicatorView.h */; };
-		192EFCC322B2D90E0071CC71 /* MCSActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 192EFCC122B2D90E0071CC71 /* MCSActivityIndicatorView.m */; };
-		1933564522B0299900B7501F /* MCCSVGImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 1933564322B0299900B7501F /* MCCSVGImage.h */; };
-		1933564622B0299900B7501F /* MCCSVGImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1933564422B0299900B7501F /* MCCSVGImage.m */; };
 		1934CB6A22B043570038909C /* MCSCheckoutButton+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 1934CB6922B043570038909C /* MCSCheckoutButton+Private.h */; };
-		1934CB6C22B094F50038909C /* SVGTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 1934CB6B22B094F50038909C /* SVGTemplate.html */; };
 		1938731422A97798004CEFEE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1938731322A97798004CEFEE /* Images.xcassets */; };
 		194A90C722A05FE90056DFC0 /* MCCCheckoutHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 194A90C522A05FE90056DFC0 /* MCCCheckoutHelper.h */; };
 		194A90C822A05FE90056DFC0 /* MCCCheckoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 194A90C622A05FE90056DFC0 /* MCCCheckoutHelper.m */; };
@@ -89,8 +78,10 @@
 		19A0EFDE229F14CA006B7AFA /* MCFCoreConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A0EFDA229F14CA006B7AFA /* MCFCoreConstants.h */; };
 		19A0EFDF229F14CA006B7AFA /* MCFCoreConstants+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A0EFDB229F14CA006B7AFA /* MCFCoreConstants+Private.h */; };
 		19A0EFF5229F181D006B7AFA /* MCCMerchant.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EFF4229F181D006B7AFA /* MCCMerchant.m */; };
+		6F02CA2D396AF59C59E3BC09 /* Pods_MCSCommerceWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429C09D0DEECE923EFED0AA7 /* Pods_MCSCommerceWeb.framework */; };
 		B7CBF00D22CF9B1200D688AB /* MCSReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = B7CBF00B22CF9B1200D688AB /* MCSReachability.h */; };
 		B7CBF00E22CF9B1200D688AB /* MCSReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B7CBF00C22CF9B1200D688AB /* MCSReachability.m */; };
+		E454AF4F233D3F1900877B10 /* MCSTopMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E454AF4E233D3F1900877B10 /* MCSTopMessageView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,24 +98,13 @@
 		190AB70D22DD5CEA00D863C1 /* MCSCommerceWeb+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MCSCommerceWeb+Private.h"; sourceTree = "<group>"; };
 		191D9F9222ADAB5600379703 /* MCSCheckoutButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSCheckoutButton.h; sourceTree = "<group>"; };
 		191D9F9322ADAB5600379703 /* MCSCheckoutButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSCheckoutButton.m; sourceTree = "<group>"; };
-		191D9FA122ADB63700379703 /* Sandbox.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Sandbox.xcconfig; sourceTree = "<group>"; };
-		191D9FA222ADB63700379703 /* Stage.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Stage.xcconfig; sourceTree = "<group>"; };
-		191D9FA322ADB63800379703 /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
-		191D9FA422ADB63800379703 /* Production.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
-		191D9FA522ADB63800379703 /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
-		191D9FAB22ADB9F900379703 /* Common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
 		191D9FAD22AEB24000379703 /* MCSCheckoutButtonManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSCheckoutButtonManager.h; sourceTree = "<group>"; };
 		191D9FAE22AEB24000379703 /* MCSCheckoutButtonManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSCheckoutButtonManager.m; sourceTree = "<group>"; };
 		191D9FB122AEBAF100379703 /* MCSConfigurationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSConfigurationManager.h; sourceTree = "<group>"; };
 		191D9FB222AEBAF100379703 /* MCSConfigurationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSConfigurationManager.m; sourceTree = "<group>"; };
 		191D9FB622AEE05500379703 /* MCSCardTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSCardTypes.h; sourceTree = "<group>"; };
 		191D9FB722AEE05500379703 /* MCSCardTypes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSCardTypes.m; sourceTree = "<group>"; };
-		192EFCC022B2D90E0071CC71 /* MCSActivityIndicatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSActivityIndicatorView.h; sourceTree = "<group>"; };
-		192EFCC122B2D90E0071CC71 /* MCSActivityIndicatorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSActivityIndicatorView.m; sourceTree = "<group>"; };
-		1933564322B0299900B7501F /* MCCSVGImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCCSVGImage.h; sourceTree = "<group>"; };
-		1933564422B0299900B7501F /* MCCSVGImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCCSVGImage.m; sourceTree = "<group>"; };
 		1934CB6922B043570038909C /* MCSCheckoutButton+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MCSCheckoutButton+Private.h"; sourceTree = "<group>"; };
-		1934CB6B22B094F50038909C /* SVGTemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = SVGTemplate.html; sourceTree = "<group>"; };
 		1938731322A97798004CEFEE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		194A90C522A05FE90056DFC0 /* MCCCheckoutHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCCCheckoutHelper.h; sourceTree = "<group>"; };
 		194A90C622A05FE90056DFC0 /* MCCCheckoutHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCCCheckoutHelper.m; sourceTree = "<group>"; };
@@ -190,8 +170,12 @@
 		19A0EFDA229F14CA006B7AFA /* MCFCoreConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCFCoreConstants.h; sourceTree = "<group>"; };
 		19A0EFDB229F14CA006B7AFA /* MCFCoreConstants+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MCFCoreConstants+Private.h"; sourceTree = "<group>"; };
 		19A0EFF4229F181D006B7AFA /* MCCMerchant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCCMerchant.m; sourceTree = "<group>"; };
+		429C09D0DEECE923EFED0AA7 /* Pods_MCSCommerceWeb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCSCommerceWeb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		505F913947B4FABFA4A4AD5C /* Pods-MCSCommerceWeb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCSCommerceWeb.release.xcconfig"; path = "Target Support Files/Pods-MCSCommerceWeb/Pods-MCSCommerceWeb.release.xcconfig"; sourceTree = "<group>"; };
+		B609585A700B0745611D17B7 /* Pods-MCSCommerceWeb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCSCommerceWeb.debug.xcconfig"; path = "Target Support Files/Pods-MCSCommerceWeb/Pods-MCSCommerceWeb.debug.xcconfig"; sourceTree = "<group>"; };
 		B7CBF00B22CF9B1200D688AB /* MCSReachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSReachability.h; sourceTree = "<group>"; };
 		B7CBF00C22CF9B1200D688AB /* MCSReachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSReachability.m; sourceTree = "<group>"; };
+		E454AF4E233D3F1900877B10 /* MCSTopMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCSTopMessageView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +183,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F02CA2D396AF59C59E3BC09 /* Pods_MCSCommerceWeb.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,8 +205,6 @@
 				191D9F9322ADAB5600379703 /* MCSCheckoutButton.m */,
 				191D9FAD22AEB24000379703 /* MCSCheckoutButtonManager.h */,
 				191D9FAE22AEB24000379703 /* MCSCheckoutButtonManager.m */,
-				1933564322B0299900B7501F /* MCCSVGImage.h */,
-				1933564422B0299900B7501F /* MCCSVGImage.m */,
 			);
 			path = MCSCheckoutButton;
 			sourceTree = "<group>";
@@ -229,23 +212,10 @@
 		1938731222A97775004CEFEE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1934CB6B22B094F50038909C /* SVGTemplate.html */,
+				E454AF4E233D3F1900877B10 /* MCSTopMessageView.xib */,
 				1938731322A97798004CEFEE /* Images.xcassets */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		194A90BA22A054220056DFC0 /* Configurations */ = {
-			isa = PBXGroup;
-			children = (
-				191D9FA322ADB63800379703 /* Debug.xcconfig */,
-				191D9FA422ADB63800379703 /* Production.xcconfig */,
-				191D9FA522ADB63800379703 /* Release.xcconfig */,
-				191D9FA122ADB63700379703 /* Sandbox.xcconfig */,
-				191D9FA222ADB63700379703 /* Stage.xcconfig */,
-				191D9FAB22ADB9F900379703 /* Common.xcconfig */,
-			);
-			path = Configurations;
 			sourceTree = "<group>";
 		};
 		195FCD2522B8A1DC009B67DE /* Public */ = {
@@ -289,6 +259,8 @@
 				19A0EBCE2295EA40006B7AFA /* MCSCommerceWeb */,
 				19A0EBD92295EA40006B7AFA /* MCSCommerceWebTests */,
 				19A0EBCD2295EA40006B7AFA /* Products */,
+				9F534EA88BB07C383D935917 /* Pods */,
+				7D82AAAF6225F3CD36CCB700 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -307,7 +279,6 @@
 				196DBED222AA1F3B00A05E38 /* Info.plist */,
 				195FCD2522B8A1DC009B67DE /* Public */,
 				1938731222A97775004CEFEE /* Resources */,
-				194A90BA22A054220056DFC0 /* Configurations */,
 				19A0EF86229EF6E2006B7AFA /* V7 */,
 				19A0EBF122962C53006B7AFA /* Internal */,
 				191D9F9622ADAB6400379703 /* MCSCheckoutButton */,
@@ -338,6 +309,7 @@
 				B7CBF00B22CF9B1200D688AB /* MCSReachability.h */,
 				B7CBF00C22CF9B1200D688AB /* MCSReachability.m */,
 				19A0EBF222962C53006B7AFA /* MCSCheckoutUrlBuilder.h */,
+				19A0EBF822962C53006B7AFA /* MCSCheckoutUrlBuilder.m */,
 				19A0EBF322962C53006B7AFA /* MCSViewControllerManager.h */,
 				19A0EBF422962C53006B7AFA /* MCSCheckoutRouter.h */,
 				19A0EBF522962C53006B7AFA /* MCSSafariViewControllerManager.h */,
@@ -346,10 +318,7 @@
 				19A0EBFC22962C53006B7AFA /* MCSWebViewControllerManager.m */,
 				19A0EBFB22962C53006B7AFA /* MCSWebViewController.h */,
 				19A0EBF722962C53006B7AFA /* MCSWebViewController.m */,
-				19A0EBF822962C53006B7AFA /* MCSCheckoutUrlBuilder.m */,
 				19A0EBF922962C53006B7AFA /* MCSCheckoutRouter.m */,
-				192EFCC022B2D90E0071CC71 /* MCSActivityIndicatorView.h */,
-				192EFCC122B2D90E0071CC71 /* MCSActivityIndicatorView.m */,
 				195FCD0522B6CFC4009B67DE /* MCSDelegateBridge.h */,
 				195FCD0622B6CFC4009B67DE /* MCSDelegateBridge.m */,
 				190AB70D22DD5CEA00D863C1 /* MCSCommerceWeb+Private.h */,
@@ -387,6 +356,23 @@
 			path = V7;
 			sourceTree = "<group>";
 		};
+		7D82AAAF6225F3CD36CCB700 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				429C09D0DEECE923EFED0AA7 /* Pods_MCSCommerceWeb.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9F534EA88BB07C383D935917 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B609585A700B0745611D17B7 /* Pods-MCSCommerceWeb.debug.xcconfig */,
+				505F913947B4FABFA4A4AD5C /* Pods-MCSCommerceWeb.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -421,14 +407,12 @@
 				19A0EFB5229F0961006B7AFA /* MCCMasterpassButton.h in Headers */,
 				19A0EFD7229F1471006B7AFA /* MCFEnvironmentConfiguration.h in Headers */,
 				19A0EFDE229F14CA006B7AFA /* MCFCoreConstants.h in Headers */,
-				1933564522B0299900B7501F /* MCCSVGImage.h in Headers */,
 				194A90C722A05FE90056DFC0 /* MCCCheckoutHelper.h in Headers */,
 				19A0EC0B22962C53006B7AFA /* MCSSafariViewControllerManager.h in Headers */,
 				19A0EFDF229F14CA006B7AFA /* MCFCoreConstants+Private.h in Headers */,
 				19A0EC1122962C53006B7AFA /* MCSWebViewController.h in Headers */,
 				19A0EC0A22962C53006B7AFA /* MCSCheckoutRouter.h in Headers */,
 				19A0EC0922962C53006B7AFA /* MCSViewControllerManager.h in Headers */,
-				192EFCC222B2D90E0071CC71 /* MCSActivityIndicatorView.h in Headers */,
 				195FCD0B22B6D280009B67DE /* MCCConfigurationManager.h in Headers */,
 				B7CBF00D22CF9B1200D688AB /* MCSReachability.h in Headers */,
 				19A0EFB8229F0961006B7AFA /* MCCMerchantConstants+Private.h in Headers */,
@@ -443,10 +427,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19A0EBE02295EA40006B7AFA /* Build configuration list for PBXNativeTarget "MCSCommerceWeb" */;
 			buildPhases = (
+				B744E21B819E72D6ACF8D951 /* [CP] Check Pods Manifest.lock */,
 				19A0EBC72295EA40006B7AFA /* Headers */,
 				19A0EBC82295EA40006B7AFA /* Sources */,
 				19A0EBC92295EA40006B7AFA /* Frameworks */,
 				19A0EBCA2295EA40006B7AFA /* Resources */,
+				49D716D72398123F00886133 /* ShellScript */,
+				49F67C7A23C9029600CBAD1C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -515,14 +502,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				191D9FA622ADB63800379703 /* Sandbox.xcconfig in Resources */,
-				191D9FA722ADB63800379703 /* Stage.xcconfig in Resources */,
 				1938731422A97798004CEFEE /* Images.xcassets in Resources */,
-				191D9FA822ADB63800379703 /* Debug.xcconfig in Resources */,
-				191D9FAA22ADB63800379703 /* Release.xcconfig in Resources */,
-				191D9FAC22ADB9F900379703 /* Common.xcconfig in Resources */,
-				191D9FA922ADB63800379703 /* Production.xcconfig in Resources */,
-				1934CB6C22B094F50038909C /* SVGTemplate.html in Resources */,
+				E454AF4F233D3F1900877B10 /* MCSTopMessageView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +515,65 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		49D716D72398123F00886133 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PROJECT_DIR}/CommonResources/Dependency.sh\n";
+		};
+		49F67C7A23C9029600CBAD1C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "zip -r ${TARGET_NAME}.zip LICENSE ${TARGET_NAME}.framework\n";
+		};
+		B744E21B819E72D6ACF8D951 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MCSCommerceWeb-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		19A0EBC82295EA40006B7AFA /* Sources */ = {
@@ -551,7 +591,6 @@
 				19A0EFB0229F0961006B7AFA /* MCCMerchantConstants+Private.m in Sources */,
 				19A0EFA8229F0961006B7AFA /* MCCCheckoutRequest.m in Sources */,
 				19A0EFAB229F0961006B7AFA /* MCCCryptogram.m in Sources */,
-				1933564622B0299900B7501F /* MCCSVGImage.m in Sources */,
 				19A0EFD6229F1471006B7AFA /* MCFEnvironmentConfiguration.m in Sources */,
 				19A0EFB3229F0961006B7AFA /* MCCConfiguration.m in Sources */,
 				19A0EFC1229F0961006B7AFA /* MCCPaymentMethod.m in Sources */,
@@ -573,7 +612,6 @@
 				19A0EC0E22962C53006B7AFA /* MCSCheckoutUrlBuilder.m in Sources */,
 				195FCD0822B6CFC4009B67DE /* MCSDelegateBridge.m in Sources */,
 				19A0EFBD229F0961006B7AFA /* MCCMasterpassButton.m in Sources */,
-				192EFCC322B2D90E0071CC71 /* MCSActivityIndicatorView.m in Sources */,
 				19A0EC0D22962C53006B7AFA /* MCSWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -635,6 +673,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/MCSCommerceWeb";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -649,7 +688,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -698,6 +737,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/MCSCommerceWeb";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -706,7 +746,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -719,6 +759,7 @@
 		};
 		19A0EBE12295EA40006B7AFA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B609585A700B0745611D17B7 /* Pods-MCSCommerceWeb.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -727,6 +768,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/MCSCommerceWeb/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -746,6 +788,7 @@
 		};
 		19A0EBE22295EA40006B7AFA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 505F913947B4FABFA4A4AD5C /* Pods-MCSCommerceWeb.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -754,6 +797,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/MCSCommerceWeb/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -762,6 +806,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mastercard.commerce.MCSCommerceWeb;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

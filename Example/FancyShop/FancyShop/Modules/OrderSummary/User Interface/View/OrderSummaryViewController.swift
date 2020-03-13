@@ -24,20 +24,19 @@ class OrderSummaryViewController: BaseViewController, OrderSummaryViewProtocol, 
     
     // MARK: variables
     var presenter: OrderSummaryPresenterProtocol?
+    var masterPassButton : MCCMasterpassButton?;
     @IBOutlet weak var itemsTableView: UITableView!
     @IBOutlet weak var shoppingCartButton: ShoppingCartButton!
     @IBOutlet weak var taxesLabel: UILabel!
     @IBOutlet weak var subtotalLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var buttonContainer: UIView!
-    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var shippingView: UIView!
     @IBOutlet weak var shippingViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var checkoutButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var paymentMethodButton: UIButton!
     @IBOutlet weak var paymentMethodLabel: UILabel!
-    @IBOutlet weak var masterpassCheckoutButton: UIButton!
     @IBOutlet weak var totalInfoContainerHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var checkoutButtonContainerHeightConstraint: NSLayoutConstraint!
     
@@ -70,25 +69,7 @@ class OrderSummaryViewController: BaseViewController, OrderSummaryViewProtocol, 
         super.viewWillAppear(animated)
         self.presenter?.requestShoppingCartViewConfiguration()
         self.presenter?.fetchItemsFromShoppingCart()
-        
-        if (self.buttonContainer.subviews.filter{$0 is MCSCheckoutButton}.isEmpty) {
-            let checkoutButton = self.presenter?.getCheckoutButton(completionHandler: { (response, error) in
-                if let err = error {
-                    let errorCode = "errorCode :\((err as NSError).code)"
-                    let alert = UIAlertController(title:errorCode, message:err.localizedDescription, preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-                    DispatchQueue.main.async {
-                        self.present(alert, animated: true, completion: nil)
-                    }
-                } else {
-                    if let returnedResponse = response {
-                        print("Returned Response \(returnedResponse)");
-                    }
-                }
-            })
-            
-                checkoutButton?.addToSuperview(superview: self.buttonContainer)
-        }
+        self.presenter?.getCheckoutButton()
     }
     
     /// Sets Identifiers
@@ -96,7 +77,6 @@ class OrderSummaryViewController: BaseViewController, OrderSummaryViewProtocol, 
         /* NOTE: Accessibility Identifier are going to remain same irrespective of the localization. Hence not accessing it using .strings file. It will be performance overhead at runtime. */
         //Set Identifiers
         self.backButton?.accessibilityIdentifier     = objectLocator.orderSummeryScreenStruct.backButton_Identifier
-        self.masterpassCheckoutButton?.accessibilityIdentifier = objectLocator.orderSummeryScreenStruct.btnMasterpass_Identifier
     }
     
     /// Ask the presenter to go back
@@ -167,6 +147,12 @@ class OrderSummaryViewController: BaseViewController, OrderSummaryViewProtocol, 
         self.presenter?.removeProductAction(product: self.getShoppingCartItemFromListUsingIndex(index: index).product)
     }
     
+    /// Calls the presenter to do a express checkout
+    ///
+    /// - Parameter sender: Any view
+    @IBAction func expressCheckoutAction(_ sender: Any) {
+        self.presenter?.expressCheckoutButtonAction()
+    }
     
     /// Calls the presenter to trigger payment Method view
     ///
@@ -246,6 +232,40 @@ class OrderSummaryViewController: BaseViewController, OrderSummaryViewProtocol, 
         if self.paymentMethodButton != nil {
             self.paymentMethodButton.removeFromSuperview()
         }
+        self.masterPassButton?.removeFromSuperview()
+        self.masterPassButton = nil
+        self.masterPassButton = MasterpassSDKManager.sharedInstance.getMasterPassButton()
+        
+        if self.masterPassButton != nil {
+            self.masterPassButton?.add(to: self.buttonContainer)
+        }
+    }
+    
+    /// Adds the SRC button in the view
+    func showSRCButton() {
+        if (self.buttonContainer.subviews.filter{$0 is MCSCheckoutButton}.isEmpty) {
+            let srcCheckoutButton = self.presenter?.getSRCCheckoutButton(completionHandler: { (response, error) in
+                if let err = error {
+                    let errorCode = "errorCode :\((err as NSError).code)"
+                    let alert = UIAlertController(title:errorCode, message:err.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                    DispatchQueue.main.async {
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                } else {
+                    if let returnedResponse = response {
+                        print("Returned Response \(returnedResponse)");
+                    }
+                }
+            })
+           
+            srcCheckoutButton?.addToSuperview(superview: self.buttonContainer)
+            NSLayoutConstraint.activate([
+                (srcCheckoutButton?.widthAnchor.constraint(equalToConstant: 250))!,
+                (srcCheckoutButton?.heightAnchor.constraint(equalToConstant: 58))!
+            ])
+            checkoutButton.removeFromSuperview()
+        }
     }
     
     /// Shows a spinner in the view
@@ -278,6 +298,23 @@ class OrderSummaryViewController: BaseViewController, OrderSummaryViewProtocol, 
         
     /// Removes the Masterpass button and shows the normal button for a payment checkout
     func showPaymentMethodCheckoutButton() {
+        self.masterPassButton?.removeFromSuperview()
+        self.paymentMethodButton.isHidden = false;
+        if let paymentMethodObject = PaymentMethod.sharedInstance.paymentMethodObject {
+            self.paymentMethodButton.titleLabel?.textAlignment = .center
+            if let paymentMethodLastFourDigits = paymentMethodObject.paymentMethodLastFourDigits {
+                self.paymentMethodButton.setTitle((paymentMethodObject.paymentMethodName + paymentMethodLastFourDigits), for: .normal)
+            }
+            //TODO: We are using MasterPass as PaymentMethod, So Logo should be dynamic as per paymentMethod selected.
+            let mpassLogo = UIImage(named: "masterpasLogo")
+            self.paymentMethodButton.setImage(mpassLogo, for: .normal)
+            self.paymentMethodLabel.isHidden =  false;
+        } else {
+            self.paymentMethodButton.titleLabel?.textAlignment = .center
+            self.paymentMethodButton.setTitle("Payment Method >", for: .normal)
+            self.paymentMethodButton.setImage(nil, for: .normal)
+            self.paymentMethodLabel.isHidden = true;
+        }
     }
     
     // MARK: UITableViewDataSource

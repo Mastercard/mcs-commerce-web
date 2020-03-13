@@ -205,30 +205,6 @@ NSString *const kMEXCardDeletedErrorReasonCode          = @"CARD_DELETED";
 NSString *const kMEXWalletNotFoundErrorReasonCode       = @"WALLET_NOT_FOUND";
 
 /**
- SVG image constants
- */
-NSString *const kMCCSVGError                            = @"error";
-NSString *const kMCCSVGErrorDomain                      = @"com.masterpass.mccmerchant.svgrendering";
-
-int const kMCCSVGErrorCodeNoValidSVG                    = 30001;
-int const kMCCSVGErrorCodeImageNotGenerated             = 30002;
-int const kMCCSVGErrorCodeJSNotLoaded                   = 30003;
-int const kMCCSVGErrorCodeMemoryWarning                 = 30004;
-
-NSString *const kWebViewJavaScriptEvaluation            = @"document.body.innerHTML='';";
-NSString *const kWebViewLoadEmptyHTML                   = @"";
-
-NSString *const kParserEelementName                     = @"svg";
-NSString *const kParserAttribureWidth                   = @"width";
-NSString *const kParserAttribureHeight                  = @"height";
-
-NSString *const kJSContextKeyPath                       = @"documentView.webView.mainFrame.javaScriptContext";
-NSString *const kJSContextLoadedKey                     = @"loaded";
-
-NSString *const kSVGHTMLFileName                        = @"SVGTemplate";
-NSString *const kSVGHTHMLFileType                       = @"html";
-
-/**
  MCCCheckoutResponse
  */
 NSString * const kCheckoutResponseCartID                = @"cartId";

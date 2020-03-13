@@ -14,7 +14,7 @@
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
 	<string>FMWK</string>
-	<key>CFBundleVersion</key>
-	<string>1.0.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.1.0</string>
 </dict>
 </plist>

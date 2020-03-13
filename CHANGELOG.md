@@ -1,5 +1,31 @@
 # Change Log
 
+## Version 1.1.0
+
+Released: February 24, 2020
+
+Changes:
+
+* Fix issue redirecting to merchant callback URL from masterpass.com
+* Refactored WebViewControllerManager to dynamically add and remove webviews based on all incoming requests
+* Updated dependency script lipo command, added zip file for distribution
+* Updated podspec and build settings for MCSCommerceWeb to distribute as .framework instead of source files
+
+## Version 1.0.1
+
+Released: November 21, 2019
+
+Changes:
+
+* Improved nullability checks
+* Fixed an issue where network error message was not dismissing
+* Fixed an issue where button image cache file was incorrectly named
+* Removed use of deprecated UIWebView class when rendering the checkout button image from SVG
+* Fixed null pointer exception when the checkout button image failed to download
+* Fixed an issue causing the wrong checkout button image to download
+* Fixed an issue causing the wrong checkout button default image to display
+
+
 ## Version 1.0.0
 
 Released: August 12, 2019

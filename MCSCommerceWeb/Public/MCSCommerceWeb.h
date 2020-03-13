@@ -51,7 +51,7 @@ FOUNDATION_EXPORT const unsigned char MCSCommerceWebVersionString[];
  @param status MCSCheckoutStatus
  @param transactionId NSString
  **/
-- (void)checkoutRequest:(MCSCheckoutRequest *)request didCompleteWithStatus:(MCSCheckoutStatus)status forTransaction:(NSString * _Nullable)transactionId NS_SWIFT_NAME(checkoutCompleted(withRequest:status:transactionId:));
+- (void)checkoutRequest:(MCSCheckoutRequest * _Nonnull)request didCompleteWithStatus:(MCSCheckoutStatus)status forTransaction:(NSString * _Nullable)transactionId NS_SWIFT_NAME(checkoutCompleted(withRequest:status:transactionId:));
 
 @end
 
@@ -95,6 +95,6 @@ FOUNDATION_EXPORT const unsigned char MCSCommerceWebVersionString[];
  @param delegate MCSCheckoutDelegate to handle the checkout request and response for this transaction
  @return checkout button to be added to the view
  */
-- (MCSCheckoutButton *)checkoutButtonWithDelegate:(id<MCSCheckoutDelegate>)delegate NS_SWIFT_NAME(getCheckoutButton(withDelegate:));
+- (MCSCheckoutButton * _Nonnull)checkoutButtonWithDelegate:(id<MCSCheckoutDelegate> _Nonnull)delegate NS_SWIFT_NAME(getCheckoutButton(withDelegate:));
 
 @end

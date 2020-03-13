@@ -15,6 +15,7 @@
 
 import Foundation
 import Alamofire
+import MerchantServices
 /// ConfirmOrderAPIDataManager implements the ConfirmOrderAPIDataManagerInputProtocol protocol, if data needs to be saved/retrieved from the server, all the implentation should be done here
 class ConfirmOrderAPIDataManager: ConfirmOrderAPIDataManagerInputProtocol {
     // MARK: Initializers
@@ -30,52 +31,71 @@ class ConfirmOrderAPIDataManager: ConfirmOrderAPIDataManagerInputProtocol {
     /// - Parameter completionHandler: Block of code to execute after the payment data response
     func getPaymentData(completionHandler: @escaping (NSDictionary?, Error?) -> ()){
         let checkoutResponse: CheckoutResponse = CheckoutResponse.sharedInstance
-
-        let params: [String: Any] = [
-            "environment" : EnvironmentConfiguration.sharedInstance.environmentName,
-            "checkoutIdentifier" : EnvironmentConfiguration.sharedInstance.checkoutID,
-            "PaymentDataInput": [
-                "cartId" : ShoppingCart.sharedInstance.cartId,
-                "transactionId": checkoutResponse.transactionId,
-                "paymentDataUrl" : checkoutResponse.checkoutResourceURL
-            ]
-        ]
-
-        Alamofire.request(OneServerRouter.getPaymentData(params)).responseJSON { response in
-            var responseDict: NSDictionary
-            let responseKeys: [String] = ["status", "paymentData"]
+        
+        var checkoutId:String!
+        var merchantKeyFileName:String!
+        var merchantKeyFilePassword:String!
+        var consumerKey:String!
+        var host:String!
+        
+        let env = SDKConfiguration.sharedInstance.environment
+           switch env {
+           case .SANDBOX:
+                XCCParser.sharedInstance.parseXCConfig(configName: Constants.envEnum.SANDBOX.rawValue)
+                XCCParser.sharedInstance.paymentDataXConfig(&checkoutId, &merchantKeyFileName, &merchantKeyFilePassword, &consumerKey, &host)
+           case .STAGE:
+                XCCParser.sharedInstance.parseXCConfig(configName: Constants.envEnum.STAGE.rawValue)
+                XCCParser.sharedInstance.paymentDataXConfig(&checkoutId, &merchantKeyFileName, &merchantKeyFilePassword, &consumerKey, &host)
+           case .PRODUCTION:
+                XCCParser.sharedInstance.parseXCConfig(configName: Constants.envEnum.PRODUCTION.rawValue)
+                XCCParser.sharedInstance.paymentDataXConfig(&checkoutId, &merchantKeyFileName, &merchantKeyFilePassword, &consumerKey, &host)
+           }
+        
+        let paymentDataService = MDSMerchantServices()
+        let paymentDataRequest = MDSPaymentDataRequest()
+        paymentDataRequest.cartId = ShoppingCart.sharedInstance.cartId
+        paymentDataRequest.checkoutId =  checkoutId
+        paymentDataRequest.transactionId = checkoutResponse.transactionId!
+        paymentDataRequest.merechantKeyFileName = merchantKeyFileName
+        paymentDataRequest.merechantKeyFilePassword = merchantKeyFilePassword
+        paymentDataRequest.consumerKey = consumerKey
+        paymentDataRequest.host = host
+        
+        var responseDict = NSDictionary()
+        let responseKeys: [String] = ["status", "data"]
+        
+        paymentDataService.getChekcoutResourceService(paymentDataRequest, onSuccess: { responseObject in
+            
             let paymentData: PaymentData = PaymentData.sharedInstance
-            switch response.result {
-            case .success(let json):
-                let responseJSON: NSDictionary = (json as! NSDictionary)
-                if let paymentDataDictSafe = responseJSON.value(forKeyPath:"PaymentDataOutput.paymentData"){
-                    let paymentDataDict:NSDictionary = paymentDataDictSafe as! NSDictionary
-                    // CARD
-                    paymentData.card?.brandId = paymentDataDict.value(forKeyPath: "card.brandId") as? String
-                    paymentData.card?.brandName = paymentDataDict.value(forKeyPath: "card.brandName") as? String
-                    paymentData.card?.accountNumber = paymentDataDict.value(forKeyPath: "card.accountNumber") as? String
-                    paymentData.card?.cardHolderName = paymentDataDict.value(forKeyPath: "card.cardHolderName") as? String
-                    responseDict = NSDictionary.init(objects: [Constants.status.OK, paymentData], forKeys: responseKeys as [NSCopying])
-                    
-                    // Shipping address
-                    paymentData.shippingAddress?.line1 = paymentDataDict.value(forKeyPath: "shippingAddress.line1") as? String
-                    paymentData.shippingAddress?.line2 = paymentDataDict.value(forKeyPath: "shippingAddress.line2") as? String
-                    paymentData.shippingAddress?.line3 = paymentDataDict.value(forKeyPath: "shippingAddress.line3") as? String
-                    paymentData.shippingAddress?.line4 = paymentDataDict.value(forKeyPath: "shippingAddress.line4") as? String
-                    paymentData.shippingAddress?.line5 = paymentDataDict.value(forKeyPath: "shippingAddress.line5") as? String
-                    paymentData.shippingAddress?.city = paymentDataDict.value(forKeyPath: "shippingAddress.city") as? String
-                    paymentData.shippingAddress?.country = paymentDataDict.value(forKeyPath: "shippingAddress.country") as? String
-                    paymentData.shippingAddress?.subdivision = paymentDataDict.value(forKeyPath: "shippingAddress.subdivision") as? String
-                    paymentData.shippingAddress?.postalCode = paymentDataDict.value(forKeyPath: "shippingAddress.postalCode") as? String
-                    
-                }else{
-                    responseDict = NSDictionary.init(objects: [Constants.status.NOK, paymentData], forKeys: responseKeys as [NSCopying])
-                }
-                completionHandler(responseDict, nil)
-            case .failure(let error):
+            if (!(responseObject?.keys.contains("error"))!) {
+                
+                let paymentDataDict: NSDictionary = responseObject! as NSDictionary
+                // CARD
+                paymentData.card?.brandId = paymentDataDict.value(forKeyPath: "card.brandId") as? String
+                paymentData.card?.brandName = paymentDataDict.value(forKeyPath: "card.brandName") as? String
+                paymentData.card?.cardHolderName = paymentDataDict.value(forKeyPath: "card.cardHolderName") as? String
+                paymentData.card?.expiryMonth = paymentDataDict.value(forKeyPath: "card.expiryMonth") as? Int
+                paymentData.card?.expiryYear = paymentDataDict.value(forKeyPath: "card.expiryYear") as? Int
+                paymentData.card?.accountNumber = paymentDataDict.value(forKeyPath: "card.accountNumber") as? String
+                paymentData.card?.cardHolderName = paymentDataDict.value(forKeyPath: "card.cardHolderName") as? String
+                // Shipping address
+                paymentData.shippingAddress?.line1 = paymentDataDict.value(forKeyPath: "shippingAddress.line1") as? String
+                paymentData.shippingAddress?.line2 = paymentDataDict.value(forKeyPath: "shippingAddress.line2") as? String
+                paymentData.shippingAddress?.line3 = paymentDataDict.value(forKeyPath: "shippingAddress.line3") as? String
+                paymentData.shippingAddress?.line4 = paymentDataDict.value(forKeyPath: "shippingAddress.line4") as? String
+                paymentData.shippingAddress?.line5 = paymentDataDict.value(forKeyPath: "shippingAddress.line5") as? String
+                paymentData.shippingAddress?.city = paymentDataDict.value(forKeyPath: "shippingAddress.city") as? String
+                paymentData.shippingAddress?.country = paymentDataDict.value(forKeyPath: "shippingAddress.country") as? String
+                paymentData.shippingAddress?.subdivision = paymentDataDict.value(forKeyPath: "shippingAddress.subdivision") as? String
+                paymentData.shippingAddress?.postalCode = paymentDataDict.value(forKeyPath: "shippingAddress.postalCode") as? String
+                responseDict = NSDictionary.init(objects: [Constants.status.OK, paymentData], forKeys: responseKeys as [NSCopying])
+            } else {
                 responseDict = NSDictionary.init(objects: [Constants.status.NOK, paymentData], forKeys: responseKeys as [NSCopying])
-                completionHandler(responseDict, error)
             }
+            completionHandler(responseDict, nil)
+        }) { err in
+            responseDict = NSDictionary.init(objects: [Constants.status.NOK, ""], forKeys: responseKeys as [NSCopying])
+            completionHandler(responseDict, err)
         }
     }
     
@@ -86,9 +106,10 @@ class ConfirmOrderAPIDataManager: ConfirmOrderAPIDataManagerInputProtocol {
     func confirmOrder(completionHandler: @escaping (NSDictionary?, Error?) -> ()){
         let checkoutResponse: CheckoutResponse = CheckoutResponse.sharedInstance
         let shoppingCart: ShoppingCart = ShoppingCart.sharedInstance
+        let checkoutID = SDKConfiguration.sharedInstance.useMasterpassFlow ? EnvironmentConfiguration.sharedInstance.masterpassCheckoutID : EnvironmentConfiguration.sharedInstance.checkoutID
         let params: [String: Any] = [
             "environment" : EnvironmentConfiguration.sharedInstance.environmentName,
-            "checkoutIdentifier" : EnvironmentConfiguration.sharedInstance.checkoutID,
+            "checkoutIdentifier" : checkoutID,
             "PostbackV7Input": [
                 "transactionId": checkoutResponse.transactionId!,
                 "paymentSuccessful" : true,

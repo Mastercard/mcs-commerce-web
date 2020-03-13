@@ -14,19 +14,21 @@
  =============================================================================*/
 
 #import <UIKit/UIKit.h>
+#import <SVGKit/SVGKit.h>
 #import "MCSCommerceWeb.h"
 #import "MCSCheckoutButtonManager.h"
 #import "MCSConfigurationManager.h"
 #import "MCFEnvironmentConfiguration.h"
-#import "MCCSVGImage.h"
 #import "MCSCheckoutButton+Private.h"
+#import "MCCMerchantConstants+Private.h"
 
 NSString *const kMasterPassDefaultButtonImage       = @"MasterpassButton";
+NSString *const kClickToPayDefaultButtonImage              = @"ClickToPayButton";
 
 @interface MCSCheckoutButtonManager()
 
 @property(nonatomic, strong, nullable) UIImage *buttonImage;
-@property(nonatomic, strong) MCCSVGImage *svg;
+@property(nonatomic, strong, nullable) NSError *svgImageError;
 
 @end
 
@@ -50,6 +52,10 @@ NSString *basePath = @"button/";
     
     [checkoutButton setDelegate:delegate];
     [checkoutButton setButtonImage:self.buttonImage];
+    [checkoutButton setIsAccessibilityElement:YES];
+    [checkoutButton setAccessibilityLabel:NSLocalizedStringFromTable(@"Click to pay with card",
+                                                                     @"MCSCommerceWeb",
+                                                                     @"VoiceOver text for checkout button")];
     
     return checkoutButton;
 }
@@ -59,7 +65,16 @@ NSString *basePath = @"button/";
     NSSet *allowedCardTypes = [MCSConfigurationManager sharedManager].configuration.allowedCardTypes;
     NSString *checkoutId = [MCSConfigurationManager sharedManager].configuration.checkoutId;
     NSURL *buttonUrl = [NSURL URLWithString:[MCFEnvironmentConfiguration sharedInstance].buttonImageHost];
-    NSString *fileName = [NSString stringWithFormat:@"%lu%lu", [locale hash], [allowedCardTypes hash]];
+    
+    // Sort allowedCardTypes and concatenate values into String for unique hashing
+    NSArray *allowedCardTypesArray = [NSArray arrayWithArray:[allowedCardTypes allObjects]];
+    NSArray *sortedAllowedCardTypes = [allowedCardTypesArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    NSMutableString *cardTypesString = [[NSMutableString alloc] init];
+    for (NSString *allowedCardType in sortedAllowedCardTypes) {
+        [cardTypesString appendString:allowedCardType];
+    }
+    
+    NSString *fileName = [NSString stringWithFormat:@"%lu%lu", [locale hash], [cardTypesString hash]];
     NSURL *saveUrl = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject];
     saveUrl = [saveUrl URLByAppendingPathComponent:fileName];
     
@@ -70,50 +85,44 @@ NSString *basePath = @"button/";
         
         self.buttonImage = cacheImage;
     } else {
-        // set default button image
-        UIImage *defaultImg = [UIImage imageNamed:kMasterPassDefaultButtonImage inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
-        self.buttonImage = defaultImg;
+        //TODO: fixme we provide different default image base on locale, we need to find a scalable solution
+        if([locale.localeIdentifier  isEqual: @"en_US"]){
+            UIImage *defaultImg = [UIImage imageNamed:kClickToPayDefaultButtonImage inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
+            self.buttonImage = defaultImg;
+        }else{
+            UIImage *defaultImg = [UIImage imageNamed:kMasterPassDefaultButtonImage inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
+            self.buttonImage = defaultImg;
+        }
+        
     }
+    
     //Download image from URL
     NSURLComponents *components = [NSURLComponents componentsWithURL:buttonUrl resolvingAgainstBaseURL:YES];
     NSURLQueryItem *localeQueryItem = [[NSURLQueryItem alloc] initWithName:@"locale" value:locale.localeIdentifier];
-    NSURLQueryItem *allowedCardsQueryItem = [[NSURLQueryItem alloc] initWithName:@"acceptedCardBrands" value:[allowedCardTypes.allObjects componentsJoinedByString:@","]];
-    NSURLQueryItem *checkoutIdQueryItetm = [[NSURLQueryItem alloc] initWithName:@"checkoutId" value:checkoutId];
+    NSURLQueryItem *paymentMethodQueryItem = [[NSURLQueryItem alloc] initWithName:@"paymentmethod" value:[allowedCardTypes.allObjects componentsJoinedByString:@","]];
+    NSURLQueryItem *checkoutIdQueryItetm = [[NSURLQueryItem alloc] initWithName:@"checkoutid" value:checkoutId];
     
-    [components setQueryItems:@[localeQueryItem, allowedCardsQueryItem, checkoutIdQueryItetm]];
-    
+    [components setQueryItems:@[localeQueryItem, paymentMethodQueryItem, checkoutIdQueryItetm]];
     NSURLSession *session = [NSURLSession sharedSession];
     MCSCheckoutButtonManager * __weak weakSelf = self;
+
     [[session downloadTaskWithURL:components.URL completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        
         if (error) {
             NSLog(@"Error: %@",[error localizedDescription]);
         } else {
-        NSData *responseData = [NSData dataWithContentsOfURL:location];
-        //save the data to file
-        [weakSelf imageWithData:responseData completionHandler:^(UIImage *image) {
-            NSData *imageData = UIImagePNGRepresentation(image);
-            UIImage *cacheImage = [UIImage imageWithData:imageData];
-            NSError *error = nil;
+            SVGKImage* cacheImage = [SVGKImage imageWithContentsOfURL:location];
+            NSData *imageData = UIImagePNGRepresentation(cacheImage.UIImage);
             
-            [imageData writeToFile:saveUrl.path options:NSDataWritingAtomic error:&error];
-            if (error) {
+            if (imageData != nil) {
+                NSError *svgImageError;
+                [imageData writeToFile:saveUrl.path options:NSDataWritingAtomic error:&svgImageError];
+                weakSelf.buttonImage = cacheImage.UIImage;
+            }
+            else {
                 NSLog(@"Error: %@",[error localizedDescription]);
             }
-            
-            weakSelf.buttonImage = cacheImage;
-        }];
-    }
-        
+        }
     }] resume];
-}
-
-- (void)imageWithData:(NSData *)imageData completionHandler:(void (^)(UIImage *image))completionHandler {
-    self.svg = [[MCCSVGImage alloc] init];
-    
-    [self.svg imageWithData:imageData andSize:CGSizeMake(kCheckoutButtonWidth, kCheckoutButtonHeight) completionBlock:^(UIImage * _Nullable image, NSError * _Nullable error) {
-        completionHandler(image);
-    }];
 }
 
 @end

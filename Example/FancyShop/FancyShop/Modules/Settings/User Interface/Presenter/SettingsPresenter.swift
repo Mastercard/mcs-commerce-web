@@ -52,6 +52,11 @@ class SettingsPresenter: BasePresenter, SettingsPresenterProtocol, SettingsInter
         self.wireFrame?.gotToCurrencyList()
     }
     
+    /// Goes to Environment list module
+    func gotToEnvironmentList() {
+        self.wireFrame?.gotToEnvironmentList()
+    }
+    
     /// Changes the suppress shipping flag status
     func suppressShippingAction() {
         self.interactor?.suppressShipping()
@@ -65,6 +70,21 @@ class SettingsPresenter: BasePresenter, SettingsPresenterProtocol, SettingsInter
     ///select payment method flag status
     func selectPaymentMethod() {
         self.wireFrame?.goToPaymentMethods(completion: {
+        })
+    }
+    
+    func toggleMasterpassFlowOnOff() {
+        self.interactor?.toggleMasterpassFlowOnOff()
+    }
+    
+    func toggleV7FlowOnOff() {
+        self.interactor?.toggleV7FlowOnOff()
+    }
+    
+    func paymentMethod() {
+        
+        self.wireFrame?.goToPaymentMethods(completion: {
+            
         })
     }
     
@@ -88,8 +108,10 @@ class SettingsPresenter: BasePresenter, SettingsPresenterProtocol, SettingsInter
     ///   - currency: selected currency
     ///   - shippingStatus: shipping status flag
     ///   - paymentMethodStatus: payment Method enable flag
-    func setSavedData(cards: [CardConfiguration], language: LanguageConfiguration, currency: String, shippingStatus: Bool, paymentMethodCheckoutStatus: Bool) {
-        self.view?.setSavedData(cards: cards, language: language, currency: currency, shippingStatus: shippingStatus, paymentMethodCheckoutStatus: paymentMethodCheckoutStatus)
+    ///   - isMasterpassCheckoutFlow: Masterpass flow flag
+    ///   - environment: selected environment
+    func setSavedData(cards: [CardConfiguration], language: LanguageConfiguration, currency: String, shippingStatus: Bool, paymentMethodCheckoutStatus: Bool, isMasterpassCheckoutFlow: Bool, isV7CheckoutFlow: Bool,environment:Constants.envEnum) {
+        self.view?.setSavedData(cards: cards, language: language, currency: currency, shippingStatus: shippingStatus, paymentMethodCheckoutStatus: paymentMethodCheckoutStatus, isMasterpassCheckoutFlow: isMasterpassCheckoutFlow, isV7CheckoutFlow: isV7CheckoutFlow,environment: environment)
     }
     
     /// Goes to login module
@@ -110,5 +132,10 @@ class SettingsPresenter: BasePresenter, SettingsPresenterProtocol, SettingsInter
     /// Shows an error if the SDK has issues to initialize
     func showSDKInitializationError() {
         self.view?.showError(error:super.localizedString(forKey: "SDK_INITIALIZATION_ERROR", fromTable: stringsTableName))
+    }
+    
+    /// Shows an error if network is not available
+    func showNetworkError() {
+        self.view?.showError(error:super.localizedString(forKey: "INTERNET_ERROR", fromTable: stringsTableName))
     }
 }

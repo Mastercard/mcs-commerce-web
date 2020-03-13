@@ -20,7 +20,7 @@
 /**
  Delegate to receive the checkout result
  */
-@property (nonatomic, weak) id<MCSCheckoutDelegate> delegate;
+@property (nonatomic, weak, nullable) id<MCSCheckoutDelegate> delegate;
 
 /**
  Start the checkout experience using transaction details specified

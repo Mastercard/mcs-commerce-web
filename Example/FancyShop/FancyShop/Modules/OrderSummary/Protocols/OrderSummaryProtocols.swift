@@ -28,6 +28,7 @@ protocol OrderSummaryViewProtocol: class {
     func set(subtotal: String)
     func set(total: String)
     func showMCCButton()
+    func showSRCButton()
     func set(shippingStatus: Bool)
     func showPaymentMethodCheckoutButton()
     func startAnimating()
@@ -56,10 +57,12 @@ protocol OrderSummaryPresenterProtocol: class {
     func lessProductQuantityAction(product: Product)
     func moreProductQuantityAction(product: Product)
     func removeProductAction(product: Product)
+    func expressCheckoutButtonAction()
     func paymentMethodSelectionButtonAction()
     
     func initializeSdk()
-    func getCheckoutButton(completionHandler: @escaping ([AnyHashable : Any]?,Error?) -> ()) -> MCSCheckoutButton
+    func getCheckoutButton()
+    func getSRCCheckoutButton(completionHandler: @escaping ([AnyHashable : Any]?,Error?) -> ()) -> MCSCheckoutButton
 }
 
 /// Method contract between INTERACTOR -> PRESENTER
@@ -76,9 +79,14 @@ protocol OrderSummaryInteractorOutputProtocol: class {
     func showMasterpassButtonCheckoutFlow()
     func set(shippingStatus: Bool)
     func showPaymentMethodCheckoutFlow()
+    func getCheckoutButton()
+    func showSRCCheckoutButton()
     func startActivityLoader()
     func stopActivityLoader()
+    func initializeSDK()
+    func initializeSDKComplete()
     func showAddPaymentMethodAlert()
+    func showNetworkError()
 }
 
 /// Method contract between PRESENTER -> INTERACTOR
@@ -94,8 +102,9 @@ protocol OrderSummaryInteractorInputProtocol: class
     func moreProductQuantity(product: Product)
     func removeProductFromShoppingCart(product: Product)
     func getCheckoutFlow()
+    func expressCheckout()
     func initializeSdk()
-    func getCheckoutButton(completionHandler: @escaping ([AnyHashable : Any]?,Error?) -> ()) -> MCSCheckoutButton
+    func getSRCCheckoutButton(completionHandler: @escaping ([AnyHashable : Any]?,Error?) -> ()) -> MCSCheckoutButton
 }
 
 /// Method contract between INTERACTOR -> DATAMANAGER

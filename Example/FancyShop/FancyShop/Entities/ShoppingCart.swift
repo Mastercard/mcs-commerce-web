@@ -59,7 +59,7 @@ class ShoppingCart: NSObject, NSCoding{
         self.items = []
         self.total = 0
         self.subtotal = 0
-        self.cartId = ShoppingCart.getRandomCartId(length: 6)
+        self.cartId = UUID().uuidString
     }
     
     //MARK: Methods
