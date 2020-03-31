@@ -120,16 +120,23 @@
         //callback urlSchemeTask triggers
         decisionHandler(WKNavigationActionPolicyCancel);
     } else if (navigationAction.navigationType == WKNavigationTypeLinkActivated) {
-        NSURL *url = navigationAction.request.URL;
-        [UIApplication.sharedApplication openURL:url options:@{} completionHandler:nil];
-        decisionHandler(WKNavigationActionPolicyCancel);
+        //check if url is valid
+        NSString *urlString = [navigationAction.request.URL absoluteString];
+        NSURL *url = [[NSURL alloc]initWithString:urlString];
+        //addchoices triggers navigation in DCF screen for now navigation only to .html pages
+        if(url != nil && [urlString hasSuffix:@".html"] ){
+            [UIApplication.sharedApplication openURL:url options:@{} completionHandler:nil];
+            decisionHandler(WKNavigationActionPolicyCancel);
+        }else{
+            decisionHandler(WKNavigationActionPolicyAllow);
+        }
     } else {
         decisionHandler(WKNavigationActionPolicyAllow);
     }
 }
 
 - (void)webViewDidClose:(WKWebView *)webView {
-    if (self.webViews.count == 2) {
+    if (self.webViews.count >= 2) {
         WKWebView *topWebView = self.webViews.lastObject;
         [topWebView removeFromSuperview];
         [self.webViews removeLastObject];
