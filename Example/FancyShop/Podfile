@@ -7,7 +7,7 @@ target 'FancyShop' do
   # Pods for MerchantApp
   pod 'MCSCommerceWeb', :podspec => '../../MCSCommerceWeb.podspec'
 
-  pod 'Alamofire'
-  pod 'SDWebImage'
-  pod 'NVActivityIndicatorView'
+  pod 'Alamofire' ,'4.9.1'
+  pod 'SDWebImage','5.4.2'
+  pod 'NVActivityIndicatorView','4.8.0'
 end
