@@ -1,5 +1,14 @@
 # Change Log
 
+## Version 1.1.1
+
+Released: April 3, 2020
+
+Changes:
+
+* Fix navigation footer Feedback to prevent leave SRC web experience
+* Validate url for navigationValidate, url must end on html to prevent navigation from add choices
+
 ## Version 1.1.0
 
 Released: February 24, 2020
