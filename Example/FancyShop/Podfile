@@ -1,4 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
+source 'https://fusion.mastercard.int/stash/scm/dxpmobile/dxp-private-cocoapods-specs.git'
 
 target 'FancyShop' do
   use_frameworks!
@@ -6,7 +7,8 @@ target 'FancyShop' do
 
   # Pods for MerchantApp
   pod 'MCSCommerceWeb', :podspec => '../../MCSCommerceWeb.podspec'
-
+  
+  pod 'MerchantServices','2.5.1'
   pod 'Alamofire' ,'4.9.1'
   pod 'SDWebImage','5.4.2'
   pod 'NVActivityIndicatorView','4.8.0'

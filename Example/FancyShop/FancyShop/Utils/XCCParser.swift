@@ -48,7 +48,7 @@ class XCCParser {
     
     open func paymentDataXConfig(_ checkoutId: inout String?, _ merchantKeyFileName: inout String?, _ merchantKeyFilePassword: inout String?, _ consumerKey: inout String?, _ host: inout String?) {
         checkoutId = SDKConfiguration.sharedInstance.useMasterpassFlow ? xcconfigDictionary[Constants.xcconfigConstants.masterpassCheckoutID] : xcconfigDictionary[Constants.xcconfigConstants.checkoutID]
-        merchantKeyFileName = SDKConfiguration.sharedInstance.useMasterpassFlow ? xcconfigDictionary[Constants.xcconfigConstants.masterpassMerchantKeyFileName] : xcconfigDictionary[Constants.xcconfigConstants.masterpassMerchantKeyFileName]
+        merchantKeyFileName = SDKConfiguration.sharedInstance.useMasterpassFlow ? xcconfigDictionary[Constants.xcconfigConstants.masterpassMerchantKeyFileName] : xcconfigDictionary[Constants.xcconfigConstants.merchantKeyFileName]
         merchantKeyFilePassword = SDKConfiguration.sharedInstance.useMasterpassFlow ? xcconfigDictionary[Constants.xcconfigConstants.masterpassMerchantKeyPwd] : xcconfigDictionary[Constants.xcconfigConstants.merchantKeyPwd]
         consumerKey = SDKConfiguration.sharedInstance.useMasterpassFlow ? xcconfigDictionary[Constants.xcconfigConstants.masterpassConsumerKey] : xcconfigDictionary[Constants.xcconfigConstants.consumerKey]
         host = SDKConfiguration.sharedInstance.useMasterpassFlow ? xcconfigDictionary[Constants.xcconfigConstants.switchHost] : xcconfigDictionary[Constants.xcconfigConstants.merchantApiHost]
