@@ -18,6 +18,15 @@
 #import "MCSConfiguration.h"
 #import "MCSConfigurationManager.h"
 #import "MCSCheckoutButtonManager.h"
+#import "MCSCheckoutRouter.h"
+#import "MCSCheckoutResponse.h"
+#import "MCSWebViewController.h"
+//#import "MCSWebViewControllerManager.h"
+#import "MCSCommerceWeb+Private.h"
+#import "MCSCheckoutUrlBuilder.h"
+#import "MCSWebViewController.h"
+#import "MCSDelegateBridge.h"
+#import "MCCCheckoutHelper.h"
 
 @interface MCSCommerceWebTests : XCTestCase
 
@@ -26,11 +35,21 @@
 @implementation MCSCommerceWebTests
 
 -(void)testInitWithConfiguration{
-    MCSCommerceWeb *commerceWeb = [[MCSCommerceWeb alloc] init];
-    MCSConfiguration *configuration = [[MCSConfiguration alloc] initWithLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en"] checkoutId:@"ab230dfe76324d55a04c5955218c5815" checkoutUrl:@"https://stage.src.mastercard.com/srci" callbackScheme:@"fancyshop" allowedCardTypes:nil];
+    NSSet * cardTypes = [NSSet setWithObjects: MCSCardTypeDiners, nil];
+    MCSCommerceWeb *commerceWeb = [MCSCommerceWeb sharedManager];
+    MCSConfiguration *configuration = [[MCSConfiguration alloc] initWithLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en"] checkoutId:@"ab230dfe76324d55a04c5955218c5815" checkoutUrl:@"https://stage.src.mastercard.com/srci" callbackScheme:@"fancyshop" allowedCardTypes: cardTypes];
     [commerceWeb initWithConfiguration:configuration];
-    
     XCTAssertNotNil([MCSConfigurationManager sharedManager].configuration, @"configuration is not nil");
+    [commerceWeb checkoutWithRequest:[[MCSConfigurationManager sharedManager] checkoutRequest]];
+}
+
+-(void)testCheckoutButton{
+    MCSCommerceWeb *commerceWeb = [MCSCommerceWeb sharedManager];
+   id<MCSCheckoutDelegate> delegate;
+    MCSCheckoutButton *button = [commerceWeb checkoutButtonWithDelegate:delegate];
+    XCTAssertNotNil(button);
 }
 
 @end
+
+

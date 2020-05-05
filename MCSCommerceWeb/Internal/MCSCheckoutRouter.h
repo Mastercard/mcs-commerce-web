@@ -15,7 +15,8 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "MCSViewControllerManager.h"
+#import "MCSWebViewController.h"
+//#import "MCSViewControllerManager.h"
 
 /**
  MCSCheckoutRouter interacts with the ViewControllerManager
@@ -28,14 +29,25 @@
 /**
  Route the user to the correct checkout flow using the provided MCSViewControllerManager
  
- @param manager MCSViewControllerManager used to present the checkout flow
+
  @param errorHandler completion block used for callback in case of an error
  */
-- (void) startWithViewControllerManager:(id<MCSViewControllerManager>)manager errorHandler:(void (^)(void))errorHandler;
+- (void) start: error handler:(void (^)(void))errorHandler;
 
 /**
  * Stop router network checking when come back from SDK to Merchant App
  */
 - (void)stop;
+/**
+ Initializes this ViewController with the URL pointing to SRCi and
+ the scheme defined by the Merchant to handle the callbackUrl.
+ 
+ @param url location of SRCi
+ @param scheme custom URL scheme defined by the merchant in order
+ to handle the callback to the app
+ @param delegate delegate object listening for the response from
+ checkout
+ */
+- (instancetype) initWithUrl:(NSString *)url scheme:(NSString *)scheme presentingViewController:(UIViewController *)viewController delegate:(id<MCSWebCheckoutDelegate>)delegate;
 
 @end

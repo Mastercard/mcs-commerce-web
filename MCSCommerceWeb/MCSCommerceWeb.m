@@ -17,7 +17,7 @@
 #import "MCSConfigurationManager.h"
 #import "MCSCheckoutUrlBuilder.h"
 #import "MCSCheckoutRouter.h"
-#import "MCSWebViewControllerManager.h"
+//#import "MCSWebViewControllerManager.h"
 #import "MCSCheckoutResponse.h"
 #import "MCSCheckoutButtonManager.h"
 
@@ -45,20 +45,17 @@ static MCSCommerceWeb *sharedManager = nil;
     
     return button;
 }
-
+//used to init the whole process
 - (void)initWithConfiguration:(MCSConfiguration *)configuration {
     [[MCSConfigurationManager sharedManager] setConfiguration:configuration];
-    [MCSCheckoutButtonManager sharedManager];
 }
 
 - (void)checkoutWithRequest:(MCSCheckoutRequest *)request {
     [[MCSConfigurationManager sharedManager] setCheckoutRequest:request];
-    
     NSURL *url = [MCSCheckoutUrlBuilder urlForCheckout];
-    self.router = [[MCSCheckoutRouter alloc] init];
-    MCSWebViewControllerManager *manager = [[MCSWebViewControllerManager alloc] initWithUrl:[url absoluteString] scheme:[[MCSConfigurationManager sharedManager] configuration].callbackScheme delegate:self];
+    self.router = [self.router initWithUrl:[url absoluteString] scheme:[[MCSConfigurationManager sharedManager] configuration].callbackScheme presentingViewController:[[MCSConfigurationManager sharedManager] configuration].presentingViewController delegate:self];
     
-    [self.router startWithViewControllerManager:manager errorHandler:^(void) {
+    [self.router start: _router handler:^(void) {
         [self.delegate checkoutRequest:[[MCSConfigurationManager sharedManager] checkoutRequest] didCompleteWithStatus:MCSCheckoutStatusCanceled forTransaction:nil];
     }];
 }

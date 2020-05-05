@@ -3,4 +3,12 @@ use_frameworks!
 target 'MCSCommerceWeb' do
   pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '3.x'
 
+  pod "CocoaLumberjack"	
+
+end
+target 'MCSCommerceWebTests' do
+  pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '3.x'
+
+  pod "CocoaLumberjack"	
+
 end

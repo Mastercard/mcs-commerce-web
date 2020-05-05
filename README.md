@@ -11,6 +11,8 @@
 
 `MCSCommerceWeb` is a lightweight framework used to integrate Merchants with [**EMV Secure Remote Commerce**](https://www.emvco.com/emv-technologies/src/) and Mastercard's web-based SRC-Initiator with backward compatibility for existing Masterpass integrations. `MCSCommerceWeb` facilitates the initiation of the checkout experience and returns the transaction result to the Merchant after completion.
 
+***Note: currently, this framework is only recommended for existing U.S. Masterpass merchants. Merchants using version 2.8 must follow the steps in the migration section. Merchants using version older than 2.8 should follow all steps wihtout migration from this integration guide.***
+
 ### <a name="ios-installation">Installation</a>
 
 #### CocoaPods
