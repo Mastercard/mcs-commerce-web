@@ -15,6 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MCSCardTypes.h"
+#import <UIKit/UIKit.h>
 
 /**
  Configuration class used to initialize MCSCommerceWeb with the specific
@@ -58,5 +59,9 @@
  Custom URL scheme used to communicate the checkout response back to this app (e.g. merchantapp)
  */
 @property (nonatomic, copy, readwrite, nonnull) NSString *callbackScheme;
+
+/* set up this if you want to use another ViewController outside of the keyWindow RootViewController
+ */
+@property (nonatomic, readwrite, nullable) UIViewController *presentingViewController;
 
 @end

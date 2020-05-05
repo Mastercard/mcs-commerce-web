@@ -57,4 +57,11 @@
  */
 - (instancetype) initWithUrl:(NSURL *)url scheme:(NSString *)scheme delegate:(id<MCSWebCheckoutDelegate>)delegate;
 
+/**
+ Present the given ViewController
+ 
+ @param viewController the ViewController to be presented
+ */
+- (void) startWithViewController:(UIViewController *)viewController;
+
 @end

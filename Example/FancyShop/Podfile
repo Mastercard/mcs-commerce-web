@@ -5,7 +5,7 @@ target 'FancyShop' do
   platform :ios, '11.0'
 
   # Pods for MerchantApp
-  pod 'MCSCommerceWeb', :podspec => '../../MCSCommerceWeb.podspec'
+ pod 'MCSCommerceWeb', :podspec => '../../MCSCommerceWeb.podspec'
 
   pod 'Alamofire' ,'4.9.1'
   pod 'SDWebImage','5.4.2'

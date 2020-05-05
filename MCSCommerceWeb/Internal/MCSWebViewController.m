@@ -23,6 +23,7 @@
 @property (nonatomic, weak) id<MCSWebCheckoutDelegate> delegate;
 @property (nonatomic) BOOL isDismissing;
 @property (nonatomic) int receiveNavigationForDCFPopupCount;
+
 @end
 
 @implementation MCSWebViewController
@@ -40,6 +41,12 @@
     
     return self;
 }
+
+
+- (void) startWithViewController:(UIViewController *)viewController {
+    [viewController presentViewController:self animated:true completion:nil];
+}
+
 
 - (void)encodeWithCoder:(nonnull NSCoder *)aCoder {
     [super encodeWithCoder:aCoder];
