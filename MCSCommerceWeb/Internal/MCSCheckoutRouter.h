@@ -47,6 +47,6 @@
  @param delegate delegate object listening for the response from
  checkout
  */
-- (instancetype) initWithUrl:(NSString *)url scheme:(NSString *)scheme presentingViewController:(UIViewController *)viewController delegate:(id<MCSWebCheckoutDelegate>)delegate;
+- (instancetype) initWithUrl:(NSURL *)url scheme:(NSString *)scheme presentingViewController:(UIViewController *)viewController delegate:(id<MCSWebCheckoutDelegate>)delegate;
 
 @end

@@ -62,6 +62,6 @@
 
 /* set up this if you want to use another ViewController outside of the keyWindow RootViewController
  */
-@property (nonatomic, copy, readwrite, nullable) UIViewController *presentingViewController;
+@property (nonatomic, readwrite, nullable) UIViewController *presentingViewController;
 
 @end

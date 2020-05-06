@@ -22,7 +22,7 @@
 @interface MCSCheckoutRouter()
 
 @property (nonatomic, strong) NSTimer *networkTimer;
-@property (nonatomic, copy, readwrite, nullable) UIViewController *presentingViewController;
+@property (nonatomic, readwrite, nullable) UIViewController *presentingViewController;
 @property (nonatomic, strong) MCSWebViewController *webViewController;
 @property (nonatomic, strong) MCSTopMessageView *topMessageView;
 
@@ -31,9 +31,9 @@
 @implementation MCSCheckoutRouter
 
 
-- (instancetype) initWithUrl:(NSString *)url scheme:(NSString *)scheme presentingViewController:(UIViewController *)viewController delegate:(id<MCSWebCheckoutDelegate>)delegate {
+- (instancetype) initWithUrl:(NSURL *)url scheme:(NSString *)scheme presentingViewController:(UIViewController *)viewController delegate:(id<MCSWebCheckoutDelegate>)delegate {
     if (self = [super init]) {
-        _webViewController = [[MCSWebViewController alloc] initWithUrl:[NSURL URLWithString:url] scheme:scheme delegate:delegate];
+        _webViewController = [[MCSWebViewController alloc] initWithUrl:url scheme:scheme delegate:delegate];
         self.presentingViewController = viewController;
     }
     
@@ -41,7 +41,6 @@
 }
 
 - (void) start: error handler:(void (^)(void))errorHandler {
-    
     NSError *isReachableError = [MCSReachability isNetworkReachable];
     if (isReachableError) {
         [self showAlert:kCoreNoInternetConnectionErrorInfo message:kCoreNoInternetConnectionMessage handler:^(UIAlertAction *action){

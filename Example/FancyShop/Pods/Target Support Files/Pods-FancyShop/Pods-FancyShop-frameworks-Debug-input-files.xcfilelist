@@ -1,7 +1,7 @@
 ${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework
-${PODS_ROOT}/MCSCommerceWeb/MCSCommerceWeb.framework
+${PODS_ROOT}/../../../MCSCommerceWeb.framework
 ${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework
 ${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
 ${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework

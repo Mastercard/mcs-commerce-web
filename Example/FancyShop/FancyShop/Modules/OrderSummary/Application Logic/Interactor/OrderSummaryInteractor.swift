@@ -136,7 +136,8 @@ class OrderSummaryInteractor:BaseInteractor, OrderSummaryInteractorInputProtocol
     }
     
     func initializeSdk() {
-        self.APIDataManager?.initializeSdk()
+//        self.APIDataManager?.initializeSdk(with: (self.presenter as? OrderSummaryPresenter)?.view as? UIViewController)
+        self.APIDataManager?.initializeSdk(with: nil)
     }
     
     /// Passes the taxes, subtotal and total from the shopping cart
