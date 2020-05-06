@@ -22,12 +22,7 @@
 @implementation MCSWebViewControllerManagerTests
 
 -(void)testWebViewController {
-    MockViewController *mockVc = [[MockViewController alloc] init];
-
-//    window.rootViewController = mockVc;
-//    [window makeKeyAndVisible];
-//    [mockVc.view layoutIfNeeded];
-//    [UIApplication sharedApplication].keyWindow.rootViewController = mockVc;
+    MockViewController *MCSMockVc = [[MockViewController alloc] init];
     NSSet * cardTypes = [NSSet setWithObjects: MCSCardTypeDiners, nil];
     MCSConfiguration *configuration = [[MCSConfiguration alloc] initWithLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en"] checkoutId:@"ab230dfe76324d55a04c5955218c5815" checkoutUrl:@"https://stage.src.mastercard.com/srci" callbackScheme:@"fancyshop" allowedCardTypes: cardTypes];
     
@@ -36,10 +31,10 @@
 
     
     MCSWebViewControllerManager *manager = [[MCSWebViewControllerManager alloc] initWithUrl:[url absoluteString] scheme:[[MCSConfigurationManager sharedManager] configuration].callbackScheme delegate:delegate];
-    [manager startWithViewController:mockVc];
+    [manager startWithViewController:MCSMockVc];
 
     XCTAssertNotNil(manager);
-    XCTAssertNotNil(mockVc.viewControllerPresented);
+    XCTAssertNotNil(MCSMockVc.viewControllerPresented);
     
 }
 
