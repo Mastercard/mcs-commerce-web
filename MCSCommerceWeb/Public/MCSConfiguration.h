@@ -15,6 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MCSCardTypes.h"
+#import <UIKit/UIKit.h>
 
 /**
  Configuration class used to initialize MCSCommerceWeb with the specific
@@ -27,16 +28,17 @@
 /**
  Initializer for the MCSCommerceConfig
  
- @param locale NSString type used for merchant locale.
- @param checkoutId NSString type used for merchant identification.
- @param checkoutUrl URL used to initiate checkout
- @param callbackScheme Custom scheme to communicate checkout response to the app
- */
-- (instancetype _Nonnull)initWithLocale:(NSLocale *_Nonnull)locale
-                             checkoutId:(NSString *_Nonnull)checkoutId
-                                checkoutUrl:(NSString *_Nonnull)checkoutUrl
-                         callbackScheme:(NSString *_Nonnull)callbackScheme
-                       allowedCardTypes:(NSSet <MCSCardType> *_Nonnull)allowedCardTypes;
+  @param checkoutId NSString type used for merchant identification.
+  @param checkoutUrl URL used to initiate checkout
+  @param callbackScheme Custom scheme to communicate checkout response to the app
+  @param presentingViewController optional ViewController
+  */
+ - (instancetype _Nonnull)initWithLocale:(NSLocale *_Nonnull)locale
+                              checkoutId:(NSString *_Nonnull)checkoutId
+                                 checkoutUrl:(NSString *_Nonnull)checkoutUrl
+                          callbackScheme:(NSString *_Nonnull)callbackScheme
+                        allowedCardTypes:(NSSet <MCSCardType> *_Nonnull)allowedCardTypes
+                presentingViewController:(UIViewController *_Nullable)presentingViewController;
 
 /**
  List of card networks accepted by the merchant
@@ -58,5 +60,9 @@
  Custom URL scheme used to communicate the checkout response back to this app (e.g. merchantapp)
  */
 @property (nonatomic, copy, readwrite, nonnull) NSString *callbackScheme;
+
+/* set up this if you want to use another ViewController outside of the keyWindow RootViewController
+ */
+@property (nonatomic, readwrite, nullable) UIViewController *presentingViewController;
 
 @end

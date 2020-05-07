@@ -48,7 +48,8 @@
                                          checkoutId:configuration.checkoutId
                                             checkoutUrl:configuration.checkoutUrl
                                      callbackScheme:configuration.callbackScheme
-                                   allowedCardTypes:allowedCardTypes];
+                                   allowedCardTypes:allowedCardTypes
+                           presentingViewController:configuration.presentingViewController];
 }
 
 + (NSSet<MCSCardType> *)cardTypesWithCardTypes:(NSSet<MCCCardType *> *)cardTypes {

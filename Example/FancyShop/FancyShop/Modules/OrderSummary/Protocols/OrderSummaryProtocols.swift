@@ -113,7 +113,7 @@ protocol OrderSummaryDataManagerInputProtocol: class{
 
 /// Method contract between INTERACTOR -> APIDATAMANAGER
 protocol OrderSummaryAPIDataManagerInputProtocol: class{
-    func initializeSdk()
+    func initializeSdk(with viewController:UIViewController?)
     func getCheckoutButton(completionHandler: @escaping ([AnyHashable : Any]?,Error?) -> ()) -> MCSCheckoutButton
 }
 

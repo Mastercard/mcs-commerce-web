@@ -17,31 +17,46 @@
 #import "MCSReachability.h"
 #import "MCFCoreConstants.h"
 #import "MCSTopMessageView.h"
+#import "MCSWebViewController.h"
 
 @interface MCSCheckoutRouter()
 
 @property (nonatomic, strong) NSTimer *networkTimer;
-@property (nonatomic, strong) id <MCSViewControllerManager> viewControllerManager;
+@property (nonatomic, readwrite, nullable) UIViewController *presentingViewController;
+@property (nonatomic, strong) MCSWebViewController *webViewController;
 @property (nonatomic, strong) MCSTopMessageView *topMessageView;
 
 @end
 
 @implementation MCSCheckoutRouter
 
-- (void) startWithViewControllerManager:(id<MCSViewControllerManager>)manager errorHandler:(void (^)(void))errorHandler {
+
+- (instancetype) initWithUrl:(NSURL *)url scheme:(NSString *)scheme presentingViewController:(UIViewController *)viewController delegate:(id<MCSWebCheckoutDelegate>)delegate {
+    if (self = [super init]) {
+        _webViewController = [[MCSWebViewController alloc] initWithUrl:url scheme:scheme delegate:delegate];
+        self.presentingViewController = viewController;
+    }
     
-    self.viewControllerManager = manager;
+    return self;
+}
+
+- (void) start: error handler:(void (^)(void))errorHandler {
     NSError *isReachableError = [MCSReachability isNetworkReachable];
     if (isReachableError) {
         [self showAlert:kCoreNoInternetConnectionErrorInfo message:kCoreNoInternetConnectionMessage handler:^(UIAlertAction *action){
             errorHandler();
         }];
     } else {
-        [manager startWithViewController:[self topViewController]];
-        [self initiateNetworkAvailabilityCheck];
+        if (self.presentingViewController != NULL) {
+            [_webViewController startWithViewController:[self presentingViewController]];
+        } else {
+            [_webViewController startWithViewController:[self topViewController]];
+        }
+            [self initiateNetworkAvailabilityCheck];
     }
     
 }
+
 
 #pragma mark - Check Internet Connectivity
 - (void)initiateNetworkAvailabilityCheck {

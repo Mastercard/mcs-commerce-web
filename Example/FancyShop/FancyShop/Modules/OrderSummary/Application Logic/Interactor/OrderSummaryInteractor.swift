@@ -136,7 +136,9 @@ class OrderSummaryInteractor:BaseInteractor, OrderSummaryInteractorInputProtocol
     }
     
     func initializeSdk() {
-        self.APIDataManager?.initializeSdk()
+///  use the commented method below if you want to use the optional presenting ViewController, otherwise init with nil for older keyWindow implementation
+///  self.APIDataManager?.initializeSdk(with: (self.presenter as? OrderSummaryPresenter)?.view as? UIViewController)
+        self.APIDataManager?.initializeSdk(with: nil)
     }
     
     /// Passes the taxes, subtotal and total from the shopping cart
