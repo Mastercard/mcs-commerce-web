@@ -258,12 +258,13 @@ import MCSCommerceWeb
 
 ##### MCCConfiguration
 
-`MCCConfiguration` has 4 new required properties
+`MCCConfiguration` has 4 new required properties and one optional property
 
 * `checkoutId` : The merchant identifier generated when created a merchant developer profile. Note: this is moved from `MCCCheckoutRequest`
 * `allowedCardTypes` : The payment networks supported by this merchant (e.g. master, visa, amex). Note: this is moved from `MCCCheckoutRequest`
 * `callbackScheme` : The scheme used to return data to this application. This is the value configured in `URL Schemes` in the `info.plist`
 * `checkoutUrl` : The URL used to load the checkout experience. Note: if you are migrating to `MCSCommerceWeb`, but still plan to checkout with `Masterpass`, you will still need to provide this URL.
+*`presentingViewController` : optional ViewController can be passed and presented instead of the vanilla keyWindow RootViewController 
 
 | Environment           | URL                                                                  |
 |-----------------------|-------------------------------------------------------------------|
@@ -516,15 +517,13 @@ func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigatio
 
 ```swift
 // Swift
-let commerceConfig: MCSConfiguration = MCSConfiguration(
+    let commerceConfig: MCSConfiguration = MCSConfiguration(
         locale: configuration.getLocaleFromSelectedLanguage(),
         checkoutId: checkoutId,
         checkoutUrl: checkoutUrl,
         callbackScheme: BuildConfiguration.sharedInstance.merchantUrlScheme(),
-        allowedCardTypes: [.master, .visa, .amex])
-    commerceConfig.presentingViewController = viewController
-    SRCSDKManager.sharedInstance.initializeSdk(configuration: commerceConfig)
-}
+        allowedCardTypes: [.master, .visa, .amex],
+        presenting: viewController)
 ```
 ```objective-c
 // Objective-c

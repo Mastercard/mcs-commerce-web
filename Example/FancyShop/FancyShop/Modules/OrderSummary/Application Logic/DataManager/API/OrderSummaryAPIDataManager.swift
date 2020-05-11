@@ -133,8 +133,8 @@ class OrderSummaryAPIDataManager: OrderSummaryAPIDataManagerInputProtocol, MCSCh
             checkoutId: checkoutId,
             checkoutUrl: checkoutUrl,
             callbackScheme: BuildConfiguration.sharedInstance.merchantUrlScheme(),
-            allowedCardTypes: [.master, .visa, .amex])
-        commerceConfig.presentingViewController = viewController
+            allowedCardTypes: [.master, .visa, .amex],
+            presenting: viewController)
         SRCSDKManager.sharedInstance.initializeSdk(configuration: commerceConfig)
     }
     
