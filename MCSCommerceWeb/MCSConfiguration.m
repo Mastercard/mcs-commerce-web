@@ -21,7 +21,9 @@
                               checkoutId:(NSString *)checkoutId
                                      checkoutUrl:(NSString *)checkoutUrl
                                   callbackScheme:(NSString *)scheme
-allowedCardTypes:(NSSet<MCSCardType> *)allowedCardTypes{
+allowedCardTypes:(NSSet<MCSCardType> *)allowedCardTypes
+presentingViewController:(UIViewController *_Nullable)presentingViewController
+{
     if (self = [super init]) {
         self.locale = locale;
         self.checkoutId = checkoutId;
@@ -32,6 +34,7 @@ allowedCardTypes:(NSSet<MCSCardType> *)allowedCardTypes{
     
     return self;
 }
+
 
 
 @end

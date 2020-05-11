@@ -103,7 +103,7 @@ class OrderSummaryAPIDataManager: OrderSummaryAPIDataManagerInputProtocol, MCSCh
     
     
     
-    func initializeSdk() {
+    func initializeSdk(with viewController: UIViewController?) {
         /*
         * NOTE: Set the locale to "en_GB" if you want to test Prod
         * locale: Locale(identifier: "en_GB")
@@ -133,8 +133,8 @@ class OrderSummaryAPIDataManager: OrderSummaryAPIDataManagerInputProtocol, MCSCh
             checkoutId: checkoutId,
             checkoutUrl: checkoutUrl,
             callbackScheme: BuildConfiguration.sharedInstance.merchantUrlScheme(),
-            allowedCardTypes: [.master, .visa, .amex])
-        
+            allowedCardTypes: [.master, .visa, .amex],
+            presenting: viewController)
         SRCSDKManager.sharedInstance.initializeSdk(configuration: commerceConfig)
     }
     

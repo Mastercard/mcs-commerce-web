@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MCCCardType.h"
-
+#import <UIKit/UIKit.h>
 /**
  
  Overview:
@@ -70,5 +70,9 @@ __deprecated_msg("You should migrate your code to MCSCommerceWeb. All classes re
  User id must be set if expressCheckoutEnabled is true
  */
 @property (nonatomic, copy, nullable) NSString * merchantUserId;
+
+/* set up this if you want to use another ViewController outside of the keyWindow RootViewController
+ */
+@property (nonatomic, readwrite, nullable) UIViewController *presentingViewController;
 
 @end

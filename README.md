@@ -131,7 +131,7 @@ func getCheckoutRequest(withHandler: @escaping (MCSCheckoutRequest) -> Void)
 
 Here are the required and optional fields:
 
-| Parameter                | Type	       | Required   | Description                                                                                                                  
+| Parameter                | Type           | Required   | Description                                                                                                                  
 |--------------------------|------------|:----------:|---------------------------------------------------------------------------------------------------------|
 | allowedCardTypes         | Array      | Yes        | Set of all card types accepted for this transaction
 | amount                   | Decimal    | Yes        | The transaction total to be authorized
@@ -150,48 +150,48 @@ The implementation of the checkout with these parameters:
 ```swift
 // Swift
 func getCheckoutRequest(withHandler: @escaping (MCSCheckoutRequest) -> Void) {
-	let checkoutRequest = MCSCheckoutRequest()
-	checkoutRequest.amount = NSDecimalNumber(string: String(shoppingCart.total))
-	checkoutRequest.currency = sdkConfig.currency
-	checkoutRequest.cartId = shoppingCart.cartId
-	checkoutRequest.allowedCardTypes = [.master,.visa]
-	checkoutRequest.suppressShippingAddress = sdkConfig.suppressShipping
-	checkoutRequest.callbackUrl = "fancyshop://"
-	checkoutRequest.unpredictableNumber = "12345678"
-	    
-	let cryptoOptionVisa = MCSCryptoOptions()
-	cryptoOptionVisa.cardType = "visa"
-	cryptoOptionVisa.format = ["TVV"]
-	
-	let cryptoOptionMaster = MCSCryptoOptions()
-	cryptoOptionMaster.cardType = "master"
-	cryptoOptionMaster.format = ["ICC,UCAF"]
-	
-	checkoutRequest.cryptoOptions = [cryptoOptionMaster,cryptoOptionVisa]
-	    
-	withHandler(checkoutRequest)
+    let checkoutRequest = MCSCheckoutRequest()
+    checkoutRequest.amount = NSDecimalNumber(string: String(shoppingCart.total))
+    checkoutRequest.currency = sdkConfig.currency
+    checkoutRequest.cartId = shoppingCart.cartId
+    checkoutRequest.allowedCardTypes = [.master,.visa]
+    checkoutRequest.suppressShippingAddress = sdkConfig.suppressShipping
+    checkoutRequest.callbackUrl = "fancyshop://"
+    checkoutRequest.unpredictableNumber = "12345678"
+        
+    let cryptoOptionVisa = MCSCryptoOptions()
+    cryptoOptionVisa.cardType = "visa"
+    cryptoOptionVisa.format = ["TVV"]
+    
+    let cryptoOptionMaster = MCSCryptoOptions()
+    cryptoOptionMaster.cardType = "master"
+    cryptoOptionMaster.format = ["ICC,UCAF"]
+    
+    checkoutRequest.cryptoOptions = [cryptoOptionMaster,cryptoOptionVisa]
+        
+    withHandler(checkoutRequest)
 }
 ```
 
 ```objective-c
 // Objective-C
 - (void)checkoutRequestForTransaction:(nonnull void(^)(MCSCheckoutRequest * _Nonnull checkoutRequest))handler {
-	MCSCheckoutRequest *checkoutRequest = [[MCSCheckoutRequest alloc] init];
-	checkoutRequest.amount = [[NSDecimalNumber alloc] initWithString:shoppingCart.total];
-	checkoutRequest.currency = sdkConfig.currency
-	checkoutRequest.cartId = shoppingCart.cartId
-	checkoutRequest.allowedCardTypes = [NSSet setWithObjects:MCSCardTypeMaster, MCSCardTypeVisa, nil];
-	checkoutRequest.suppressShippingAddress = sdkConfig.suppressShipping;
-	checkoutRequest.callbackUrl = @"fancyshop://";
-	checkoutRequest.unpredictableNumber = @"12345678";
-	
-	MCSCryptoOptions *cryptoOptionMaster = [[MCSCryptoOptions alloc] init];
-	cryptoOptionMaster.cardType = MCSCardTypeMaster;
-	cryptoOptionMaster.format = @[MCSCryptoFormatICC, MCSCryptoFormatUCAF];
-	
-	checkoutRequest.cryptoOptions = @[cryptoOptionMaster];
-	
-	handler(checkoutRequest);
+    MCSCheckoutRequest *checkoutRequest = [[MCSCheckoutRequest alloc] init];
+    checkoutRequest.amount = [[NSDecimalNumber alloc] initWithString:shoppingCart.total];
+    checkoutRequest.currency = sdkConfig.currency
+    checkoutRequest.cartId = shoppingCart.cartId
+    checkoutRequest.allowedCardTypes = [NSSet setWithObjects:MCSCardTypeMaster, MCSCardTypeVisa, nil];
+    checkoutRequest.suppressShippingAddress = sdkConfig.suppressShipping;
+    checkoutRequest.callbackUrl = @"fancyshop://";
+    checkoutRequest.unpredictableNumber = @"12345678";
+    
+    MCSCryptoOptions *cryptoOptionMaster = [[MCSCryptoOptions alloc] init];
+    cryptoOptionMaster.cardType = MCSCardTypeMaster;
+    cryptoOptionMaster.format = @[MCSCryptoFormatICC, MCSCryptoFormatUCAF];
+    
+    checkoutRequest.cryptoOptions = @[cryptoOptionMaster];
+    
+    handler(checkoutRequest);
 }
 ```
 
@@ -212,18 +212,18 @@ The result of a transaction is returned to the application via the `MCSCheckoutD
 ```swift
 // Swift
 func checkoutCompleted(withRequest request: MCSCheckoutRequest!, status: MCSCheckoutStatus, transactionId: String?) {
-	if (transactionId != nil) {
-		//comlpete transaction
-	}
+    if (transactionId != nil) {
+        //comlpete transaction
+    }
 }
 ```
 
 ```objective-c
 // Objective-C
 - (void)checkoutRequest:(MCSCheckoutRequest *)request didCompleteWithStatus:(MCSCheckoutStatus)status forTransaction:(NSString * _Nullable)transactionId {
-	if (transactionId != nil) {
-		//complete transaction
-	}
+    if (transactionId != nil) {
+        //complete transaction
+    }
 }
 ```
 
@@ -258,14 +258,15 @@ import MCSCommerceWeb
 
 ##### MCCConfiguration
 
-`MCCConfiguration` has 4 new required properties
+`MCCConfiguration` has 4 new required properties and one optional property
 
 * `checkoutId` : The merchant identifier generated when created a merchant developer profile. Note: this is moved from `MCCCheckoutRequest`
 * `allowedCardTypes` : The payment networks supported by this merchant (e.g. master, visa, amex). Note: this is moved from `MCCCheckoutRequest`
 * `callbackScheme` : The scheme used to return data to this application. This is the value configured in `URL Schemes` in the `info.plist`
 * `checkoutUrl` : The URL used to load the checkout experience. Note: if you are migrating to `MCSCommerceWeb`, but still plan to checkout with `Masterpass`, you will still need to provide this URL.
+*`presentingViewController` : optional ViewController can be passed and presented instead of the vanilla keyWindow RootViewController 
 
-| Environment           | URL	                                                              |
+| Environment           | URL                                                                  |
 |-----------------------|-------------------------------------------------------------------|
 | Masterpass Sandbox    | https://sandbox.masterpass.com/routing/v2/mobileapi/web-checkout  |
 | Masterpass Production | https://masterpass.com/routing/v2/mobileapi/web-checkout          |
@@ -305,7 +306,7 @@ This payment method, or any other, can be used with `paymentMethodCheckout:` to 
 
 `paymentMethodCheckout:` should no longer be called. `MCSCommerceWeb` provides `paymentMethodCheckout:delegate:request:` which will initiate the standard SRC checkout flow with the `MCSCheckoutDelegate` handling the response.  
 
-| Old Function          | New Function	     
+| Old Function          | New Function         
 |-----------------------|--------------------|
 | `+ (void)addMasterpassPaymentMethod:(id<MCCMerchantDelegate> _Nonnull)merchantDelegate withCompletionBlock:(void(^ __nonnull) (MCCPaymentMethod*  _Nullable mccPayment, NSError * _Nullable error))completionHandler;`      | `- (MCCPaymentMethod *_Nonnull)addPaymentMethod;` |
 | `+ (void)paymentMethodCheckout:(id<MCCMerchantDelegate> _Nonnull) merchantDelegate;` | `- (void)paymentMethodCheckout:(id<MCSCheckoutDelegate> _Nonnull)delegate request:(MCSCheckoutRequest *_Nonnull)request`|  
@@ -330,7 +331,7 @@ For the `WKWebView`, we need to build a url with required and optional parameter
 | currency               | The currency of the amount |
 | allowedCardTypes       | The cards the merchant supports (Mastercard/Visa/Amex) |
 | suppressShippingAddress| If set to true, Masterpass will not ask for a shipping address |
-| locale 				     | The language Masterpass should load |
+| locale                      | The language Masterpass should load |
 | channel                | Default should be set to mobile |
 | masterCryptoFormat     | Default should be set to UCAF%2CICC |
 
@@ -417,9 +418,9 @@ func webView(_ webView: WKWebView, start urlSchemeTask: WKURLSchemeTask) {
     
     // handle checkout response here
     if (status == 'success') {
-    	// handle successful transaction
+        // handle successful transaction
     } else {
-    	// handle canceled transaction
+        // handle canceled transaction
     }
 }
 ```
@@ -447,9 +448,9 @@ func webView(_ webView: WKWebView, start urlSchemeTask: WKURLSchemeTask) {
         
     // handle checkout response here
     if ([status isEqualToString:@"success"]) {
-    	// handle successful transaction
+        // handle successful transaction
     } else {
-    	// handle canceled transaction 
+        // handle canceled transaction 
     }
 }
 ```
@@ -459,7 +460,7 @@ func webView(_ webView: WKWebView, start urlSchemeTask: WKURLSchemeTask) {
 ```swift
 // Swift
 func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
-	let popup = WKWebView(frame: view.bounds, configuration: configuration)
+    let popup = WKWebView(frame: view.bounds, configuration: configuration)
     popup.uiDelegate = self
     popup.navigationDelegate = self
         
@@ -511,4 +512,25 @@ func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigatio
         decisionHandler(WKNavigationActionPolicyAllow);
     }
 }
+```
+`PresentingViewController` requires a passable ViewController as an optional parameter in the `MCSConfiguration`. Using this option will allow the use of a another view controller other than the keyWindow.rootViewController presented by the topViewController:
+
+```swift
+// Swift
+    let commerceConfig: MCSConfiguration = MCSConfiguration(
+        locale: configuration.getLocaleFromSelectedLanguage(),
+        checkoutId: checkoutId,
+        checkoutUrl: checkoutUrl,
+        callbackScheme: BuildConfiguration.sharedInstance.merchantUrlScheme(),
+        allowedCardTypes: [.master, .visa, .amex],
+        presenting: viewController)
+```
+```objective-c
+// Objective-c
+- (instancetype _Nonnull)initWithLocale:(NSLocale *_Nonnull)locale
+              checkoutId:(NSString *_Nonnull)checkoutId
+                 checkoutUrl:(NSString *_Nonnull)checkoutUrl
+          callbackScheme:(NSString *_Nonnull)callbackScheme
+        allowedCardTypes:(NSSet <MCSCardType> *_Nonnull)allowedCardTypes
+presentingViewController:(UIViewController *_Nullable)presentingViewController;
 ```

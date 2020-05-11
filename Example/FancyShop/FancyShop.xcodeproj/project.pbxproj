@@ -21,8 +21,6 @@
 		19A0EDB322971653006B7AFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EC6B22971651006B7AFA /* LaunchScreen.storyboard */; };
 		19A0EDB422971653006B7AFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EC6D22971651006B7AFA /* AppDelegate.swift */; };
 		19A0EDB622971653006B7AFA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EC7122971651006B7AFA /* Constants.swift */; };
-		19A0EDBC22971653006B7AFA /* Prod.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EC7822971651006B7AFA /* Prod.xcconfig */; };
-		19A0EDBD22971653006B7AFA /* Sandbox.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EC7922971651006B7AFA /* Sandbox.xcconfig */; };
 		19A0EDBE22971653006B7AFA /* OneServerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EC7B22971651006B7AFA /* OneServerRouter.swift */; };
 		19A0EDBF22971653006B7AFA /* URLparser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EC7D22971651006B7AFA /* URLparser.swift */; };
 		19A0EDC022971653006B7AFA /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EC7E22971651006B7AFA /* NavigationHelper.swift */; };
@@ -174,15 +172,20 @@
 		19A0EE5722971653006B7AFA /* LanguageConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EDA222971653006B7AFA /* LanguageConfiguration.swift */; };
 		19A0EE5E22986602006B7AFA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19A0EE5D22986602006B7AFA /* Default-568h@2x.png */; };
 		19A0EF752298A13B006B7AFA /* objectLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EED522989A58006B7AFA /* objectLocator.swift */; };
-		1B258CCA815BD74FE4985675 /* Pods_FancyShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33AED8A5BEFA3EE51A585EC1 /* Pods_FancyShop.framework */; };
-		490ED5432345469700830362 /* sandbox_fancyshop.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 49246EBF2327F6DB00EFD86D /* sandbox_fancyshop.p12 */; };
+		490E2EC922F4953100B6709F /* MerchantServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490E2EC822F4952400B6709F /* MerchantServices.framework */; };
 		49B76FC32354F83E00AA0CF7 /* MasterpassSDKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B76FC22354F83E00AA0CF7 /* MasterpassSDKManager.swift */; };
 		49B76FC52354F8ED00AA0CF7 /* MasterpassUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B76FC42354F8ED00AA0CF7 /* MasterpassUser.swift */; };
 		49B76FC72354FA4200AA0CF7 /* MasterpassSDKConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B76FC62354FA4200AA0CF7 /* MasterpassSDKConfiguration.swift */; };
 		49B76FC92354FB7700AA0CF7 /* MasterpassConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B76FC82354FB7700AA0CF7 /* MasterpassConstants.swift */; };
 		49B76FCB235503CB00AA0CF7 /* MasterpassCheckoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B76FCA235503CB00AA0CF7 /* MasterpassCheckoutResponse.swift */; };
-		E41196E02458788400741456 /* prod_fancyshop.p12 in Resources */ = {isa = PBXBuildFile; fileRef = E41196DE2458788400741456 /* prod_fancyshop.p12 */; };
-		E41196E12458788400741456 /* stage_fancyshop.p12 in Resources */ = {isa = PBXBuildFile; fileRef = E41196DF2458788400741456 /* stage_fancyshop.p12 */; };
+		5E73D392244A3A380082B4C5 /* Prod.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5E73D38F244A3A380082B4C5 /* Prod.xcconfig */; };
+		5E73D393244A3A380082B4C5 /* Sandbox.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5E73D390244A3A380082B4C5 /* Sandbox.xcconfig */; };
+		5E73D394244A3A380082B4C5 /* Stage.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5E73D391244A3A380082B4C5 /* Stage.xcconfig */; };
+		5E73D399244A3ADC0082B4C5 /* prod_fancyshop.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 5E73D396244A3ADB0082B4C5 /* prod_fancyshop.p12 */; };
+		5E73D39A244A3ADC0082B4C5 /* sandbox_fancyshop.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 5E73D397244A3ADB0082B4C5 /* sandbox_fancyshop.p12 */; };
+		5E73D39B244A3ADC0082B4C5 /* stage_fancyshop.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 5E73D398244A3ADC0082B4C5 /* stage_fancyshop.p12 */; };
+		5ED72467246624940045C279 /* MCSCommerceWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ED72466246624940045C279 /* MCSCommerceWeb.framework */; };
+		E0B5BD2A597BE958C1EA3910 /* Pods_FancyShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC59CBE0F5AD73CF97D9B6FE /* Pods_FancyShop.framework */; };
 		E484A4AF237CA21C001DD283 /* EnvironmentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E484A4AC237CA21C001DD283 /* EnvironmentListViewController.swift */; };
 		E484A4B0237CA21C001DD283 /* EnvironmentList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E484A4AD237CA21C001DD283 /* EnvironmentList.storyboard */; };
 		E484A4B1237CA21C001DD283 /* EnvironmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E484A4AE237CA21C001DD283 /* EnvironmentTableViewCell.swift */; };
@@ -191,7 +194,6 @@
 		E484A4B9237CA34B001DD283 /* EnvironmentListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E484A4B8237CA34B001DD283 /* EnvironmentListProtocols.swift */; };
 		E484A4BD237CA6E1001DD283 /* EnvironmentListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E484A4BC237CA6E1001DD283 /* EnvironmentListInteractor.swift */; };
 		E484A4C5237DBCE7001DD283 /* XCCParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E484A4C4237DBCE7001DD283 /* XCCParser.swift */; };
-		E4F2557D244F649C00B228B2 /* Stage.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = E4F2557C244F649C00B228B2 /* Stage.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -208,7 +210,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		04E76E7F4DFCECC11E21ACAB /* Pods-FancyShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.debug.xcconfig"; path = "Target Support Files/Pods-FancyShop/Pods-FancyShop.debug.xcconfig"; sourceTree = "<group>"; };
+		034B95E7B0606CAC43698ACC /* Pods-FancyShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.debug.xcconfig"; path = "Target Support Files/Pods-FancyShop/Pods-FancyShop.debug.xcconfig"; sourceTree = "<group>"; };
 		19A0EC4522970D3E006B7AFA /* FancyShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FancyShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19A0EC5C22971651006B7AFA /* language.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = language.json; sourceTree = "<group>"; };
 		19A0EC5F22971651006B7AFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -226,8 +228,6 @@
 		19A0EC6E22971651006B7AFA /* FancyShop-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FancyShop-Bridging-Header.h"; sourceTree = "<group>"; };
 		19A0EC6F22971651006B7AFA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19A0EC7122971651006B7AFA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		19A0EC7822971651006B7AFA /* Prod.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
-		19A0EC7922971651006B7AFA /* Sandbox.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Sandbox.xcconfig; sourceTree = "<group>"; };
 		19A0EC7B22971651006B7AFA /* OneServerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneServerRouter.swift; sourceTree = "<group>"; };
 		19A0EC7D22971651006B7AFA /* URLparser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLparser.swift; sourceTree = "<group>"; };
 		19A0EC7E22971651006B7AFA /* NavigationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
@@ -380,17 +380,21 @@
 		19A0EDA222971653006B7AFA /* LanguageConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageConfiguration.swift; sourceTree = "<group>"; };
 		19A0EE5D22986602006B7AFA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		19A0EED522989A58006B7AFA /* objectLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = objectLocator.swift; sourceTree = "<group>"; };
-		33AED8A5BEFA3EE51A585EC1 /* Pods_FancyShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FancyShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		367240FA3BC740C67D8A2506 /* Pods-FancyShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.release.xcconfig"; path = "Target Support Files/Pods-FancyShop/Pods-FancyShop.release.xcconfig"; sourceTree = "<group>"; };
 		490E2EC822F4952400B6709F /* MerchantServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MerchantServices.framework; sourceTree = "<group>"; };
-		49246EBF2327F6DB00EFD86D /* sandbox_fancyshop.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sandbox_fancyshop.p12; sourceTree = "<group>"; };
 		49B76FC22354F83E00AA0CF7 /* MasterpassSDKManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterpassSDKManager.swift; sourceTree = "<group>"; };
 		49B76FC42354F8ED00AA0CF7 /* MasterpassUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterpassUser.swift; sourceTree = "<group>"; };
 		49B76FC62354FA4200AA0CF7 /* MasterpassSDKConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterpassSDKConfiguration.swift; sourceTree = "<group>"; };
 		49B76FC82354FB7700AA0CF7 /* MasterpassConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterpassConstants.swift; sourceTree = "<group>"; };
 		49B76FCA235503CB00AA0CF7 /* MasterpassCheckoutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterpassCheckoutResponse.swift; sourceTree = "<group>"; };
-		B3BCFF21CCF7CC5FDA0AE1A4 /* Pods-FancyShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FancyShop.release.xcconfig"; path = "Target Support Files/Pods-FancyShop/Pods-FancyShop.release.xcconfig"; sourceTree = "<group>"; };
-		E41196DE2458788400741456 /* prod_fancyshop.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = prod_fancyshop.p12; sourceTree = "<group>"; };
-		E41196DF2458788400741456 /* stage_fancyshop.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = stage_fancyshop.p12; sourceTree = "<group>"; };
+		5E73D38F244A3A380082B4C5 /* Prod.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
+		5E73D390244A3A380082B4C5 /* Sandbox.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Sandbox.xcconfig; sourceTree = "<group>"; };
+		5E73D391244A3A380082B4C5 /* Stage.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Stage.xcconfig; sourceTree = "<group>"; };
+		5E73D396244A3ADB0082B4C5 /* prod_fancyshop.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = prod_fancyshop.p12; sourceTree = "<group>"; };
+		5E73D397244A3ADB0082B4C5 /* sandbox_fancyshop.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sandbox_fancyshop.p12; sourceTree = "<group>"; };
+		5E73D398244A3ADC0082B4C5 /* stage_fancyshop.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = stage_fancyshop.p12; sourceTree = "<group>"; };
+		5ED72466246624940045C279 /* MCSCommerceWeb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MCSCommerceWeb.framework; path = ../../MCSCommerceWeb.framework; sourceTree = "<group>"; };
+		BC59CBE0F5AD73CF97D9B6FE /* Pods_FancyShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FancyShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E484A4AC237CA21C001DD283 /* EnvironmentListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentListViewController.swift; sourceTree = "<group>"; };
 		E484A4AD237CA21C001DD283 /* EnvironmentList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EnvironmentList.storyboard; sourceTree = "<group>"; };
 		E484A4AE237CA21C001DD283 /* EnvironmentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentTableViewCell.swift; sourceTree = "<group>"; };
@@ -399,7 +403,6 @@
 		E484A4B8237CA34B001DD283 /* EnvironmentListProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentListProtocols.swift; sourceTree = "<group>"; };
 		E484A4BC237CA6E1001DD283 /* EnvironmentListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentListInteractor.swift; sourceTree = "<group>"; };
 		E484A4C4237DBCE7001DD283 /* XCCParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCCParser.swift; sourceTree = "<group>"; };
-		E4F2557C244F649C00B228B2 /* Stage.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Stage.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -407,7 +410,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B258CCA815BD74FE4985675 /* Pods_FancyShop.framework in Frameworks */,
+				5ED72467246624940045C279 /* MCSCommerceWeb.framework in Frameworks */,
+				490E2EC922F4953100B6709F /* MerchantServices.framework in Frameworks */,
+				E0B5BD2A597BE958C1EA3910 /* Pods_FancyShop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,12 +441,12 @@
 		19A0EC4722970D3E006B7AFA /* FancyShop */ = {
 			isa = PBXGroup;
 			children = (
+				5E73D395244A3A6F0082B4C5 /* ExternalComponents */,
+				5E73D38E244A39EF0082B4C5 /* Configurations */,
 				19A0EC6A22971651006B7AFA /* Application */,
-				19A0EC7222971651006B7AFA /* Configurations */,
 				19A0EC7022971651006B7AFA /* Constants */,
 				19A0ED9322971653006B7AFA /* Entities */,
 				19A0ED8222971652006B7AFA /* Environments */,
-				19A0ED8A22971652006B7AFA /* ExternalComponents */,
 				19A0ED8622971652006B7AFA /* Managers */,
 				19A0EC8422971651006B7AFA /* Modules */,
 				19A0EC7A22971651006B7AFA /* Networking */,
@@ -496,16 +501,6 @@
 				49B76FC82354FB7700AA0CF7 /* MasterpassConstants.swift */,
 			);
 			path = Constants;
-			sourceTree = "<group>";
-		};
-		19A0EC7222971651006B7AFA /* Configurations */ = {
-			isa = PBXGroup;
-			children = (
-				E4F2557C244F649C00B228B2 /* Stage.xcconfig */,
-				19A0EC7922971651006B7AFA /* Sandbox.xcconfig */,
-				19A0EC7822971651006B7AFA /* Prod.xcconfig */,
-			);
-			path = Configurations;
 			sourceTree = "<group>";
 		};
 		19A0EC7A22971651006B7AFA /* Networking */ = {
@@ -1717,16 +1712,6 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		19A0ED8A22971652006B7AFA /* ExternalComponents */ = {
-			isa = PBXGroup;
-			children = (
-				E41196DE2458788400741456 /* prod_fancyshop.p12 */,
-				E41196DF2458788400741456 /* stage_fancyshop.p12 */,
-				49246EBF2327F6DB00EFD86D /* sandbox_fancyshop.p12 */,
-			);
-			path = ExternalComponents;
-			sourceTree = "<group>";
-		};
 		19A0ED8C22971652006B7AFA /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
@@ -1764,11 +1749,32 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
+		5E73D38E244A39EF0082B4C5 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				5E73D38F244A3A380082B4C5 /* Prod.xcconfig */,
+				5E73D390244A3A380082B4C5 /* Sandbox.xcconfig */,
+				5E73D391244A3A380082B4C5 /* Stage.xcconfig */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		5E73D395244A3A6F0082B4C5 /* ExternalComponents */ = {
+			isa = PBXGroup;
+			children = (
+				5E73D396244A3ADB0082B4C5 /* prod_fancyshop.p12 */,
+				5E73D397244A3ADB0082B4C5 /* sandbox_fancyshop.p12 */,
+				5E73D398244A3ADC0082B4C5 /* stage_fancyshop.p12 */,
+			);
+			path = ExternalComponents;
+			sourceTree = "<group>";
+		};
 		6E1D67BEF55051C97054A89C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5ED72466246624940045C279 /* MCSCommerceWeb.framework */,
 				490E2EC822F4952400B6709F /* MerchantServices.framework */,
-				33AED8A5BEFA3EE51A585EC1 /* Pods_FancyShop.framework */,
+				BC59CBE0F5AD73CF97D9B6FE /* Pods_FancyShop.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1776,8 +1782,8 @@
 		E0BF3A63CCB1FA357D996C45 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				04E76E7F4DFCECC11E21ACAB /* Pods-FancyShop.debug.xcconfig */,
-				B3BCFF21CCF7CC5FDA0AE1A4 /* Pods-FancyShop.release.xcconfig */,
+				034B95E7B0606CAC43698ACC /* Pods-FancyShop.debug.xcconfig */,
+				367240FA3BC740C67D8A2506 /* Pods-FancyShop.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1851,12 +1857,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19A0EC5722970D42006B7AFA /* Build configuration list for PBXNativeTarget "FancyShop" */;
 			buildPhases = (
-				1459C92B82E743B4347011A8 /* [CP] Check Pods Manifest.lock */,
+				D23DDE1F7C0D6F77774EA8AB /* [CP] Check Pods Manifest.lock */,
 				19A0EC4122970D3E006B7AFA /* Sources */,
 				19A0EC4222970D3E006B7AFA /* Frameworks */,
 				19A0EC4322970D3E006B7AFA /* Resources */,
 				19A0EF782298A311006B7AFA /* Embed Frameworks */,
-				69C085AF158033BD98A2F05F /* [CP] Embed Pods Frameworks */,
+				6B191F54409ACCDDCD4E64B1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1905,18 +1911,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E41196E12458788400741456 /* stage_fancyshop.p12 in Resources */,
+				5E73D39B244A3ADC0082B4C5 /* stage_fancyshop.p12 in Resources */,
 				19A0EE1722971653006B7AFA /* ProductList.strings in Resources */,
-				E4F2557D244F649C00B228B2 /* Stage.xcconfig in Resources */,
+				5E73D394244A3A380082B4C5 /* Stage.xcconfig in Resources */,
 				19A0EDB222971653006B7AFA /* products.json in Resources */,
 				19A0EDDB22971653006B7AFA /* AllowedCardList.strings in Resources */,
 				19A0EE3722971653006B7AFA /* Login.strings in Resources */,
 				19A0EDAA22971653006B7AFA /* outdoor_item8.jpg in Resources */,
 				19A0EDEB22971653006B7AFA /* CurrencyList.storyboard in Resources */,
-				19A0EDBC22971653006B7AFA /* Prod.xcconfig in Resources */,
 				19A0EDCB22971653006B7AFA /* ConfirmOrder.strings in Resources */,
 				19A0EDAD22971653006B7AFA /* outdoor_item1.jpg in Resources */,
-				19A0EDBD22971653006B7AFA /* Sandbox.xcconfig in Resources */,
 				19A0EDF622971653006B7AFA /* LanguageList.storyboard in Resources */,
 				19A0EE3D22971653006B7AFA /* ITF.plist in Resources */,
 				19A0EDAC22971653006B7AFA /* outdoor_item2.jpg in Resources */,
@@ -1924,20 +1928,23 @@
 				19A0EDFE22971653006B7AFA /* AllowedDSRPList.storyboard in Resources */,
 				19A0EE0522971653006B7AFA /* PaymentMethods.strings in Resources */,
 				19A0EE2322971653006B7AFA /* OrderSummary.strings in Resources */,
-				E41196E02458788400741456 /* prod_fancyshop.p12 in Resources */,
 				19A0EDA722971653006B7AFA /* language.json in Resources */,
 				19A0EE0722971653006B7AFA /* PaymentMethods.storyboard in Resources */,
 				19A0EE5E22986602006B7AFA /* Default-568h@2x.png in Resources */,
+				5E73D393244A3A380082B4C5 /* Sandbox.xcconfig in Resources */,
 				19A0EE1122971653006B7AFA /* TransactionFailure.storyboard in Resources */,
 				19A0EDD922971653006B7AFA /* Settings.storyboard in Resources */,
 				19A0EDE422971653006B7AFA /* AllowedCardList.storyboard in Resources */,
+				5E73D39A244A3ADC0082B4C5 /* sandbox_fancyshop.p12 in Resources */,
 				19A0EDB322971653006B7AFA /* LaunchScreen.storyboard in Resources */,
 				19A0EDCE22971653006B7AFA /* ConfirmOrder.storyboard in Resources */,
 				19A0EE2522971653006B7AFA /* OrderSummary.storyboard in Resources */,
+				5E73D392244A3A380082B4C5 /* Prod.xcconfig in Resources */,
 				19A0EDAE22971653006B7AFA /* outdoor_item5.jpg in Resources */,
 				19A0EE1B22971653006B7AFA /* ProductList.storyboard in Resources */,
 				E484A4B0237CA21C001DD283 /* EnvironmentList.storyboard in Resources */,
 				19A0EDAB22971653006B7AFA /* outdoor_item3.jpg in Resources */,
+				5E73D399244A3ADC0082B4C5 /* prod_fancyshop.p12 in Resources */,
 				19A0EE3C22971653006B7AFA /* Production.plist in Resources */,
 				19A0EDA922971653006B7AFA /* Assets.xcassets in Resources */,
 				19A0EE3E22971653006B7AFA /* Sandbox.plist in Resources */,
@@ -1945,14 +1952,30 @@
 				19A0EDB122971653006B7AFA /* outdoor_item7.jpg in Resources */,
 				19A0EDAF22971653006B7AFA /* outdoor_item4.jpg in Resources */,
 				19A0EE3A22971653006B7AFA /* Login.storyboard in Resources */,
-				490ED5432345469700830362 /* sandbox_fancyshop.p12 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1459C92B82E743B4347011A8 /* [CP] Check Pods Manifest.lock */ = {
+		6B191F54409ACCDDCD4E64B1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D23DDE1F7C0D6F77774EA8AB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1972,23 +1995,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		69C085AF158033BD98A2F05F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FancyShop/Pods-FancyShop-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2176,7 +2182,6 @@
 /* Begin XCBuildConfiguration section */
 		19A0EC5522970D42006B7AFA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 19A0EC7922971651006B7AFA /* Sandbox.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -2243,7 +2248,6 @@
 		};
 		19A0EC5622970D42006B7AFA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 19A0EC7822971651006B7AFA /* Prod.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -2304,11 +2308,11 @@
 		};
 		19A0EC5822970D42006B7AFA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 04E76E7F4DFCECC11E21ACAB /* Pods-FancyShop.debug.xcconfig */;
+			baseConfigurationReference = 034B95E7B0606CAC43698ACC /* Pods-FancyShop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QJJJ72YP26;
+				DEVELOPMENT_TEAM = FARWN7FEXX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/../Frameworks",
@@ -2319,8 +2323,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mastercard.src.FancyShop;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mastercard.commerce.FancyShop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FancyShop/Application/FancyShop-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
@@ -2330,11 +2333,11 @@
 		};
 		19A0EC5922970D42006B7AFA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B3BCFF21CCF7CC5FDA0AE1A4 /* Pods-FancyShop.release.xcconfig */;
+			baseConfigurationReference = 367240FA3BC740C67D8A2506 /* Pods-FancyShop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QJJJ72YP26;
+				DEVELOPMENT_TEAM = FARWN7FEXX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/../../Build/**",
 					"$(inherited)",
@@ -2346,8 +2349,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mastercard.src.FancyShop;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mastercard.commerce.FancyShop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FancyShop/Application/FancyShop-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
