@@ -9,10 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MCCMerchantDelegate.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface MCCMerchantMockDelegate : NSObject <MCCMerchantDelegate>
 @property BOOL finishedCheckout;
 @end
 
-NS_ASSUME_NONNULL_END

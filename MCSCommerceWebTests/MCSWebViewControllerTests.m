@@ -77,20 +77,6 @@
     }
 }
 
-//-(void)testDismiss{
-//    XCTAssertNotNil(self.webViewController.view);
-//    [self.webViewController dismiss];
-//    XCTestExpectation *expectation = [self expectationWithDescription:@"Handle called"];
-//    XCTWaiterResult result = [XCTWaiter waitForExpectations:[[NSArray alloc] initWithObjects:expectation, nil] timeout:3];
-//    switch (result) {
-//        case XCTWaiterResultTimedOut:
-//            XCTAssertNil(self.webViewController.view);
-//            break;
-//
-//        default:
-//            break;
-//    }
-//}
 
 -(void)testWebViewNavigation{
     WKNavigation *navigation;
@@ -124,22 +110,6 @@
             break;
     }
 }
-
-//-(void)testWebviewStartUrlSchemeTask{
-//    id<WKURLSchemeTask> urlSchemeTask;
-//    XCTAssertNotNil(self.webViewController.view);
-//    [self.webViewController webView:self.webview startURLSchemeTask:urlSchemeTask];
-//    XCTWaiterResult result = [XCTWaiter waitForExpectations:[NSArray array] timeout:3];
-//    switch (result) {
-//        case XCTWaiterResultTimedOut:
-//            XCTAssertNil(self.webViewController);
-//            break;
-//
-//        default:
-//            break;
-//    }
-//
-//}
 
 
 @end
