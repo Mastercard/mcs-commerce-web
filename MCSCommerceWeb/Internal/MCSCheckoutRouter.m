@@ -40,18 +40,14 @@
     return self;
 }
 
-- (void) start: error handler:(void (^)(void))errorHandler {
+- (void) start: (void (^)(void))errorHandler {
     NSError *isReachableError = [MCSReachability isNetworkReachable];
     if (isReachableError) {
         [self showAlert:kCoreNoInternetConnectionErrorInfo message:kCoreNoInternetConnectionMessage handler:^(UIAlertAction *action){
             errorHandler();
         }];
     } else {
-        if (self.presentingViewController != NULL) {
-            [_webViewController startWithViewController:[self presentingViewController]];
-        } else {
             [_webViewController startWithViewController:[self topViewController]];
-        }
             [self initiateNetworkAvailabilityCheck];
     }
     
@@ -115,9 +111,13 @@
 }
 
 - (UIViewController *)topViewController:(UIViewController *)rootViewController {
-    if (rootViewController.presentedViewController == nil) {
-        
-        return rootViewController;
+    if (self.presentingViewController != nil){        
+        return self.presentingViewController;
+    } else {
+        if (rootViewController.presentedViewController == nil) {
+            
+            return rootViewController;
+        }
     }
     
     if ([rootViewController.presentedViewController isKindOfClass:[UINavigationController class]]) {
@@ -140,7 +140,7 @@
     [alertController addAction:okAction];
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[self topViewController] presentViewController:alertController animated:YES completion:nil];
+            [[self topViewController] presentViewController:alertController animated:YES completion:nil];
     });
 }
 

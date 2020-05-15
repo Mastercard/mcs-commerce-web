@@ -22,4 +22,8 @@
     self.viewControllerPresented = viewControllerToPresent;
 }
 
+- (void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion{
+    completion();
+}
+
 @end

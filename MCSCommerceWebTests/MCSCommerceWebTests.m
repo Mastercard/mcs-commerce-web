@@ -26,27 +26,55 @@
 #import "MCSWebViewController.h"
 #import "MCSDelegateBridge.h"
 #import "MCCCheckoutHelper.h"
+#import "MCSMockViewController.h"
 
 @interface MCSCommerceWebTests : XCTestCase
+@property (nonatomic, weak) MCSCommerceWeb *commerceweb;
+@property (nonatomic, strong) MCSMockViewController *presentingViewController;
+@end
+
+@interface MCSCommerceWeb (Test)
+@property (nonatomic, strong) MCSCheckoutRouter *router;
 
 @end
 
 @implementation MCSCommerceWebTests
 
--(void)testInitWithConfiguration{
+- (void)setUp {
+    [super setUp];
+    self.commerceweb = [MCSCommerceWeb sharedManager];
+    self.presentingViewController = [[MCSMockViewController alloc] init];
     NSSet * cardTypes = [NSSet setWithObjects: MCSCardTypeDiners, nil];
-    MCSCommerceWeb *commerceWeb = [MCSCommerceWeb sharedManager];
-    MCSConfiguration *configuration = [[MCSConfiguration alloc] initWithLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en"] checkoutId:@"ab230dfe76324d55a04c5955218c5815" checkoutUrl:@"https://stage.src.mastercard.com/srci" callbackScheme:@"fancyshop" allowedCardTypes: cardTypes];
-    [commerceWeb initWithConfiguration:configuration];
-    XCTAssertNotNil([MCSConfigurationManager sharedManager].configuration, @"configuration is not nil");
-    [commerceWeb checkoutWithRequest:[[MCSConfigurationManager sharedManager] checkoutRequest]];
+    MCSConfiguration *configuration = [[MCSConfiguration alloc] initWithLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en"] checkoutId:@"ab230dfe76324d55a04c5955218c5815" checkoutUrl:@"https://stage.src.mastercard.com/srci" callbackScheme:@"fancyshop" allowedCardTypes:cardTypes presentingViewController:self.presentingViewController];
+    [self.commerceweb initWithConfiguration:configuration];
 }
 
--(void)testCheckoutButton{
+-(void)testConfiguration{
+    XCTAssertNotNil([MCSConfigurationManager sharedManager].configuration);
+}
+
+-(void)testCheckoutButton {
     MCSCommerceWeb *commerceWeb = [MCSCommerceWeb sharedManager];
-   id<MCSCheckoutDelegate> delegate;
+    id<MCSCheckoutDelegate> delegate;
     MCSCheckoutButton *button = [commerceWeb checkoutButtonWithDelegate:delegate];
     XCTAssertNotNil(button);
+}
+
+- (void)testCheckoutWithRequest {
+    [self.commerceweb checkoutWithRequest:[[MCSConfigurationManager sharedManager] checkoutRequest]];
+    XCTAssertNotNil(self.commerceweb.router);
+    XCTAssertNotNil(self.presentingViewController);
+    
+}
+
+- (void)testCheckoutCompletedWithResponse {
+    id<MCSCheckoutDelegate> delegate;
+    MCSCheckoutResponse *response = [MCSCheckoutResponse alloc];
+    MCSConfigurationManager *configurationManager = [MCSConfigurationManager sharedManager];
+    MCSCheckoutStatus status;
+    
+    [delegate checkoutRequest:[configurationManager checkoutRequest] didCompleteWithStatus:status forTransaction:response.transactionId];
+    XCTAssertNotNil(response);
 }
 
 @end

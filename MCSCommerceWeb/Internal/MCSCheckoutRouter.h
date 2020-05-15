@@ -31,7 +31,7 @@
 
  @param errorHandler completion block used for callback in case of an error
  */
-- (void) start: error handler:(void (^)(void))errorHandler;
+- (void) start: (void (^)(void))errorHandler;
 
 /**
  * Stop router network checking when come back from SDK to Merchant App
