@@ -53,7 +53,7 @@ static MCSCommerceWeb *sharedManager = nil;
     [[MCSConfigurationManager sharedManager] setCheckoutRequest:request];
     NSURL *url = [MCSCheckoutUrlBuilder urlForCheckout];
     self.router = [[MCSCheckoutRouter alloc] initWithUrl:url scheme:[[MCSConfigurationManager sharedManager] configuration].callbackScheme presentingViewController: [[MCSConfigurationManager sharedManager] configuration].presentingViewController delegate:self];
-    [self.router start: _router handler:^(void) {
+    [self.router start:^(void){
         [self.delegate checkoutRequest:[[MCSConfigurationManager sharedManager] checkoutRequest] didCompleteWithStatus:MCSCheckoutStatusCanceled forTransaction:nil];
     }];
 }
