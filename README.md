@@ -1,15 +1,32 @@
 # MCSCommerceWeb
 
-1. [Overview](#ios-overview)
-1. [Installation](#ios-installation)
-1. [Configuration](#ios-configuration)
-1. [Checkout Button](#ios-checkout-button)
-1. [Checkout](#ios-checkout)
-1. [Migrating from MCCMerchant](#ios-masterpass)
+- [Overview](#ios-overview)
+- [Configuration on Merchant Portal](#configuration-on-merchant-portal)
+- [Installation](#ios-installation)
+- [Configuration](#ios-configuration)
+- [Checkout Button](#ios-checkout-button)
+    - [Checkout Request](#checkout-request)
+- [Transaction Result](#transaction-result)
+- [Migrating from MCCMerchant](#ios-masterpass)
+    - [Interfaces and classes](#interfaces-and-classes)
+	- [Add Payment Method](#add-payment-method)
+	- [Payment Method Checkout](#payment-method-checkout)
+- [Direct Integration](#direct-integration)
+	- [Checkout URL Building](#checkout-url-builder) 
+	- [WebviewClient](#webviewclient)
+	
 
 ### <a name="ios-overview">Overview</a>
 
 `MCSCommerceWeb` is a lightweight framework used to integrate Merchants with [**EMV Secure Remote Commerce**](https://www.emvco.com/emv-technologies/src/) and Mastercard's web-based SRC-Initiator with backward compatibility for existing Masterpass integrations. `MCSCommerceWeb` facilitates the initiation of the checkout experience and returns the transaction result to the Merchant after completion.
+
+### <a name="Configuration on Merchant Portal">Configuration on Merchant Portal</a>
+It is very important to configure these values properly on the portal. If these values are not
+configured in proper format, merchant application will not be able to do successful checkout
+
+`callbackUrl` must be configured as `URL Schemes`. Below is an example format of `callbackUrl` for a sample merchant application named *FancyShop* 
+* `Example format of callbackUrl`: fancyshop://
+* `Channel`: IOS
 
 ### <a name="ios-installation">Installation</a>
 
@@ -40,7 +57,7 @@ let locale = Locale(identifier: "en_us")
 let checkoutId = "1d45705100044e14b52e71730e71cc5a"
 let checkoutUrl = "https://masterpass.com/routing/v2/mobileapi/web-checkout";
 let callbackScheme = "fancyshop";
-let allowedCardTypes = [.master, .visa]
+let allowedCardTypes = [.master, .visa , .amex]
     
 let commerceConfig = MCSConfiguration(
     locale: locale,
@@ -59,7 +76,7 @@ NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_us"];
 NSString *checkoutId = @"1d45705100044e14b52e71730e71cc5a";
 NSString *checkoutUrl = @"https://masterpass.com/routing/v2/mobileapi/web-checkout";
 NSString *callbackScheme = @"fancyshop";
-NSSet *allowedCardTypes = [NSSet setWithObject:MCSCardTypeMaster, MCSCardTypeVisa];
+NSSet *allowedCardTypes = [NSSet setWithObject:MCSCardTypeMaster, MCSCardTypeVisa, MCSCardTypeAmex];
 MCSConfiguration *config = [[MCSConfiguration alloc] initWithLocale:locale
                                                          checkoutId:checkoutId
                                                         checkoutUrl:checkoutUrl
@@ -115,7 +132,7 @@ func checkoutCompleted(withRequest request: MCSCheckoutRequest, status: MCSCheck
 
 When the user touches up on `MCSCheckoutButton`, `MCSCheckoutRequest` for this transaction is retrieved.
 
-#### Checkout Request
+#### <a name="checkout-request">Checkout Request</a>
 
 ```swift
 // Swift
@@ -195,7 +212,7 @@ func getCheckoutRequest(withHandler: @escaping (MCSCheckoutRequest) -> Void) {
 }
 ```
 
-### Transaction Result
+### <a name="transaction-result">Transaction Result</a>
 
 ```swift
 // Swift
@@ -234,7 +251,7 @@ func checkoutCompleted(withRequest request: MCSCheckoutRequest!, status: MCSChec
 
 `MCSCommerceWeb` provides API compatibility for `MCCMerchant`. Existing applications using `MCCmerchant` can easily migrate to `MCSCommerceWeb` with minimal changes. Consider the following when migrating from `MCCMerchant`.
 
-#### Interfaces
+#### <a name="interfaces-and-classes">Interfaces and Classes</a>
 
 The `MCCMerchant` interface is included in this SDK, however `import` statements must update to use the `MCSCommerceWeb` module.
 
@@ -281,7 +298,7 @@ import MCSCommerceWeb
 `handleMasterpassResponse:delegate` no longer has any effect. `MCSCommerceWeb` implements `WKWebView` instead of `SFSafariViewController` and the checkout response is handled using `MCCDelegate` directly. The `MCCDelegate` provided in any checkout calls will be the delegate that receives the checkout response.
 
 
-##### Add Payment Method
+##### <a name="add-payment-method">Add Payment Method</a>
 
 ```objective-c
 // MCSCommerceWeb.h
@@ -296,7 +313,7 @@ import MCSCommerceWeb
 
 This payment method, or any other, can be used with `paymentMethodCheckout:` to initiate a standard checkout flow (see next).
 
-##### Payment Method Checkout
+##### <a name="payment-method-checkout">Payment Method Checkout</a>
 
 ```objective-c
 // MCSCommerceWeb.h
@@ -335,7 +352,7 @@ For the `WKWebView`, we need to build a url with required and optional parameter
 | masterCryptoFormat     | Default should be set to UCAF%2CICC |
 
 
-### WKWebView
+#### <a name="webviewclient">WKWebView</a>
 
 In the `UIViewController`, configure the `WebView` and initialize the following:
 
@@ -487,14 +504,22 @@ func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewCon
 ```swift
 // Swift
 func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-   if (navigationAction.navigationType == .linkActivated) {
-        let url = navigationAction.request.url
+
+if (navigationAction.request.url.absoluteString == "https://www.masterpass.com/") {
+    //masterpass redirects to callbackUrl, waits 200ms, then redirects to masterpass.com. This causes an issue
+    //where webView:startUrlSchemeTask: is not triggered. If we cancel navigation to masterpass.com, the
+    //callback urlSchemeTask triggers
+    decisionHandler(.cancel)
+} else if navigationAction.navigationType == .linkActivated {
+    //check if url is valid
+    let urlString = navigationAction.request.url.absoluteString
+    let url = URL(string: urlString)
+    //addchoices triggers navigation in DCF screen for now navigation only to .html pages
+    if url != nil && urlString.hasSuffix(".html") {
         if let url = url {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
-        decisionHandler(.cancel)
-    } else {
-        decisionHandler(.allow)
+        decisionHandler(.cancel) 
     }
 }
 ```
@@ -502,11 +527,22 @@ func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigatio
 ```objective-c
 // Objective-C
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
-    if (navigationAction.navigationType == WKNavigationTypeLinkActivated) {
-        NSURL *url = navigationAction.request.URL;
-        [UIApplication.sharedApplication openURL:url options:@{} completionHandler:nil];
-        
+    if ([[navigationAction.request.URL absoluteString] isEqualToString:@"https://www.masterpass.com/"]) {
+        //masterpass redirects to callbackUrl, waits 200ms, then redirects to masterpass.com. This causes an issue
+        //where webView:startUrlSchemeTask: is not triggered. If we cancel navigation to masterpass.com, the
+        //callback urlSchemeTask triggers
         decisionHandler(WKNavigationActionPolicyCancel);
+    } else if (navigationAction.navigationType == WKNavigationTypeLinkActivated) {
+        //check if url is valid
+        NSString *urlString = [navigationAction.request.URL absoluteString];
+        NSURL *url = [[NSURL alloc]initWithString:urlString];
+        //addchoices triggers navigation in DCF screen for now navigation only to .html pages
+        if(url != nil && [urlString hasSuffix:@".html"] ){
+            [UIApplication.sharedApplication openURL:url options:@{} completionHandler:nil];
+            decisionHandler(WKNavigationActionPolicyCancel);
+        }else{
+            decisionHandler(WKNavigationActionPolicyAllow);
+        }
     } else {
         decisionHandler(WKNavigationActionPolicyAllow);
     }
