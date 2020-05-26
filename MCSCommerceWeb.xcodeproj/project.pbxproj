@@ -73,7 +73,6 @@
 		19A0EFDE229F14CA006B7AFA /* MCFCoreConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A0EFDA229F14CA006B7AFA /* MCFCoreConstants.h */; };
 		19A0EFDF229F14CA006B7AFA /* MCFCoreConstants+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A0EFDB229F14CA006B7AFA /* MCFCoreConstants+Private.h */; };
 		19A0EFF5229F181D006B7AFA /* MCCMerchant.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A0EFF4229F181D006B7AFA /* MCCMerchant.m */; };
-		5E12197A24491C9A00E941C4 /* Pods_MCSCommerceWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E12197924491C9A00E941C4 /* Pods_MCSCommerceWeb.framework */; };
 		5E224D14244E1F6200EC09C8 /* MCSCommerceWebTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E224D13244E1F6200EC09C8 /* MCSCommerceWebTests.m */; };
 		5E315AF62451503B00B6B8B1 /* MCSMockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E315AF52451503B00B6B8B1 /* MCSMockViewController.m */; };
 		5E371A0C246D7BA000B51B1E /* MCCCheckoutHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E371A0B246D7BA000B51B1E /* MCCCheckoutHelperTests.m */; };
@@ -88,10 +87,11 @@
 		5ED7246D246C78BB0045C279 /* MCSCheckoutButtonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ED7246C246C78BB0045C279 /* MCSCheckoutButtonTests.m */; };
 		5ED7246F246C8C4D0045C279 /* MCSDelegateBridgeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ED7246E246C8C4D0045C279 /* MCSDelegateBridgeTests.m */; };
 		5ED72472246CCC0D0045C279 /* MCSMockButtonVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ED72471246CCC0D0045C279 /* MCSMockButtonVC.m */; };
+		837C60C6141E98981013BDF2 /* Pods_MCSCommerceWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D189D169DD513D7EE8F38DA1 /* Pods_MCSCommerceWeb.framework */; };
 		B7CBF00D22CF9B1200D688AB /* MCSReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = B7CBF00B22CF9B1200D688AB /* MCSReachability.h */; };
 		B7CBF00E22CF9B1200D688AB /* MCSReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B7CBF00C22CF9B1200D688AB /* MCSReachability.m */; };
-		B9E904FF154E27E6604F5293 /* Pods_MCSCommerceWebTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6421BAC5AB2E53670A9EE33 /* Pods_MCSCommerceWebTests.framework */; };
 		E454AF4F233D3F1900877B10 /* MCSTopMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E454AF4E233D3F1900877B10 /* MCSTopMessageView.xib */; };
+		F2B4CF5CEBB4F4D6764B9F51 /* Pods_MCSCommerceWebTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E706863768EC1B2550C936B0 /* Pods_MCSCommerceWebTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,9 +175,9 @@
 		19A0EFDA229F14CA006B7AFA /* MCFCoreConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCFCoreConstants.h; sourceTree = "<group>"; };
 		19A0EFDB229F14CA006B7AFA /* MCFCoreConstants+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MCFCoreConstants+Private.h"; sourceTree = "<group>"; };
 		19A0EFF4229F181D006B7AFA /* MCCMerchant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCCMerchant.m; sourceTree = "<group>"; };
-		429C09D0DEECE923EFED0AA7 /* Pods_MCSCommerceWeb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCSCommerceWeb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		505F913947B4FABFA4A4AD5C /* Pods-MCSCommerceWeb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCSCommerceWeb.release.xcconfig"; path = "Target Support Files/Pods-MCSCommerceWeb/Pods-MCSCommerceWeb.release.xcconfig"; sourceTree = "<group>"; };
-		5E12197924491C9A00E941C4 /* Pods_MCSCommerceWeb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_MCSCommerceWeb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		23A4B4E42E8A43854934600A /* Pods-MCSCommerceWebTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCSCommerceWebTests.debug.xcconfig"; path = "Target Support Files/Pods-MCSCommerceWebTests/Pods-MCSCommerceWebTests.debug.xcconfig"; sourceTree = "<group>"; };
+		394CF649B5CD7FF23C1A854E /* Pods-MCSCommerceWebTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCSCommerceWebTests.release.xcconfig"; path = "Target Support Files/Pods-MCSCommerceWebTests/Pods-MCSCommerceWebTests.release.xcconfig"; sourceTree = "<group>"; };
+		594F268DADB45F9D02EA6D82 /* Pods-MCSCommerceWeb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCSCommerceWeb.release.xcconfig"; path = "Target Support Files/Pods-MCSCommerceWeb/Pods-MCSCommerceWeb.release.xcconfig"; sourceTree = "<group>"; };
 		5E224D13244E1F6200EC09C8 /* MCSCommerceWebTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSCommerceWebTests.m; sourceTree = "<group>"; };
 		5E315AF42451503B00B6B8B1 /* MCSMockViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSMockViewController.h; sourceTree = "<group>"; };
 		5E315AF52451503B00B6B8B1 /* MCSMockViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSMockViewController.m; sourceTree = "<group>"; };
@@ -195,13 +195,12 @@
 		5ED7246E246C8C4D0045C279 /* MCSDelegateBridgeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSDelegateBridgeTests.m; sourceTree = "<group>"; };
 		5ED72470246CCC0D0045C279 /* MCSMockButtonVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSMockButtonVC.h; sourceTree = "<group>"; };
 		5ED72471246CCC0D0045C279 /* MCSMockButtonVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSMockButtonVC.m; sourceTree = "<group>"; };
-		98B19D5E2CB56C8A1F9F7AE3 /* Pods-MCSCommerceWebTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCSCommerceWebTests.release.xcconfig"; path = "Target Support Files/Pods-MCSCommerceWebTests/Pods-MCSCommerceWebTests.release.xcconfig"; sourceTree = "<group>"; };
-		B0792F63F10F8CC50B4996E9 /* Pods-MCSCommerceWebTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCSCommerceWebTests.debug.xcconfig"; path = "Target Support Files/Pods-MCSCommerceWebTests/Pods-MCSCommerceWebTests.debug.xcconfig"; sourceTree = "<group>"; };
-		B609585A700B0745611D17B7 /* Pods-MCSCommerceWeb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCSCommerceWeb.debug.xcconfig"; path = "Target Support Files/Pods-MCSCommerceWeb/Pods-MCSCommerceWeb.debug.xcconfig"; sourceTree = "<group>"; };
-		B6421BAC5AB2E53670A9EE33 /* Pods_MCSCommerceWebTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCSCommerceWebTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3E06E83E9F906A5AF40451F /* Pods-MCSCommerceWeb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCSCommerceWeb.debug.xcconfig"; path = "Target Support Files/Pods-MCSCommerceWeb/Pods-MCSCommerceWeb.debug.xcconfig"; sourceTree = "<group>"; };
 		B7CBF00B22CF9B1200D688AB /* MCSReachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSReachability.h; sourceTree = "<group>"; };
 		B7CBF00C22CF9B1200D688AB /* MCSReachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSReachability.m; sourceTree = "<group>"; };
+		D189D169DD513D7EE8F38DA1 /* Pods_MCSCommerceWeb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCSCommerceWeb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E454AF4E233D3F1900877B10 /* MCSTopMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCSTopMessageView.xib; sourceTree = "<group>"; };
+		E706863768EC1B2550C936B0 /* Pods_MCSCommerceWebTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCSCommerceWebTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,7 +208,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E12197A24491C9A00E941C4 /* Pods_MCSCommerceWeb.framework in Frameworks */,
+				837C60C6141E98981013BDF2 /* Pods_MCSCommerceWeb.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,7 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19A0EBD62295EA40006B7AFA /* MCSCommerceWeb.framework in Frameworks */,
-				B9E904FF154E27E6604F5293 /* Pods_MCSCommerceWebTests.framework in Frameworks */,
+				F2B4CF5CEBB4F4D6764B9F51 /* Pods_MCSCommerceWebTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,7 +286,7 @@
 				19A0EBD92295EA40006B7AFA /* MCSCommerceWebTests */,
 				19A0EBCD2295EA40006B7AFA /* Products */,
 				9F534EA88BB07C383D935917 /* Pods */,
-				7D82AAAF6225F3CD36CCB700 /* Frameworks */,
+				DDAC01254C93E2E3AAF9760F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -395,25 +394,24 @@
 			path = V7;
 			sourceTree = "<group>";
 		};
-		7D82AAAF6225F3CD36CCB700 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5E12197924491C9A00E941C4 /* Pods_MCSCommerceWeb.framework */,
-				429C09D0DEECE923EFED0AA7 /* Pods_MCSCommerceWeb.framework */,
-				B6421BAC5AB2E53670A9EE33 /* Pods_MCSCommerceWebTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		9F534EA88BB07C383D935917 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B609585A700B0745611D17B7 /* Pods-MCSCommerceWeb.debug.xcconfig */,
-				505F913947B4FABFA4A4AD5C /* Pods-MCSCommerceWeb.release.xcconfig */,
-				B0792F63F10F8CC50B4996E9 /* Pods-MCSCommerceWebTests.debug.xcconfig */,
-				98B19D5E2CB56C8A1F9F7AE3 /* Pods-MCSCommerceWebTests.release.xcconfig */,
+				B3E06E83E9F906A5AF40451F /* Pods-MCSCommerceWeb.debug.xcconfig */,
+				594F268DADB45F9D02EA6D82 /* Pods-MCSCommerceWeb.release.xcconfig */,
+				23A4B4E42E8A43854934600A /* Pods-MCSCommerceWebTests.debug.xcconfig */,
+				394CF649B5CD7FF23C1A854E /* Pods-MCSCommerceWebTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DDAC01254C93E2E3AAF9760F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D189D169DD513D7EE8F38DA1 /* Pods_MCSCommerceWeb.framework */,
+				E706863768EC1B2550C936B0 /* Pods_MCSCommerceWebTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -468,13 +466,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19A0EBE02295EA40006B7AFA /* Build configuration list for PBXNativeTarget "MCSCommerceWeb" */;
 			buildPhases = (
-				B744E21B819E72D6ACF8D951 /* [CP] Check Pods Manifest.lock */,
+				972B7A7EB56B12B214D14818 /* [CP] Check Pods Manifest.lock */,
 				19A0EBC72295EA40006B7AFA /* Headers */,
 				19A0EBC82295EA40006B7AFA /* Sources */,
 				19A0EBC92295EA40006B7AFA /* Frameworks */,
 				19A0EBCA2295EA40006B7AFA /* Resources */,
 				49D716D72398123F00886133 /* ShellScript */,
-				49F67C7A23C9029600CBAD1C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -489,11 +486,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19A0EBE32295EA40006B7AFA /* Build configuration list for PBXNativeTarget "MCSCommerceWebTests" */;
 			buildPhases = (
-				01154013242CCB734F32EE5B /* [CP] Check Pods Manifest.lock */,
+				07D5029ACF5247B09975AC7F /* [CP] Check Pods Manifest.lock */,
 				19A0EBD12295EA40006B7AFA /* Sources */,
 				19A0EBD22295EA40006B7AFA /* Frameworks */,
 				19A0EBD32295EA40006B7AFA /* Resources */,
-				28AC52850E88A3E83F2834E5 /* [CP] Embed Pods Frameworks */,
+				F1ECF12D05178F3B66DB4B08 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -560,7 +557,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		01154013242CCB734F32EE5B /* [CP] Check Pods Manifest.lock */ = {
+		07D5029ACF5247B09975AC7F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -582,23 +579,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		28AC52850E88A3E83F2834E5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MCSCommerceWebTests/Pods-MCSCommerceWebTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MCSCommerceWebTests/Pods-MCSCommerceWebTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MCSCommerceWebTests/Pods-MCSCommerceWebTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		49D716D72398123F00886133 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -616,24 +596,7 @@
 			shellPath = /bin/sh;
 			shellScript = "${PROJECT_DIR}/CommonResources/Dependency.sh\n";
 		};
-		49F67C7A23C9029600CBAD1C /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "zip -r ${TARGET_NAME}.zip LICENSE ${TARGET_NAME}.framework\n";
-		};
-		B744E21B819E72D6ACF8D951 /* [CP] Check Pods Manifest.lock */ = {
+		972B7A7EB56B12B214D14818 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -653,6 +616,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1ECF12D05178F3B66DB4B08 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MCSCommerceWebTests/Pods-MCSCommerceWebTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MCSCommerceWebTests/Pods-MCSCommerceWebTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MCSCommerceWebTests/Pods-MCSCommerceWebTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -852,7 +832,7 @@
 		};
 		19A0EBE12295EA40006B7AFA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B609585A700B0745611D17B7 /* Pods-MCSCommerceWeb.debug.xcconfig */;
+			baseConfigurationReference = B3E06E83E9F906A5AF40451F /* Pods-MCSCommerceWeb.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -881,7 +861,7 @@
 		};
 		19A0EBE22295EA40006B7AFA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 505F913947B4FABFA4A4AD5C /* Pods-MCSCommerceWeb.release.xcconfig */;
+			baseConfigurationReference = 594F268DADB45F9D02EA6D82 /* Pods-MCSCommerceWeb.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -910,7 +890,7 @@
 		};
 		19A0EBE42295EA40006B7AFA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B0792F63F10F8CC50B4996E9 /* Pods-MCSCommerceWebTests.debug.xcconfig */;
+			baseConfigurationReference = 23A4B4E42E8A43854934600A /* Pods-MCSCommerceWebTests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FARWN7FEXX;
@@ -929,7 +909,7 @@
 		};
 		19A0EBE52295EA40006B7AFA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 98B19D5E2CB56C8A1F9F7AE3 /* Pods-MCSCommerceWebTests.release.xcconfig */;
+			baseConfigurationReference = 394CF649B5CD7FF23C1A854E /* Pods-MCSCommerceWebTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FARWN7FEXX;
