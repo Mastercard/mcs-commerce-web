@@ -1,5 +1,16 @@
 # Change Log
 
+## Version 1.1.2
+
+Released: May 26, 2020
+
+Changes:
+
+* Change from `.framework` distribution to source code distribution to prevent problems with packaging 
+* Added unit test for legacy and new source code, currently up to 70%
+* Added `presentingViewController` as optional ViewController can be passed and presented instead of the vanilla keyWindow RootViewController 
+
+
 ## Version 1.1.1
 
 Released: April 3, 2020

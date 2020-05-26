@@ -90,6 +90,7 @@
 		837C60C6141E98981013BDF2 /* Pods_MCSCommerceWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D189D169DD513D7EE8F38DA1 /* Pods_MCSCommerceWeb.framework */; };
 		B7CBF00D22CF9B1200D688AB /* MCSReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = B7CBF00B22CF9B1200D688AB /* MCSReachability.h */; };
 		B7CBF00E22CF9B1200D688AB /* MCSReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B7CBF00C22CF9B1200D688AB /* MCSReachability.m */; };
+		E44C8570247D743800EF8CFB /* MCSCommerceWeb.podspec in Resources */ = {isa = PBXBuildFile; fileRef = E44C856F247D743800EF8CFB /* MCSCommerceWeb.podspec */; };
 		E454AF4F233D3F1900877B10 /* MCSTopMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E454AF4E233D3F1900877B10 /* MCSTopMessageView.xib */; };
 		F2B4CF5CEBB4F4D6764B9F51 /* Pods_MCSCommerceWebTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E706863768EC1B2550C936B0 /* Pods_MCSCommerceWebTests.framework */; };
 /* End PBXBuildFile section */
@@ -199,6 +200,7 @@
 		B7CBF00B22CF9B1200D688AB /* MCSReachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSReachability.h; sourceTree = "<group>"; };
 		B7CBF00C22CF9B1200D688AB /* MCSReachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSReachability.m; sourceTree = "<group>"; };
 		D189D169DD513D7EE8F38DA1 /* Pods_MCSCommerceWeb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCSCommerceWeb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E44C856F247D743800EF8CFB /* MCSCommerceWeb.podspec */ = {isa = PBXFileReference; lastKnownFileType = file; path = MCSCommerceWeb.podspec; sourceTree = SOURCE_ROOT; };
 		E454AF4E233D3F1900877B10 /* MCSTopMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCSTopMessageView.xib; sourceTree = "<group>"; };
 		E706863768EC1B2550C936B0 /* Pods_MCSCommerceWebTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCSCommerceWebTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -302,6 +304,7 @@
 		19A0EBCE2295EA40006B7AFA /* MCSCommerceWeb */ = {
 			isa = PBXGroup;
 			children = (
+				E44C856F247D743800EF8CFB /* MCSCommerceWeb.podspec */,
 				196DBED222AA1F3B00A05E38 /* Info.plist */,
 				195FCD2522B8A1DC009B67DE /* Public */,
 				1938731222A97775004CEFEE /* Resources */,
@@ -471,7 +474,6 @@
 				19A0EBC82295EA40006B7AFA /* Sources */,
 				19A0EBC92295EA40006B7AFA /* Frameworks */,
 				19A0EBCA2295EA40006B7AFA /* Resources */,
-				49D716D72398123F00886133 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -544,6 +546,7 @@
 			files = (
 				1938731422A97798004CEFEE /* Images.xcassets in Resources */,
 				E454AF4F233D3F1900877B10 /* MCSTopMessageView.xib in Resources */,
+				E44C8570247D743800EF8CFB /* MCSCommerceWeb.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,23 +581,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
-		};
-		49D716D72398123F00886133 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "${PROJECT_DIR}/CommonResources/Dependency.sh\n";
 		};
 		972B7A7EB56B12B214D14818 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
