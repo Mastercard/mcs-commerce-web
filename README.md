@@ -38,13 +38,14 @@ pod 'MCSCommerceWeb'
 
 When instantiating `MCSCommerceWeb`, an `MCSConfiguration` object needs to be provided.
 
-`MCSConfiguration` requires the following parameters:
+`MCCConfiguration` has 4 new required properties and one optional property
 
 * `locale`: This is the locale in which the transaction is processing
 * `checkoutId`: The unique identifier assigned to the merchant during onboarding
 * `checkoutUrl`: The URL used to load the checkout experience. *Note: when testing in the Sandbox environment, use `https://sandbox.masterpass.com/routing/v2/mobileapi/web-checkout `. For Production, use  `https://masterpass.com/routing/v2/mobileapi/web-checkout `.*
 * `callbackScheme`: This must match the scheme component of the `callbackUrl` configured for this merchant. This value is required to redirect back from the `WKWebView`
 * `allowedCardTypes` : The payment networks supported by this merchant (e.g. master, visa, amex).
+* `presentingViewController` : optional ViewController can be passed and presented instead of the vanilla keyWindow RootViewController 
 
 
 ```swift
@@ -60,7 +61,9 @@ let commerceConfig = MCSConfiguration(
     checkoutId: checkoutId,
     checkoutUrl: checkoutUrl,
     callbackScheme: callbackScheme,
-    allowedCardTypes: allowedCardTypes)
+    allowedCardTypes: allowedCardTypes,
+            presenting: viewController)
+)
     
 let commerceWeb = MCSCommerceWeb.sharedManager()
 commerceWeb.setConfiguration(withConfiguration: commerceConfig)
@@ -77,7 +80,8 @@ MCSConfiguration *config = [[MCSConfiguration alloc] initWithLocale:locale
                                                          checkoutId:checkoutId
                                                         checkoutUrl:checkoutUrl
                                                      callbackScheme:callbackScheme
-                                                   allowedCardTypes:allowedCardTypes];
+                                                   allowedCardTypes:allowedCardTypes
+                                                   presentingViewController:presentedViewController];
 
 MCSCommerceWeb *commerceWeb = [MCSCommerceWeb sharedManager];
 [commerceWeb initWithConfiguration:config];

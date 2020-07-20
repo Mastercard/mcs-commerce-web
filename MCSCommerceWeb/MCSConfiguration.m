@@ -30,6 +30,7 @@ presentingViewController:(UIViewController *_Nullable)presentingViewController
         self.checkoutUrl = checkoutUrl;
         self.callbackScheme = scheme;
         self.allowedCardTypes = allowedCardTypes;
+        self.presentingViewController = presentingViewController;
     }
     
     return self;
