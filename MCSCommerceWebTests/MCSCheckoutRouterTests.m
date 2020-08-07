@@ -12,7 +12,7 @@
 #import "MCSReachability.h"
 #import "MCFCoreConstants.h"
 #import "MCSWebViewController.h"
-#import "MCSCommerceWeb+Private.h"
+#import "MCSCommerceWeb.h"
 
 @interface MCSCheckoutRouterTests : XCTestCase
 @property (nonatomic, weak) MCSCommerceWeb *commerceweb;

@@ -14,7 +14,6 @@
  =============================================================================*/
 
 #import "MCSCheckoutButton+Private.h"
-#import "MCSCommerceWeb+Private.h"
 #import "MCSConfigurationManager.h"
 
 NSString * const kCheckoutButtonAccessibilityIdentifier = @"checkoutButton";

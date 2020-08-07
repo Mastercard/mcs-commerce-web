@@ -1,5 +1,15 @@
 # Change Log
 
+## Version 1.1.3
+
+Released: August 7, 2020
+
+Changes:
+
+* Add public method `checkoutWithRequest:(MCSCheckoutRequest *_Nonnull)request` and @property id<MCSCheckoutDelegate> delegate for `MCSCommerceWeb` 
+* Remove `"MCSCommerceWeb+private.h"` class
+* Added support for Apache Cordova plugin integration
+
 ## Version 1.1.2
 
 Released: May 26, 2020

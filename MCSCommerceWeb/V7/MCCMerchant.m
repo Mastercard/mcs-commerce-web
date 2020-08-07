@@ -15,7 +15,6 @@
 
 #import <Foundation/Foundation.h>
 #import <MCSCommerceWeb/MCSCommerceWeb.h>
-#import "MCSCommerceWeb+Private.h"
 #import "MCCMerchant.h"
 #import "MCCConfigurationManager.h"
 #import "MCSCheckoutButtonManager.h"

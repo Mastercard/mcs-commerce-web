@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MCSCommerceWeb+Private.h"
+#import "MCSCommerceWeb.h"
 
 
 @interface MCSMockButtonVC : UIViewController <MCSCheckoutDelegate>

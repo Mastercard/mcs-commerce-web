@@ -212,6 +212,61 @@ func getCheckoutRequest(withHandler: @escaping (MCSCheckoutRequest) -> Void) {
 }
 ```
 
+You can also call checkout directly with `checkout` and not use button method, make sure you set your delegate before
+
+```swift
+// Swift
+func merchantCheckout() -> Void) {
+    let checkoutRequest = MCSCheckoutRequest()
+    checkoutRequest.amount = NSDecimalNumber(string: String(shoppingCart.total))
+    checkoutRequest.currency = sdkConfig.currency
+    checkoutRequest.cartId = shoppingCart.cartId
+    checkoutRequest.allowedCardTypes = [.master,.visa]
+    checkoutRequest.suppressShippingAddress = sdkConfig.suppressShipping
+    checkoutRequest.callbackUrl = "fancyshop://"
+    checkoutRequest.unpredictableNumber = "12345678"
+        
+    let cryptoOptionVisa = MCSCryptoOptions()
+    cryptoOptionVisa.cardType = "visa"
+    cryptoOptionVisa.format = ["TVV"]
+    
+    let cryptoOptionMaster = MCSCryptoOptions()
+    cryptoOptionMaster.cardType = "master"
+    cryptoOptionMaster.format = ["ICC,UCAF"]
+    
+    checkoutRequest.cryptoOptions = [cryptoOptionMaster,cryptoOptionVisa]
+        
+    //Call checkout directly
+    let commerceWeb = MCSCommerceWeb.sharedManager()
+    commerceWeb.setDelegate(self);
+    commerceWeb.checkoutReq(checkoutRequest);
+}
+```
+
+```objective-c
+// Objective-C
+- (void)merchantCheckout() {
+    MCSCheckoutRequest *checkoutRequest = [[MCSCheckoutRequest alloc] init];
+    checkoutRequest.amount = [[NSDecimalNumber alloc] initWithString:shoppingCart.total];
+    checkoutRequest.currency = sdkConfig.currency
+    checkoutRequest.cartId = shoppingCart.cartId
+    checkoutRequest.allowedCardTypes = [NSSet setWithObjects:MCSCardTypeMaster, MCSCardTypeVisa, nil];
+    checkoutRequest.suppressShippingAddress = sdkConfig.suppressShipping;
+    checkoutRequest.callbackUrl = @"fancyshop://";
+    checkoutRequest.unpredictableNumber = @"12345678";
+    
+    MCSCryptoOptions *cryptoOptionMaster = [[MCSCryptoOptions alloc] init];
+    cryptoOptionMaster.cardType = MCSCardTypeMaster;
+    cryptoOptionMaster.format = @[MCSCryptoFormatICC, MCSCryptoFormatUCAF];
+    
+    checkoutRequest.cryptoOptions = @[cryptoOptionMaster];
+    //Call checkout directly
+    MCSCommerceWeb *commerceWeb = [MCSCommerceWeb sharedManager];
+    [commerceWeb setDelegate:self];
+    [commerceWeb checkoutWithRequest:checkoutRequest];
+}
+```
+
 ### <a name="transaction-result">Transaction Result</a>
 
 ```swift

@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "MCSCheckoutButton+Private.h"
-#import "MCSCommerceWeb+Private.h"
+#import "MCSCommerceWeb.h"
 #import "MCSConfigurationManager.h"
 #import "MCSCheckoutRouter.h"
 #import "MCSMockViewController.h"
