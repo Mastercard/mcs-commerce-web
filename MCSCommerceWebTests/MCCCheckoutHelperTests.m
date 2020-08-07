@@ -15,7 +15,7 @@
 #import "MCCMerchantConstants.h"
 #import "MCCMerchantConstants+Private.h"
 #import "MCFEnvironmentConfiguration.h"
-#import "MCSCommerceWeb+Private.h"
+#import "MCSCommerceWeb.h"
 #import "MCSMockViewController.h"
 #import "MCCCardType.h"
 #import "MCCMerchantConstants.h"

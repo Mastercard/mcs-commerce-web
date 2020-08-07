@@ -106,7 +106,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		190AB70D22DD5CEA00D863C1 /* MCSCommerceWeb+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MCSCommerceWeb+Private.h"; sourceTree = "<group>"; };
 		191D9F9222ADAB5600379703 /* MCSCheckoutButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSCheckoutButton.h; sourceTree = "<group>"; };
 		191D9F9322ADAB5600379703 /* MCSCheckoutButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSCheckoutButton.m; sourceTree = "<group>"; };
 		191D9FAD22AEB24000379703 /* MCSCheckoutButtonManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSCheckoutButtonManager.h; sourceTree = "<group>"; };
@@ -200,7 +199,7 @@
 		B7CBF00B22CF9B1200D688AB /* MCSReachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSReachability.h; sourceTree = "<group>"; };
 		B7CBF00C22CF9B1200D688AB /* MCSReachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSReachability.m; sourceTree = "<group>"; };
 		D189D169DD513D7EE8F38DA1 /* Pods_MCSCommerceWeb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCSCommerceWeb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E44C856F247D743800EF8CFB /* MCSCommerceWeb.podspec */ = {isa = PBXFileReference; lastKnownFileType = file; path = MCSCommerceWeb.podspec; sourceTree = SOURCE_ROOT; };
+		E44C856F247D743800EF8CFB /* MCSCommerceWeb.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = MCSCommerceWeb.podspec; sourceTree = SOURCE_ROOT; };
 		E454AF4E233D3F1900877B10 /* MCSTopMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCSTopMessageView.xib; sourceTree = "<group>"; };
 		E706863768EC1B2550C936B0 /* Pods_MCSCommerceWebTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCSCommerceWebTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -362,7 +361,6 @@
 				19A0EBF922962C53006B7AFA /* MCSCheckoutRouter.m */,
 				195FCD0522B6CFC4009B67DE /* MCSDelegateBridge.h */,
 				195FCD0622B6CFC4009B67DE /* MCSDelegateBridge.m */,
-				190AB70D22DD5CEA00D863C1 /* MCSCommerceWeb+Private.h */,
 			);
 			path = Internal;
 			sourceTree = "<group>";

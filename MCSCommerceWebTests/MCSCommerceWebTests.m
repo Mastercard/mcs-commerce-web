@@ -14,14 +14,13 @@
  =============================================================================*/
 
 #import <XCTest/XCTest.h>
-#import "MCSCommerceweb.h"
+#import <MCSCommerceWeb/MCSCommerceWeb.h>
 #import "MCSConfiguration.h"
 #import "MCSConfigurationManager.h"
 #import "MCSCheckoutButtonManager.h"
 #import "MCSCheckoutRouter.h"
 #import "MCSCheckoutResponse.h"
 #import "MCSWebViewController.h"
-#import "MCSCommerceWeb+Private.h"
 #import "MCSCheckoutUrlBuilder.h"
 #import "MCSWebViewController.h"
 #import "MCSDelegateBridge.h"

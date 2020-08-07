@@ -13,7 +13,7 @@
  * limitations under the License.
  =============================================================================*/
 
-#import "MCSCommerceWeb+Private.h"
+#import "MCSCommerceWeb.h"
 #import "MCSConfigurationManager.h"
 #import "MCSCheckoutUrlBuilder.h"
 #import "MCSCheckoutRouter.h"
