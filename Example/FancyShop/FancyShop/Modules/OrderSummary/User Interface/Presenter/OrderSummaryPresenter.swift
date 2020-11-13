@@ -69,9 +69,9 @@ class OrderSummaryPresenter:BasePresenter, OrderSummaryPresenterProtocol, OrderS
     }
     
     /// Ask the interactor to evaluates which flow has to be done for the checkout
-    func getSRCCheckoutButton(completionHandler: @escaping ([AnyHashable : Any]?, Error?) -> ()) -> MCSCheckoutButton {
+    func getSRCCheckoutButton(image:UIImage?, completionHandler: @escaping ([AnyHashable : Any]?, Error?) -> ()) -> MCSCheckoutButton {
         
-        return (self.interactor?.getSRCCheckoutButton(completionHandler: completionHandler))!
+        return (self.interactor?.getSRCCheckoutButton(image: image, completionHandler: completionHandler))!
     }
     
     func initializeSdk() {

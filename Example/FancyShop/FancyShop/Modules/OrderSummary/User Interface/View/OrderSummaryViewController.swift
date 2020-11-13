@@ -235,7 +235,7 @@ class OrderSummaryViewController: BaseViewController, OrderSummaryViewProtocol, 
         self.masterPassButton?.removeFromSuperview()
         self.masterPassButton = nil
         self.masterPassButton = MasterpassSDKManager.sharedInstance.getMasterPassButton()
-        
+//        self.masterPassButton = MasterpassSDKManager.sharedInstance.getMasterPassButton(with: UIImage(named: "Click2Pay"))
         if self.masterPassButton != nil {
             self.masterPassButton?.add(to: self.buttonContainer)
         }
@@ -244,7 +244,8 @@ class OrderSummaryViewController: BaseViewController, OrderSummaryViewProtocol, 
     /// Adds the SRC button in the view
     func showSRCButton() {
         if (self.buttonContainer.subviews.filter{$0 is MCSCheckoutButton}.isEmpty) {
-            let srcCheckoutButton = self.presenter?.getSRCCheckoutButton(completionHandler: { (response, error) in
+          let srcCheckoutButton = self.presenter?.getSRCCheckoutButton(image:nil,completionHandler: { (response, error) in
+//            let srcCheckoutButton = self.presenter?.getSRCCheckoutButton(image:UIImage(named: "Click2Pay"),completionHandler: { (response, error) in
                 if let err = error {
                     let errorCode = "errorCode :\((err as NSError).code)"
                     let alert = UIAlertController(title:errorCode, message:err.localizedDescription, preferredStyle: UIAlertController.Style.alert)
