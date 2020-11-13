@@ -59,6 +59,11 @@ static id<MCSCheckoutDelegate> delegateBridge;
     return [[MCSCheckoutButtonManager sharedManager] checkoutButtonWithDelegate:delegateBridge];
 }
 
++ (MCCMasterpassButton * _Nullable)getMasterPassButton:(id<MCCMerchantDelegate>) merchantDelegate withImage:(UIImage *)image {
+    
+    return [[MCSCheckoutButtonManager sharedManager] checkoutButtonWithDelegate:delegate withImage:image];
+}
+
 #pragma mark - Masterpass Checkout Response Handler
 + (BOOL)handleMasterpassResponse:(NSString *_Nonnull)url delegate: (id<MCCMerchantDelegate> _Nonnull) merchantDelegate {
     //Implementation for this is removed, as Merchant will be getting checkout response from delegate or completion handler. Always returns YES

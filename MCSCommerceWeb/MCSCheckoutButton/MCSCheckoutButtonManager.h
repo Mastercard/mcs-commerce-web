@@ -33,4 +33,6 @@
  */
 - (MCSCheckoutButton *)checkoutButtonWithDelegate:(id<MCSCheckoutDelegate>)delegate;
 
+- (MCSCheckoutButton *)checkoutButtonWithDelegate:(id<MCSCheckoutDelegate>)delegate withImage:(UIImage *)image;
+
 @end

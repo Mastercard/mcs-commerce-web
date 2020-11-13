@@ -131,8 +131,9 @@ class OrderSummaryInteractor:BaseInteractor, OrderSummaryInteractorInputProtocol
         }
     }
     
-    func getSRCCheckoutButton(completionHandler: @escaping ([AnyHashable : Any]?, Error?) -> ()) -> MCSCheckoutButton {
-        return (self.APIDataManager?.getCheckoutButton(completionHandler: completionHandler))!
+    func getSRCCheckoutButton(image:UIImage?, completionHandler: @escaping ([AnyHashable : Any]?, Error?) -> ()) -> MCSCheckoutButton {
+//        return (self.APIDataManager?.getCheckoutButton(image:completionHandler: completionHandler))!
+        return (self.APIDataManager?.getCheckoutButton(image: image, completionHandler: completionHandler))!
     }
     
     func initializeSdk() {

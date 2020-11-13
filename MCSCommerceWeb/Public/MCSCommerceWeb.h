@@ -103,6 +103,7 @@ FOUNDATION_EXPORT const unsigned char MCSCommerceWebVersionString[];
  */
 - (MCSCheckoutButton * _Nonnull)checkoutButtonWithDelegate:(id<MCSCheckoutDelegate> _Nonnull)delegate NS_SWIFT_NAME(getCheckoutButton(withDelegate:));
 
+- (MCSCheckoutButton *_Nonnull)checkoutButtonWithDelegate:(id<MCSCheckoutDelegate>_Nonnull)delegate withImage:(UIImage *_Nonnull)image NS_SWIFT_NAME(getCheckoutButton(withDelegate:withImage:));
 
 /**
  Start the checkout experience using transaction details specified

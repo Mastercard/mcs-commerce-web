@@ -76,6 +76,9 @@ __deprecated_msg("You should migrate your code to MCSCommerceWeb. All classes re
  */
 + (MCCMasterpassButton * _Nullable) getMasterPassButton:(id<MCCMerchantDelegate> _Nonnull) merchantDelegate;
 
+
++ (MCCMasterpassButton * _Nullable)getMasterPassButton:(id<MCCMerchantDelegate>) merchantDelegate withImage:(UIImage *)image;
+
 /**
  PaymentMethodCheckout
 

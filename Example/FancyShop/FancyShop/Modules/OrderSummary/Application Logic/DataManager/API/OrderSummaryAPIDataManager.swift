@@ -138,10 +138,10 @@ class OrderSummaryAPIDataManager: OrderSummaryAPIDataManagerInputProtocol, MCSCh
         SRCSDKManager.sharedInstance.initializeSdk(configuration: commerceConfig)
     }
     
-    func getCheckoutButton(completionHandler: @escaping ([AnyHashable : Any]?, Error?) -> ()) -> MCSCheckoutButton {
+    func getCheckoutButton(image:UIImage?=nil, completionHandler: @escaping ([AnyHashable : Any]?, Error?) -> ()) -> MCSCheckoutButton {
         self.completionHandler = completionHandler
         
-        return SRCSDKManager.sharedInstance.getCheckoutButton(with: self)
+        return SRCSDKManager.sharedInstance.getCheckoutButton(with: self, image: image)
     }
     
     // MARK: Delegate methods

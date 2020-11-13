@@ -1,5 +1,17 @@
 # Change Log
 
+
+## Version 1.1.4
+
+Released: November 13, 2020
+
+Changes:
+
+* Added optional public methods to support merchants wanting to use an alternate button image. These optional methods are:  `(MCCMasterpassButton * _Nullable)getMasterPassButton:(id<MCCMerchantDelegate>) merchantDelegate withImage:(UIImage *)image` to `MCCMerchant.h` class
+ * Added  `(MCSCheckoutButton *_Nonnull)checkoutButtonWithDelegate:(id<MCSCheckoutDelegate>_Nonnull)delegate withImage:(UIImage *_Nonnull)image NS_SWIFT_NAME(getCheckoutButton(withDelegate:withImage:))`  to `MCSCommerceWeb.h` class
+ * Added `MCSCheckoutButton *)checkoutButtonWithDelegate:(id<MCSCheckoutDelegate>)delegate withImage:(UIImage *)image` to `MCSCheckoutButtonManager.h` class
+
+
 ## Version 1.1.3
 
 Released: August 7, 2020

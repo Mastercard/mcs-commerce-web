@@ -44,6 +44,13 @@ static MCSCommerceWeb *sharedManager = nil;
     
     return button;
 }
+
+- (MCSCheckoutButton *)checkoutButtonWithDelegate:(__autoreleasing id<MCSCheckoutDelegate> )delegate withImage:(UIImage *)image {
+    MCSCheckoutButton *button = [[MCSCheckoutButtonManager sharedManager] checkoutButtonWithDelegate:delegate withImage:image];
+    
+    return button;
+}
+
 //used to init the whole process
 - (void)initWithConfiguration:(MCSConfiguration *)configuration {
     [[MCSConfigurationManager sharedManager] setConfiguration:configuration];
