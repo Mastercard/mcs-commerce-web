@@ -47,6 +47,7 @@ class MasterpassSDKManager:NSObject, MCCMerchantDelegate {
         mcConfiguration.allowedCardTypes = masterpassConfiguration.getAllowedCardsSet()
         mcConfiguration.checkoutUrl = checkoutUrl
         mcConfiguration.merchantName = "FancyShop"
+
         
         mcConfiguration.callbackScheme = BuildConfiguration.sharedInstance.merchantUrlScheme()
         if (isExpressEnable) {
@@ -95,8 +96,14 @@ class MasterpassSDKManager:NSObject, MCCMerchantDelegate {
     /// Returns a masterpass button to be displayed
     ///
     /// - Returns: MCCMasterpassButton
-    func getMasterPassButton() -> MCCMasterpassButton? {
-        let masterpassButton = MCCMerchant.getMasterPassButton(self)
+    func getMasterPassButton(with image:UIImage?=nil) -> MCCMasterpassButton? {
+        var masterpassButton: MCCMasterpassButton?
+        
+        if let image = image {
+            masterpassButton = MCCMerchant.getMasterPassButton(self, with: image)
+        } else {
+         masterpassButton = MCCMerchant.getMasterPassButton(self)
+        }
         return masterpassButton
     }
     

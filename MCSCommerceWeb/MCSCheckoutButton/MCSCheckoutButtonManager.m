@@ -60,6 +60,12 @@ NSString *basePath = @"button/";
     return checkoutButton;
 }
 
+- (MCSCheckoutButton *)checkoutButtonWithDelegate:(id<MCSCheckoutDelegate>)delegate withImage:(UIImage *)image {
+     
+    [self setButtonImage:image];
+    return [self checkoutButtonWithDelegate:delegate];
+}
+
 - (void)initialize {
     NSLocale *locale = [MCSConfigurationManager sharedManager].configuration.locale;
     NSSet *allowedCardTypes = [MCSConfigurationManager sharedManager].configuration.allowedCardTypes;
@@ -93,7 +99,6 @@ NSString *basePath = @"button/";
             UIImage *defaultImg = [UIImage imageNamed:kMasterPassDefaultButtonImage inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
             self.buttonImage = defaultImg;
         }
-        
     }
     
     //Download image from URL

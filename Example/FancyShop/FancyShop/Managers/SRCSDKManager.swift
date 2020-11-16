@@ -37,7 +37,14 @@ class SRCSDKManager:NSObject {
         commerceWeb.setConfiguration(withConfiguration: configuration)
     }
     
-    func getCheckoutButton(with: MCSCheckoutDelegate) -> MCSCheckoutButton {
-        return commerceWeb.getCheckoutButton(withDelegate: with)
+    func getCheckoutButton(with: MCSCheckoutDelegate, image:UIImage?=nil) -> MCSCheckoutButton {
+        var mcsCeckoutButton:MCSCheckoutButton
+        if let image = image {
+            mcsCeckoutButton = commerceWeb.getCheckoutButton(withDelegate: with, withImage: image)
+        } else {
+            mcsCeckoutButton = commerceWeb.getCheckoutButton(withDelegate: with)
+        }
+        return mcsCeckoutButton
     }
+
 }

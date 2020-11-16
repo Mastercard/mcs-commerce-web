@@ -104,6 +104,27 @@ button.addToSuperview(superview: buttonContainer)
 MCSCheckoutButton *button = [commerceWeb checkoutButtonWithDelegate:checkoutDelegate];
 [button addToSuperview:buttonContainer];
 ```
+### <a name="ios-srcButtonImage">SRC Button Image</a>
+
+For merchants who would like to provide an alternate SRC checkout  optional methods with additional `withImage:` parameter have been added
+* `(MCSCheckoutButton *)checkoutButtonWithDelegate:(id<MCSCheckoutDelegate>)delegate withImage:(UIImage *)image` added to `MCSCheckoutButtonManager.h` class, 
+* `(MCCMasterpassButton * _Nullable)getMasterPassButton:(id<MCCMerchantDelegate>) merchantDelegate withImage:(UIImage *)image` added to `MCCMerchant.h` class
+* `(MCSCheckoutButton *_Nonnull)checkoutButtonWithDelegate:(id<MCSCheckoutDelegate>_Nonnull)delegate withImage:(UIImage *_Nonnull)image NS_SWIFT_NAME(getCheckoutButton(withDelegate:withImage:))` added to `MCSCommerceWeb.h` class
+
+```swift
+// Swift
+// Swift
+// SomeViewController.swift
+let button = commerceWeb.getCheckoutButton(withDelegate:checkoutDelegate, withImage:image)
+button.addToSuperview(superview: buttonContainer)
+```
+
+```objective-c
+//Objective-C
+// SomeViewController.m
+MCSCheckoutButton *button = [commerceWeb checkoutButtonWithDelegate:checkoutDelegate withImage:image];
+[button addToSuperview:buttonContainer];
+```
 
 
 #### `withDelegate:`
